@@ -1,0 +1,556 @@
+<title>HSC English Hub</title>
+<meta name="description" content="Luca's HSC Standard English notes: Paper 1 and Paper 2 in one place.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: sticky top bar with search, sidebar organised by exam paper, one module open at a time.
+   Each module carries its own colour so you always know where you are. */
+:root{
+  --bg:#F3F5F8; --surface:#FFFFFF; --sunk:#E9EDF3; --line:#D6DCE5;
+  --ink:#141B26; --muted:#5A6476; --accent:#2E47C2; --accent-soft:#E3E8FB;
+  --mark:#FFE68A;
+  --c-common:#2E47C2; --c-short:#5E6B80; --c-a:#0D7570; --c-b:#8A3489; --c-c:#4C7A1F;
+  --f-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Literata", Georgia, "Times New Roman", serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F141C; --surface:#171E29; --sunk:#1F2835; --line:#2C3747;
+  --ink:#E7ECF3; --muted:#9AA6B8; --accent:#8EA2FF; --accent-soft:#232D4F;
+  --mark:#6B5A12;
+  --c-common:#8EA2FF; --c-short:#A3AEC0; --c-a:#4CC7BF; --c-b:#E08BDE; --c-c:#9BCB64;
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0F141C; --surface:#171E29; --sunk:#1F2835; --line:#2C3747;
+  --ink:#E7ECF3; --muted:#9AA6B8; --accent:#8EA2FF; --accent-soft:#232D4F;
+  --mark:#6B5A12;
+  --c-common:#8EA2FF; --c-short:#A3AEC0; --c-a:#4CC7BF; --c-b:#E08BDE; --c-c:#9BCB64;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;margin:0}
+h1,h2,h3,h4{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0;font-weight:700}
+p{margin:0}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
+.label{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* Top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.top-in{max-width:1180px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--ink)}
+.brand b{font-family:var(--f-display);font-size:20px;letter-spacing:-.01em}
+.search{flex:1 1 240px;min-width:0;position:relative}
+.search input{width:100%;font:15px var(--f-body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:9px 16px 9px 38px}
+.search input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px;fill:none;stroke:var(--muted);stroke-width:2}
+.recall{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;font-family:var(--f-display);font-weight:500;font-size:14px}
+.recall .dot{width:28px;height:16px;border-radius:999px;background:var(--sunk);position:relative;transition:background .15s}
+.recall .dot::after{content:"";position:absolute;top:2px;left:2px;width:12px;height:12px;border-radius:50%;background:var(--muted);transition:transform .15s,background .15s}
+.recall[aria-pressed="true"] .dot{background:var(--accent)}
+.recall[aria-pressed="true"] .dot::after{transform:translateX(12px);background:var(--surface)}
+
+/* Shell */
+.shell{max-width:1180px;margin:0 auto;padding:24px 16px 64px;display:grid;grid-template-columns:250px minmax(0,1fr);gap:40px;align-items:start}
+nav.side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 80px);display:grid;gap:22px}
+.paper h2{font-size:13px;font-family:var(--f-mono);font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.paper .meta{font-size:12.5px;color:var(--muted);margin-bottom:8px;font-family:var(--f-body)}
+.paper ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.navlink{display:flex;gap:10px;align-items:baseline;text-decoration:none;color:var(--ink);padding:7px 10px;border-radius:8px;border-left:3px solid transparent}
+.navlink:hover{background:var(--sunk)}
+.navlink[aria-current="page"]{background:var(--surface);border-left-color:var(--mc);box-shadow:0 1px 0 var(--line)}
+.navlink .code{font-family:var(--f-mono);font-size:11px;color:var(--mc);min-width:46px;letter-spacing:.04em;white-space:nowrap}
+.navlink .nm{font-family:var(--f-display);font-weight:500;font-size:15px;line-height:1.25}
+.navlink .nm small{display:block;font-family:var(--f-body);font-weight:400;font-size:12.5px;color:var(--muted)}
+.home-link{font-family:var(--f-display);font-weight:500}
+
+main{min-width:0}
+
+/* Home */
+.hello{display:grid;gap:8px;margin-bottom:28px}
+.hello h1{font-size:clamp(30px,5vw,46px);letter-spacing:-.02em}
+.hello p{color:var(--muted);max-width:60ch}
+.paper-block{margin-bottom:30px}
+.paper-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:14px}
+.paper-head h2{font-size:22px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{display:grid;gap:10px;align-content:start;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--mc);border-radius:var(--r);padding:16px 18px 18px;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-2px);box-shadow:0 6px 18px -10px rgba(20,27,38,.35)}
+.card h3{font-size:19px}
+.card .txt{font-style:italic}
+.card .stats{font-family:var(--f-mono);font-size:12px;color:var(--mc)}
+.card.empty{border-top-style:dashed}
+
+/* Module view */
+.mod-head{display:grid;gap:8px;padding-bottom:20px;margin-bottom:24px;border-bottom:1px solid var(--line)}
+.mod-head .label{color:var(--mc)}
+.mod-head h1{font-size:clamp(28px,4.4vw,40px);letter-spacing:-.02em}
+.mod-head .txt{font-size:18px;font-style:italic;color:var(--muted)}
+.mod-head .rubric{font-size:14.5px;color:var(--muted);max-width:66ch}
+.jump{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.jump a{font-family:var(--f-display);font-size:13.5px;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+.jump a:hover{border-color:var(--mc)}
+
+.thesis{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;margin-bottom:22px;display:grid;gap:10px}
+.thesis p.big{font-size:19px;line-height:1.5;max-width:66ch}
+.prose{display:grid;gap:12px;max-width:68ch;margin-bottom:22px}
+.roadmap{list-style:none;margin:0 0 30px;padding:0;display:grid;gap:10px;counter-reset:rm}
+.roadmap li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;counter-increment:rm}
+.roadmap li::before{content:counter(rm);font-family:var(--f-display);font-weight:700;font-size:15px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--sunk);color:var(--mc)}
+.roadmap b{font-family:var(--f-display);font-weight:700}
+
+section.part{margin-bottom:38px;scroll-margin-top:90px}
+.part-head{display:grid;gap:6px;margin-bottom:14px}
+.part-head h2{font-size:24px;letter-spacing:-.01em}
+.part-head .tag{font-family:var(--f-mono);font-size:11.5px;color:var(--mc);letter-spacing:.06em}
+.claim{font-size:17px;max-width:66ch}
+.ctx{font-size:14.5px;color:var(--muted);max-width:66ch}
+.ctx b{font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-right:6px}
+
+.items{display:grid;gap:12px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:grid;gap:10px}
+.item .ttl{font-family:var(--f-display);font-weight:700;font-size:16px}
+.item blockquote{margin:0;font-style:italic;font-size:18px;line-height:1.5;padding-left:14px;border-left:3px solid var(--mc)}
+.item .scene{font-size:14.5px;color:var(--muted)}
+.item .scene b{font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-right:6px}
+.techs{display:flex;flex-wrap:wrap;gap:6px}
+.tech{font-family:var(--f-display);font-weight:500;font-size:13px;background:var(--sunk);border-radius:6px;padding:3px 9px}
+.effect{max-width:68ch}
+.effect::before{content:"→ ";color:var(--mc);font-weight:600}
+.item .ctx{border-top:1px dashed var(--line);padding-top:8px;max-width:none}
+
+.model{background:var(--accent-soft);border-radius:var(--r);padding:14px 18px;display:grid;gap:6px;margin-top:12px}
+.model p{font-size:16px}
+.model .slot{font-family:var(--f-mono);font-size:13px;background:var(--surface);border-radius:4px;padding:1px 6px}
+
+.line{font-size:17px;line-height:1.55;padding:12px 16px;background:var(--sunk);border-radius:8px}
+
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:520px}
+th,td{text-align:left;vertical-align:top;padding:12px 16px;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{font-family:var(--f-mono);font-weight:500;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--sunk)}
+td:first-child{font-family:var(--f-display);font-weight:700;width:34%}
+td:first-child small{display:block;font-family:var(--f-body);font-weight:400;color:var(--muted);font-size:13px}
+
+.empty-state{background:var(--surface);border:1px dashed var(--line);border-radius:var(--r);padding:28px 24px;display:grid;gap:10px;max-width:640px}
+.empty-state h2{font-size:20px}
+.empty-state ul{margin:0;padding-left:20px;color:var(--muted)}
+
+/* Recall mode: hide techniques and effects until tapped */
+body.recall-on .item:not(.shown) .hide{filter:blur(6px);opacity:.55;user-select:none}
+body.recall-on .item:not(.shown){cursor:pointer}
+body.recall-on .item:not(.shown)::after{content:"Tap to reveal";font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mc)}
+.hide{transition:filter .2s,opacity .2s}
+
+/* Search results */
+.results{display:grid;gap:10px}
+.result{display:grid;gap:4px;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--mc);border-radius:var(--r);padding:12px 16px}
+.result:hover{border-color:var(--mc)}
+.result .where{font-family:var(--f-mono);font-size:11.5px;color:var(--mc);letter-spacing:.04em}
+.result .snip{font-size:15px}
+
+.foot{margin-top:40px;color:var(--muted);font-size:13px}
+
+@media (max-width:860px){
+  .shell{grid-template-columns:minmax(0,1fr);gap:20px}
+  .top{position:static}
+  nav.side{position:static;display:flex;flex-wrap:wrap;gap:6px}
+  nav.side .paper,nav.side .paper ul,nav.side .home-row{display:contents}
+  nav.side .paper h2,nav.side .paper .meta,.navlink .nm small,.navlink .nm{display:none}
+  .navlink{border:1px solid var(--line);border-radius:999px;padding:5px 12px;background:var(--surface)}
+  .navlink .code{min-width:0;font-size:12px}
+  .navlink[aria-current="page"]{background:var(--mc);border-color:var(--mc);box-shadow:none}
+  .navlink[aria-current="page"] .code,.navlink[aria-current="page"].home-link{color:var(--surface)}
+  .home-link{font-size:13px;padding-block:3px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="#home"><b>HSC English Hub</b><span class="label">Standard</span></a>
+    <label class="search" for="q">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input id="q" type="search" placeholder="Search quotes, techniques, ideas…" autocomplete="off" aria-label="Search all notes">
+    </label>
+    <button class="recall" id="recall" type="button" aria-pressed="false" title="Blur techniques and analysis so you can test yourself"><span class="dot" aria-hidden="true"></span>Recall mode</button>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="side" id="side" aria-label="Modules"></nav>
+  <main id="main"></main>
+</div>
+
+<script>
+/* ============================================================
+   NOTES DATA — add new notes here. Each module has `parts`;
+   each part can hold: claim, ctx, items[], model, line, table.
+   An item: { ttl, quote | scene, tech:[...], effect, ctx }
+   ============================================================ */
+const PAPERS = [
+  { id:1, name:"Paper 1", meta:"1 hr 30 min + 10 min reading · 40 marks", mods:["short","common"] },
+  { id:2, name:"Paper 2", meta:"2 hr + 10 min reading · 60 marks", mods:["mod-a","mod-b","mod-c"] }
+];
+
+const MODS = {
+  "short": {
+    code:"Sec I", color:"--c-short", name:"Short Answer", sub:"Unseen texts",
+    rubric:"Section I · 20 marks. Short-answer questions on unseen texts linked to the Common Module: Texts and Human Experiences.",
+    empty:true
+  },
+
+  "common": {
+    code:"Sec II", color:"--c-common", name:"Common Module", sub:"Texts and Human Experiences",
+    text:"Nineteen Eighty-Four · George Orwell", kind:"Essay plan",
+    rubric:"Section II · 20 marks. Extended response on how your prescribed text represents individual and collective human experiences.",
+    thesis:{
+      label:"Line of argument",
+      text:"Totalitarian control dismantles the fundamental mechanisms of the human experience by weaponising language, suppressing instinctual defiance and psychologically converting individual devotion into ideological subservience."
+    },
+    prose:[
+      "<b>Context.</b> In <i>Nineteen Eighty-Four</i>, George Orwell draws upon the historical realities of Stalinist Russia and Nazi Germany to construct a dystopian satire, focalising Oceania’s totalising oppression through Winston’s limited, destabilised consciousness."
+    ],
+    roadmap:[
+      ["Epistemological control", "The Party manipulates language and history to destroy the objective reality necessary for autonomous thought."],
+      ["Anomalous resistance", "Winston’s instinctual defiance emerges through private authorship and bodily intimacy."],
+      ["Psychological conversion", "Total power culminates not in mere compliance, but in the psychological subversion of love and trust into absolute submission."]
+    ],
+    parts:[
+      { id:"p1", tag:"Body 1", h:"Epistemological control and language",
+        claim:"Total power reconstructs the human experience by monopolising how truth is perceived.",
+        ctx:"Orwell’s exposure to Spanish Civil War propaganda and Stalinist revisionism.",
+        items:[
+          { ttl:"Doublethink", tech:["Neologism"], quote:"hold simultaneously two opinions… contradictory and believing both",
+            effect:"Citizens are required to accept contradiction, so objective truth loses its authority." },
+          { ttl:"Newspeak", tech:["Invented language"], quote:"narrow the range of human thought",
+            effect:"Truncates vocabulary to make independent thought virtually impossible." },
+          { ttl:"Comrade Ogilvy", tech:["Metafiction"], quote:"had never existed … exists as authentically as Charlemagne or Julius Caesar",
+            effect:"Winston’s forged character is a metafictional act of authorship, showing how state-manufactured realities displace empirical history." }
+        ] },
+      { id:"p2", tag:"Body 2", h:"Private expression and resistance",
+        claim:"Humanity possesses an instinctual drive to preserve authentic selfhood against enforced conformity.",
+        ctx:"Post-war disillusionment with authoritarian control over private life.",
+        items:[
+          { ttl:"The Diary", tech:["Embedded form"], quote:"to mark the paper was the decisive act",
+            effect:"Transforms private authorship into an anomalous political act, defiant despite panoptic surveillance where “if detected… he would be punished by death.”" },
+          { ttl:"Intimacy with Julia", tech:["Juxtaposition"], quote:"the sexual act, successfully performed, was rebellion",
+            effect:"Set against his sterile marriage with Katharine, it reclaims primal physical desire from institutional control." },
+          { ttl:"Glass paperweight", tech:["Motif", "Symbolism"], quote:"tiny world",
+            effect:"Encloses their lives, symbolically insulating their private sphere and interiority from the collective state." }
+        ] },
+      { id:"p3", tag:"Body 3", h:"Psychological conversion and betrayal",
+        claim:"Totalitarian dominance seeks active psychological conversion rather than mere compliance, turning human instinct against the self.",
+        ctx:"Subverts the Bildungsroman arc, drawing on the coerced confessions of the Moscow Show Trials.",
+        items:[
+          { ttl:"O’Brien", tech:["Characterisation"], quote:"someone who could be talked to",
+            effect:"Winston’s view of his torturer shows how totalitarianism co-opts innate human trust to engineer psychological surrender." },
+          { ttl:"Room 101", tech:["Frantic parataxis"], quote:"Do it to Julia! Do it to Julia! Not me! Julia!",
+            effect:"Extreme terror exposes behavioural inconsistency; survival instinct forces him to sacrifice moral loyalty and love." },
+          { ttl:"Resolution", tech:["Bathetic paradox"], quote:"He had won the victory over himself. He loved Big Brother.",
+            effect:"Devotion is redirected toward the oppressor rather than destroyed." }
+        ] }
+    ]
+  },
+
+  "mod-a": {
+    code:"Mod A", color:"--c-a", name:"Module A", sub:"Language, Identity and Culture",
+    text:"Six poems", kind:"Quote bank",
+    rubric:"Section I · 20 marks. How language shapes and reflects individual and collective identity and culture.",
+    parts:[
+      { id:"oombulgari", tag:"BEF", h:"Oombulgari", items:[
+        { quote:"Blue pattern dresses / drift down empty streets", tech:["Symbolism","Visual imagery"],
+          effect:"Discarded assimilation and state policing.", ctx:"2011 forced closure of Oombulgari and eviction of its community." },
+        { quote:"Empty now, as empty as the promises", tech:["Repetition","Simile"],
+          effect:"Bitter condemnation of hollow land rights policies." },
+        { quote:"Fortress to guard the perimeter … Creak of gate is silent", tech:["Extended metaphor","Oxymoron"],
+          effect:"The patient land awaits the community’s return; Country guarding itself." }
+      ]},
+      { id:"unearth", tag:"LBB", h:"Unearth", items:[
+        { quote:"Let’s dig up the soil", tech:["Inclusive imperative"],
+          effect:"Urgent collective call to action and recovery of discarded memory.", ctx:"1963 Yirrkala Bark Petitions and truth-telling." },
+        { quote:"Boomerangs will rattle in unison", tech:["Auditory imagery"],
+          effect:"Cultural resistance and spiritual awakening." },
+        { quote:"Blood on the truth", tech:["Symbolic motif"],
+          effect:"The violent colonial history that must be faced." }
+      ]},
+      { id:"eyes", tag:"EES", h:"Eyes", items:[
+        { quote:"eyes stare to challenge her / from a plate", tech:["Domestic motif","Surreal imagery"],
+          effect:"The home as a place of stress; wearing fake masks to survive." },
+        { quote:"eyes of terror she has thrown away", tech:["Anaphora","High modality"],
+          effect:"A conscious decision to reject fear, subservience and victimhood." },
+        { quote:"she picks the eyes filled with rage", tech:["Active syntax","Climactic resolution"],
+          effect:"Using anger as a protective shield to reclaim personal control." }
+      ]},
+      { id:"trance", tag:"HSB", h:"Trance", items:[
+        { quote:"hunched in her possum skin cloak", tech:["Cultural symbolism","Visual imagery"],
+          effect:"Ancestral warmth and protection provide comfort during grief." },
+        { quote:"she floats in a pituri haze", tech:["Cultural allusion","Metaphor"],
+          effect:"Stepping beyond ordinary time to commune with her husband’s spirit." },
+        { quote:"branches uplift his bark-bound body", tech:["Alliteration","Personification"],
+          effect:"Traditional bark burials; nature gently welcoming the spirit home." }
+      ]},
+      { id:"key", tag:"OTT", h:"Key", items:[
+        { quote:"on the rim where light and shadow meet", tech:["Spatial metaphor","Contrast"],
+          effect:"Trapped in a liminal space between two cultures; fractured identity.",
+          ctx:"Children of the Stolen Generations caught between Aboriginal origins and white adoptive families." },
+        { quote:"their time is sparse like a dying tree", tech:["Simile","Natural imagery"],
+          effect:"Urgency of reconnecting with ageing Elders before ancestral wisdom vanishes." },
+        { quote:"there is no keyhole to the future / and no vision to the past", tech:["Metaphor","Repetition"],
+          effect:"Disconnection from roots; total loss of control over destiny." }
+      ]},
+      { id:"leaves", tag:"THI", h:"Leaves", items:[
+        { quote:"that lone tree on the ridge / is that my father?", tech:["Extended metaphor","Hypophora"],
+          effect:"Nature replaces absent family; seeking identity through landscape." },
+        { quote:"he did not know me / yet gave me leaves", tech:["Paradox","Symbolism"],
+          effect:"An unconditional gift of culture and kinship received from Country." },
+        { quote:"if I climb to him now / and lie in his limbs / will our story unite?", tech:["Personification","Rhetorical question"],
+          effect:"Tender longing to heal family trauma and unite with ancestral lineage." }
+      ]}
+    ]
+  },
+
+  "mod-b": {
+    code:"Mod B", color:"--c-b", name:"Module B", sub:"Close Study of Literature",
+    text:"The Truman Show · Peter Weir (1998)", kind:"Essay",
+    rubric:"Section II · 20 marks. The distinctive qualities of your prescribed text and the ideas it explores.",
+    thesis:{
+      label:"Introduction",
+      text:"In Peter Weir’s postmodern film <i>The Truman Show</i>, he explores the distinctive qualities of a society consumed by commercialism and the ethical erosion of the digital age. Through the construction of a hyperreal setting, Weir critiques the blurring of boundaries between authentic existence and manufactured “reality”. Furthermore, by examining the manipulative nature of the media, the film challenges the morality of a voyeuristic culture that prioritises entertainment over human dignity. Ultimately, Weir’s cinematic work serves as a cautionary tale regarding the preservation of truth in a scripted world."
+    },
+    parts:[
+      { id:"bp1", tag:"Body 1", h:"The construction of the hyperreal",
+        claim:"Weir establishes the distinctive qualities of Seahaven by creating a “hyperreal” environment where commercial interests dictate the parameters of human life.",
+        ctx:"Jean Baudrillard’s theory of simulation and simulacra: Seahaven is not a real place but a sterile copy of 1950s Americana designed to sell the “American Dream”.",
+        items:[
+          { ttl:"The irony of entrapment", scene:"Truman pinned against the Kaiser Chicken poster", quote:"free range",
+            tech:["Mise-en-scène","Satirical irony"],
+            effect:"The framing places him in front of a sign reading “free range”. He is literally being “farmed” like a commodity for a global audience rather than living as a free man." },
+          { ttl:"The erosion of intimacy", scene:"Meryl holds up Mococoa and smiles into empty space in the kitchen",
+            tech:["Direct address","Product placement"],
+            effect:"Looking into the integrated lenses, Meryl shows how commercial priorities have infiltrated the most private spheres of family life. Her robotic delivery shows her role as ‘wife’ is purely performative." },
+          { ttl:"Cinematic artifice", scene:"Recurring “hidden camera” shots",
+            tech:["Anamorphic vignetting"],
+            effect:"A constant reminder to the extra-diegetic audience that Truman’s perceived reality is a broadcast simulation, stripping him of autonomy for the sake of profit." }
+        ],
+        model:"Thus, the <span class=\"slot\">keyword, e.g. artificiality</span> of Seahaven reveals the “distinctive quality” of a world where human experience is secondary to the bottom line." },
+      { id:"bp2", tag:"Body 2", h:"The ethics of media manipulation",
+        claim:"Beyond the physical setting, Weir explores the ethical decay inherent in media manipulation, personified through the “God-like” figure of Christof, whose omniscient control is a scathing critique of a voyeuristic culture that treats human suffering as a scripted narrative.",
+        items:[
+          { ttl:"Metacinematic manipulation", scene:"The “reunion” with Truman’s father on the pier, directed from the Lunar Room",
+            tech:["Film-within-a-film"],
+            effect:"Showing Christof actively directing the emotional beats exposes the cold artifice of the soap-opera genre." },
+          { ttl:"Auditory control", quote:"Cue the music",
+            tech:["Non-diegetic orchestral swell"],
+            effect:"The media scripts and manufactures human emotion to force an empathetic response from viewers." },
+          { ttl:"The betrayal of connection", scene:"Marlon’s “nothing is real” speech, fed through an earpiece while facing a hidden camera",
+            tech:["Medial staging"],
+            effect:"Marlon’s loyalty is to the ratings, not his friend. Christof’s world totally replaces authentic connection with scripted performance." }
+        ],
+        model:"Consequently, Weir suggests that when <span class=\"slot\">keyword, e.g. power / influence</span> is left unchecked, the media becomes an instrument of psychological imprisonment." }
+    ]
+  },
+
+  "mod-c": {
+    code:"Mod C", color:"--c-c", name:"Module C", sub:"The Craft of Writing",
+    text:"Imaginative piece · inspired by Ray Bradbury’s “The Pedestrian”", kind:"Story plan + reflection",
+    rubric:"Section III · 20 marks. Imaginative, discursive or persuasive writing, often with a reflection on your choices.",
+    parts:[
+      { id:"s1", tag:"Section 1", h:"Departure",
+        claim:"He leaves the city behind and steps into the real world.",
+        items:[
+          { ttl:"Technique 1", tech:["Extended tomb metaphor"], effect:"Describes the cityscape he is leaving behind.",
+            line:"He left behind the towers, monolithic mausoleums where thousands sat entombed by the blue-lit anaesthesia of their personal feeds." },
+          { ttl:"Technique 2", tech:["Olfactory and sensory grounding"], effect:"Grounds the transition into the real world immediately.",
+            line:"Stepping into the alley, he swallowed the sharp vinegar tang of unfiltered air, and the biting wind chapping his lips." }
+        ] },
+      { id:"s2", tag:"Section 2", h:"Atmosphere",
+        claim:"The protagonist feels the simple joy of walking and observing something real, but the environment itself is uncomfortable with his non-compliance.",
+        items:[
+          { ttl:"Technique 3", tech:["Subversive verbs"], effect:"Makes the city hostile and complicit.",
+            line:"Around him, the glass facades of corporate buildings crouch like silent sentinels, while the doors hiss shut like guillotines." }
+        ] },
+      { id:"s3", tag:"Section 3", h:"Climax and resolution",
+        claim:"A security drone or city system catches him off-route. The story ends on a chilling note of entrapment.",
+        items:[
+          { ttl:"Technique 4", tech:["Chiaroscuro","Saccadic rhythm"], effect:"Violent light against dark, then short clipped sentences.",
+            line:"The soft darkness was violently shattered; a blinding, sweeping LED beam pinned him to the concrete. A lens clicked. Caught." },
+          { ttl:"Technique 5", tech:["Irony of automation"], effect:"The machine’s flat, unemotional response.",
+            line:"A flat electronic voice emitted from the chassis: ‘Route deviation detected. Return to designated transit corridor.’" }
+        ] },
+      { id:"reflection", tag:"Reflection", h:"Reflection: links to “The Pedestrian”",
+        table:{ head:["Technique","How Bradbury uses it"], rows:[
+          ["Olfactory sensory grounding<small>Non-visual sensory grounding</small>","Establishes Leonard Mead’s human vitality: “smelling the rusty smell of cold” and the “silent wind”."],
+          ["Extended tomb metaphor<small>Socio-cultural critique</small>","Houses depicted as “tombs” and “graveyards” lit by the ghostly glow of screens."],
+          ["Chiaroscuro<small>Visual contrast and pace</small>","The jarring intrusion of the car’s “fierce white cone of light” shatters the natural dark."],
+          ["Irony of automation<small>Sterile vs human voice</small>","The police car speaks in a “metallic whisper”, unable to comprehend human creativity."],
+          ["Subversive verbs<small>Atmospheric hostility</small>","Windows “like phantoms”, homes that “groan”: the landscape is complicit in isolation."]
+        ]} }
+    ]
+  }
+};
+
+/* ============================================================ */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const strip = s => String(s).replace(/<[^>]+>/g, "");
+const col = m => `var(${m.color})`;
+
+function stats(m){
+  if (m.empty) return "No notes yet";
+  const parts = m.parts.length;
+  const items = m.parts.reduce((n,p)=>n+(p.items?p.items.length:0),0);
+  if (m === MODS["mod-a"]) return `${parts} poems · ${items} quotes`;
+  if (m === MODS["mod-c"]) return `3 sections · ${items} techniques · reflection`;
+  return `${parts} body paragraphs · ${items} pieces of evidence`;
+}
+
+function renderNav(active){
+  let h = `<div class="home-row"><a class="navlink home-link" href="#home" ${active==="home"?'aria-current="page"':''} style="--mc:var(--accent)">Overview</a></div>`;
+  for (const p of PAPERS){
+    h += `<div class="paper"><h2>${p.name}</h2><p class="meta">${p.meta}</p><ul>`;
+    for (const id of p.mods){
+      const m = MODS[id];
+      h += `<li><a class="navlink" href="#${id}" style="--mc:${col(m)}" ${active===id?'aria-current="page"':''}>
+        <span class="code">${m.code}</span><span class="nm">${m.name}<small>${m.sub}</small></span></a></li>`;
+    }
+    h += `</ul></div>`;
+  }
+  $("#side").innerHTML = h;
+}
+
+function renderHome(){
+  let h = `<div class="hello"><span class="label">HSC 2026 · English Standard</span>
+    <h1>All your English notes, by paper.</h1>
+    <p>Pick a module to read it. Search finds any quote or technique across both papers. Turn on recall mode to blur the analysis and test yourself.</p></div>`;
+  for (const p of PAPERS){
+    h += `<div class="paper-block"><div class="paper-head"><h2>${p.name}</h2><span class="label">${p.meta}</span></div><div class="cards">`;
+    for (const id of p.mods){
+      const m = MODS[id];
+      h += `<a class="card${m.empty?' empty':''}" href="#${id}" style="--mc:${col(m)}">
+        <span class="label" style="color:var(--mc)">${m.code}${m.kind?' · '+m.kind:''}</span>
+        <h3>${m.name}: ${m.sub}</h3>
+        ${m.text?`<p class="txt">${m.text}</p>`:`<p class="txt">${m.rubric.split(".")[0]}.</p>`}
+        <span class="stats">${stats(m)}</span></a>`;
+    }
+    h += `</div></div>`;
+  }
+  h += `<p class="foot">Notes from Luca’s own plans and essays. More coming.</p>`;
+  return h;
+}
+
+function renderItem(it){
+  let h = `<article class="item">`;
+  if (it.ttl) h += `<div class="ttl">${it.ttl}</div>`;
+  if (it.scene) h += `<p class="scene"><b>Scene</b>${it.scene}</p>`;
+  if (it.quote) h += `<blockquote>“${it.quote}”</blockquote>`;
+  if (it.line) h += `<p class="line hide">${it.line}</p>`;
+  if (it.tech) h += `<div class="techs hide">${it.tech.map(t=>`<span class="tech">${t}</span>`).join("")}</div>`;
+  if (it.effect) h += `<p class="effect hide">${it.effect}</p>`;
+  if (it.ctx) h += `<p class="ctx hide"><b>Context</b>${it.ctx}</p>`;
+  return h + `</article>`;
+}
+
+function renderModule(id){
+  const m = MODS[id];
+  let h = `<div class="mod-head" style="--mc:${col(m)}"><span class="label">${m.code}${m.kind?' · '+m.kind:''}</span>
+    <h1>${m.name}: ${m.sub}</h1>${m.text?`<p class="txt">${m.text}</p>`:''}<p class="rubric">${m.rubric}</p>`;
+  if (m.parts && m.parts.length > 1) h += `<div class="jump">${m.parts.map(p=>`<a href="#${id}" data-jump="${p.id}">${p.h.replace(/^Reflection:.*/,"Reflection")}</a>`).join("")}</div>`;
+  h += `</div><div style="--mc:${col(m)}">`;
+
+  if (m.empty){
+    return h + `<div class="empty-state"><h2>No notes here yet</h2>
+      <p>Send your short-answer notes and they’ll go here. Useful things to include:</p>
+      <ul><li>Your technique list with definitions</li><li>A structure for 3, 4, 5 and 6-mark answers</li><li>Practice answers on unseen texts</li></ul></div></div>`;
+  }
+  if (m.thesis) h += `<div class="thesis"><span class="label">${m.thesis.label}</span><p class="big">${m.thesis.text}</p></div>`;
+  if (m.prose) h += `<div class="prose">${m.prose.map(p=>`<p>${p}</p>`).join("")}</div>`;
+  if (m.roadmap) h += `<span class="label">Roadmap</span><ol class="roadmap" style="margin-top:10px">${m.roadmap.map(([a,b])=>`<li><p><b>${a}.</b> ${b}</p></li>`).join("")}</ol>`;
+
+  for (const p of m.parts){
+    h += `<section class="part" id="${p.id}"><div class="part-head"><span class="tag">${p.tag}</span><h2>${p.h}</h2>`;
+    if (p.claim) h += `<p class="claim">${p.claim}</p>`;
+    if (p.ctx) h += `<p class="ctx"><b>Context</b>${p.ctx}</p>`;
+    h += `</div>`;
+    if (p.items) h += `<div class="items">${p.items.map(renderItem).join("")}</div>`;
+    if (p.model) h += `<div class="model"><span class="label">Linking sentence · adapt it</span><p>${p.model}</p></div>`;
+    if (p.table) h += `<div class="table-wrap"><table><thead><tr>${p.table.head.map(x=>`<th>${x}</th>`).join("")}</tr></thead><tbody>${p.table.rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+    h += `</section>`;
+  }
+  return h + `</div>`;
+}
+
+/* Search index: one entry per item / paragraph */
+const INDEX = [];
+for (const [id,m] of Object.entries(MODS)){
+  if (m.empty) continue;
+  if (m.thesis) INDEX.push({id, where:`${m.code} · ${m.thesis.label}`, title:m.name, text:strip(m.thesis.text)});
+  (m.roadmap||[]).forEach(([a,b])=>INDEX.push({id, where:`${m.code} · Roadmap`, title:a, text:b}));
+  for (const p of m.parts){
+    if (p.claim) INDEX.push({id, part:p.id, where:`${m.code} · ${p.h}`, title:p.tag, text:[p.claim,p.ctx||""].join(" ")});
+    (p.items||[]).forEach(it=>INDEX.push({id, part:p.id, where:`${m.code} · ${p.h}`, title:it.ttl||(it.quote?`“${it.quote}”`:p.h),
+      text:[it.quote,it.scene,it.line,(it.tech||[]).join(", "),it.effect,it.ctx].filter(Boolean).map(strip).join(" · ")}));
+    if (p.model) INDEX.push({id, part:p.id, where:`${m.code} · ${p.h}`, title:"Linking sentence", text:strip(p.model)});
+    if (p.table) p.table.rows.forEach(r=>INDEX.push({id, part:p.id, where:`${m.code} · Reflection`, title:strip(r[0].split("<small>")[0]), text:strip(r[1])}));
+  }
+}
+
+function hl(text, q){
+  const t = esc(text); const re = new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&") + ")","ig");
+  return t.replace(re,"<mark>$1</mark>");
+}
+function renderSearch(q){
+  const ql = q.toLowerCase();
+  const hits = INDEX.filter(e => (e.title+" "+e.text+" "+e.where).toLowerCase().includes(ql));
+  let h = `<div class="mod-head" style="--mc:var(--accent)"><span class="label">Search</span><h1>${hits.length} result${hits.length===1?"":"s"} for “${esc(q)}”</h1></div>`;
+  if (!hits.length) return h + `<p class="ctx">Nothing matched. Try a technique (“metaphor”), a character (“Meryl”) or an idea (“identity”).</p>`;
+  return h + `<div class="results">${hits.map(e=>`<a class="result" href="#${e.id}" data-part="${e.part||""}" style="--mc:${col(MODS[e.id])}">
+    <span class="where">${esc(e.where)}</span><strong style="font-family:var(--f-display)">${hl(e.title,q)}</strong><span class="snip">${hl(e.text,q)}</span></a>`).join("")}</div>`;
+}
+
+let pendingPart = null;
+function route(){
+  const q = $("#q").value.trim();
+  if (q){ renderNav(""); $("#main").innerHTML = renderSearch(q); return; }
+  let id = location.hash.slice(1);
+  if (!MODS[id]) id = "home";
+  renderNav(id);
+  $("#main").innerHTML = id === "home" ? renderHome() : renderModule(id);
+  if (pendingPart){ const el = document.getElementById(pendingPart); pendingPart = null; if (el) el.scrollIntoView(); }
+  else window.scrollTo(0,0);
+  try{ localStorage.setItem("eng-last", id); }catch(e){}
+}
+
+window.addEventListener("hashchange", route);
+$("#q").addEventListener("input", route);
+document.addEventListener("click", e=>{
+  const j = e.target.closest("[data-jump]");
+  if (j){ e.preventDefault(); const el = document.getElementById(j.dataset.jump); if (el) el.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"}); return; }
+  const r = e.target.closest(".result");
+  if (r){ $("#q").value = ""; pendingPart = r.dataset.part || null; if (location.hash === r.getAttribute("href")){ e.preventDefault(); route(); } return; }
+  const it = e.target.closest(".item");
+  if (it && document.body.classList.contains("recall-on")) it.classList.toggle("shown");
+});
+document.addEventListener("keydown", e=>{
+  if (e.key === "/" && document.activeElement !== $("#q")){ e.preventDefault(); $("#q").focus(); }
+  if (e.key === "Escape" && document.activeElement === $("#q")){ $("#q").value = ""; route(); }
+});
+
+const recallBtn = $("#recall");
+function setRecall(on){
+  document.body.classList.toggle("recall-on", on);
+  recallBtn.setAttribute("aria-pressed", on);
+  document.querySelectorAll(".item.shown").forEach(x=>x.classList.remove("shown"));
+  try{ localStorage.setItem("eng-recall", on ? "1" : "0"); }catch(e){}
+}
+recallBtn.addEventListener("click", ()=>setRecall(!document.body.classList.contains("recall-on")));
+try{ if (localStorage.getItem("eng-recall") === "1") setRecall(true); }catch(e){}
+
+if (!location.hash){ try{ const last = localStorage.getItem("eng-last"); if (last && MODS[last]) history.replaceState(null,"","#"+last); }catch(e){} }
+route();
+</script>
