@@ -113,8 +113,8 @@ svg.i{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-widt
 
 .quote{border-left:3px solid currentColor;padding:2px 14px;margin:8px 0;font-family:var(--f-quote);font-size:18px}
 
-ol.num{margin:6px 0 4px;padding-left:26px;display:grid;gap:4px}
-ol.num li::marker{color:var(--muted)}
+ol.num,ul.num{margin:6px 0 4px;padding-left:26px;display:grid;gap:4px}
+ol.num li::marker,ul.num li::marker{color:var(--muted)}
 
 /* Toggle blocks */
 details.tg{margin:2px 0;border-radius:4px}
@@ -138,6 +138,7 @@ table.db th{font-weight:400;color:var(--muted);text-align:left;padding:7px 8px;b
 table.db th svg.i{width:14px;height:14px;vertical-align:-2px;margin-right:4px}
 table.db td{padding:8px;border-bottom:1px solid var(--line);vertical-align:top}
 table.db th+th,table.db td+td{border-left:1px solid var(--line)}
+table.db.two td:first-child{width:32%}
 table.db td.q{font-family:var(--f-quote);font-size:15.5px;width:38%}
 table.db td.e{width:38%}
 table.db .ctx{display:block;margin-top:4px;color:var(--muted);font-size:13px}
@@ -221,8 +222,45 @@ const PAPERS = [
 const MODS = {
   "short": {
     code:"Sec I", color:"--c-short", name:"Short Answer", sub:"Unseen texts",
+    text:"How to apply techniques to any stimulus", kind:"Technique toolkit",
     rubric:"Section I · 20 marks. Short-answer questions on unseen texts linked to the Common Module: Texts and Human Experiences.",
-    empty:true
+    parts:[
+      { id:"formula", h:"The formula",
+        claim:"<b>Technique → Evidence → Effect → Link.</b> Name it precisely, embed a 1–5 word quote, say what it does to the audience, then reuse the question’s key words.",
+        model:"The composer uses a rhetorical question, “…”, to challenge the audience’s assumptions, positioning them to reconsider <span class=\"slot\">idea from the question</span>.",
+        modelLabel:"Model sentence" },
+      { id:"routine", h:"30-second routine",
+        steps:["Underline the verb and key words in the question.","Decide the text’s purpose (persuade, warn, celebrate, reflect, inform) and audience.","Pick 2–3 techniques to fit the marks.","Write: technique, quote, effect, link. Every effect should serve the purpose."] },
+      { id:"top", h:"Go-to techniques",
+        table:{ head:["Technique","Go-to effect"], rows:[
+          ["Metaphor","Makes an abstract idea concrete; reveals the composer’s attitude."],
+          ["Imagery","Immerses the audience; establishes mood or setting."],
+          ["Emotive language","Provokes empathy, anger or hope; positions the audience to side with the composer."],
+          ["Repetition","Reinforces the central message; builds urgency."],
+          ["Juxtaposition","Highlights difference and creates tension; forces the audience to compare and judge. Safest all-rounder."],
+          ["Tone / shift in tone","Reveals the composer’s stance; a shift signals a turning point or realisation."],
+          ["Rhetorical question","Challenges assumptions; prompts reflection."],
+          ["Inclusive pronouns","Builds unity and shared responsibility. Speeches almost always use these."],
+          ["Tricolon / listing","Creates rhythm and emphasis; suggests overwhelming scale."],
+          ["Symbolism","Links the text to a bigger theme or value."],
+          ["Short sentences / fragments","Urgency, shock or finality."],
+          ["High modality","Certainty and demand."]
+        ]} },
+      { id:"visual", h:"Visual texts",
+        claim:"Describe what you see first, then the effect.",
+        table:{ head:["Technique","Go-to effect"], rows:[
+          ["Salience","Draws the eye to the key idea; signals what matters most."],
+          ["Colour","Warm = energy or danger; cool = calm or isolation; muted = bleakness or nostalgia."],
+          ["Gaze","Direct = connection or confrontation; averted = vulnerability."],
+          ["Camera angle","Low = power; high = vulnerability; eye-level = equality."]
+        ]} },
+      { id:"verbs", h:"Effect verbs and phrases",
+        bullets:["<b>Verbs:</b> emphasises, evokes, challenges, positions, conveys, exposes, underscores, builds, compels.","<b>Phrases:</b> …creating a sense of urgency · …fostering empathy · …inviting the audience to reflect on… · …reinforcing the central message that… · …highlighting the complexity of…"] },
+      { id:"starters", h:"Sentence starters",
+        steps:["The composer employs [technique], “[quote]”, to [effect verb] [idea].","Through the [technique] of “[quote]”, the audience is positioned to [response].","This [technique] reinforces the text’s purpose of [purpose] by [effect].","Furthermore, the [second technique] builds on this by [effect], ultimately [link to the question].","Ultimately, the composer uses these techniques to convey that [overall message]."] },
+      { id:"mistakes", h:"Mistakes that cost marks",
+        bullets:["Naming a technique with no effect.","Vague effects like “engages the reader”. Say how: urgency, empathy, credibility, tension.","Guessing a technique name. If unsure, say imagery, tone or language choice.","Not reusing the question’s key words.","Quoting whole lines instead of 1–5 words.","Ignoring the verb: “evaluate” needs a judgement; “compare” needs both texts."] }
+    ]
   },
 
   "common": {
@@ -445,6 +483,7 @@ const I = {
 
 function stats(m){
   if (m.empty) return "No notes yet";
+  if (m === MODS["short"]) return "Technique toolkit";
   const items = m.parts.reduce((n,p)=>n+(p.items?p.items.length:0),0);
   if (m === MODS["mod-a"]) return `${m.parts.length} poems · ${items} quotes`;
   if (m === MODS["mod-c"]) return `3 sections · ${items} techniques · reflection`;
@@ -534,8 +573,10 @@ function renderModule(id){
     if (pt.claim) h += `<p>${pt.claim}</p>`;
     if (pt.ctx) h += `<div class="callout"><span class="ic">C</span><div class="ct"><b class="lbl">Context</b><p>${pt.ctx}</p></div></div>`;
     if (pt.items) h += isTable ? renderTable(pt.items) : `<div style="margin-top:8px">${pt.items.map(renderToggle).join("")}</div>`;
-    if (pt.model) h += `<div class="callout"><span class="ic">✎</span><div class="ct"><b class="lbl">Linking sentence (adapt the bold bit)</b><p>${pt.model.replace(/<span class="slot">(.*?)<\/span>/g,"<b>[$1]</b>")}</p></div></div>`;
-    if (pt.table) h += `<div class="tbl-wrap"><table class="db"><thead><tr>${pt.table.head.map(x=>`<th>${x}</th>`).join("")}</tr></thead><tbody>${pt.table.rows.map(r=>`<tr><td><b>${r[0].split("<small>")[0]}</b><span class="ctx">${strip(r[0].split("<small>")[1]||"")}</span></td><td>${r[1]}</td></tr>`).join("")}</tbody></table></div>`;
+    if (pt.model) h += `<div class="callout"><span class="ic">✎</span><div class="ct"><b class="lbl">${pt.modelLabel||"Linking sentence (adapt the bold bit)"}</b><p>${pt.model.replace(/<span class="slot">(.*?)<\/span>/g,"<b>[$1]</b>")}</p></div></div>`;
+    if (pt.steps) h += `<ol class="num">${pt.steps.map(x=>`<li>${x}</li>`).join("")}</ol>`;
+    if (pt.bullets) h += `<ul class="num">${pt.bullets.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+    if (pt.table) h += `<div class="tbl-wrap"><table class="db two"><thead><tr>${pt.table.head.map(x=>`<th>${x}</th>`).join("")}</tr></thead><tbody>${pt.table.rows.map(r=>`<tr><td><b>${r[0].split("<small>")[0]}</b><span class="ctx">${strip(r[0].split("<small>")[1]||"")}</span></td><td>${r[1]}</td></tr>`).join("")}</tbody></table></div>`;
   }
   return h;
 }
@@ -550,6 +591,7 @@ for (const [id,m] of Object.entries(MODS)){
     if (p.claim) INDEX.push({id, part:p.id, where:`${m.name} · ${p.h}`, title:p.h, text:[p.claim,p.ctx||""].join(" ")});
     (p.items||[]).forEach(it=>INDEX.push({id, part:p.id, where:`${m.name} · ${p.h}`, title:it.ttl||(it.quote?`“${it.quote}”`:p.h),
       text:[it.quote,it.scene,it.line,(it.tech||[]).join(", "),it.effect,it.ctx].filter(Boolean).map(strip).join(" · ")}));
+    [...(p.steps||[]),...(p.bullets||[])].forEach(x=>INDEX.push({id, part:p.id, where:`${m.name} · ${p.h}`, title:p.h, text:strip(x)}));
     if (p.model) INDEX.push({id, part:p.id, where:`${m.name} · ${p.h}`, title:"Linking sentence", text:strip(p.model)});
     if (p.table) p.table.rows.forEach(r=>INDEX.push({id, part:p.id, where:`${m.name} · Reflection`, title:strip(r[0].split("<small>")[0]), text:strip(r[1])}));
   }
