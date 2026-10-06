@@ -1,197 +1,217 @@
 <title>HSC English Hub</title>
 <meta name="description" content="Luca's HSC Standard English notes: Paper 1 and Paper 2 in one place.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
-/* Layout: sticky top bar with search, sidebar organised by exam paper, one module open at a time.
-   Each module carries its own colour so you always know where you are. */
+/* Layout: Notion-style workspace. Quiet grey sidebar page tree, white page with a
+   centred 720px reading column, page properties, callouts, toggles and table views. */
 :root{
-  --bg:#F3F5F8; --surface:#FFFFFF; --sunk:#E9EDF3; --line:#D6DCE5;
-  --ink:#141B26; --muted:#5A6476; --accent:#2E47C2; --accent-soft:#E3E8FB;
-  --mark:#FFE68A;
-  --c-common:#2E47C2; --c-short:#5E6B80; --c-a:#0D7570; --c-b:#8A3489; --c-c:#4C7A1F;
-  --f-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
-  --f-body:"Literata", Georgia, "Times New Roman", serif;
-  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
-  --r:10px;
+  --bg:#FFFFFF; --side:#F7F7F5; --hover:rgba(55,53,47,.06); --active:rgba(55,53,47,.09);
+  --line:rgba(55,53,47,.12); --ink:#37352F; --muted:rgba(55,53,47,.62); --faint:rgba(55,53,47,.42);
+  --callout:#F1F1EF; --link:#2F6E9E; --shadow:rgba(15,15,15,.12);
+  /* Notion-style tag colours: background / text */
+  --t-gray:#E3E2E0;   --tx-gray:#32302C;
+  --t-brown:#EEE0DA;  --tx-brown:#442A1E;
+  --t-orange:#FADEC9; --tx-orange:#49290E;
+  --t-yellow:#FDECC8; --tx-yellow:#402C1B;
+  --t-green:#DBEDDB;  --tx-green:#1C3829;
+  --t-blue:#D3E5EF;   --tx-blue:#183347;
+  --t-purple:#E8DEEE; --tx-purple:#412454;
+  --t-pink:#F5E0E9;   --tx-pink:#4C2337;
+  --t-red:#FFE2DD;    --tx-red:#5D1715;
+  --f-ui: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Text", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif;
+  --f-quote: "Iowan Old Style", Charter, "Bitstream Charter", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --f-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0F141C; --surface:#171E29; --sunk:#1F2835; --line:#2C3747;
-  --ink:#E7ECF3; --muted:#9AA6B8; --accent:#8EA2FF; --accent-soft:#232D4F;
-  --mark:#6B5A12;
-  --c-common:#8EA2FF; --c-short:#A3AEC0; --c-a:#4CC7BF; --c-b:#E08BDE; --c-c:#9BCB64;
+  --bg:#191919; --side:#202020; --hover:rgba(255,255,255,.055); --active:rgba(255,255,255,.085);
+  --line:rgba(255,255,255,.09); --ink:rgba(255,255,255,.86); --muted:rgba(255,255,255,.52); --faint:rgba(255,255,255,.34);
+  --callout:#252525; --link:#79B4E0; --shadow:rgba(0,0,0,.5);
+  --t-gray:#373737;   --tx-gray:rgba(255,255,255,.86);
+  --t-brown:#4A3A31;  --tx-brown:#E6D3C7;
+  --t-orange:#5C3B23; --tx-orange:#F2CDAE;
+  --t-yellow:#564328; --tx-yellow:#F1DFB4;
+  --t-green:#243D30;  --tx-green:#C3E3CC;
+  --t-blue:#143A4E;   --tx-blue:#BDDCEE;
+  --t-purple:#3C2D49; --tx-purple:#DCCBEB;
+  --t-pink:#4E2C3C;   --tx-pink:#F0C9DA;
+  --t-red:#522E2A;    --tx-red:#F5C9C2;
   color-scheme:dark;
 }}
 :root[data-theme="dark"]{
-  --bg:#0F141C; --surface:#171E29; --sunk:#1F2835; --line:#2C3747;
-  --ink:#E7ECF3; --muted:#9AA6B8; --accent:#8EA2FF; --accent-soft:#232D4F;
-  --mark:#6B5A12;
-  --c-common:#8EA2FF; --c-short:#A3AEC0; --c-a:#4CC7BF; --c-b:#E08BDE; --c-c:#9BCB64;
+  --bg:#191919; --side:#202020; --hover:rgba(255,255,255,.055); --active:rgba(255,255,255,.085);
+  --line:rgba(255,255,255,.09); --ink:rgba(255,255,255,.86); --muted:rgba(255,255,255,.52); --faint:rgba(255,255,255,.34);
+  --callout:#252525; --link:#79B4E0; --shadow:rgba(0,0,0,.5);
+  --t-gray:#373737;   --tx-gray:rgba(255,255,255,.86);
+  --t-brown:#4A3A31;  --tx-brown:#E6D3C7;
+  --t-orange:#5C3B23; --tx-orange:#F2CDAE;
+  --t-yellow:#564328; --tx-yellow:#F1DFB4;
+  --t-green:#243D30;  --tx-green:#C3E3CC;
+  --t-blue:#143A4E;   --tx-blue:#BDDCEE;
+  --t-purple:#3C2D49; --tx-purple:#DCCBEB;
+  --t-pink:#4E2C3C;   --tx-pink:#F0C9DA;
+  --t-red:#522E2A;    --tx-red:#F5C9C2;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;margin:0}
-h1,h2,h3,h4{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0;font-weight:700}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);font-size:16px;line-height:1.5;margin:0;-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;font-weight:600;text-wrap:balance;line-height:1.25}
 p{margin:0}
-button{font:inherit;color:inherit}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
-mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
-.label{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+:focus-visible{outline:2px solid var(--link);outline-offset:1px;border-radius:4px}
+mark{background:var(--t-yellow);color:inherit;border-radius:2px}
+svg.i{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+.app{display:grid;grid-template-columns:248px minmax(0,1fr);min-height:100%}
+
+/* Sidebar */
+.side{background:var(--side);border-right:1px solid var(--line);position:sticky;top:0;height:100vh;overflow-y:auto;padding:10px 8px 24px;display:flex;flex-direction:column;gap:2px;font-size:14px;color:var(--muted)}
+.ws{display:flex;align-items:center;gap:8px;padding:6px 8px;margin-bottom:6px;color:var(--ink);font-weight:600;font-size:14px;text-decoration:none;border-radius:6px}
+.ws .av{width:22px;height:22px;border-radius:4px;background:var(--t-brown);color:var(--tx-brown);display:grid;place-items:center;font-size:12px;font-weight:600}
+.row{display:flex;align-items:center;gap:8px;width:100%;min-height:30px;padding:4px 8px;border-radius:6px;text-decoration:none;color:var(--muted);text-align:left}
+.row:hover{background:var(--hover)}
+.row[aria-current="page"]{background:var(--active);color:var(--ink);font-weight:500}
+.row .kbd{margin-left:auto;font-size:12px;color:var(--faint)}
+.row .sw{margin-left:auto;width:26px;height:15px;border-radius:999px;background:var(--active);position:relative;transition:background .15s}
+.row .sw::after{content:"";position:absolute;top:2px;left:2px;width:11px;height:11px;border-radius:50%;background:var(--bg);box-shadow:0 1px 2px var(--shadow);transition:transform .15s}
+.row[aria-pressed="true"] .sw{background:var(--link)}
+.row[aria-pressed="true"] .sw::after{transform:translateX(11px)}
+.grp{font-size:12px;font-weight:500;color:var(--faint);padding:14px 8px 4px}
+.row .pg{color:var(--ink)}
+.row .sub{color:var(--faint);font-size:12px;margin-left:auto;white-space:nowrap}
 
 /* Top bar */
-.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
-.top-in{max-width:1180px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
-.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--ink)}
-.brand b{font-family:var(--f-display);font-size:20px;letter-spacing:-.01em}
-.search{flex:1 1 240px;min-width:0;position:relative}
-.search input{width:100%;font:15px var(--f-body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:9px 16px 9px 38px}
-.search input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
-.search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px;fill:none;stroke:var(--muted);stroke-width:2}
-.recall{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;font-family:var(--f-display);font-weight:500;font-size:14px}
-.recall .dot{width:28px;height:16px;border-radius:999px;background:var(--sunk);position:relative;transition:background .15s}
-.recall .dot::after{content:"";position:absolute;top:2px;left:2px;width:12px;height:12px;border-radius:50%;background:var(--muted);transition:transform .15s,background .15s}
-.recall[aria-pressed="true"] .dot{background:var(--accent)}
-.recall[aria-pressed="true"] .dot::after{transform:translateX(12px);background:var(--surface)}
+.topbar{position:sticky;top:0;z-index:4;background:var(--bg);height:45px;display:flex;align-items:center;gap:8px;padding:0 12px;font-size:14px}
+.crumbs{display:flex;align-items:center;gap:6px;min-width:0;color:var(--muted);overflow:hidden;white-space:nowrap}
+.crumbs a{text-decoration:none;padding:2px 6px;border-radius:4px}
+.crumbs a:hover{background:var(--hover)}
+.crumbs .cur{color:var(--ink);overflow:hidden;text-overflow:ellipsis}
+.menu-btn{display:none;padding:4px;border-radius:4px;color:var(--muted)}
+.menu-btn:hover{background:var(--hover)}
 
-/* Shell */
-.shell{max-width:1180px;margin:0 auto;padding:24px 16px 64px;display:grid;grid-template-columns:250px minmax(0,1fr);gap:40px;align-items:start}
-nav.side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 80px);display:grid;gap:22px}
-.paper h2{font-size:13px;font-family:var(--f-mono);font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
-.paper .meta{font-size:12.5px;color:var(--muted);margin-bottom:8px;font-family:var(--f-body)}
-.paper ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
-.navlink{display:flex;gap:10px;align-items:baseline;text-decoration:none;color:var(--ink);padding:7px 10px;border-radius:8px;border-left:3px solid transparent}
-.navlink:hover{background:var(--sunk)}
-.navlink[aria-current="page"]{background:var(--surface);border-left-color:var(--mc);box-shadow:0 1px 0 var(--line)}
-.navlink .code{font-family:var(--f-mono);font-size:11px;color:var(--mc);min-width:46px;letter-spacing:.04em;white-space:nowrap}
-.navlink .nm{font-family:var(--f-display);font-weight:500;font-size:15px;line-height:1.25}
-.navlink .nm small{display:block;font-family:var(--f-body);font-weight:400;font-size:12.5px;color:var(--muted)}
-.home-link{font-family:var(--f-display);font-weight:500}
+/* Page */
+.page{max-width:720px;margin:0 auto;padding:56px 24px 120px}
+.page h1.title{font-size:40px;font-weight:700;letter-spacing:-.01em;margin-bottom:14px}
+.props{display:grid;gap:2px;margin-bottom:20px;font-size:14px}
+.prop{display:grid;grid-template-columns:150px minmax(0,1fr);align-items:center;min-height:34px}
+.prop .k{display:flex;align-items:center;gap:6px;color:var(--muted)}
+.prop .k svg.i{width:15px;height:15px}
+.prop .v{padding:4px 6px;min-width:0}
+.divider{border:0;border-top:1px solid var(--line);margin:8px 0 22px}
 
-main{min-width:0}
+.page h2{font-size:24px;margin:32px 0 6px;scroll-margin-top:60px}
+.page h3{font-size:19px;margin:22px 0 4px}
+.page p{margin:3px 0}
+.muted{color:var(--muted)}
 
-/* Home */
-.hello{display:grid;gap:8px;margin-bottom:28px}
-.hello h1{font-size:clamp(30px,5vw,46px);letter-spacing:-.02em}
-.hello p{color:var(--muted);max-width:60ch}
-.paper-block{margin-bottom:30px}
-.paper-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:14px}
-.paper-head h2{font-size:22px}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
-.card{display:grid;gap:10px;align-content:start;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--mc);border-radius:var(--r);padding:16px 18px 18px;transition:transform .15s,box-shadow .15s}
-.card:hover{transform:translateY(-2px);box-shadow:0 6px 18px -10px rgba(20,27,38,.35)}
-.card h3{font-size:19px}
-.card .txt{font-style:italic}
-.card .stats{font-family:var(--f-mono);font-size:12px;color:var(--mc)}
-.card.empty{border-top-style:dashed}
+.tag{display:inline-flex;align-items:center;height:20px;padding:0 6px;border-radius:3px;font-size:13px;line-height:1;white-space:nowrap;margin:2px 4px 2px 0}
 
-/* Module view */
-.mod-head{display:grid;gap:8px;padding-bottom:20px;margin-bottom:24px;border-bottom:1px solid var(--line)}
-.mod-head .label{color:var(--mc)}
-.mod-head h1{font-size:clamp(28px,4.4vw,40px);letter-spacing:-.02em}
-.mod-head .txt{font-size:18px;font-style:italic;color:var(--muted)}
-.mod-head .rubric{font-size:14.5px;color:var(--muted);max-width:66ch}
-.jump{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.jump a{font-family:var(--f-display);font-size:13.5px;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 12px}
-.jump a:hover{border-color:var(--mc)}
+.callout{display:flex;gap:10px;background:var(--callout);border-radius:4px;padding:16px 16px 16px 12px;margin:10px 0}
+.callout .ic{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:700;background:var(--bg);color:var(--muted)}
+.callout .ct{min-width:0;display:grid;gap:4px}
+.callout b.lbl{font-weight:600}
 
-.thesis{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;margin-bottom:22px;display:grid;gap:10px}
-.thesis p.big{font-size:19px;line-height:1.5;max-width:66ch}
-.prose{display:grid;gap:12px;max-width:68ch;margin-bottom:22px}
-.roadmap{list-style:none;margin:0 0 30px;padding:0;display:grid;gap:10px;counter-reset:rm}
-.roadmap li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;counter-increment:rm}
-.roadmap li::before{content:counter(rm);font-family:var(--f-display);font-weight:700;font-size:15px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--sunk);color:var(--mc)}
-.roadmap b{font-family:var(--f-display);font-weight:700}
+.quote{border-left:3px solid currentColor;padding:2px 14px;margin:8px 0;font-family:var(--f-quote);font-size:18px}
 
-section.part{margin-bottom:38px;scroll-margin-top:90px}
-.part-head{display:grid;gap:6px;margin-bottom:14px}
-.part-head h2{font-size:24px;letter-spacing:-.01em}
-.part-head .tag{font-family:var(--f-mono);font-size:11.5px;color:var(--mc);letter-spacing:.06em}
-.claim{font-size:17px;max-width:66ch}
-.ctx{font-size:14.5px;color:var(--muted);max-width:66ch}
-.ctx b{font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-right:6px}
+ol.num{margin:6px 0 4px;padding-left:26px;display:grid;gap:4px}
+ol.num li::marker{color:var(--muted)}
 
-.items{display:grid;gap:12px}
-.item{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:grid;gap:10px}
-.item .ttl{font-family:var(--f-display);font-weight:700;font-size:16px}
-.item blockquote{margin:0;font-style:italic;font-size:18px;line-height:1.5;padding-left:14px;border-left:3px solid var(--mc)}
-.item .scene{font-size:14.5px;color:var(--muted)}
-.item .scene b{font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-right:6px}
-.techs{display:flex;flex-wrap:wrap;gap:6px}
-.tech{font-family:var(--f-display);font-weight:500;font-size:13px;background:var(--sunk);border-radius:6px;padding:3px 9px}
-.effect{max-width:68ch}
-.effect::before{content:"→ ";color:var(--mc);font-weight:600}
-.item .ctx{border-top:1px dashed var(--line);padding-top:8px;max-width:none}
+/* Toggle blocks */
+details.tg{margin:2px 0;border-radius:4px}
+details.tg>summary{list-style:none;display:flex;gap:6px;align-items:flex-start;cursor:pointer;padding:3px 2px;border-radius:4px}
+details.tg>summary::-webkit-details-marker{display:none}
+details.tg>summary:hover{background:var(--hover)}
+details.tg>summary .tri{flex:none;width:22px;height:24px;display:grid;place-items:center;color:var(--ink);transition:transform .15s}
+details.tg[open]>summary .tri{transform:rotate(90deg)}
+details.tg>summary .sm{min-width:0}
+details.tg>summary .sm b{font-weight:600}
+details.tg>summary .sm .q{font-family:var(--f-quote);font-size:17px}
+details.tg>.body{padding:2px 0 10px 30px;display:grid;gap:6px}
+.kv{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px;font-size:15px}
+.kv .k{color:var(--muted);font-size:14px;padding-top:1px}
+.line{font-family:var(--f-quote);font-size:17px;background:var(--callout);border-radius:4px;padding:10px 14px}
 
-.model{background:var(--accent-soft);border-radius:var(--r);padding:14px 18px;display:grid;gap:6px;margin-top:12px}
-.model p{font-size:16px}
-.model .slot{font-family:var(--f-mono);font-size:13px;background:var(--surface);border-radius:4px;padding:1px 6px}
+/* Table view */
+.tbl-wrap{overflow-x:auto;margin:8px 0 4px}
+table.db{width:100%;border-collapse:collapse;font-size:14px}
+table.db th{font-weight:400;color:var(--muted);text-align:left;padding:7px 8px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);white-space:nowrap}
+table.db th svg.i{width:14px;height:14px;vertical-align:-2px;margin-right:4px}
+table.db td{padding:8px;border-bottom:1px solid var(--line);vertical-align:top}
+table.db th+th,table.db td+td{border-left:1px solid var(--line)}
+table.db td.q{font-family:var(--f-quote);font-size:15.5px;width:38%}
+table.db td.e{width:38%}
+table.db .ctx{display:block;margin-top:4px;color:var(--muted);font-size:13px}
+table.db tbody tr:hover{background:var(--hover)}
 
-.line{font-size:17px;line-height:1.55;padding:12px 16px;background:var(--sunk);border-radius:8px}
+/* Home: database list */
+.list{border-top:1px solid var(--line);margin:6px 0 4px}
+.list a{display:flex;align-items:center;gap:10px;padding:8px 4px;border-bottom:1px solid var(--line);text-decoration:none;min-width:0}
+.list a:hover{background:var(--hover)}
+.list .nm{font-weight:500;flex:none}
+.list .ds{color:var(--muted);font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1}
+.list .tag{flex:none}
 
-.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
-table{border-collapse:collapse;width:100%;min-width:520px}
-th,td{text-align:left;vertical-align:top;padding:12px 16px;border-bottom:1px solid var(--line)}
-tr:last-child td{border-bottom:0}
-th{font-family:var(--f-mono);font-weight:500;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--sunk)}
-td:first-child{font-family:var(--f-display);font-weight:700;width:34%}
-td:first-child small{display:block;font-family:var(--f-body);font-weight:400;color:var(--muted);font-size:13px}
+/* Empty */
+.empty{color:var(--faint);padding:6px 2px}
 
-.empty-state{background:var(--surface);border:1px dashed var(--line);border-radius:var(--r);padding:28px 24px;display:grid;gap:10px;max-width:640px}
-.empty-state h2{font-size:20px}
-.empty-state ul{margin:0;padding-left:20px;color:var(--muted)}
+/* Recall mode: blur analysis until clicked */
+body.recall .rv{filter:blur(5px);opacity:.6;cursor:pointer;transition:filter .15s,opacity .15s;user-select:none}
+body.recall .rv.shown{filter:none;opacity:1;user-select:auto}
 
-/* Recall mode: hide techniques and effects until tapped */
-body.recall-on .item:not(.shown) .hide{filter:blur(6px);opacity:.55;user-select:none}
-body.recall-on .item:not(.shown){cursor:pointer}
-body.recall-on .item:not(.shown)::after{content:"Tap to reveal";font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mc)}
-.hide{transition:filter .2s,opacity .2s}
-
-/* Search results */
-.results{display:grid;gap:10px}
-.result{display:grid;gap:4px;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--mc);border-radius:var(--r);padding:12px 16px}
-.result:hover{border-color:var(--mc)}
-.result .where{font-family:var(--f-mono);font-size:11.5px;color:var(--mc);letter-spacing:.04em}
-.result .snip{font-size:15px}
-
-.foot{margin-top:40px;color:var(--muted);font-size:13px}
+/* Search modal */
+.scrim[hidden]{display:none}
+.scrim{position:fixed;inset:0;background:rgba(15,15,15,.45);z-index:20;display:flex;justify-content:center;align-items:flex-start;padding:12vh 16px 16px}
+.modal{background:var(--bg);width:100%;max-width:620px;border-radius:10px;box-shadow:0 12px 40px var(--shadow),0 0 0 1px var(--line);overflow:hidden;display:flex;flex-direction:column;max-height:70vh}
+.modal .inp{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);color:var(--muted)}
+.modal input{flex:1;min-width:0;font:17px var(--f-ui);color:var(--ink);background:none;border:0;outline:none}
+.modal .res{overflow-y:auto;padding:6px}
+.modal .hd{font-size:12px;color:var(--faint);padding:8px 10px 4px}
+.hit{display:grid;gap:2px;padding:8px 10px;border-radius:6px;text-decoration:none}
+.hit:hover,.hit.sel{background:var(--hover)}
+.hit .t{font-weight:500;font-size:14.5px}
+.hit .w{font-size:12px;color:var(--faint)}
+.hit .s{font-size:13.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
 @media (max-width:860px){
-  .shell{grid-template-columns:minmax(0,1fr);gap:20px}
-  .top{position:static}
-  nav.side{position:static;display:flex;flex-wrap:wrap;gap:6px}
-  nav.side .paper,nav.side .paper ul,nav.side .home-row{display:contents}
-  nav.side .paper h2,nav.side .paper .meta,.navlink .nm small,.navlink .nm{display:none}
-  .navlink{border:1px solid var(--line);border-radius:999px;padding:5px 12px;background:var(--surface)}
-  .navlink .code{min-width:0;font-size:12px}
-  .navlink[aria-current="page"]{background:var(--mc);border-color:var(--mc);box-shadow:none}
-  .navlink[aria-current="page"] .code,.navlink[aria-current="page"].home-link{color:var(--surface)}
-  .home-link{font-size:13px;padding-block:3px}
+  .app{grid-template-columns:minmax(0,1fr)}
+  .side{position:fixed;left:0;top:0;bottom:0;width:min(280px,85vw);z-index:15;transform:translateX(-100%);transition:transform .2s;box-shadow:0 0 30px var(--shadow);padding-top:calc(env(safe-area-inset-top,0px) + 10px)}
+  body.nav-open .side{transform:none}
+  .menu-btn{display:block}
+  .topbar{top:env(safe-area-inset-top,0px)}
+  .page{padding:28px 16px 100px}
+  .page h1.title{font-size:32px}
+  .prop{grid-template-columns:110px minmax(0,1fr)}
+  table.db thead{display:none}
+  table.db,table.db tbody,table.db tr,table.db td{display:block;width:auto!important}
+  table.db tr{border-bottom:1px solid var(--line);padding:6px 0}
+  table.db td{border:0!important;padding:3px 0}
+  .list .ds{display:none}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
-<header class="top">
-  <div class="top-in">
-    <a class="brand" href="#home"><b>HSC English Hub</b><span class="label">Standard</span></a>
-    <label class="search" for="q">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
-      <input id="q" type="search" placeholder="Search quotes, techniques, ideas…" autocomplete="off" aria-label="Search all notes">
-    </label>
-    <button class="recall" id="recall" type="button" aria-pressed="false" title="Blur techniques and analysis so you can test yourself"><span class="dot" aria-hidden="true"></span>Recall mode</button>
+<div class="app">
+  <aside class="side" id="side" aria-label="Pages"></aside>
+  <div>
+    <div class="topbar">
+      <button class="menu-btn" id="menu" aria-label="Open sidebar"><svg class="i" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      <nav class="crumbs" id="crumbs" aria-label="Breadcrumb"></nav>
+    </div>
+    <main class="page" id="main"></main>
   </div>
-</header>
-
-<div class="shell">
-  <nav class="side" id="side" aria-label="Modules"></nav>
-  <main id="main"></main>
+</div>
+<div class="scrim" id="scrim" hidden>
+  <div class="modal" role="dialog" aria-label="Search notes">
+    <div class="inp"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg><input id="q" type="search" placeholder="Search quotes, techniques, ideas…" autocomplete="off" aria-label="Search all notes"></div>
+    <div class="res" id="res"></div>
+  </div>
 </div>
 
 <script>
 /* ============================================================
    NOTES DATA — add new notes here. Each module has `parts`;
-   each part can hold: claim, ctx, items[], model, line, table.
-   An item: { ttl, quote | scene, tech:[...], effect, ctx }
+   each part can hold: claim, ctx, items[], model, table.
+   An item: { ttl, quote | scene, tech:[...], effect, ctx, line }
    ============================================================ */
 const PAPERS = [
   { id:1, name:"Paper 1", meta:"1 hr 30 min + 10 min reading · 40 marks", mods:["short","common"] },
@@ -395,162 +415,209 @@ const MODS = {
   }
 };
 
+
 /* ============================================================ */
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const strip = s => String(s).replace(/<[^>]+>/g, "");
-const col = m => `var(${m.color})`;
+
+/* Module colours use the Notion tag palette */
+const MCOL = { "short":"gray", "common":"blue", "mod-a":"green", "mod-b":"purple", "mod-c":"orange" };
+const TAGS = ["brown","orange","yellow","green","blue","purple","pink","red","gray"];
+function tag(text, c){
+  if (!c){ let h = 0; for (const ch of text.toLowerCase()) h = (h*31 + ch.charCodeAt(0)) >>> 0; c = TAGS[h % TAGS.length]; }
+  return `<span class="tag" style="background:var(--t-${c});color:var(--tx-${c})">${text}</span>`;
+}
+const modTag = id => tag(MODS[id].code, MCOL[id]);
+const paperOf = id => PAPERS.find(p => p.mods.includes(id));
+
+const I = {
+  page:'<svg class="i" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M9.5 12h6M9.5 15.5h6"/></svg>',
+  home:'<svg class="i" viewBox="0 0 24 24"><path d="M4 11l8-6.5 8 6.5"/><path d="M6 10v9h12v-9"/></svg>',
+  search:'<svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>',
+  eye:'<svg class="i" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.7"/></svg>',
+  list:'<svg class="i" viewBox="0 0 24 24"><path d="M5 7h14M5 12h14M5 17h9"/></svg>',
+  text:'<svg class="i" viewBox="0 0 24 24"><path d="M5 6h14M12 6v13"/></svg>',
+  num:'<svg class="i" viewBox="0 0 24 24"><path d="M9 4L7 20M17 4l-2 16M4 9h16M3.5 15h16"/></svg>',
+  clock:'<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>',
+  tri:'<svg viewBox="0 0 12 12" width="10" height="10" fill="currentColor" aria-hidden="true"><path d="M4 2.5l4.5 3.5L4 9.5z"/></svg>'
+};
 
 function stats(m){
   if (m.empty) return "No notes yet";
-  const parts = m.parts.length;
   const items = m.parts.reduce((n,p)=>n+(p.items?p.items.length:0),0);
-  if (m === MODS["mod-a"]) return `${parts} poems · ${items} quotes`;
+  if (m === MODS["mod-a"]) return `${m.parts.length} poems · ${items} quotes`;
   if (m === MODS["mod-c"]) return `3 sections · ${items} techniques · reflection`;
-  return `${parts} body paragraphs · ${items} pieces of evidence`;
+  return `${m.parts.length} body paragraphs · ${items} pieces of evidence`;
 }
 
-function renderNav(active){
-  let h = `<div class="home-row"><a class="navlink home-link" href="#home" ${active==="home"?'aria-current="page"':''} style="--mc:var(--accent)">Overview</a></div>`;
+function renderSide(active){
+  let h = `<a class="ws" href="#home"><span class="av">L</span>Luca’s English</a>
+    <button class="row" id="open-search">${I.search}Search<span class="kbd">Ctrl K</span></button>
+    <button class="row" id="recall" aria-pressed="${document.body.classList.contains("recall")}">${I.eye}Recall mode<span class="sw"></span></button>
+    <a class="row" href="#home" ${active==="home"?'aria-current="page"':''}>${I.home}<span class="pg">Overview</span></a>`;
   for (const p of PAPERS){
-    h += `<div class="paper"><h2>${p.name}</h2><p class="meta">${p.meta}</p><ul>`;
+    h += `<div class="grp">${p.name}</div>`;
     for (const id of p.mods){
       const m = MODS[id];
-      h += `<li><a class="navlink" href="#${id}" style="--mc:${col(m)}" ${active===id?'aria-current="page"':''}>
-        <span class="code">${m.code}</span><span class="nm">${m.name}<small>${m.sub}</small></span></a></li>`;
+      h += `<a class="row" href="#${id}" ${active===id?'aria-current="page"':''}>${I.page}<span class="pg">${m.name}</span><span class="sub">${m.empty?"empty":m.code}</span></a>`;
     }
-    h += `</ul></div>`;
   }
   $("#side").innerHTML = h;
 }
 
+function renderCrumbs(id){
+  if (id === "home"){ $("#crumbs").innerHTML = `<span class="cur">Overview</span>`; return; }
+  const m = MODS[id], p = paperOf(id);
+  $("#crumbs").innerHTML = `<a href="#home">Luca’s English</a><span>/</span><span>${p.name}</span><span>/</span><span class="cur">${m.name}</span>`;
+}
+
 function renderHome(){
-  let h = `<div class="hello"><span class="label">HSC 2026 · English Standard</span>
-    <h1>All your English notes, by paper.</h1>
-    <p>Pick a module to read it. Search finds any quote or technique across both papers. Turn on recall mode to blur the analysis and test yourself.</p></div>`;
+  let h = `<h1 class="title">HSC English</h1>
+    <div class="props">
+      <div class="prop"><span class="k">${I.list}Course</span><span class="v">${tag("English Standard","brown")}</span></div>
+      <div class="prop"><span class="k">${I.clock}Exam year</span><span class="v">2026</span></div>
+    </div>
+    <div class="callout"><span class="ic">i</span><div class="ct"><p>Open a module from the list below or the sidebar. Press <b>Ctrl K</b> to search every quote and technique. Turn on <b>Recall mode</b> to blur the analysis and test yourself.</p></div></div>`;
   for (const p of PAPERS){
-    h += `<div class="paper-block"><div class="paper-head"><h2>${p.name}</h2><span class="label">${p.meta}</span></div><div class="cards">`;
+    h += `<h2>${p.name}</h2><p class="muted" style="font-size:14px">${p.meta}</p><div class="list">`;
     for (const id of p.mods){
       const m = MODS[id];
-      h += `<a class="card${m.empty?' empty':''}" href="#${id}" style="--mc:${col(m)}">
-        <span class="label" style="color:var(--mc)">${m.code}${m.kind?' · '+m.kind:''}</span>
-        <h3>${m.name}: ${m.sub}</h3>
-        ${m.text?`<p class="txt">${m.text}</p>`:`<p class="txt">${m.rubric.split(".")[0]}.</p>`}
-        <span class="stats">${stats(m)}</span></a>`;
+      h += `<a href="#${id}">${I.page}<span class="nm">${m.name}</span><span class="ds">${m.sub}${m.text?" · "+strip(m.text):""}</span>${tag(stats(m), m.empty?"gray":MCOL[id])}</a>`;
     }
-    h += `</div></div>`;
+    h += `</div>`;
   }
-  h += `<p class="foot">Notes from Luca’s own plans and essays. More coming.</p>`;
   return h;
 }
 
-function renderItem(it){
-  let h = `<article class="item">`;
-  if (it.ttl) h += `<div class="ttl">${it.ttl}</div>`;
-  if (it.scene) h += `<p class="scene"><b>Scene</b>${it.scene}</p>`;
-  if (it.quote) h += `<blockquote>“${it.quote}”</blockquote>`;
-  if (it.line) h += `<p class="line hide">${it.line}</p>`;
-  if (it.tech) h += `<div class="techs hide">${it.tech.map(t=>`<span class="tech">${t}</span>`).join("")}</div>`;
-  if (it.effect) h += `<p class="effect hide">${it.effect}</p>`;
-  if (it.ctx) h += `<p class="ctx hide"><b>Context</b>${it.ctx}</p>`;
-  return h + `</article>`;
+function renderToggle(it){
+  const head = it.ttl
+    ? `<b>${it.ttl}</b>${it.quote?` <span class="q">“${it.quote}”</span>`:""}`
+    : `<span class="q">“${it.quote}”</span>`;
+  let b = "";
+  if (it.scene) b += `<div class="kv"><span class="k">Scene</span><span>${it.scene}</span></div>`;
+  if (it.line) b += `<div class="line rv">${it.line}</div>`;
+  if (it.tech) b += `<div class="kv"><span class="k">Technique</span><span class="rv">${it.tech.map(t=>tag(t)).join("")}</span></div>`;
+  if (it.effect) b += `<div class="kv"><span class="k">Effect</span><span class="rv">${it.effect}</span></div>`;
+  if (it.ctx) b += `<div class="kv"><span class="k">Context</span><span class="rv">${it.ctx}</span></div>`;
+  return `<details class="tg" open><summary><span class="tri">${I.tri}</span><span class="sm">${head}</span></summary><div class="body">${b}</div></details>`;
+}
+
+function renderTable(items){
+  return `<div class="tbl-wrap"><table class="db"><thead><tr><th>${I.text}Quote</th><th>${I.list}Technique</th><th>${I.text}Effect</th></tr></thead><tbody>${
+    items.map(it=>`<tr><td class="q">“${it.quote}”</td><td><span class="rv">${it.tech.map(t=>tag(t)).join("")}</span></td><td class="e"><span class="rv">${it.effect}${it.ctx?`<span class="ctx">Context: ${it.ctx}</span>`:""}</span></td></tr>`).join("")
+  }</tbody></table></div>`;
 }
 
 function renderModule(id){
-  const m = MODS[id];
-  let h = `<div class="mod-head" style="--mc:${col(m)}"><span class="label">${m.code}${m.kind?' · '+m.kind:''}</span>
-    <h1>${m.name}: ${m.sub}</h1>${m.text?`<p class="txt">${m.text}</p>`:''}<p class="rubric">${m.rubric}</p>`;
-  if (m.parts && m.parts.length > 1) h += `<div class="jump">${m.parts.map(p=>`<a href="#${id}" data-jump="${p.id}">${p.h.replace(/^Reflection:.*/,"Reflection")}</a>`).join("")}</div>`;
-  h += `</div><div style="--mc:${col(m)}">`;
+  const m = MODS[id], p = paperOf(id);
+  let h = `<h1 class="title">${m.name}: ${m.sub}</h1><div class="props">
+    <div class="prop"><span class="k">${I.list}Paper</span><span class="v">${tag(p.name,"gray")} ${modTag(id)}</span></div>`;
+  if (m.text) h += `<div class="prop"><span class="k">${I.text}Text</span><span class="v">${m.text}</span></div>`;
+  if (m.kind) h += `<div class="prop"><span class="k">${I.list}Type</span><span class="v">${tag(m.kind)}</span></div>`;
+  h += `<div class="prop"><span class="k">${I.num}Marks</span><span class="v">${m.rubric.split(".")[0]}</span></div></div>
+    <p class="muted">${m.rubric.split(". ").slice(1).join(". ")}</p><hr class="divider">`;
 
   if (m.empty){
-    return h + `<div class="empty-state"><h2>No notes here yet</h2>
-      <p>Send your short-answer notes and they’ll go here. Useful things to include:</p>
-      <ul><li>Your technique list with definitions</li><li>A structure for 3, 4, 5 and 6-mark answers</li><li>Practice answers on unseen texts</li></ul></div></div>`;
+    return h + `<p class="empty">No notes yet. Send your short-answer notes and they’ll go here.</p>
+      <div class="callout"><span class="ic">?</span><div class="ct"><b class="lbl">Worth adding</b><p>Your technique list with definitions. A structure for 3, 4, 5 and 6-mark answers. Practice answers on unseen texts.</p></div></div>`;
   }
-  if (m.thesis) h += `<div class="thesis"><span class="label">${m.thesis.label}</span><p class="big">${m.thesis.text}</p></div>`;
-  if (m.prose) h += `<div class="prose">${m.prose.map(p=>`<p>${p}</p>`).join("")}</div>`;
-  if (m.roadmap) h += `<span class="label">Roadmap</span><ol class="roadmap" style="margin-top:10px">${m.roadmap.map(([a,b])=>`<li><p><b>${a}.</b> ${b}</p></li>`).join("")}</ol>`;
+  if (m.parts.length > 1) h += `<p class="muted" style="font-size:14px">On this page: ${m.parts.map(p=>`<a href="#${id}" data-jump="${p.id}" style="color:var(--link);text-decoration:none">${p.h.replace(/^Reflection:.*/,"Reflection")}</a>`).join(" · ")}</p>`;
+  if (m.thesis) h += `<div class="callout"><span class="ic">“</span><div class="ct"><b class="lbl">${m.thesis.label}</b><p>${m.thesis.text}</p></div></div>`;
+  if (m.prose) h += m.prose.map(x=>`<p>${x}</p>`).join("");
+  if (m.roadmap) h += `<h3>Roadmap</h3><ol class="num">${m.roadmap.map(([a,b])=>`<li><b>${a}.</b> ${b}</li>`).join("")}</ol>`;
 
-  for (const p of m.parts){
-    h += `<section class="part" id="${p.id}"><div class="part-head"><span class="tag">${p.tag}</span><h2>${p.h}</h2>`;
-    if (p.claim) h += `<p class="claim">${p.claim}</p>`;
-    if (p.ctx) h += `<p class="ctx"><b>Context</b>${p.ctx}</p>`;
-    h += `</div>`;
-    if (p.items) h += `<div class="items">${p.items.map(renderItem).join("")}</div>`;
-    if (p.model) h += `<div class="model"><span class="label">Linking sentence · adapt it</span><p>${p.model}</p></div>`;
-    if (p.table) h += `<div class="table-wrap"><table><thead><tr>${p.table.head.map(x=>`<th>${x}</th>`).join("")}</tr></thead><tbody>${p.table.rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
-    h += `</section>`;
+  const isTable = id === "mod-a";
+  for (const pt of m.parts){
+    h += `<h2 id="${pt.id}">${pt.h}${pt.tag && isTable ? ` <span class="tag" style="background:var(--t-gray);color:var(--tx-gray);vertical-align:4px">${pt.tag}</span>`:""}</h2>`;
+    if (pt.tag && !isTable) h += `<p class="muted" style="font-size:13px;margin-top:-2px">${pt.tag}</p>`;
+    if (pt.claim) h += `<p>${pt.claim}</p>`;
+    if (pt.ctx) h += `<div class="callout"><span class="ic">C</span><div class="ct"><b class="lbl">Context</b><p>${pt.ctx}</p></div></div>`;
+    if (pt.items) h += isTable ? renderTable(pt.items) : `<div style="margin-top:8px">${pt.items.map(renderToggle).join("")}</div>`;
+    if (pt.model) h += `<div class="callout"><span class="ic">✎</span><div class="ct"><b class="lbl">Linking sentence (adapt the bold bit)</b><p>${pt.model.replace(/<span class="slot">(.*?)<\/span>/g,"<b>[$1]</b>")}</p></div></div>`;
+    if (pt.table) h += `<div class="tbl-wrap"><table class="db"><thead><tr>${pt.table.head.map(x=>`<th>${x}</th>`).join("")}</tr></thead><tbody>${pt.table.rows.map(r=>`<tr><td><b>${r[0].split("<small>")[0]}</b><span class="ctx">${strip(r[0].split("<small>")[1]||"")}</span></td><td>${r[1]}</td></tr>`).join("")}</tbody></table></div>`;
   }
-  return h + `</div>`;
+  return h;
 }
 
-/* Search index: one entry per item / paragraph */
+/* Search index */
 const INDEX = [];
 for (const [id,m] of Object.entries(MODS)){
   if (m.empty) continue;
-  if (m.thesis) INDEX.push({id, where:`${m.code} · ${m.thesis.label}`, title:m.name, text:strip(m.thesis.text)});
-  (m.roadmap||[]).forEach(([a,b])=>INDEX.push({id, where:`${m.code} · Roadmap`, title:a, text:b}));
+  if (m.thesis) INDEX.push({id, where:`${m.name} · ${m.thesis.label}`, title:m.thesis.label, text:strip(m.thesis.text)});
+  (m.roadmap||[]).forEach(([a,b])=>INDEX.push({id, where:`${m.name} · Roadmap`, title:a, text:b}));
   for (const p of m.parts){
-    if (p.claim) INDEX.push({id, part:p.id, where:`${m.code} · ${p.h}`, title:p.tag, text:[p.claim,p.ctx||""].join(" ")});
-    (p.items||[]).forEach(it=>INDEX.push({id, part:p.id, where:`${m.code} · ${p.h}`, title:it.ttl||(it.quote?`“${it.quote}”`:p.h),
+    if (p.claim) INDEX.push({id, part:p.id, where:`${m.name} · ${p.h}`, title:p.h, text:[p.claim,p.ctx||""].join(" ")});
+    (p.items||[]).forEach(it=>INDEX.push({id, part:p.id, where:`${m.name} · ${p.h}`, title:it.ttl||(it.quote?`“${it.quote}”`:p.h),
       text:[it.quote,it.scene,it.line,(it.tech||[]).join(", "),it.effect,it.ctx].filter(Boolean).map(strip).join(" · ")}));
-    if (p.model) INDEX.push({id, part:p.id, where:`${m.code} · ${p.h}`, title:"Linking sentence", text:strip(p.model)});
-    if (p.table) p.table.rows.forEach(r=>INDEX.push({id, part:p.id, where:`${m.code} · Reflection`, title:strip(r[0].split("<small>")[0]), text:strip(r[1])}));
+    if (p.model) INDEX.push({id, part:p.id, where:`${m.name} · ${p.h}`, title:"Linking sentence", text:strip(p.model)});
+    if (p.table) p.table.rows.forEach(r=>INDEX.push({id, part:p.id, where:`${m.name} · Reflection`, title:strip(r[0].split("<small>")[0]), text:strip(r[1])}));
   }
 }
-
 function hl(text, q){
-  const t = esc(text); const re = new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&") + ")","ig");
-  return t.replace(re,"<mark>$1</mark>");
+  const t = esc(text); if (!q) return t;
+  return t.replace(new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&") + ")","ig"),"<mark>$1</mark>");
 }
-function renderSearch(q){
-  const ql = q.toLowerCase();
-  const hits = INDEX.filter(e => (e.title+" "+e.text+" "+e.where).toLowerCase().includes(ql));
-  let h = `<div class="mod-head" style="--mc:var(--accent)"><span class="label">Search</span><h1>${hits.length} result${hits.length===1?"":"s"} for “${esc(q)}”</h1></div>`;
-  if (!hits.length) return h + `<p class="ctx">Nothing matched. Try a technique (“metaphor”), a character (“Meryl”) or an idea (“identity”).</p>`;
-  return h + `<div class="results">${hits.map(e=>`<a class="result" href="#${e.id}" data-part="${e.part||""}" style="--mc:${col(MODS[e.id])}">
-    <span class="where">${esc(e.where)}</span><strong style="font-family:var(--f-display)">${hl(e.title,q)}</strong><span class="snip">${hl(e.text,q)}</span></a>`).join("")}</div>`;
+let sel = 0;
+function renderResults(){
+  const q = $("#q").value.trim(), ql = q.toLowerCase();
+  if (!q){
+    $("#res").innerHTML = `<div class="hd">Pages</div>` + Object.keys(MODS).map(id=>`<a class="hit" href="#${id}" data-part=""><span class="t">${MODS[id].name}: ${MODS[id].sub}</span><span class="w">${paperOf(id).name}</span></a>`).join("");
+  } else {
+    const hits = INDEX.filter(e => (e.title+" "+e.text+" "+e.where).toLowerCase().includes(ql));
+    $("#res").innerHTML = `<div class="hd">${hits.length} result${hits.length===1?"":"s"}</div>` + (hits.length ? hits.map(e=>`<a class="hit" href="#${e.id}" data-part="${e.part||""}"><span class="t">${hl(e.title,q)}</span><span class="w">${esc(e.where)}</span><span class="s">${hl(e.text,q)}</span></a>`).join("")
+      : `<p class="hit muted">No matches. Try a technique like “metaphor”, a character like “Meryl”, or an idea like “identity”.</p>`);
+  }
+  sel = 0; markSel();
 }
+function markSel(){ const hs=[...document.querySelectorAll("#res a.hit")]; hs.forEach((h,i)=>h.classList.toggle("sel",i===sel)); if(hs[sel]) hs[sel].scrollIntoView({block:"nearest"}); }
+function openSearch(){ $("#scrim").hidden = false; document.body.classList.remove("nav-open"); $("#q").value=""; renderResults(); $("#q").focus(); }
+function closeSearch(){ $("#scrim").hidden = true; }
 
 let pendingPart = null;
 function route(){
-  const q = $("#q").value.trim();
-  if (q){ renderNav(""); $("#main").innerHTML = renderSearch(q); return; }
   let id = location.hash.slice(1);
   if (!MODS[id]) id = "home";
-  renderNav(id);
+  renderSide(id); renderCrumbs(id);
   $("#main").innerHTML = id === "home" ? renderHome() : renderModule(id);
+  document.body.classList.remove("nav-open");
   if (pendingPart){ const el = document.getElementById(pendingPart); pendingPart = null; if (el) el.scrollIntoView(); }
   else window.scrollTo(0,0);
   try{ localStorage.setItem("eng-last", id); }catch(e){}
 }
-
-window.addEventListener("hashchange", route);
-$("#q").addEventListener("input", route);
-document.addEventListener("click", e=>{
-  const j = e.target.closest("[data-jump]");
-  if (j){ e.preventDefault(); const el = document.getElementById(j.dataset.jump); if (el) el.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"}); return; }
-  const r = e.target.closest(".result");
-  if (r){ $("#q").value = ""; pendingPart = r.dataset.part || null; if (location.hash === r.getAttribute("href")){ e.preventDefault(); route(); } return; }
-  const it = e.target.closest(".item");
-  if (it && document.body.classList.contains("recall-on")) it.classList.toggle("shown");
-});
-document.addEventListener("keydown", e=>{
-  if (e.key === "/" && document.activeElement !== $("#q")){ e.preventDefault(); $("#q").focus(); }
-  if (e.key === "Escape" && document.activeElement === $("#q")){ $("#q").value = ""; route(); }
-});
-
-const recallBtn = $("#recall");
 function setRecall(on){
-  document.body.classList.toggle("recall-on", on);
-  recallBtn.setAttribute("aria-pressed", on);
-  document.querySelectorAll(".item.shown").forEach(x=>x.classList.remove("shown"));
+  document.body.classList.toggle("recall", on);
+  const b = $("#recall"); if (b) b.setAttribute("aria-pressed", on);
+  document.querySelectorAll(".rv.shown").forEach(x=>x.classList.remove("shown"));
   try{ localStorage.setItem("eng-recall", on ? "1" : "0"); }catch(e){}
 }
-recallBtn.addEventListener("click", ()=>setRecall(!document.body.classList.contains("recall-on")));
-try{ if (localStorage.getItem("eng-recall") === "1") setRecall(true); }catch(e){}
 
+window.addEventListener("hashchange", route);
+$("#q").addEventListener("input", renderResults);
+$("#menu").addEventListener("click", e=>{ e.stopPropagation(); document.body.classList.toggle("nav-open"); });
+document.addEventListener("click", e=>{
+  if (e.target.closest("#open-search")){ openSearch(); return; }
+  if (e.target.closest("#recall")){ setRecall(!document.body.classList.contains("recall")); return; }
+  if (e.target === $("#scrim")){ closeSearch(); return; }
+  const hit = e.target.closest("a.hit");
+  if (hit){ closeSearch(); pendingPart = hit.dataset.part || null; if (location.hash === hit.getAttribute("href")){ e.preventDefault(); route(); } return; }
+  const j = e.target.closest("[data-jump]");
+  if (j){ e.preventDefault(); const el = document.getElementById(j.dataset.jump); if (el) el.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"}); return; }
+  const rv = e.target.closest(".rv");
+  if (rv && document.body.classList.contains("recall")){ e.preventDefault(); rv.classList.add("shown"); return; }
+  if (document.body.classList.contains("nav-open") && !e.target.closest("#side")) document.body.classList.remove("nav-open");
+});
+document.addEventListener("keydown", e=>{
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k"){ e.preventDefault(); $("#scrim").hidden ? openSearch() : closeSearch(); return; }
+  if ($("#scrim").hidden) return;
+  const hs = document.querySelectorAll("#res a.hit");
+  if (e.key === "Escape") closeSearch();
+  else if (e.key === "ArrowDown"){ e.preventDefault(); sel = Math.min(sel+1, hs.length-1); markSel(); }
+  else if (e.key === "ArrowUp"){ e.preventDefault(); sel = Math.max(sel-1, 0); markSel(); }
+  else if (e.key === "Enter" && hs[sel]){ e.preventDefault(); hs[sel].click(); }
+});
+
+try{ if (localStorage.getItem("eng-recall") === "1") document.body.classList.add("recall"); }catch(e){}
 if (!location.hash){ try{ const last = localStorage.getItem("eng-last"); if (last && MODS[last]) history.replaceState(null,"","#"+last); }catch(e){} }
 route();
 </script>
