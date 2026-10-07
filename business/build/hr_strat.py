@@ -215,6 +215,162 @@ HR_STRAT = {
 <li>salaries reviewed annually against clear KPIs; bonuses linked to performance criteria set by head office</li>
 </ul>
 """,
+"rewards": """
+<p><strong>Def:</strong> additional remuneration benefits, monetary or non-monetary, an employee receives for providing labour to the business</p>
+<p><strong>Why:</strong></p>
+<ul><li>recognises productive employees</li><li>retains employees and attracts skilled applicants</li></ul>
+<p><strong>How:</strong></p>
+<ul>
+<li>monetary: financial rewards (share purchase plans, bonuses, product discounts, travel allowance)</li>
+<li>non-monetary: non-financial value (flexible work arrangements, training opportunities, new office, certificates and awards)</li>
+<li>can also be individual, group or performance-based pay</li>
+<li>same content as Maintenance (rewards) in HR Processes</li>
+</ul>
+<p><strong>Positives:</strong></p>
+<ul>
+<li>[monetary] bonuses and commissions motivate staff to hit targets → results-driven culture, higher productivity</li>
+<li>[monetary] competitive pay attracts skilled candidates and retains top performers → lower staff turnover</li>
+<li>[non-monetary] flexible work makes staff feel valued → higher loyalty and worker satisfaction</li>
+</ul>
+<p><strong>Negatives:</strong></p>
+<ul>
+<li>[monetary] individual rewards can create rivalry → less collaboration, weaker team cohesion</li>
+<li>[monetary] high ongoing cost, unsustainable for small businesses or when profits are low</li>
+<li>[non-monetary] may not appeal to everyone; inconsistent use → perceptions of favouritism</li>
+</ul>
+<p><strong>Intrinsic vs extrinsic:</strong> intrinsic rewards come from the job itself (sense of achievement); extrinsic rewards come from outside the job (monetary and non-monetary)</p>
+
+<h3>Individual pay</h3>
+<ul>
+<li>Def: remuneration customised to each employee's contribution through individual contracts</li>
+<li>Positives:
+<ul><li>motivates through individual recognition</li><li>greater control over wages → higher worker satisfaction</li></ul></li>
+<li>Negatives:
+<ul><li>may drive aggressive sales to earn more → lower customer satisfaction</li><li>less collaboration → weaker corporate culture, more workplace conflict</li></ul></li>
+</ul>
+
+<h3>Group pay</h3>
+<ul>
+<li>Def: remuneration based on team performance, achieved through collective bargaining</li>
+<li>Positives:
+<ul><li>better accountability for performance within departments</li><li>improves communication and collaboration → better corporate culture and productivity</li></ul></li>
+<li>Negatives:
+<ul><li>disputes between high and low performers as effort is unequal → more workplace disputes</li></ul></li>
+</ul>
+
+<h3>Performance-based pay</h3>
+<ul>
+<li>Def: part of remuneration linked to the employee's productivity and output</li>
+<li>How: commissions; KPIs</li>
+<li>Positives:
+<ul><li>motivates employees to improve productivity</li><li>shared goals between employer and employees → better corporate culture</li></ul></li>
+<li>Negatives:
+<ul><li>ineffective if the employee is not motivated by money</li><li>external factors can affect results (e.g. COVID-19 lockdowns)</li></ul></li>
+</ul>
+
+<p><strong>Apple case study:</strong></p>
+<ul>
+<li>individual: senior executives rewarded for meeting or exceeding annual KPIs, varying by role</li>
+<li>group and performance-based: the iOS 17 R&amp;D team received performance-based pay; iOS 17 launched before Google's Android update, helping Apple keep global market share</li>
+<li>Tim Cook's base salary has been $3m since 2016, but most pay is performance-linked: $63.2m in 2023</li>
+</ul>
+""",
+
+"global": """
+<p><strong>Characteristics and features:</strong></p>
+<ul>
+<li>costs: high HR costs in Australia → businesses use cheaper, skilled labour overseas (e.g. China, India) for accounting, legal, call-centre and IT work. Global costs include hiring overseas staff, settling and accommodating families, and training overseas staff vs relocating domestic staff</li>
+<li>skills: skill shortages (e.g. technology, healthcare) → government temporary work visas (457 visa). Consider overseas skill levels and how well skills transfer to the domestic market</li>
+<li>supply: global outsourcing supplies skilled labour at lower cost to fill domestic shortages. Consider experience and qualifications, and willingness to relocate to Australia</li>
+</ul>
+<p><strong>Why:</strong> businesses must balance cheaper overseas labour against the skills needed and the use of domestic labour; overseas staff may need extra training on products, corporate culture and language or cultural differences</p>
+<p><strong>Positives:</strong></p>
+<ul><li>access to a large volume of skilled labour and specialised expertise</li><li>access to low-cost labour</li><li>greater cultural diversity and perspectives</li></ul>
+<p><strong>Negatives:</strong></p>
+<ul><li>corporate culture and domestic employee morale may suffer</li><li>language and cultural barriers → miscommunication</li><li>extra training is time and cost intensive</li></ul>
+<p><strong>Apple case study:</strong></p>
+<ul>
+<li>TNC with 161,000 employees worldwide: local staff plus international professionals; centralised decisions in the US HQ and regional HQs</li>
+<li>costs: outsources to Foxconn and Pegatron in China; assembly workers earn $9/hour, 80% cheaper than US manufacturing</li>
+<li>supply: Foxconn and Pegatron supply 500,000 workers</li>
+<li>skills: internships, scholarships and cadetships with Harvard and Yale business schools; $500m R&amp;D hub in China; R&amp;D hubs in France, Indonesia, India, Sweden and the UK</li>
+</ul>
+""",
+
+"workplace disputes": """
+<p><strong>Def:</strong> a disagreement between an employer and its employees that may disrupt or stop work</p>
+<p><strong>Characteristics and features:</strong></p>
+<ul>
+<li>causes: remuneration; employment conditions (hours, leave, benefits); job security (retrenchment, restructuring, outsourcing); health and safety; managerial policy (discrimination); union issues; political or social protests</li>
+<li>industrial action: strikes (workers withdraw labour); lockouts (employer refuses workers entry); pickets (protests outside the workplace, often stopping deliveries and non-union labour)</li>
+<li>the legal framework has significantly reduced the number of disputes</li>
+</ul>
+<p><strong>Positives:</strong></p>
+<ul>
+<li>once resolved, can improve workplace practices → better corporate culture and productivity</li>
+<li>discussion can produce new solutions to workplace problems</li>
+<li>clearer roles and responsibilities → more specialisation and productivity</li>
+</ul>
+<p><strong>Negatives:</strong></p>
+<ul>
+<li>disruptive: strikes hurt output, productivity and profits</li>
+<li>lower worker satisfaction, worse the longer the dispute lasts</li>
+<li>higher absenteeism → toxic corporate culture</li>
+</ul>
+
+<h3>Negotiation</h3>
+<ul>
+<li>Def: formal or informal discussions between the parties in dispute to reach a compromise</li>
+<li>How: both parties communicate directly, usually in person</li>
+<li>Positives:
+<ul><li>no legal expenses, cost-effective</li><li>quick, with fewer procedures than formal processes</li><li>both parties give input</li></ul></li>
+<li>Negatives:
+<ul><li>needs buy-in from both sides; can take a long time if they won't communicate amicably</li></ul></li>
+</ul>
+
+<h3>Mediation</h3>
+<ul>
+<li>Def: confidential discussion in a non-threatening environment with a neutral, objective third party (mediator)</li>
+<li>Why: resolves disputes before they escalate to more expensive methods</li>
+<li>Positives:
+<ul><li>removes bias</li><li>third party leads to more reasonable negotiation</li><li>cheaper than formal methods</li></ul></li>
+<li>Negatives:
+<ul><li>more expensive and time-consuming than negotiation</li></ul></li>
+</ul>
+
+<h3>Grievance procedures</h3>
+<ul>
+<li>Def: formal, agreed steps for resolving disputes, generally written into an award or enterprise agreement</li>
+<li>Why: clear steps stop conflict escalating and keep the process transparent</li>
+<li>Positives:
+<ul><li>transparent, clear step-by-step process</li><li>fair way to settle the dispute</li></ul></li>
+<li>Negatives:
+<ul><li>cost intensive to investigate grievances</li><li>time intensive, with lots of documentation</li></ul></li>
+</ul>
+
+<h3>Involvement of courts and tribunals</h3>
+<ul>
+<li>courts: hear complaints such as breach of employment contract; may form common law</li>
+<li>tribunals: less formal, e.g. the Fair Work Commission (FWC)</li>
+<li>How: if negotiation or mediation fails, the FWC appoints a conciliator to hear both sides (conciliation); if that fails, a third party makes a legally binding decision (arbitration)</li>
+<li>Positives:
+<ul><li>clear, decisive resolution as arbitration is binding</li></ul></li>
+<li>Negatives:
+<ul><li>most expensive and time-consuming method</li></ul></li>
+</ul>
+
+<p><strong>Qantas case study:</strong></p>
+<ul>
+<li>context: 5-year transformation plan to cut costs → 2,800 redundancies; labour is 25% of expenses (each 1% wage rise adds $27m a year); 15 unions and 48 enterprise agreements</li>
+<li>disputes: long-haul pilots (AIPA) wanted job security, 8% a year wage rises and a cap on outsourcing; baggage handlers and catering (TWU) wanted job security, limits on outsourcing and 12% over 3 years; engineers (ALAEA) wanted no offshoring of jobs</li>
+<li>action: unions took industrial action; on 29 Oct 2011 CEO Alan Joyce grounded the whole fleet ahead of a lockout of staff</li>
+<li>mediation with engineers and pilots failed to resolve job security and pay, so disputes went to FWC conciliation</li>
+<li>grievance procedures in all enterprise agreements resolved most small disputes quickly</li>
+<li>courts and tribunals: the Federal Government stepped in and the FWC oversaw conciliation and arbitration</li>
+<li>outcome: pilots got 10.5% over 3 years and engineers 9% over 3 years, but Qantas could restructure, make redundancies and offshore A380 maintenance</li>
+<li>impact: $194m cost to Qantas, $250m a day to the economy, 600 flights cancelled and 80,000 passengers affected; damage to brand, operations and profitability</li>
+</ul>
+""",
 }
 
 # Notes-only mnemonics replaced with the ones on Luca's syllabus sheet
