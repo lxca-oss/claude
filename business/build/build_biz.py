@@ -1,5 +1,7 @@
 """Build business notes data (JSON) from pandoc HTML of Luca's notes, ordered by the HSC syllabus."""
-import html, json, re, sys
+import html, json, os, re, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from hr_strat import HR_STRAT, MN_FIX
 
 SRC = sys.argv[1]   # dir with Finance.html etc.
 OUT = sys.argv[2]
@@ -128,10 +130,33 @@ SYL = [
  ]),
 ]
 
+# Mnemonics from Luca's syllabus sheet: point-level overrides and sub-point tags
+PMN = {
+ ("finance", "external sources of finance"): "", ("finance", "financial ratios"): "", ("finance", "cash flow management"): "",
+ ("finance", "working capital management"): "", ("finance", "profitability management"): "",
+ ("marketing", "factors influencing customer choice"): "PEGS, LAMPP, CRFS, FMR", ("marketing", "establishing market objectives"): "PIIIEE",
+ ("marketing", "implementation, monitoring and controlling"): "SMM, NPC", ("marketing", "price including pricing methods"): "CMC",
+ ("marketing", "promotion"): "RAPPPS", ("marketing", "place/distribution"): "",
+ ("operations", "globalisation, technology, quality expectations, cost-based competition, government policies, legal regulation, environmental sustainability"): "TEGGLQC, RAGGG, QFD RLP",
+ ("operations", "inputs"): "", ("operations", "transformation processes"): "",
+}
+SUBMN = {
+ "debt – short-term": "COF, MUDL", "equity – ordinary": "NSPR, PE", "comparative ratio analysis": "WAO",
+ "distribution of payments": "DDF", "control of current assets": "RIC", "control of current liabilities": "LOP", "strategies – leasing": "SL",
+ "cost controls": "FEC", "packaging": "ISCAP", "pricing strategies": "PPPL", "elements of the promotion mix": "METDBS",
+ "the communication process": "OLWOM", "channel choice": "ISE", "physical distribution": "WIT", "global pricing": "CMC",
+ "transformed resources": "MIC", "transforming resources": "HF", "the influence of volume": "VVVV", "technology, task design": "DDD, FOPP",
+}
+
+def fix(s):
+    for a, b in MN_FIX: s = s.replace(a, b)
+    return s
+
 def text(s):
     return html.unescape(re.sub(r"<[^>]+>", "", s)).strip()
 
 def clean(body):
+    body = fix(body)
     body = re.sub(r"<colgroup>.*?</colgroup>\s*", "", body, flags=re.S)
     body = re.sub(r' (class|style|id)="[^"]*"', "", body)
     body = body.replace("<th><strong>", "<th>").replace("</strong></th>", "</th>")
@@ -178,11 +203,11 @@ def render(tree, show_title):
     base = tree[0]["lvl"]; h = ""
     for j, n in enumerate(tree):
         if j == 0:
-            if show_title: h += f'<h3>{html.escape(n["title"])}</h3>'
+            if show_title: h += f'<h3>{html.escape(fix(n["title"]))}</h3>'
         else:
             rel = n["lvl"] - base + (3 if show_title else 2)
             tag = "h4" if rel >= 4 else "h3"
-            h += f"<{tag}>{html.escape(n['title'])}</{tag}>"
+            h += f"<{tag}>{html.escape(fix(n['title']))}</{tag}>"
         h += clean(n["body"])
     return h
 
@@ -204,11 +229,14 @@ for kid, name, short, secs in SYL:
                 if key == "E" and kid == "hr":
                     eb = n["body"]
                 used.add(titles.index(n["title"]))
-        sec = {"key": key, "name": sname, "mn": mn, "intro": intro, "pts": []}
+        sec = {"key": key, "name": sname, "mn": "", "intro": intro, "pts": []}
         for k, p in enumerate(pts):
             t, pmn, subs, heads = p[:4]; extra = p[4] if len(p) > 4 else {}
             h = ""
-            if heads == ["__E__"]:
+            title0 = t.partition(" – ")[0]
+            if kid == "hr" and title0 in HR_STRAT:
+                h = clean(HR_STRAT[title0]); extra = {}
+            elif heads == ["__E__"]:
                 eb2 = re.sub(r"<li>[^<]*slides give no further detail.*?</li>", "", eb, flags=re.S)
                 h = clean(eb2)
             else:
@@ -220,7 +248,8 @@ for kid, name, short, secs in SYL:
                     h += render(tr, len(heads) > 1)
             title, _, rest = t.partition(" – ")
             sec["pts"].append({"id": f"{kid}-{key.lower()}{k+1}", "t": title[0].upper() + title[1:], "rest": rest,
-                               "subs": subs, "mn": pmn, "html": h, "related": extra.get("related", [])})
+                               "subs": [[x, next((m for k2, m in SUBMN.items() if x.startswith(k2)), "")] for x in subs],
+                               "mn": PMN.get((kid, title), pmn), "html": h, "related": extra.get("related", [])})
         kb["secs"].append(sec)
     left = [n["title"] for i, n in enumerate(nodes) if i not in used and n["lvl"] > 1]
     if left: print("UNUSED", kid, left)
