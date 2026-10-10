@@ -179,11 +179,16 @@ main { max-width: 820px; margin: 0 auto; padding-inline: 16px; padding-block: 28
 @keyframes pop { from { opacity: 0; transform: translateY(40px) scale(.7) rotate(6deg); } to { opacity: 1; transform: rotate(-1.5deg); } }
 
 /* ---------- photos ---------- */
-.polaroids { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 22px; }
+.memories { font-family: var(--hand); font-size: clamp(1.6rem, 4.5vw, 2rem); line-height: 1.2; color: var(--rose-deep); max-width: 30ch; }
+/* masonry: photos keep their own shape so nobody gets cropped out */
+.polaroids { columns: 3 200px; column-gap: 24px; }
 .polaroid {
   background: var(--paper); padding: 10px 10px 4px; box-shadow: var(--shadow); border: 0; cursor: pointer;
   transform: rotate(var(--r, 0deg)); transition: transform .25s; display: flex; flex-direction: column; gap: 6px; position: relative;
+  width: 100%; break-inside: avoid; margin: 12px 0 28px;
 }
+.polaroid img { display: block; width: 100%; height: auto; }
+.big-img { display: block; width: 100%; height: auto; border-radius: 8px; }
 .polaroid:hover { transform: rotate(0deg) scale(1.04); }
 .polaroid::before { content: ""; position: absolute; top: -10px; left: 50%; width: 70px; height: 20px; transform: translateX(-50%) rotate(-3deg); background: rgba(196, 181, 253, .6); }
 .photo {
@@ -365,6 +370,7 @@ main { max-width: 820px; margin: 0 auto; padding-inline: 16px; padding-block: 28
     <div class="head">
       <p class="eyebrow">Some of my favourite days</p>
       <h1 class="title">Us</h1>
+      <p class="memories">just some memories to keep u motivated for what's to come very soon!!!</p>
     </div>
     <div class="slot"></div>
     <div class="polaroids" id="polaroids"></div>
@@ -634,15 +640,25 @@ function pullNote() {
 }
 $('#jar').onclick = pullNote; $('#pull').onclick = pullNote;
 
-const PHOTOS = Array.from({ length: 6 }, (_, i) => ({ caption: 'caption ' + (i + 1) }));
+const PHOTOS = [
+  { src: 'photos/1.webp', w: 1024, h: 768, caption: 'my fav fairy' },
+  { src: 'photos/2.webp', w: 1400, h: 1050, caption: 'may as well have been ours...' },
+  { src: 'photos/3.webp', w: 1024, h: 768, caption: 'moments before demolition' },
+  { src: 'photos/4.webp', w: 1024, h: 768, caption: 'squad' },
+  { src: 'photos/5.webp', w: 360, h: 480, caption: "Disney's calling?!?!" },
+  { caption: 'one more coming soon' },
+];
+const photoHTML = (p, i, cls) => p.src
+  ? `<img class="${cls}" src="${p.src}" width="${p.w}" height="${p.h}" alt="${p.caption}" ${cls ? '' : 'loading="lazy"'}>`
+  : `<span class="photo${cls ? ' big-photo' : ''}"><svg viewBox="0 0 24 24"><path fill="#F9A8D4" d="${HEART}"/></svg>photo ${i + 1} coming soon</span>`;
 $('#polaroids').innerHTML = PHOTOS.map((p, i) => `
-  <button class="polaroid" style="--r:${[-3, 2, -1.5, 3, -2.5, 1.5][i % 6]}deg" data-i="${i}" aria-label="Photo ${i + 1}">
-    <span class="photo"><svg viewBox="0 0 24 24"><path fill="#F9A8D4" d="${HEART}"/></svg>photo ${i + 1} coming soon</span>
+  <button class="polaroid" style="--r:${[-3, 2, -1.5, 3, -2.5, 1.5][i % 6]}deg" data-i="${i}" aria-label="Open photo: ${p.caption}">
+    ${photoHTML(p, i, '')}
     <figcaption>${p.caption}</figcaption>
   </button>`).join('');
 document.querySelectorAll('.polaroid').forEach(b => b.onclick = () => {
   const p = PHOTOS[b.dataset.i];
-  openModal(p.caption, `<span class="photo big-photo"><svg viewBox="0 0 24 24"><path fill="#F9A8D4" d="${HEART}"/></svg>photo ${+b.dataset.i + 1} coming soon</span>`);
+  openModal(p.caption, photoHTML(p, +b.dataset.i, 'big-img'));
 });
 $('#frog').onclick = () => {
   const f = $('#frog'); f.classList.remove('jump'); void f.offsetWidth; f.classList.add('jump');
