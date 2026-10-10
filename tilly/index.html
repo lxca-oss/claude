@@ -145,8 +145,8 @@ main { max-width: 820px; margin: 0 auto; padding-inline: 16px; padding-block: 28
 
 /* ---------- subjects ---------- */
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
-.card { perspective: 1000px; border: 0; padding: 0; background: none; cursor: pointer; min-height: 250px; text-align: left; }
-.card-inner { position: relative; width: 100%; height: 100%; min-height: 250px; transition: transform .7s cubic-bezier(.3,1.3,.5,1); transform-style: preserve-3d; }
+.card { perspective: 1000px; border: 0; padding: 0; background: none; cursor: pointer; min-height: 300px; text-align: left; }
+.card-inner { position: relative; width: 100%; height: 100%; min-height: 300px; transition: transform .7s cubic-bezier(.3,1.3,.5,1); transform-style: preserve-3d; }
 .card.flipped .card-inner { transform: rotateY(180deg); }
 .face {
   position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
@@ -159,8 +159,10 @@ main { max-width: 820px; margin: 0 auto; padding-inline: 16px; padding-block: 28
 .face.front span { font-size: .85rem; color: var(--berry-soft); }
 .face.back { transform: rotateY(180deg); background: var(--rose); color: #fff; }
 .face.back h3 { font-size: var(--step-1); }
-.face.back p { font-family: var(--hand); font-size: 1.45rem; line-height: 1.25; overflow-y: auto; }
-.face.back .todo { font-size: .9rem; }
+.face.back .joke { font-size: .95rem; line-height: 1.4; background: rgba(255, 255, 255, .18); border-radius: 10px; padding: 8px 10px; }
+.face.back .joke b { display: block; font-family: var(--display); font-weight: 600; }
+.face.back .msg { font-family: var(--hand); font-size: 1.45rem; line-height: 1.2; }
+.face.back .from { margin-top: auto; text-align: right; font-family: var(--hand); font-size: 1.5rem; font-weight: 700; opacity: .9; }
 
 /* ---------- jar ---------- */
 .jar-stage { display: flex; flex-direction: column; align-items: center; gap: 22px; }
@@ -306,7 +308,7 @@ main { max-width: 820px; margin: 0 auto; padding-inline: 16px; padding-block: 28
         <div class="cd-cell"><span class="cd-num" id="cd-m">0</span><span class="cd-lab">mins</span></div>
         <div class="cd-cell"><span class="cd-num" id="cd-s">0</span><span class="cd-lab">secs</span></div>
       </div>
-      <p class="cd-note" id="cd-note">until your last exam: Religion, Thursday 22 October.</p>
+      <p class="cd-note" id="cd-note">until your last exam finishes: Religion, Thursday 22 October at 12:30pm.</p>
     </div>
     <div class="daily"><small>Today's reminder</small><span id="daily"></span></div>
     <div class="slot"></div>
@@ -593,17 +595,17 @@ function sprinkle(screen) {
 
 /* ================= content ================= */
 const SUBJECTS = [
-  { name: 'Advanced English', tag: 'the wordsmith', icon: `<svg viewBox="0 0 64 64"><path d="M50 6C30 10 18 26 16 46l6-2c4-14 14-26 28-38Z" fill="#F9A8D4"/><path d="M50 6C40 20 30 32 22 44" stroke="#BE185D" stroke-width="2" fill="none"/><path d="M16 46l-4 12 8-8" fill="#831843"/><path d="M28 58h26" stroke="#C4B5FD" stroke-width="3" stroke-linecap="round"/></svg>` },
-  { name: 'Biology', tag: 'the scientist', icon: `<svg viewBox="0 0 64 64" fill="none" stroke-width="4" stroke-linecap="round"><path d="M20 6c0 14 24 18 24 32S20 44 20 58" stroke="#EC4899"/><path d="M44 6c0 14-24 18-24 32s24 6 24 20" stroke="#8B5CF6"/><path d="M24 14h16M26 24h12M26 40h12M24 50h16" stroke="#F9A8D4" stroke-width="3"/></svg>` },
-  { name: 'Modern History', tag: 'the historian', icon: `<svg viewBox="0 0 64 64"><rect x="14" y="12" width="36" height="40" fill="#FEF9C3" stroke="#FDE68A" stroke-width="2"/><rect x="8" y="8" width="48" height="10" rx="5" fill="#F9A8D4"/><rect x="8" y="46" width="48" height="10" rx="5" fill="#F9A8D4"/><path d="M20 26h24M20 32h20M20 38h22" stroke="#9D4D73" stroke-width="2" stroke-linecap="round"/></svg>` },
-  { name: 'Advanced Maths', tag: 'the problem solver', icon: `<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="#EDE9FE"/><text x="32" y="46" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="40" fill="#8B5CF6">π</text></svg>` },
-  { name: 'Religion', tag: 'the deep thinker', icon: `<svg viewBox="0 0 64 64"><circle cx="32" cy="18" r="14" fill="#FEF9C3"/><path d="M32 6c6 8 6 14 0 18-6-4-6-10 0-18Z" fill="#FB923C"/><path d="M32 12c3 5 3 8 0 10-3-2-3-5 0-10Z" fill="#FFD54A"/><rect x="24" y="26" width="16" height="30" rx="4" fill="#F9A8D4"/><path d="M18 56h28" stroke="#C4B5FD" stroke-width="4" stroke-linecap="round"/></svg>` },
+  { name: 'Advanced English', joke: null, msg: "I don't have a joke for English because it's my worst nightmare, but you rock at it so I'll leave this one up to you!!", tag: 'the wordsmith', icon: `<svg viewBox="0 0 64 64"><path d="M50 6C30 10 18 26 16 46l6-2c4-14 14-26 28-38Z" fill="#F9A8D4"/><path d="M50 6C40 20 30 32 22 44" stroke="#BE185D" stroke-width="2" fill="none"/><path d="M16 46l-4 12 8-8" fill="#831843"/><path d="M28 58h26" stroke="#C4B5FD" stroke-width="3" stroke-linecap="round"/></svg>` },
+  { name: 'Biology', joke: ["Why do blood cells always fall in love?", "Alas, it is all in vein."], msg: "Sorry, that was a shocking joke bb. Bio is your zone. U got this, you're in control.", tag: 'the scientist', icon: `<svg viewBox="0 0 64 64" fill="none" stroke-width="4" stroke-linecap="round"><path d="M20 6c0 14 24 18 24 32S20 44 20 58" stroke="#EC4899"/><path d="M44 6c0 14-24 18-24 32s24 6 24 20" stroke="#8B5CF6"/><path d="M24 14h16M26 24h12M26 40h12M24 50h16" stroke="#F9A8D4" stroke-width="3"/></svg>` },
+  { name: 'Modern History', joke: ["Why did the history book get grounded?", "Because it had too many dates."], msg: "Hey bb, it's Luca. History is gonna be a breeze for you because you have the biggest brain ever! You got this bb!", tag: 'the historian', icon: `<svg viewBox="0 0 64 64"><rect x="14" y="12" width="36" height="40" fill="#FEF9C3" stroke="#FDE68A" stroke-width="2"/><rect x="8" y="8" width="48" height="10" rx="5" fill="#F9A8D4"/><rect x="8" y="46" width="48" height="10" rx="5" fill="#F9A8D4"/><path d="M20 26h24M20 32h20M20 38h22" stroke="#9D4D73" stroke-width="2" stroke-linecap="round"/></svg>` },
+  { name: 'Advanced Maths', joke: ["Why was 6 afraid of 7?", "Because 7 8 9..."], msg: "Lol, that's a classic. You got maths. I genuinely hold the highest respect for you and your Advanced Maths soldiers.", tag: 'the problem solver', icon: `<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="#EDE9FE"/><text x="32" y="46" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="40" fill="#8B5CF6">π</text></svg>` },
+  { name: 'Religion', joke: null, msg: "Praying for you 🙏 get it...", tag: 'the deep thinker', icon: `<svg viewBox="0 0 64 64"><circle cx="32" cy="18" r="14" fill="#FEF9C3"/><path d="M32 6c6 8 6 14 0 18-6-4-6-10 0-18Z" fill="#FB923C"/><path d="M32 12c3 5 3 8 0 10-3-2-3-5 0-10Z" fill="#FFD54A"/><rect x="24" y="26" width="16" height="30" rx="4" fill="#F9A8D4"/><path d="M18 56h28" stroke="#C4B5FD" stroke-width="4" stroke-linecap="round"/></svg>` },
 ];
 $('#cards').innerHTML = SUBJECTS.map(s => `
   <button class="card" aria-label="${s.name}: tap to flip">
     <div class="card-inner">
       <div class="face front">${s.icon}<h3>${s.name}</h3><span>${s.tag}</span></div>
-      <div class="face back"><h3>${s.name}</h3><p><span class="todo">Luca: your ${s.name} pep talk goes here.</span></p></div>
+      <div class="face back"><h3>${s.name}</h3>${s.joke ? `<p class="joke"><b>${s.joke[0]}</b> ${s.joke[1]}</p>` : ''}<p class="msg">${s.msg}</p><p class="from">love, Luca</p></div>
     </div>
   </button>`).join('');
 document.querySelectorAll('.card').forEach(c => c.onclick = () => c.classList.toggle('flipped'));
@@ -671,8 +673,8 @@ $('#hug').onclick = e => {
 };
 
 /* ================= home: countdown + daily line ================= */
-// Religion, Thu 22 Oct 2026, 9:30am Sydney time (AEDT, UTC+11)
-const TARGET = Date.UTC(2026, 9, 21, 22, 30);
+// Religion finishes Thu 22 Oct 2026, 12:30pm Sydney time (AEDT, UTC+11)
+const TARGET = Date.UTC(2026, 9, 22, 1, 30);
 function tickCountdown() {
   let ms = TARGET - Date.now();
   if (ms <= 0) {
