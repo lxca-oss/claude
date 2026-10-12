@@ -258,6 +258,45 @@ main { max-width: 820px; margin: 0 auto; padding-inline: 16px; padding-block: 28
 @keyframes buzz { from { transform: translateY(-3px); } to { transform: translateY(3px); } }
 .toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 56; background: var(--berry); color: #fff; padding: 10px 18px; border-radius: 999px; font: 600 .95rem var(--display); max-width: calc(100% - 32px); text-align: center; }
 
+/* ---------- paper 1 ---------- */
+.p1-env {
+  display: flex; align-items: center; gap: 18px; width: 100%; padding: 18px 20px; border: 0; cursor: pointer; text-align: left;
+  background: var(--rose); color: #fff; border-radius: var(--radius); box-shadow: 0 8px 0 var(--rose-deep), var(--shadow); text-decoration: none;
+  transform: rotate(-1deg); transition: transform .2s; animation: nudge 3s ease-in-out infinite;
+}
+.p1-env:hover { transform: rotate(0deg) translateY(-3px); }
+.p1-env svg { width: 74px; height: 50px; flex: none; }
+.p1-env b { display: block; font: 600 var(--step-2)/1.1 var(--display); }
+.p1-env span { font-family: var(--hand); font-size: 1.4rem; line-height: 1.2; opacity: .95; }
+@keyframes nudge { 0%, 88%, 100% { transform: rotate(-1deg); } 92% { transform: rotate(-3deg) scale(1.02); } 96% { transform: rotate(1deg) scale(1.02); } }
+.p1-notes { display: flex; flex-direction: column; gap: 20px; }
+.p1-note {
+  background: #FEF9C3; padding: 18px 22px; border-radius: 4px; box-shadow: var(--shadow); max-width: 560px;
+  font-family: var(--hand); font-size: clamp(1.55rem, 4.6vw, 1.9rem); line-height: 1.25; color: var(--berry);
+  transform: rotate(var(--r, 0deg)); animation: pop .6s cubic-bezier(.2,1.4,.4,1) both; animation-delay: var(--d, 0s);
+}
+.p1-note:nth-child(even) { align-self: flex-end; background: var(--paper); border-top: 10px solid var(--petal); }
+.p1-sign { font-family: var(--hand); font-size: 2.1rem; font-weight: 700; color: var(--rose-deep); text-align: right; }
+.oracle { background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px 20px; display: flex; flex-direction: column; gap: 16px; align-items: center; text-align: center; }
+.oracle h2 { font-size: var(--step-2); }
+.oracle p.sub { color: var(--berry-soft); }
+.oracle-stage { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.speech {
+  position: relative; background: var(--lilac-soft); color: var(--berry); border-radius: 18px; padding: 12px 18px; max-width: 340px;
+  font: 600 1.05rem/1.4 var(--display); min-height: 3.2em; display: grid; place-items: center;
+}
+.speech::after { content: ""; position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); border: 12px solid transparent; border-top-color: var(--lilac-soft); border-bottom: 0; }
+.speech.pop { animation: pop .45s cubic-bezier(.2,1.4,.4,1); }
+#oracle-duck { width: 150px; }
+#oracle-duck.think svg { animation: think .9s ease-in-out; transform-origin: 50% 90%; }
+@keyframes think { 20% { transform: rotate(-10deg); } 40% { transform: rotate(10deg); } 60% { transform: rotate(-6deg); } 80% { transform: rotate(4deg) translateY(-6px); } }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.chip {
+  min-height: 44px; padding: 8px 16px; border-radius: 999px; border: 2px solid var(--petal); background: var(--blush); color: var(--rose-deep);
+  font: 600 .95rem var(--display); cursor: pointer; transition: background .2s, border-color .2s;
+}
+.chip:hover { background: var(--paper); border-color: var(--rose); }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .bubble { animation: breathe 8s ease-in-out infinite !important; }
@@ -305,6 +344,10 @@ main { max-width: 820px; margin: 0 auto; padding-inline: 16px; padding-block: 28
       <h1 class="title">You've got this, <em>Tilly</em>.</h1>
       <p class="lede">Every hour of study is already in there. Now you just get to show it off.</p>
     </div>
+    <a class="p1-env" href="#paper1">
+      <svg viewBox="0 0 74 50" aria-hidden="true"><rect width="74" height="50" rx="6" fill="#FDF2F8"/><path d="M0 4 37 30 74 4" fill="none" stroke="#F9A8D4" stroke-width="4"/><path transform="translate(28 26) scale(.75)" fill="#BE185D" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      <div><b>Paper 1</b><span>open me before your exam</span></div>
+    </a>
     <div class="slot"></div>
     <div class="countdown" aria-live="polite">
       <div class="eyebrow" id="cd-title">Countdown to freedom</div>
@@ -319,6 +362,36 @@ main { max-width: 820px; margin: 0 auto; padding-inline: 16px; padding-block: 28
     <div class="daily"><small>Today's reminder</small><span id="daily"></span></div>
     <div class="slot"></div>
     <a class="btn next" href="#subjects">See your subjects</a>
+  </section>
+
+  <!-- ============ PAPER 1 ============ -->
+  <section class="screen" data-screen="paper1">
+    <div class="head">
+      <p class="eyebrow">English Paper 1</p>
+      <h1 class="title">Good luck today, <em>Tills</em>!</h1>
+    </div>
+    <div class="p1-notes">
+      <p class="p1-note" style="--r:-1.5deg;--d:.1s">Hey Tills, you've taught both your friends and me how to do shorts, so no need to worry about those.</p>
+      <p class="p1-note" style="--r:1.5deg;--d:.35s">And your essay, I can confidently say, is better than anyone's you're worrying about.</p>
+      <p class="p1-note" style="--r:-.8deg;--d:.6s">This is your time to shine and you're going to crush it.</p>
+    </div>
+    <p class="p1-sign">Lots of Love from Luca</p>
+    <div class="slot"></div>
+    <div class="oracle">
+      <h2>Ask the Exam Duck</h2>
+      <p class="sub">He knows things. Pick a question.</p>
+      <div class="oracle-stage">
+        <p class="speech" id="speech" aria-live="polite">Quack. Ask me anything.</p>
+        <div id="oracle-duck"></div>
+      </div>
+      <div class="chips" id="chips"></div>
+    </div>
+    <div class="slot"></div>
+    <div class="hug-row">
+      <button class="btn" id="ready">I'm ready</button>
+      <p class="hug-msg" id="ready-msg" aria-live="polite"></p>
+    </div>
+    <a class="skip next" href="#home">back to home</a>
   </section>
 
   <!-- ============ SUBJECTS ============ -->
@@ -586,7 +659,7 @@ const SURPRISES = {
   breath:{ label: 'need a break?', icon: 'bubble', run: breathe },
   bee:   { label: 'bee-lieve', icon: 'bee', run: flyBee },
 };
-const PLAN = { home: ['duck', 'breath'], subjects: ['rain', 'duck'], jar: ['bee'], photos: ['duck'], openwhen: ['breath', 'bee'], letter: ['rain', 'duck'] };
+const PLAN = { paper1: ['breath'], home: ['duck', 'breath'], subjects: ['rain', 'duck'], jar: ['bee'], photos: ['duck'], openwhen: ['breath', 'bee'], letter: ['rain', 'duck'] };
 function sprinkle(screen) {
   const slots = [...screen.querySelectorAll('.slot')];
   slots.forEach(s => s.innerHTML = '');
@@ -693,6 +766,33 @@ $('#hug').onclick = e => {
   const m = $('#hug-msg'); m.dataset.n = (+m.dataset.n || 0) + 1; m.textContent = msgs[Math.min(m.dataset.n - 1, msgs.length - 1)];
 };
 
+/* ================= paper 1: ask the exam duck ================= */
+const ORACLE = [
+  { q: 'Will I do well?', a: ['Quack. That means yes.', 'The duck has seen your practice essays. Yes. Obviously.', 'Signs point to Band 6.'] },
+  { q: 'Should I panic?', a: ['No. Panicking is for ducks who didn\u2019t study. You studied.', 'Absolutely not. Have a sip of water instead.', 'The duck is extremely calm about this, and he can\u2019t even read.'] },
+  { q: 'Will the questions be nice?', a: ['Doesn\u2019t matter. You\u2019ll make them nice.', 'The duck can\u2019t see the paper. But he isn\u2019t worried, so neither are you.'] },
+  { q: 'Is Luca smarter than me?', a: ['Hahahaha. No.', 'The duck laughed so hard he fell over. No.', 'Luca once asked the duck what a thesis is. So... no.'] },
+  { q: 'Any last advice?', a: ['Read the question twice. Then write like you\u2019re explaining it to Luca.', 'Snack in your bag? Good. The duck approves.', 'Quack quack. (Translation: you\u2019ve got this.)', 'Don\u2019t spend 40 minutes on question one. That\u2019s a Luca move.'] },
+];
+$('#oracle-duck').innerHTML = DUCK;
+$('#chips').innerHTML = ORACLE.map((o, i) => `<button class="chip" data-i="${i}">${o.q}</button>`).join('');
+const lastAns = {};
+document.querySelectorAll('.chip').forEach(c => c.onclick = () => {
+  const o = ORACLE[c.dataset.i], duck = $('#oracle-duck'), sp = $('#speech');
+  let a; do { a = pick(o.a); } while (o.a.length > 1 && a === lastAns[c.dataset.i]);
+  lastAns[c.dataset.i] = a;
+  duck.classList.remove('think'); void duck.offsetWidth; duck.classList.add('think');
+  sp.textContent = '...';
+  setTimeout(() => {
+    sp.textContent = a; sp.classList.remove('pop'); void sp.offsetWidth; sp.classList.add('pop');
+    const r = duck.getBoundingClientRect(); burst(r.left + r.width * .8, r.top + r.height * .5, 8, 2.5);
+  }, reduced ? 100 : 900);
+});
+$('#ready').onclick = e => {
+  const r = e.currentTarget.getBoundingClientRect(); burst(r.left + r.width / 2, r.top + r.height / 2, 60, 8); rain(50);
+  $('#ready-msg').textContent = 'Go crush it, Tills!';
+};
+
 /* ================= home: countdown + daily line ================= */
 // Religion finishes Thu 22 Oct 2026, 12:30pm Sydney time (AEDT, UTC+11)
 const TARGET = Date.UTC(2026, 9, 22, 1, 30);
@@ -749,6 +849,7 @@ function route() {
   });
   if (target.dataset.screen === 'open') $('#envelope').classList.remove('open');
   sprinkle(target);
+  if (target.dataset.screen === 'paper1') setTimeout(() => rain(35), 300);
   scrollTo(0, 0);
 }
 addEventListener('hashchange', route);
