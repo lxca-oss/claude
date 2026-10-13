@@ -297,6 +297,38 @@ main { max-width: 820px; margin: 0 auto; padding-inline: 16px; padding-block: 28
 }
 .chip:hover { background: var(--paper); border-color: var(--rose); }
 
+/* ---------- paper 2 ---------- */
+.p1-env.done { background: var(--paper); color: var(--rose-deep); box-shadow: 0 6px 0 var(--petal); padding: 12px 18px; animation: none; transform: rotate(.8deg); }
+.p1-env.done svg { width: 48px; height: 32px; }
+.p1-env.done b { font-size: var(--step-1); }
+.p1-env.done span { font-size: 1.25rem; }
+.blinks { background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+.blinks h2 { font-size: var(--step-1); }
+.blinks p.sub { color: var(--berry-soft); }
+.eyes { display: grid; grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); gap: 10px; }
+.eye { display: flex; flex-direction: column; align-items: center; gap: 4px; border: 0; background: var(--blush); border-radius: 14px; padding: 10px 4px; cursor: pointer; min-height: 44px; font: 600 .8rem/1.2 var(--display); color: var(--berry-soft); text-align: center; }
+.eye svg { width: 48px; height: 30px; }
+.eye.blinked { background: var(--rose); color: #fff; }
+.eye.blink svg { animation: blink .35s ease-in-out; transform-origin: center; }
+@keyframes blink { 50% { transform: scaleY(.1); } }
+.nesa { background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px 20px; display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center; overflow: hidden; }
+.nesa h2 { font-size: var(--step-2); }
+.nesa p.sub { color: var(--berry-soft); }
+.hp { width: min(320px, 100%); display: flex; flex-direction: column; gap: 4px; }
+.hp-label { display: flex; justify-content: space-between; font: 700 .75rem var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--berry-soft); }
+.hp-bar { height: 14px; border-radius: 999px; background: var(--blush); overflow: hidden; border: 2px solid var(--petal); }
+.hp-fill { height: 100%; width: 100%; background: linear-gradient(90deg, var(--rose), var(--lilac)); transition: width .3s ease; }
+.building-btn { border: 0; background: none; padding: 0; cursor: pointer; width: min(220px, 62vw); touch-action: manipulation; }
+.building-btn svg { width: 100%; height: auto; display: block; transform-origin: 50% 100%; }
+.building-btn.hit svg { animation: bonk .3s ease; }
+@keyframes bonk { 25% { transform: rotate(-4deg) scale(.97); } 50% { transform: rotate(3deg); } 75% { transform: rotate(-1.5deg); } }
+.building-btn.fall { pointer-events: none; }
+.building-btn.fall svg { animation: crumble 1.4s ease-in forwards; }
+@keyframes crumble { 20% { transform: rotate(-6deg); } 100% { transform: translateY(70%) rotate(18deg) scaleY(.3); opacity: 0; } }
+.crack { opacity: 0; transition: opacity .2s; }
+.crack.show { opacity: 1; }
+.win { font-family: var(--hand); font-size: clamp(1.8rem, 5vw, 2.2rem); line-height: 1.2; color: var(--rose-deep); }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .bubble { animation: breathe 8s ease-in-out infinite !important; }
@@ -344,9 +376,13 @@ main { max-width: 820px; margin: 0 auto; padding-inline: 16px; padding-block: 28
       <h1 class="title">You've got this, <em>Tilly</em>.</h1>
       <p class="lede">Every hour of study is already in there. Now you just get to show it off.</p>
     </div>
-    <a class="p1-env" href="#paper1">
+    <a class="p1-env" href="#paper2">
       <svg viewBox="0 0 74 50" aria-hidden="true"><rect width="74" height="50" rx="6" fill="#FDF2F8"/><path d="M0 4 37 30 74 4" fill="none" stroke="#F9A8D4" stroke-width="4"/><path transform="translate(28 26) scale(.75)" fill="#BE185D" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-      <div><b>Paper 1</b><span>open me before your exam</span></div>
+      <div><b>Paper 2</b><span>open me before your exam</span></div>
+    </a>
+    <a class="p1-env done" href="#paper1">
+      <svg viewBox="0 0 74 50" aria-hidden="true"><rect width="74" height="50" rx="6" fill="#FDF2F8"/><path d="M0 4 37 30 74 4" fill="none" stroke="#F9A8D4" stroke-width="4"/><path transform="translate(28 26) scale(.75)" fill="#BE185D" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      <div><b>Paper 1: done!</b><span>tap to read it again</span></div>
     </a>
     <div class="slot"></div>
     <div class="countdown" aria-live="polite">
@@ -391,6 +427,66 @@ main { max-width: 820px; margin: 0 auto; padding-inline: 16px; padding-block: 28
       <button class="btn" id="ready">I'm ready</button>
       <p class="hug-msg" id="ready-msg" aria-live="polite"></p>
     </div>
+    <a class="skip next" href="#home">back to home</a>
+  </section>
+
+  <!-- ============ PAPER 2 ============ -->
+  <section class="screen" data-screen="paper2">
+    <div class="head">
+      <p class="eyebrow">English Paper 2</p>
+      <h1 class="title">One down, <em>Tills</em>!</h1>
+    </div>
+    <div class="p1-notes">
+      <p class="p1-note" style="--r:-1.5deg;--d:.1s">Hey bb, FIRST ONE'S DONE! Haha, how good.</p>
+      <p class="p1-note" style="--r:1.5deg;--d:.35s">Think of it like the first blink, like ur mum said, which means u only have a few blinks to go, so keep it up.</p>
+      <p class="p1-note" style="--r:-.8deg;--d:.6s">Paper 2 tomorrow. You're going to ace it and kill everything that evil NESA building throws at us.</p>
+      <p class="p1-note" style="--r:1deg;--d:.85s">Good luck. You got this.</p>
+    </div>
+    <p class="p1-sign">Lots of love from Luca!!!</p>
+    <div class="blinks">
+      <h2>Blink tracker</h2>
+      <p class="sub" id="blink-sub">1 blink down, 5 to go. Tap an eye.</p>
+      <div class="eyes" id="eyes"></div>
+    </div>
+    <div class="slot"></div>
+    <div class="nesa">
+      <h2>Smash the NESA Building</h2>
+      <p class="sub">It's been throwing exams at you for weeks. Tap it to fight back.</p>
+      <div class="hp">
+        <div class="hp-label"><span>NESA HQ</span><span id="hp-num">100 HP</span></div>
+        <div class="hp-bar"><div class="hp-fill" id="hp-fill"></div></div>
+      </div>
+      <p class="speech" id="nesa-speech" aria-live="polite">Mwahaha. Paper 2 is MINE.</p>
+      <button class="building-btn" id="building" aria-label="Hit the NESA building">
+        <svg viewBox="0 0 200 220" aria-hidden="true">
+          <rect x="62" y="4" width="76" height="28" rx="5" fill="#3B0A23"/>
+          <text x="100" y="25" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="19" fill="#FDF2F8">NESA</text>
+          <rect x="92" y="32" width="16" height="6" fill="#3B0A23"/>
+          <rect x="28" y="38" width="144" height="178" rx="6" fill="#B8B3D6" stroke="#6D6A8F" stroke-width="4"/>
+          <ellipse cx="74" cy="78" rx="16" ry="14" fill="#fff" stroke="#3B0A23" stroke-width="3"/>
+          <ellipse cx="126" cy="78" rx="16" ry="14" fill="#fff" stroke="#3B0A23" stroke-width="3"/>
+          <circle cx="78" cy="81" r="6" fill="#3B0A23"/><circle cx="122" cy="81" r="6" fill="#3B0A23"/>
+          <path d="M54 56 L92 68 M146 56 L108 68" stroke="#3B0A23" stroke-width="7" stroke-linecap="round"/>
+          <path d="M76 116 Q100 100 124 116" stroke="#3B0A23" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <g fill="#FEF9C3" stroke="#6D6A8F" stroke-width="2">
+            <rect x="46" y="134" width="24" height="18"/><rect x="88" y="134" width="24" height="18"/><rect x="130" y="134" width="24" height="18"/>
+            <rect x="46" y="164" width="24" height="18"/><rect x="130" y="164" width="24" height="18"/>
+          </g>
+          <rect x="86" y="174" width="28" height="42" rx="3" fill="#6D6A8F"/>
+          <g stroke="#3B0A23" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path class="crack" d="M40 44 L52 66 L46 80 L58 98"/>
+            <path class="crack" d="M168 120 L150 132 L158 148 L142 160"/>
+            <path class="crack" d="M100 40 L108 54 L98 62"/>
+            <path class="crack" d="M32 150 L48 158 L40 176 L56 190"/>
+            <path class="crack" d="M160 190 L146 198 L152 214"/>
+            <path class="crack" d="M118 124 L106 140 L114 150 L100 170"/>
+          </g>
+        </svg>
+      </button>
+      <p class="win" id="nesa-win" hidden>NESA defeated. Paper 2 doesn't stand a chance.</p>
+      <button class="btn soft" id="rebuild" hidden>Rebuild it and smash again</button>
+    </div>
+    <div class="slot"></div>
     <a class="skip next" href="#home">back to home</a>
   </section>
 
@@ -659,7 +755,7 @@ const SURPRISES = {
   breath:{ label: 'need a break?', icon: 'bubble', run: breathe },
   bee:   { label: 'bee-lieve', icon: 'bee', run: flyBee },
 };
-const PLAN = { paper1: ['breath'], home: ['duck', 'breath'], subjects: ['rain', 'duck'], jar: ['bee'], photos: ['duck'], openwhen: ['breath', 'bee'], letter: ['rain', 'duck'] };
+const PLAN = { paper2: ['duck'], paper1: ['breath'], home: ['duck', 'breath'], subjects: ['rain', 'duck'], jar: ['bee'], photos: ['duck'], openwhen: ['breath', 'bee'], letter: ['rain', 'duck'] };
 function sprinkle(screen) {
   const slots = [...screen.querySelectorAll('.slot')];
   slots.forEach(s => s.innerHTML = '');
@@ -793,6 +889,52 @@ $('#ready').onclick = e => {
   $('#ready-msg').textContent = 'Go crush it, Tills!';
 };
 
+/* ================= paper 2: blinks + smash NESA ================= */
+const EXAMS = [['English Paper 1', true], ['English Paper 2'], ['Biology'], ['Modern History'], ['Advanced Maths'], ['Religion']];
+const EYE_OPEN = '<svg viewBox="0 0 48 30"><ellipse cx="24" cy="15" rx="21" ry="12" fill="#fff" stroke="#3B0A23" stroke-width="2.5"/><circle cx="24" cy="15" r="7" fill="#8B5CF6"/><circle cx="24" cy="15" r="3.5" fill="#3B0A23"/><circle cx="26.5" cy="12.5" r="1.6" fill="#fff"/></svg>';
+const EYE_SHUT = '<svg viewBox="0 0 48 30"><path d="M4 12 Q24 28 44 12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M12 19 L9 25 M24 22 L24 28 M36 19 L39 25" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>';
+$('#eyes').innerHTML = EXAMS.map(([n, done]) => `<button class="eye${done ? ' blinked' : ''}" aria-label="${n}${done ? ': done' : ''}">${done ? EYE_SHUT : EYE_OPEN}<span>${n}</span></button>`).join('');
+const BLINK_QUIPS = ['That one\u2019s still open. For now.', 'Blink pending.', 'Soon. Very soon.', 'This eye is watching NESA suspiciously.'];
+document.querySelectorAll('.eye').forEach((e, i) => e.onclick = () => {
+  e.classList.remove('blink'); void e.offsetWidth; e.classList.add('blink');
+  $('#blink-sub').textContent = EXAMS[i][1] ? 'Blinked. Done. Gone. Beautiful.' : pick(BLINK_QUIPS);
+});
+
+const NESA_QUIPS = [
+  'Ow! My marking guidelines!', 'You can\u2019t defeat me. I have RUBRICS.', 'Not the windows! I need those for unseen texts!',
+  'Who taught her the shorts?! Was it HER?', 'I\u2019ll give you a weird stimulus! ...ow.', 'Stop! I\u2019m just a building!',
+  'Please. Not the essay. Anything but her essay.', 'Okay, okay, Band 6, just stop hitting me.', 'I should never have scheduled Paper 2.',
+];
+let hp = 100, q = 0;
+const bld = $('#building');
+function hitNesa(e) {
+  if (hp <= 0) return;
+  hp -= 10;
+  $('#hp-fill').style.width = hp + '%'; $('#hp-num').textContent = hp + ' HP';
+  document.querySelectorAll('.crack').forEach((c, i) => c.classList.toggle('show', i < Math.ceil((100 - hp) / 16)));
+  const r = bld.getBoundingClientRect();
+  const x = e && e.clientX ? e.clientX : r.left + r.width / 2, y = e && e.clientY ? e.clientY : r.top + r.height / 2;
+  burst(x, y, 12, 4);
+  const sp = $('#nesa-speech');
+  if (hp > 0) {
+    bld.classList.remove('hit'); void bld.offsetWidth; bld.classList.add('hit');
+    sp.textContent = NESA_QUIPS[q++ % NESA_QUIPS.length];
+  } else {
+    sp.textContent = 'Nooooooo! Not like thiiiis...';
+    bld.classList.add('fall');
+    setTimeout(() => { rain(80); bld.hidden = true; $('#nesa-win').hidden = false; $('#rebuild').hidden = false; }, reduced ? 100 : 1200);
+  }
+  sp.classList.remove('pop'); void sp.offsetWidth; sp.classList.add('pop');
+}
+bld.addEventListener('click', hitNesa);
+$('#rebuild').onclick = () => {
+  hp = 100; q = 0; bld.classList.remove('fall', 'hit'); bld.hidden = false;
+  $('#hp-fill').style.width = '100%'; $('#hp-num').textContent = '100 HP';
+  document.querySelectorAll('.crack').forEach(c => c.classList.remove('show'));
+  $('#nesa-speech').textContent = 'I\u2019m BACK. And I brought Paper 2.';
+  $('#nesa-win').hidden = true; $('#rebuild').hidden = true;
+};
+
 /* ================= home: countdown + daily line ================= */
 // Religion finishes Thu 22 Oct 2026, 12:30pm Sydney time (AEDT, UTC+11)
 const TARGET = Date.UTC(2026, 9, 22, 1, 30);
@@ -849,7 +991,7 @@ function route() {
   });
   if (target.dataset.screen === 'open') $('#envelope').classList.remove('open');
   sprinkle(target);
-  if (target.dataset.screen === 'paper1') setTimeout(() => rain(35), 300);
+  if (target.dataset.screen === 'paper1' || target.dataset.screen === 'paper2') setTimeout(() => rain(35), 300);
   scrollTo(0, 0);
 }
 addEventListener('hashchange', route);
