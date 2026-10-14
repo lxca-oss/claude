@@ -1,0 +1,124 @@
+mode: paper
+autostart: false
+risk:
+  risk_per_trade_pct: 0.3
+  risk_basis: balance
+  max_trades_per_day: 8
+  daily_loss_stop_pct: 1.5
+  max_consecutive_losses: 3
+  daily_profit_stop_pct: 2.0
+  flatten_on_daily_stop: true
+  min_stop_usd: 3.0
+  min_stop_atr_mult: 1.0
+  sizing_slippage_usd: 0.1
+  scratch_r: 0.05
+levels:
+  step: 20.0
+  target_offset: 1.0
+  min_room_r: 1.2
+  stop_near_zone: 2.0
+  stop_beyond: 2.5
+sessions:
+  asian_start: 00:00
+  asian_end: 07:00
+  london_start: 07:00
+  london_end: '10:00'
+  ny_start: 08:20
+  ny_end: '11:00'
+  pmfix_start: 09:45
+  pmfix_end: '10:30'
+  move_anchor_ny: 08:30
+  no_new_trades_ny: '11:00'
+  flat_ny: '11:30'
+  server_close_ny: '14:00'
+  min_asian_coverage: 0.8
+news:
+  enabled: true
+  before_minutes: 5
+  after_minutes: 5
+  major_after_minutes: 15
+  currencies:
+  - USD
+  impacts:
+  - High
+  major_keywords:
+  - Non-Farm
+  - NFP
+  - CPI
+  - FOMC
+  - Federal Funds Rate
+  - Fed Interest Rate
+  feed_url: https://nfs.faireconomy.media/ff_calendar_thisweek.json
+  refresh_minutes: 60
+module_a:
+  enabled: true
+  range_min_pct: 0.3
+  range_max_pct: 1.6
+  entry_buffer: 0.5
+  stop_cap_pct: 0.6
+  target_r: 2.5
+  breakeven_r: 1.5
+  order_expiry: window_end
+  exit_mode: session_close
+  apply_level_rules: true
+  max_trades: 1
+module_b:
+  enabled: true
+  sweep_min: 1.0
+  reclaim_bars: 3
+  stop_buffer_min: 1.5
+  stop_buffer_atr: 0.5
+  partial_fraction: 0.5
+  final_target_offset: 1.0
+  max_per_side: 1
+  apply_level_rules: true
+module_c:
+  enabled: true
+  ema_period: 20
+  slope_bars: 3
+  touch_tolerance: 0.2
+  setup_expiry_bars: 6
+  swing_strength: 2
+  swing_fallback_bars: 5
+  entry_buffer: 0.1
+  stop_buffer: 0.3
+  target_r: 2.0
+  max_trades: 3
+  max_losses: 2
+  apply_level_rules: true
+module_d:
+  enabled: false
+  move_atr_mult: 1.5
+  level_proximity: 2.0
+  stop_beyond_level: 2.5
+  extreme_buffer: 0.5
+  target_r: 1.5
+  max_trades: 2
+  apply_level_rules: true
+costs:
+  spread_usd: 0.25
+  commission_per_oz_rt: 0.07
+  slippage_usd: 0.05
+  contract_size_oz: 100.0
+  min_lots: 0.01
+  lot_step: 0.01
+backtest:
+  initial_balance: 100000.0
+  split_date: '2022-01-01'
+  random_iterations: 200
+  random_seed: 42
+  ftmo_daily_loss_pct: 5.0
+  ftmo_max_loss_pct: 10.0
+  best_day_max_share: 0.3
+  target_t_stat: 3.0
+  module_a_target_pf: 1.3
+ctrader:
+  environment: demo
+  account_id: null
+  symbol: XAUUSD
+  label: GSE
+  redirect_uri: http://localhost:8050/oauth/callback
+  commission_per_oz_rt: null
+terminal:
+  host: 127.0.0.1
+  port: 8050

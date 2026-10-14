@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gold Session Engine · Login</title>
+  <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body style="display:grid;place-items:center;min-height:100vh;padding:16px">
+  <form class="card" style="width:min(360px,100%)" id="f">
+    <div class="brand" style="margin-bottom:14px"><div class="brand-mark">Au</div>Gold Session Engine</div>
+    <label class="field"><span>Terminal password</span><input type="password" id="pw" autofocus required></label>
+    <div class="row" style="margin-top:12px"><button class="btn primary" type="submit">Log in</button><span class="down small" id="err"></span></div>
+  </form>
+  <script>
+    document.getElementById("f").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const r = await fetch("/api/login", { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: document.getElementById("pw").value }) });
+      if (r.ok) location.href = "/"; else document.getElementById("err").textContent = "Wrong password";
+    });
+  </script>
+</body>
+</html>

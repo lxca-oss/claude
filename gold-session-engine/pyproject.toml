@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gold-session-engine"
+version = "0.1.0"
+description = "XAU/USD intraday bot for the cTrader Open API, with a web terminal and backtester"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.29",
+    "pydantic>=2.6",
+    "pyyaml>=6.0",
+    "protobuf>=4.21",
+    "numpy>=1.26",
+    "httpx>=0.27",
+    "tzdata>=2024.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+gse = "gse.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["gse*"]
+
+[tool.setuptools.package-data]
+gse = ["terminal/static/**/*", "broker/ctrader/proto/*.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+filterwarnings = ["ignore::DeprecationWarning"]

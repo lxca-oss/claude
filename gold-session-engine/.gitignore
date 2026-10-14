@@ -1,0 +1,10 @@
+# everything the bot writes: market data, journal, tokens, backtest results, logs
+data/
+# your own settings (the example file is committed)
+config/settings.yaml
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
