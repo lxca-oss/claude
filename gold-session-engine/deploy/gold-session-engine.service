@@ -1,0 +1,22 @@
+# systemd unit for a Linux VPS.
+#   sudo cp deploy/gold-session-engine.service /etc/systemd/system/
+#   (edit User and the paths below)
+#   sudo systemctl daemon-reload && sudo systemctl enable --now gold-session-engine
+#   journalctl -u gold-session-engine -f
+# Turn on "Autostart" in the terminal so the bot reconnects to its account after a reboot.
+
+[Unit]
+Description=Gold Session Engine (XAU/USD bot + terminal)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=trader
+WorkingDirectory=/home/trader/gold-session-engine
+ExecStart=/home/trader/gold-session-engine/.venv/bin/python -m gse terminal
+Restart=always
+RestartSec=10
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
