@@ -1,0 +1,1612 @@
+<title>Drillion</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Drillion: a Krillion-style HSC Business Studies game. Give rare answers to dig deeper under the NESA building.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bungee&family=Bungee+Shade&family=DM+Mono:wght@400;500&family=Gochi+Hand&display=swap">
+<style>
+/* Layout: a one-screen dig. Left rail = cutaway section beneath the NESA building, centre = the room you are in,
+   right = the prompt card. One committed "underground" look (dark earth + hi-vis), so there is no light theme. */
+:root{
+  color-scheme: dark;
+  --bg:#15110D; --panel:#211A14; --panel-2:#2B231B; --line:#43372B;
+  --ink:#F4ECDF; --muted:#B8A894; --faint:#85765F;
+  --hivis:#FFCC1A; --hivis-ink:#1B1405; --hivis-deep:#A37F00; --alert:#FF6A3D;
+  --t-dirt:#6A5646; --t-pebble:#A08D7A; --t-copper:#E08A52; --t-silver:#CBD4DE; --t-gold:#F5BF3F; --t-diamond:#86E6F2;
+  --c-operations:#63B3E0; --c-marketing:#F07BB0; --c-finance:#74CF8F; --c-hr:#B09CF7; --c-deep:#FF8A3D;
+  --f-display:"Bungee","Arial Black",Impact,sans-serif;
+  --f-shade:"Bungee Shade","Bungee","Arial Black",Impact,sans-serif;
+  --f-body:"Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,sans-serif;
+  --f-mono:"DM Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --f-hand:"Gochi Hand","Chalkboard SE","Comic Sans MS",cursive;
+  --hazard:repeating-linear-gradient(-45deg,var(--hivis) 0 12px,var(--hivis-ink) 12px 24px);
+}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font:16px/1.5 var(--f-body);-webkit-font-smoothing:antialiased}
+#app{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body.in-game #app{height:100%}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--hivis);outline-offset:2px}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
+
+/* ---------- shared bits ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;padding:11px 16px;font-family:var(--f-display);font-size:15px;letter-spacing:.02em;border:2px solid var(--line);background:var(--panel-2);color:var(--ink);transition:transform .08s}
+.btn:active{transform:translateY(2px)}
+.btn.go{background:var(--hivis);color:var(--hivis-ink);border-color:var(--hivis);box-shadow:0 4px 0 var(--hivis-deep)}
+.btn.go:active{box-shadow:0 2px 0 var(--hivis-deep)}
+.btn.ghost{background:transparent}
+.tape{height:12px;background:var(--hazard);border-radius:3px}
+.eyebrow{font-family:var(--f-display);font-size:12px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.chip{display:inline-block;font-family:var(--f-display);font-size:12px;letter-spacing:.06em;padding:3px 9px;border-radius:6px;background:var(--tc);color:#16110C;white-space:nowrap}
+.t-dirt{--tc:var(--t-dirt)} .t-pebble{--tc:var(--t-pebble)} .t-copper{--tc:var(--t-copper)} .t-silver{--tc:var(--t-silver)} .t-gold{--tc:var(--t-gold)} .t-diamond{--tc:var(--t-diamond)}
+
+/* ---------- home ---------- */
+.home{max-width:1200px;margin:0 auto;padding-block:20px 56px;display:flex;flex-direction:column;gap:44px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:36px;align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:18px;min-width:0}
+.logo{font-family:var(--f-shade);font-weight:400;font-size:clamp(50px,9.5vw,118px);line-height:.92;color:var(--hivis);letter-spacing:.01em}
+.lede{font-size:1.18rem;max-width:33em}
+.lede b{color:var(--hivis)}
+.facts{display:flex;flex-wrap:wrap;gap:8px}
+.fact{font-family:var(--f-mono);font-size:13px;border:1px solid var(--line);border-radius:999px;padding:4px 11px;color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:14px;color:var(--muted)}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+
+.xsec{position:relative;height:540px;border-radius:12px;overflow:hidden;background:#3A2A1F;box-shadow:0 0 0 3px #0008,0 20px 50px #0007}
+.xsec .sky{position:absolute;inset:0 0 auto 0;height:21%;background:linear-gradient(#1E2A57,#5B3F78 55%,#F0905A)}
+.xsec .sun{position:absolute;right:14%;bottom:-18px;width:56px;height:56px;border-radius:50%;background:#FFD27A;box-shadow:0 0 40px #FFB35A}
+.xsec .city{position:absolute;inset:auto 0 0 0;height:46%;background:
+  linear-gradient(#2A2045,#2A2045) 4% 100%/7% 70% no-repeat,linear-gradient(#2A2045,#2A2045) 13% 100%/5% 100% no-repeat,
+  linear-gradient(#2A2045,#2A2045) 20% 100%/6% 55% no-repeat,linear-gradient(#2A2045,#2A2045) 76% 100%/6% 85% no-repeat,
+  linear-gradient(#2A2045,#2A2045) 84% 100%/8% 60% no-repeat,linear-gradient(#2A2045,#2A2045) 93% 100%/5% 95% no-repeat}
+.xsec .bldg{position:absolute;bottom:0;left:50%;translate:-50% 0;width:40%;height:80%;background:
+  repeating-linear-gradient(90deg,transparent 0 9px,#2B3A52 9px 21px,transparent 21px 30px) 0 18px/100% calc(100% - 18px) no-repeat,
+  #D6CFC2;border:3px solid #17130F;border-bottom:0;display:flex;justify-content:center}
+.xsec .bldg::after{content:"";position:absolute;inset:18px 0 0;background:repeating-linear-gradient(transparent 0 8px,#D6CFC2 8px 15px)}
+.xsec .bldg b{position:relative;z-index:1;margin-top:-3px;align-self:flex-start;font-family:var(--f-display);font-size:13px;background:#17130F;color:#fff;padding:2px 8px;letter-spacing:.12em}
+.xsec .grass{position:absolute;top:21%;left:0;right:0;height:10px;background:#4F7A3A;border-bottom:3px solid #2C4A20}
+.xsec .layers{position:absolute;inset:calc(21% + 13px) 0 0 0;display:flex;flex-direction:column}
+.xsec .layer{flex:1;position:relative;border-top:2px solid #0004;background-image:radial-gradient(circle at 20% 40%,#0003 0 3px,transparent 4px),radial-gradient(circle at 70% 70%,#fff1 0 2px,transparent 3px);background-size:60px 40px,44px 36px}
+.xsec .layer em{position:absolute;right:10px;top:50%;translate:0 -50%;font-style:normal;font-family:var(--f-display);font-size:11px;letter-spacing:.06em;color:#fffd;text-shadow:0 1px 0 #0008;text-align:right;max-width:38%}
+.xsec .layer span{position:absolute;left:10px;top:50%;translate:0 -50%;font-family:var(--f-mono);font-size:12px;color:#fffc;text-shadow:0 1px 0 #0008}
+.xsec .shaft{position:absolute;left:50%;translate:-50% 0;top:21%;bottom:0;width:26px;background:#0007;border-left:2px dashed #fff3;border-right:2px dashed #fff3}
+.xsec .pod{position:absolute;left:50%;width:52px;translate:-50% 0;top:24%;animation:prospect 9s ease-in-out infinite}
+@keyframes prospect{0%,100%{top:24%}50%{top:80%}}
+.xsec .tag{position:absolute;font-family:var(--f-display);font-size:10px;background:#17130F;color:var(--hivis);padding:2px 6px;border-radius:3px;box-shadow:0 0 0 2px #0006}
+
+.topics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.tcard{--tc:var(--c-operations);position:relative;display:flex;flex-direction:column;gap:14px;background:var(--panel);border:1px solid var(--line);border-top:6px solid var(--tc);border-radius:12px;padding:18px 18px 18px;min-width:0}
+.tcard .code{font-family:var(--f-display);font-size:12px;color:var(--tc);letter-spacing:.1em}
+.tcard h3{font-family:var(--f-display);font-weight:400;font-size:22px;line-height:1.1}
+.tcard p{color:var(--muted);font-size:15px}
+.tcard dl{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0;margin-top:auto}
+.tcard dt{font-size:12px;color:var(--faint);text-transform:uppercase;letter-spacing:.08em}
+.tcard dd{margin:0;font-family:var(--f-mono);font-size:15px}
+.tcard dd small{display:block;font-family:var(--f-body);color:var(--muted);font-size:12.5px;line-height:1.3}
+.tcard .today{font-size:13px;color:var(--muted)}
+.tcard .today b{color:var(--hivis)}
+.tcard .btns{display:flex;gap:8px;flex-wrap:wrap}
+.tcard .btns .btn{flex:1;white-space:nowrap;padding-inline:10px;font-size:14px}
+.deepwrap{margin-top:16px}
+.tcard.deep{background:linear-gradient(var(--panel),var(--panel)) padding-box,var(--hazard) border-box;border:6px solid transparent;border-radius:14px}
+.tcard.deep h3{font-family:var(--f-shade);font-size:clamp(30px,4vw,44px);color:var(--tc)}
+.tcard.deep .deep-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:14px}
+.tcard.deep .btns{flex:0 1 380px}
+.tcard.deep dl{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tcard.deep p{max-width:60em}
+
+.section-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px;margin-bottom:16px}
+.section-head h2{font-family:var(--f-display);font-weight:400;font-size:26px}
+.section-head p{color:var(--muted);max-width:40em}
+.howto{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:step}
+.howto li{list-style:none;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.howto li::before{counter-increment:step;content:counter(step);font-family:var(--f-display);font-size:28px;color:var(--hivis);line-height:1}
+.howto ol{padding:0;margin:0;display:contents}
+.howto b{font-size:17px}
+.howto span{color:var(--muted);font-size:15px}
+.opts{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center}
+.seg{display:inline-flex;border:2px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{border:0;background:transparent;padding:8px 14px;font-family:var(--f-mono);font-size:14px;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--hivis);color:var(--hivis-ink)}
+.guide-tabs{display:flex;flex-wrap:wrap;gap:8px}
+.guide-tabs button{border:2px solid var(--line);background:transparent;border-radius:999px;padding:6px 14px;font-family:var(--f-display);font-size:13px;color:var(--muted)}
+.guide-tabs button[aria-selected="true"]{border-color:var(--tc);color:var(--ink);background:var(--panel-2)}
+.guide{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-top:16px}
+.gcard{display:flex;flex-direction:column;gap:8px;min-width:0}
+.gcard .mini{position:relative;aspect-ratio:16/10;max-width:100%;border-radius:8px;overflow:hidden;background:#0006}
+.gcard .mini .room{inset:0;box-shadow:none;border-radius:8px}
+.gcard .mini .room *{animation-play-state:paused}
+.gcard:hover .mini .room *{animation-play-state:running}
+.gcard.locked .mini .room{filter:brightness(.12) saturate(0) blur(2px)}
+.gcard.locked .mini::after{content:"?";position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-display);font-size:44px;color:#fff3}
+.gcard .meta{display:flex;gap:8px;align-items:baseline;min-width:0}
+.gcard .meta b{font-family:var(--f-display);font-weight:400;font-size:12px;color:var(--hivis);white-space:nowrap}
+.gcard .meta span{font-size:14px;font-weight:700;min-width:0}
+.gcard .meta small{margin-left:auto;font-family:var(--f-mono);color:var(--faint);font-size:12px;white-space:nowrap}
+.gcard.locked .meta span{color:var(--faint)}
+.foot{color:var(--faint);font-size:14px;border-top:1px solid var(--line);padding-top:18px;display:flex;flex-direction:column;gap:4px}
+
+@media (max-width:1040px){.topics{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){.hero{grid-template-columns:minmax(0,1fr)}.xsec{height:440px}.howto{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:560px){.topics{grid-template-columns:minmax(0,1fr)}.guide{grid-template-columns:repeat(2,minmax(0,1fr))}.gcard .meta small{display:none}}
+
+/* ---------- game layout ---------- */
+.game{display:grid;height:100%;min-height:600px;grid-template-columns:136px minmax(0,1fr) minmax(340px,440px);grid-template-rows:auto minmax(0,1fr);grid-template-areas:"hud hud hud" "rail stage card";gap:12px;padding-block:12px}
+.hud{grid-area:hud;display:flex;align-items:center;gap:14px;flex-wrap:wrap;min-width:0}
+.hbtn{border:2px solid var(--line);background:var(--panel);border-radius:9px;padding:7px 12px;font-family:var(--f-display);font-size:13px;color:var(--muted);white-space:nowrap}
+.hbtn.arm{border-color:var(--alert);color:var(--alert)}
+.hud-topic{display:flex;flex-direction:column;line-height:1.1;min-width:0}
+.hud-topic b{font-family:var(--f-display);font-weight:400;font-size:17px;color:var(--tc)}
+.hud-topic span{font-size:13px;color:var(--muted)}
+.hud-prog{font-family:var(--f-mono);font-size:15px;color:var(--muted);padding:5px 10px;border:1px solid var(--line);border-radius:8px}
+.hud-hats{display:flex;gap:4px}
+.hud-hats svg{width:26px;height:20px}
+.hud-hats svg.lost{opacity:.25;filter:grayscale(1)}
+.hud-depth{margin-left:auto;display:flex;align-items:baseline;gap:8px;background:#0B0806;border:2px solid var(--line);border-radius:10px;padding:4px 14px}
+.hud-depth .lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.hud-depth b{font-family:var(--f-mono);font-weight:500;font-size:26px;color:var(--hivis);font-variant-numeric:tabular-nums;min-width:4.2ch;text-align:right}
+.hud-depth i{font-style:normal;color:var(--muted);font-family:var(--f-mono)}
+.hud-depth .lv{font-family:var(--f-display);font-size:13px;color:#16110C;background:var(--hivis);border-radius:4px;padding:1px 7px;align-self:center}
+
+.rail{grid-area:rail;position:relative;display:flex;flex-direction:column;gap:8px;min-height:0}
+.rail .top{height:44px;position:relative;flex:none}
+.rail .top .b{position:absolute;bottom:0;left:22px;width:40px;height:38px;background:repeating-linear-gradient(90deg,transparent 0 5px,#2B3A52 5px 11px),#D6CFC2;border:2px solid #000;border-bottom:0}
+.rail .top .g{position:absolute;bottom:-4px;left:0;right:0;height:5px;background:#4F7A3A}
+.rtrack{position:relative;flex:1;min-height:0;border-radius:6px;overflow:visible}
+.rtrack .bands{position:absolute;left:14px;width:16px;top:0;bottom:0;border-radius:4px;overflow:hidden;box-shadow:0 0 0 2px #0008}
+.rtrack .band{position:absolute;left:0;right:0}
+.mk{position:absolute;left:0;right:0;display:flex;align-items:center;gap:6px;translate:0 -50%;padding-left:9px}
+.mk i{width:10px;height:10px;border-radius:50%;background:var(--panel);border:2px solid var(--faint);margin-left:5px;flex:none}
+.mk b{font-family:var(--f-display);font-weight:400;font-size:11px;color:var(--faint);margin-left:10px;white-space:nowrap}
+.mk span{font-size:11px;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.mk.seen i{background:var(--hivis);border-color:var(--hivis)}
+.mk.seen b,.mk.seen span{color:var(--ink)}
+.mk.here b{color:var(--hivis)}
+.rtrack .me{position:absolute;left:7px;width:30px;translate:0 -62%;transition:top 1.4s cubic-bezier(.65,0,.35,1);z-index:2;filter:drop-shadow(0 2px 2px #000a)}
+.rtrack .pb{position:absolute;left:4px;width:36px;height:0;border-top:2px dashed var(--t-diamond);z-index:1}
+.rtrack .pb::after{content:"PB";position:absolute;left:38px;top:-8px;font-family:var(--f-mono);font-size:10px;color:var(--t-diamond)}
+
+.stage{grid-area:stage;position:relative;overflow:hidden;border-radius:12px;background-color:var(--earth,#5C4130);transition:background-color 1.4s;min-height:0;isolation:isolate}
+.stage::before{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(circle at 20% 30%,#0004 0 4px,transparent 5px),radial-gradient(circle at 70% 60%,#ffffff14 0 2px,transparent 3px),radial-gradient(circle at 40% 80%,#0003 0 7px,transparent 8px);background-size:90px 70px,60px 70px,130px 140px}
+.stage.surface{background:linear-gradient(#1E2A57,#5B3F78 26%,#F0905A 46%,#4F7A3A 46% 48%,var(--earth,#5C4130) 48%)}
+.stage.dig::before{animation:earth 1.6s cubic-bezier(.45,0,.55,1)}
+@keyframes earth{to{background-position:0 -1400px,0 -1400px,0 -1400px}}
+.stage.rumble{animation:rumble .45s}
+@keyframes rumble{20%{transform:translate(-3px,2px)}40%{transform:translate(3px,-2px)}60%{transform:translate(-2px,1px)}80%{transform:translate(2px,0)}}
+.rooms{position:absolute;inset:0}
+.cap{position:absolute;left:6%;right:6%;bottom:2.2%;height:8.5%;display:flex;align-items:center;gap:10px;color:#fff;font-size:14px;line-height:1.3;text-shadow:0 1px 2px #000c;min-width:0}
+.cap b{font-family:var(--f-display);font-weight:400;font-size:12px;background:var(--hivis);color:#16110C;border-radius:4px;padding:1px 7px;flex:none;text-shadow:none}
+.cap span{overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;min-width:0}
+.arrive{position:absolute;top:4%;left:50%;z-index:6;translate:-50% 0;transform:translateY(-180%);opacity:0;transition:transform .5s cubic-bezier(.3,1.4,.5,1),opacity .25s;background:var(--hivis);color:var(--hivis-ink);border-radius:10px;padding:8px 16px 9px;box-shadow:0 6px 0 var(--hivis-deep),0 18px 40px #0009;text-align:center;max-width:88%;pointer-events:none}
+.arrive.show{transform:translateY(0);opacity:1}
+.arrive small{display:block;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em}
+.arrive strong{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(15px,2.2vw,22px);line-height:1.15}
+.drill{position:absolute;left:50%;top:-45%;width:min(96px,18%);translate:-50% 0;z-index:5;pointer-events:none;opacity:0}
+.drill.go{animation:drilldown 1.7s cubic-bezier(.5,0,.55,1) forwards}
+@keyframes drilldown{0%{top:-45%;opacity:1}100%{top:115%;opacity:1}}
+.spiral{animation:spiral .22s linear infinite}
+@keyframes spiral{to{transform:translateY(20px)}}
+.minirail{display:none;position:absolute;left:6px;top:7%;bottom:12%;width:14px;z-index:3}
+.minirail .rtrack{height:100%}
+.minirail .rtrack .bands{left:2px;width:10px}
+.minirail .mk{padding-left:0}
+.minirail .mk i{width:8px;height:8px;margin-left:1px;border-width:1.5px}
+.minirail .mk b,.minirail .mk span{display:none}
+.minirail .rtrack .me{left:-5px;width:22px}
+.minirail .rtrack .pb{left:0;width:14px}
+.minirail .rtrack .pb::after{display:none}
+
+.card{grid-area:card;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;overflow:auto;display:flex;flex-direction:column;gap:16px;min-width:0;min-height:0}
+.q{font-weight:700;font-size:clamp(22px,2.3vw,29px);line-height:1.2}
+.timer{display:flex;align-items:center;gap:10px}
+.timer .tbar{flex:1;height:12px;border-radius:6px;background:var(--panel-2);overflow:hidden;box-shadow:inset 0 0 0 1px #0006}
+.timer .tbar i{display:block;height:100%;background:var(--hazard);transform-origin:left center}
+.timer.low .tbar i{background:var(--alert)}
+.timer.low .tsec{color:var(--alert)}
+.timer .tsec{font-family:var(--f-mono);font-size:15px;min-width:3ch;text-align:right;color:var(--muted)}
+.ans{display:flex;gap:8px}
+.ans input{flex:1;min-width:0;font:700 1.15rem var(--f-body);padding:14px;border-radius:10px;border:2px solid var(--line);background:#0E0A08;color:var(--ink)}
+.ans input::placeholder{color:var(--faint);font-weight:400}
+.ans input:focus{outline:none;border-color:var(--hivis);box-shadow:0 0 0 3px #FFCC1A40}
+.ans .btn{padding-inline:20px;font-size:17px}
+.subrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;font-size:14px;color:var(--muted)}
+.linkbtn{background:none;border:0;padding:0;color:var(--hivis);text-decoration:underline;text-underline-offset:3px;font-size:14px}
+.hintbox{background:var(--panel-2);border-left:4px solid var(--hivis);border-radius:6px;padding:10px 12px;font-size:15px}
+.hintbox b{font-family:var(--f-display);font-weight:400;font-size:12px;letter-spacing:.06em;color:var(--hivis);display:block}
+
+.result{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:14px;border-radius:12px;background:var(--panel-2);border:2px solid var(--tc)}
+.result .chip{font-size:14px;padding:5px 11px}
+.result .gain{font-family:var(--f-mono);font-size:15px;color:var(--muted);font-variant-numeric:tabular-nums}
+.result .gain b{font-size:28px;font-weight:500;color:var(--ink)}
+.result .said{flex-basis:100%;font-size:15px;color:var(--muted)}
+.result .said q{color:var(--ink);font-weight:700}
+.result .said strong{color:var(--tc)}
+.msg{font-size:15px;background:#0004;border-radius:8px;padding:10px 12px}
+.learn{font-size:15px;color:var(--ink);border-left:3px solid var(--line);padding-left:12px}
+.answers-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:-6px}
+.answers-h small{color:var(--faint);font-size:12px}
+ol.answers{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+ol.answers li{display:grid;grid-template-columns:8px minmax(0,1fr) 56px 30px;gap:10px;align-items:center;padding:8px 10px;border-radius:8px;background:var(--panel-2)}
+ol.answers .sw{align-self:stretch;border-radius:3px;background:var(--tc)}
+ol.answers .nm{font-weight:700;font-size:15px;line-height:1.3;min-width:0}
+ol.answers .nm small{display:block;font-weight:400;color:var(--muted);font-size:13px;line-height:1.35;margin-top:2px}
+ol.answers .bar{height:8px;background:#0007;border-radius:4px;overflow:hidden}
+ol.answers .bar i{display:block;height:100%;background:var(--tc)}
+ol.answers .pts{font-family:var(--f-mono);text-align:right;font-size:14px}
+ol.answers li.you{box-shadow:0 0 0 2px var(--hivis)}
+ol.answers li.you .nm::before{content:"YOUR ANSWER";display:block;font-family:var(--f-display);font-weight:400;font-size:10px;letter-spacing:.08em;color:var(--hivis)}
+.next{align-self:stretch;font-size:17px;padding-block:14px}
+.kbd{font-family:var(--f-mono);font-size:12px;color:var(--faint);text-align:center;margin-top:-8px}
+
+.endbig{font-family:var(--f-display);font-size:clamp(46px,6vw,74px);line-height:1;color:var(--hivis);font-variant-numeric:tabular-nums}
+.endbig small{font-size:.4em;color:var(--muted);margin-left:6px}
+.endroom{font-size:17px}
+.endroom b{font-family:var(--f-display);font-weight:400;font-size:13px;background:var(--hivis);color:#16110C;border-radius:4px;padding:1px 7px;margin-right:6px}
+.tiles{font-size:26px;letter-spacing:4px;line-height:1.2;word-break:break-all}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.stats div{background:var(--panel-2);border-radius:8px;padding:10px}
+.stats dt{font-size:12px;color:var(--faint);text-transform:uppercase;letter-spacing:.08em}
+.stats dd{margin:0;font-family:var(--f-mono);font-size:20px}
+.pbflag{display:inline-block;background:var(--t-diamond);color:#062A30;font-family:var(--f-display);font-size:12px;border-radius:5px;padding:2px 8px}
+.btnrow{display:flex;flex-wrap:wrap;gap:8px}
+.btnrow .btn{flex:1 1 140px}
+.sharebox{width:100%;min-height:96px;font:14px/1.4 var(--f-mono);background:#0E0A08;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px;resize:vertical}
+.review{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;list-style:none}
+.review li{background:var(--panel-2);border-radius:8px;padding:10px 12px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:start}
+.review .rq{font-weight:700;font-size:15px}
+.review .ra{font-size:14px;color:var(--muted);grid-column:1}
+.review .ra strong{color:var(--ink)}
+.review .chip{grid-row:1/3;grid-column:2;align-self:center}
+
+@media (max-width:1100px){
+  body.in-game #app{height:auto}
+  .game{height:auto;min-height:100%;grid-template-columns:118px minmax(0,1fr);grid-template-rows:auto minmax(320px,52vh) auto;grid-template-areas:"hud hud" "rail stage" "rail card"}
+  .card{overflow:visible}
+}
+@media (max-width:700px){
+  .game{grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(250px,44vh) auto;grid-template-areas:"hud" "stage" "card";gap:10px;padding-block:10px}
+  .rail{display:none}
+  .minirail{display:block}
+  .stage .room{left:30px}
+  .hud{gap:8px}
+  .hud-topic span{display:none}
+  .hud-depth{padding:3px 10px}
+  .hud-depth b{font-size:21px}
+  .hud-depth .lbl{display:none}
+  .card{padding:16px}
+  .cap{left:30px;font-size:12.5px}
+  .stats dd{font-size:17px}
+}
+
+/* ---------- rooms ---------- */
+.room{position:absolute;inset:7% 6% 12% 6%;container-type:size;border-radius:8px;overflow:hidden;background:#555;box-shadow:0 0 0 6px #140E0A8C,0 0 0 9px #ffffff10,0 24px 40px #0007;transition:transform .9s cubic-bezier(.65,0,.35,1)}
+.room.enter{transform:translateY(135%)}
+.room.exit{transform:translateY(-145%)}
+.room .wall,.room .floor,.room .ceil{position:absolute;left:0;right:0}
+.room .wall{inset:0}
+.room .ceil{top:0;height:6%;background:#0005;box-shadow:0 2px 0 #0003}
+.room .floor{bottom:0;height:18%;box-shadow:inset 0 .7cqh 0 #ffffff26,0 -.8cqh 0 #0003}
+.lt{position:absolute;top:6%;left:50%;translate:-50% 0}
+.lt-fluoro{width:24cqw;height:1.8cqh;background:#FFF8D8;border-radius:1cqh;box-shadow:0 0 4cqh 1cqh #FFF3B055}
+.lt-bulb{width:.5cqh;height:9cqh;background:#222;transform-origin:top center;animation:sway 4s ease-in-out infinite}
+.lt-bulb::after{content:"";position:absolute;left:50%;bottom:-3cqh;translate:-50% 0;width:4cqh;height:4.6cqh;border-radius:50% 50% 45% 45%;background:#FFE7A0;box-shadow:0 0 6cqh 2cqh #FFD27A66}
+.lt-ring{top:8%;width:12cqh;height:12cqh;border-radius:50%;border:1.4cqh solid #FFE3F1;box-shadow:0 0 5cqh 1cqh #FF9CCB88,inset 0 0 3cqh #FF9CCB88}
+.lt-grow{width:40cqw;height:1.6cqh;background:#D58BFF;border-radius:1cqh;box-shadow:0 0 6cqh 2cqh #B060FF66}
+.lt-chand{top:6%;width:16cqh;height:7cqh;border-radius:0 0 50% 50%;background:radial-gradient(circle at 50% 10%,#FFF2C2,#E6B94A 60%,#8A6416);box-shadow:0 0 8cqh 2cqh #FFD27A55}
+.lt-spot{top:0;width:60cqw;height:100cqh;background:linear-gradient(#FFF6C840,transparent 85%);clip-path:polygon(42% 0,58% 0,100% 100%,0 100%)}
+.plaque{position:absolute;top:8.5%;left:3%;z-index:4;display:flex;max-width:62cqw;font-family:var(--f-display);font-size:clamp(9px,4.3cqh,21px);line-height:1;border-radius:.5cqh;overflow:hidden;box-shadow:0 .5cqh 0 #0006}
+.plaque b{font-weight:400;background:var(--hivis);color:var(--hivis-ink);padding:.32em .45em}
+.plaque span{background:#1C2430;color:#fff;padding:.32em .55em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.it{position:absolute;left:calc(var(--x)*1%);bottom:calc(var(--y)*1%);translate:-50% 0}
+.e{display:block;font-size:calc(var(--s)*1cqh);line-height:1;white-space:nowrap;transform-origin:50% 100%;filter:drop-shadow(0 .5cqh 0 #0004);font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
+.e .fl{display:inline-block;scale:-1 1}
+.a-bob{animation:bob var(--dur,2.6s) ease-in-out var(--d,0s) infinite}
+.a-sway{animation:sway var(--dur,3.2s) ease-in-out var(--d,0s) infinite}
+.a-spin{transform-origin:50% 50%;animation:spin var(--dur,6s) linear var(--d,0s) infinite}
+.a-rspin{transform-origin:50% 50%;animation:spin var(--dur,6s) linear var(--d,0s) infinite reverse}
+.a-walk{animation:walk var(--dur,9s) linear var(--d,0s) infinite}
+.a-shake{animation:shake var(--dur,.9s) ease-in-out var(--d,0s) infinite}
+.a-blink{animation:blink var(--dur,1.8s) ease-in-out var(--d,0s) infinite}
+.a-hop{animation:hop var(--dur,1.5s) ease-out var(--d,0s) infinite}
+.a-pulse{transform-origin:50% 50%;animation:pulse var(--dur,1.8s) ease-in-out var(--d,0s) infinite}
+.a-wobble{animation:wobble var(--dur,2.2s) ease-in-out var(--d,0s) infinite}
+.a-drop{animation:drop var(--dur,4s) cubic-bezier(.5,0,.8,.4) var(--d,0s) infinite}
+.a-slide{animation:slide var(--dur,7s) linear var(--d,0s) infinite}
+.a-hammer{transform-origin:20% 90%;animation:hammer var(--dur,.8s) ease-in var(--d,0s) infinite}
+.a-tug{animation:tug var(--dur,1.4s) ease-in-out var(--d,0s) infinite}
+.a-float{animation:float var(--dur,3s) ease-out var(--d,0s) infinite}
+.a-chute{animation:chute var(--dur,4s) ease-in var(--d,0s) infinite}
+.a-flutter{animation:flutter var(--dur,4s) ease-in-out var(--d,0s) infinite}
+.a-swim{animation:swim var(--dur,6s) ease-in-out var(--d,0s) infinite}
+.a-run{animation:run var(--dur,.45s) ease-in-out var(--d,0s) infinite}
+.a-snip{transform-origin:30% 50%;animation:snip var(--dur,.7s) ease-in-out var(--d,0s) infinite}
+@keyframes bob{50%{transform:translateY(-7%)}}
+@keyframes sway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes walk{0%{transform:translateX(0)}45%{transform:translateX(var(--dx,20cqw))}50%{transform:translateX(var(--dx,20cqw)) scaleX(-1)}95%{transform:translateX(0) scaleX(-1)}100%{transform:translateX(0)}}
+@keyframes shake{0%,100%{transform:translateX(0) rotate(0)}25%{transform:translateX(-3%) rotate(-3deg)}75%{transform:translateX(3%) rotate(3deg)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+@keyframes hop{0%,100%{transform:translateY(0)}30%{transform:translateY(-35%)}55%{transform:translateY(0)}}
+@keyframes pulse{50%{transform:scale(1.12)}}
+@keyframes wobble{0%,100%{transform:rotate(0)}25%{transform:rotate(-12deg)}75%{transform:rotate(12deg)}}
+@keyframes drop{0%{transform:translateY(-60cqh);opacity:0}10%{opacity:1}40%,85%{transform:translateY(0);opacity:1}100%{transform:translateY(0);opacity:0}}
+@keyframes slide{from{transform:translateX(-25cqw)}to{transform:translateX(125cqw)}}
+@keyframes hammer{0%,100%{transform:rotate(-35deg)}45%{transform:rotate(20deg)}55%{transform:rotate(14deg)}}
+@keyframes tug{0%,100%{transform:translateX(-5%) rotate(-5deg)}50%{transform:translateX(5%) rotate(4deg)}}
+@keyframes float{0%{transform:translateY(0);opacity:0}20%{opacity:1}100%{transform:translateY(-26cqh);opacity:0}}
+@keyframes chute{0%{transform:translate(0,0);opacity:0}8%,90%{opacity:1}100%{transform:translate(var(--dx,60cqw),var(--dy,40cqh));opacity:0}}
+@keyframes flutter{0%,100%{transform:translate(0,0) rotate(-8deg)}25%{transform:translate(6cqw,-6cqh) rotate(8deg)}50%{transform:translate(12cqw,0) rotate(-8deg)}75%{transform:translate(6cqw,5cqh) rotate(8deg)}}
+@keyframes swim{0%,100%{transform:translate(0,0)}50%{transform:translate(var(--dx,-10cqw),-3cqh)}}
+@keyframes run{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-6%) rotate(4deg)}}
+@keyframes snip{0%,100%{transform:rotate(0)}50%{transform:rotate(-28deg)}}
+
+.say{position:absolute;left:calc(var(--x)*1%);bottom:calc(var(--y)*1%);width:calc(var(--w)*1%);translate:-50% 0;z-index:3;background:#FFFDF4;color:#211C17;font:700 clamp(9.5px,3.7cqh,16px)/1.22 var(--f-body);padding:.45em .65em;border-radius:.8em;box-shadow:0 .5cqh 0 #0004;animation:pop .5s cubic-bezier(.3,1.6,.5,1) both;animation-delay:var(--d,.35s)}
+.say::after{content:"";position:absolute;bottom:-.55em;left:22%;border:.35em solid transparent;border-top:.5em solid #FFFDF4;border-bottom:0}
+.say.r::after{left:auto;right:22%}
+.say.n::after{display:none}
+@keyframes pop{from{transform:scale(.4);opacity:0}}
+.board{position:absolute;left:calc(var(--x)*1%);bottom:calc(var(--y)*1%);width:calc(var(--w)*1%);height:calc(var(--h)*1%);translate:-50% 0;background:#F8F7F1;border:.9cqh solid #9AA3AD;border-radius:.7cqh;padding:1.2cqh 1.8cqh;font:400 clamp(9px,calc(var(--fs,5)*1cqh),22px)/1.18 var(--f-hand);color:#1F3A93;white-space:pre-line;overflow:hidden;box-shadow:0 .6cqh 0 #0003}
+.board .red{color:#C0262D}
+.poster{position:absolute;left:calc(var(--x)*1%);bottom:calc(var(--y)*1%);width:calc(var(--w)*1%);height:calc(var(--h)*1%);translate:-50% 0;rotate:var(--r,0deg);background:var(--c,#F4E04D);color:var(--fc,#211C17);display:grid;place-items:center;text-align:center;font:400 clamp(7px,calc(var(--fs,3.6)*1cqh),17px)/1.15 var(--f-display);white-space:pre-line;padding:.8cqh;box-shadow:0 .6cqh 0 #0004;overflow:hidden}
+.screen{position:absolute;left:calc(var(--x)*1%);bottom:calc(var(--y)*1%);width:calc(var(--w)*1%);height:calc(var(--h)*1%);translate:-50% 0;background:#0C1A12;color:#7CFF9B;border:.9cqh solid #2A2E33;border-radius:.8cqh;padding:1cqh 1.6cqh;font:500 clamp(7px,calc(var(--fs,3.2)*1cqh),15px)/1.3 var(--f-mono);white-space:pre;overflow:hidden;box-shadow:0 0 3cqh #7CFF9B33}
+.screen .red{color:#FF7A7A}
+.blk{position:absolute;left:calc(var(--x)*1%);bottom:calc(var(--y)*1%);width:calc(var(--w)*1%);height:calc(var(--h)*1%);translate:-50% 0;rotate:var(--r,0deg);background:var(--c,#5A4636);border-radius:calc(var(--rad,.6)*1cqh);display:grid;place-items:center;text-align:center;color:var(--fc,#fff);font:400 clamp(7px,calc(var(--fs,3)*1cqh),15px)/1.05 var(--f-display);white-space:pre-line;overflow:hidden}
+.blk>.in{font-size:calc(var(--is,8)*1cqh);font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
+.blk.counter{border-radius:.6cqh .6cqh 0 0;box-shadow:inset 0 1.2cqh 0 #ffffff22,inset 0 -1cqh 0 #0003}
+.blk.window{background:#3A2A1F radial-gradient(circle at 30% 40%,#0005 0 1cqh,transparent 1.2cqh) 0 0/7cqh 6cqh;border:1.2cqh solid #E9E2D5;border-radius:.6cqh;box-shadow:inset 0 0 0 .5cqh #0004}
+.blk.mirror{background:linear-gradient(115deg,#1B2430 0 40%,#334255 45%,#1B2430 52% 100%);border:1cqh solid #4A3A2E}
+.blk.cage{background:repeating-linear-gradient(90deg,#3B3B3B 0 .9cqh,transparent .9cqh 5cqh);border-top:3cqh solid #3B3B3B;align-items:start;color:#fff;font-size:clamp(7px,2.6cqh,13px);padding-top:0;margin-top:0}
+.blk.teller{overflow:visible;background:linear-gradient(#9BC7D833,#9BC7D855);border:1cqh solid #6B4A2F;border-top-width:5cqh;align-items:start;color:#fff;font-size:clamp(7px,2.6cqh,13px)}
+.blk.teller::before{content:attr(data-l);position:absolute;top:-4.4cqh;left:0;right:0;text-align:center}
+.blk.hedge{background:radial-gradient(circle at 15% 8%,#3E8A45 0 4cqh,transparent 4.2cqh),radial-gradient(circle at 50% 4%,#3E8A45 0 5cqh,transparent 5.2cqh),radial-gradient(circle at 85% 8%,#3E8A45 0 4cqh,transparent 4.2cqh),linear-gradient(transparent 4cqh,#2F7537 4cqh);border-radius:2cqh 2cqh 0 0;overflow:visible}
+.blk.cupboard{background:#4A3426;border:1.2cqh solid #2E2018;background-image:linear-gradient(transparent 32%,#2E2018 32% 35%,transparent 35% 66%,#2E2018 66% 69%,transparent 69%)}
+.blk.throne{background:linear-gradient(#C9A227,#8A6A10);border-radius:3cqh 3cqh .5cqh .5cqh;box-shadow:inset 0 0 0 1cqh #7A1F2B}
+.blk.machine{background:linear-gradient(#7E8A96,#55606B);border:1cqh solid #2E353C;color:#FFCC1A;font-size:clamp(6px,2.4cqh,12px);padding:1cqh}
+.blk.furnace{background:radial-gradient(ellipse at 50% 80%,#FFB347,#E2531B 40%,#3A1A10 72%);border:1.4cqh solid #2A1F1A;border-radius:6cqh 6cqh .5cqh .5cqh}
+.blk.tread{background:repeating-linear-gradient(90deg,#222 0 2cqh,#333 2cqh 4cqh);border-radius:3cqh;animation:tread .4s linear infinite}
+@keyframes tread{to{background-position:-4cqh 0}}
+.blk.slideway{background:linear-gradient(#FF9BC8,#E8579A);border-radius:2cqh;box-shadow:inset 0 -1cqh 0 #0003}
+.blk.rope{background:#C8A16E;border-radius:1cqh}
+.ropes{position:absolute;left:calc(var(--x)*1%);bottom:18%;width:calc(var(--w)*1%);height:calc(var(--h)*1%);translate:-50% 0;border-left:2cqh solid #DDD;border-right:2cqh solid #DDD;background:linear-gradient(#E63946 0 0) 0 15%/100% 1cqh no-repeat,linear-gradient(#F1FAEE 0 0) 0 45%/100% 1cqh no-repeat,linear-gradient(#457B9D 0 0) 0 75%/100% 1cqh no-repeat}
+.belt{position:absolute;left:calc(var(--x)*1%);bottom:18%;width:calc(var(--w)*1%);height:calc((var(--s) + 7)*1cqh);translate:-50% 0;overflow:hidden}
+.belt::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5cqh;border-radius:2.5cqh;background:repeating-linear-gradient(90deg,#2B2B2B 0 3cqh,#4A4A4A 3cqh 6cqh);animation:beltmove .6s linear infinite;box-shadow:inset 0 .6cqh 0 #fff2}
+@keyframes beltmove{to{background-position:6cqh 0}}
+.belt>span{position:absolute;bottom:4.6cqh;left:0;font-size:calc(var(--s)*1cqh);line-height:1;animation:ride var(--dur,8s) linear infinite;animation-delay:var(--d,0s);font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
+@keyframes ride{from{transform:translateX(-12cqh)}to{transform:translateX(calc(var(--bw)*1cqw + 2cqh))}}
+.pool{position:absolute;left:calc(var(--x)*1%);bottom:0;width:calc(var(--w)*1%);height:calc(var(--h,15)*1%);translate:-50% 0;background:linear-gradient(#63CBEF,#1E7FB8);box-shadow:inset 0 1cqh 0 #ffffff55;overflow:hidden}
+.pool::before{content:"";position:absolute;inset:0 -20% auto -20%;height:2cqh;background:radial-gradient(ellipse at 50% 100%,#ffffff88 0 40%,transparent 42%) 0 0/8cqh 2cqh;animation:wave 2s linear infinite}
+@keyframes wave{to{transform:translateX(8cqh)}}
+.pool.lava{background:linear-gradient(#FFD166,#F3722C 45%,#9D0208);box-shadow:inset 0 1cqh 0 #FFF3B055,0 0 6cqh 2cqh #F3722C88}
+.pool.lava::before{background:radial-gradient(ellipse at 50% 100%,#FFF3B0 0 40%,transparent 42%) 0 0/9cqh 2cqh}
+.door{position:absolute;left:calc(var(--x)*1%);bottom:18%;width:13%;height:40%;translate:-50% 0;background:linear-gradient(90deg,#8A9097 0 49.5%,#2B2F33 49.5% 50.5%,#8A9097 50.5%);border:1cqh solid #4B5056;border-bottom:0;border-radius:.6cqh .6cqh 0 0}
+.door b{position:absolute;bottom:calc(100% + 2cqh);left:50%;translate:-50% 0;white-space:nowrap;font:400 clamp(7px,2.8cqh,13px)/1 var(--f-display);background:#1C2430;color:var(--hivis);padding:.4em .6em;border-radius:.4em}
+.banner{position:absolute;left:calc(var(--x)*1%);bottom:calc(var(--y)*1%);width:calc(var(--w)*1%);translate:-50% 0;background:var(--c,#E63946);color:var(--fc,#fff);text-align:center;font:400 clamp(7px,calc(var(--fs,3.3)*1cqh),16px)/1.15 var(--f-display);padding:.45em .9em;clip-path:polygon(0 0,100% 0,96% 50%,100% 100%,0 100%,4% 50%)}
+.shelf{position:absolute;left:calc(var(--x)*1%);bottom:calc(var(--y)*1%);width:calc(var(--w)*1%);translate:-50% 0;border-bottom:1.4cqh solid #6B4A2F;text-align:center;font-size:calc(var(--s)*1cqh);line-height:1;letter-spacing:-.05em;white-space:nowrap;overflow:hidden;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
+.gantt{position:absolute;left:calc(var(--x)*1%);bottom:calc(var(--y)*1%);width:calc(var(--w)*1%);height:calc(var(--h)*1%);translate:-50% 0;background:#F8F7F1;border:.9cqh solid #9AA3AD;border-radius:.7cqh;padding:1.2cqh 1.6cqh;display:flex;flex-direction:column;justify-content:space-around;font:400 clamp(8px,4.6cqh,20px)/1 var(--f-hand);color:#1F3A93}
+.gantt .gr{display:grid;grid-template-columns:28% 1fr;align-items:center;gap:1cqh}
+.gantt .gr i{display:block;height:2.6cqh;border-radius:.5cqh;background:#4C7BD9;margin-left:calc(var(--s)/8*100%);width:calc(var(--l)/8*100%)}
+.gantt .gr i.crit{background:#D9364B}
+.fx{position:absolute;z-index:2;pointer-events:none;line-height:1;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
+.fx.fall{top:5%;animation:fall var(--dur,4s) linear var(--d,0s) infinite}
+.fx.rise{bottom:18%;animation:rise var(--dur,4s) ease-out var(--d,0s) infinite}
+.fx.once{animation-iteration-count:1}
+@keyframes fall{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:1}100%{transform:translateY(85cqh) rotate(var(--rot,0deg));opacity:0}}
+@keyframes rise{0%{transform:translateY(0);opacity:0}15%{opacity:1}100%{transform:translateY(-70cqh);opacity:0}}
+.fx.bub{width:2cqh;height:2cqh;border-radius:50%;border:.3cqh solid #ffffffaa}
+.fx.ember{width:1.2cqh;height:1.2cqh;border-radius:50%;background:#FFB347;box-shadow:0 0 1.5cqh #FF7A1A}
+.fx.dust{width:1cqh;height:1cqh;border-radius:50%;background:#D9C7AE}
+.fx.conf{width:1.4cqh;height:.8cqh;background:var(--cc)}
+@container (max-height:260px){.say.m{display:none}}
+@container (max-height:170px){.say{display:none}.plaque{font-size:9px}}
+
+@media (prefers-reduced-motion:reduce){
+  .room *,.room *::before,.room *::after,.xsec *,.lt-bulb{animation:none!important}
+  .room{transition:none!important}
+  .drill{display:none}
+  .stage.dig::before,.stage.rumble{animation:none}
+  .arrive{transition:none}
+  .rtrack .me{transition:none}
+}
+</style>
+
+<div id="app">
+  <main id="home" class="home" aria-label="Drillion home">
+    <div class="tape" aria-hidden="true"></div>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">HSC Business Studies · Dig beneath NESA</div>
+        <h1 class="logo">DRILL<wbr>ION</h1>
+        <p class="lede">Krillion sends you into the ocean. Drillion sends you <b>under the NESA building</b>. Each prompt takes one answer. A common answer barely scratches the floor. A rare, Band 6 answer drills you straight through it: <b>every point is 10 metres</b>.</p>
+        <div class="facts"><span class="fact">7 prompts a day per topic</span><span class="fact">30 s each</span><span class="fact">one answer</span><span class="fact">10 m per point</span></div>
+        <div class="legend" aria-label="Answer rarity">
+          <span><i class="chip t-copper">COPPER</i>10–20</span>
+          <span><i class="chip t-silver">SILVER</i>25–50</span>
+          <span><i class="chip t-gold">GOLD</i>55–80</span>
+          <span><i class="chip t-diamond">DIAMOND</i>85–100</span>
+          <span><i class="chip t-pebble">PEBBLE</i>related, 5–15</span>
+        </div>
+      </div>
+      <div class="xsec" id="xsec" aria-hidden="true"></div>
+    </section>
+
+    <section aria-labelledby="pick-h">
+      <div class="section-head">
+        <h2 id="pick-h">Pick a shaft</h2>
+        <p>Each key business function has its own shaft and its own rooms, and the Deep Drill mixes all four. The Daily Dig is the same 7 prompts for everyone today, so you can compare depths with your class. Endless keeps going until you lose three hard hats.</p>
+      </div>
+      <div class="topics" id="topics"></div>
+      <div id="deepCard" class="deepwrap"></div>
+    </section>
+
+    <section aria-labelledby="how-h">
+      <div class="section-head"><h2 id="how-h">How a dig works</h2></div>
+      <div class="howto"><ol>
+        <li><b>Read the category</b><span>Prompts are open categories from your flashcards, like “Name a source of short-term borrowing”.</span></li>
+        <li><b>Type one answer</b><span>Any valid answer scores. Obvious ones score 10. Sharp, specific ones score up to 100. A related answer that doesn't quite fit still earns a pebble.</span></li>
+        <li><b>Learn from the reveal</b><span>After each prompt you see every valid answer, shallow to deep, with a one-line explanation. Then the drill moves you down.</span></li>
+      </ol></div>
+      <div class="opts" style="margin-top:18px">
+        <span class="eyebrow">Timer</span>
+        <div class="seg" id="timerSeg" role="group" aria-label="Timer length">
+          <button type="button" data-t="30">30 s</button><button type="button" data-t="60">60 s</button><button type="button" data-t="0">Off</button>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="guide-h">
+      <div class="section-head">
+        <h2 id="guide-h">Field guide</h2>
+        <p id="guideSub">Every room you reach is logged here. The deep ones only open up to rare answers.</p>
+      </div>
+      <div class="guide-tabs" id="guideTabs" role="tablist" aria-label="Topic"></div>
+      <div class="guide" id="guide"></div>
+    </section>
+
+    <footer class="foot">
+      <span>An unofficial study game inspired by Krillion. Not affiliated with NESA or with Krillion.</span>
+      <span>Prompts and answers are built from Luca’s HSC Business Studies flashcards. Rarity scores are estimates of how few students would think of each answer.</span>
+    </footer>
+  </main>
+
+  <div id="game" class="game" hidden>
+    <header class="hud" id="hud">
+      <button class="hbtn" id="quit" type="button">⟵ End dig</button>
+      <div class="hud-topic"><b id="hudTopic"></b><span id="hudMode"></span></div>
+      <div class="hud-prog" id="hudProg"></div>
+      <div class="hud-hats" id="hudHats" aria-label="Hard hats left"></div>
+      <div class="hud-depth" aria-live="off"><span class="lbl">Depth</span><b id="hudDepth">0</b><i>m</i><span class="lv" id="hudLvl">G</span></div>
+    </header>
+    <aside class="rail" id="rail" aria-label="Section view of the dig"></aside>
+    <section class="stage" id="stage" aria-label="Current room">
+      <div class="rooms" id="rooms"></div>
+      <div class="minirail" id="minirail" aria-hidden="true"></div>
+      <div class="cap" id="cap"></div>
+      <div class="arrive" id="arrive" aria-live="polite"></div>
+    </section>
+    <section class="card" id="card" aria-live="polite"></section>
+  </div>
+</div>
+
+<script>const BANKS = /*__BANKS__*/null;</script>
+<script>
+"use strict";
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const fmt = n => Math.round(n).toLocaleString("en-AU");
+
+/* ================= topics, strata, rooms ================= */
+const TOPICS = [
+  { id: "operations", name: "Operations", code: "OPS", blurb: "Performance objectives, the 4Vs, supply chains, inventory (JIT, FIFO, LIFO), quality and resistance to change." },
+  { id: "marketing", name: "Marketing", code: "MKT", blurb: "Customer choice, consumer law, the marketing process, segmentation, the 4Ps, e-marketing and global marketing." },
+  { id: "finance", name: "Finance", code: "FIN", blurb: "Sources of finance, financial institutions, ratios, report limitations, cash flow, working capital and global finance." },
+  { id: "hr", name: "Human Resources", code: "HR", blurb: "Stakeholders, the legal framework, the HR cycle, leadership, rewards, workplace disputes and CLAW ABC indicators." },
+];
+// Deep Drill mixes all four banks: 12 prompts, three from each topic, deep enough to reach the core.
+const DEEP_DRILL = { id: "deep", name: "Deep Drill", code: "ALL", blurb: "All four topics in one shaft: 12 prompts, three each from Operations, Marketing, Finance and HR. The shaft runs past the Band 6 Vault all the way down to the Earth's core." };
+const TOPIC = Object.fromEntries([...TOPICS, DEEP_DRILL].map(t => [t.id, t]));
+const SECS = { R: "Role", I: "Influences", P: "Processes", S: "Strategies", E: "Effectiveness" };
+const DAILY_N = 7, DEEP_N = 12, HATS = 3;
+
+// Real Sydney Basin layers on top, fiction below.
+const STRATA = [
+  { d: 0, name: "Topsoil and fill", c: "#5C4130" },
+  { d: 600, name: "Ashfield Shale", c: "#4B4240" },
+  { d: 1500, name: "Hawkesbury Sandstone", c: "#9C7240" },
+  { d: 3500, name: "Narrabeen Group", c: "#77493A" },
+  { d: 5500, name: "Illawarra Coal Measures", c: "#2A2521" },
+  { d: 7000, name: "Crystal caverns", c: "#2D2448" },
+  { d: 9000, name: "Mantle", c: "#6E200F" },
+  { d: 12000, name: "Core", c: "#B8561A" },
+  { d: 15000, name: "North Atlantic Ocean", c: "#0B3B57" },
+];
+const strataAt = d => STRATA.reduce((a, s) => (d >= s.d ? s : a), STRATA[0]);
+
+// scene helpers. x = centre (% of room width), y = bottom (% of room height, floor top is 18), sizes in % of room height.
+const E = (e, x, y, s, a, o = {}) => ({ t: "e", e, x, y, s, a, ...o });
+const SAY = (txt, x, y, w, o = {}) => ({ t: "say", txt, x, y, w, ...o });
+const BOARD = (txt, x, y, w, h, o = {}) => ({ t: "board", txt, x, y, w, h, ...o });
+const POSTER = (txt, x, y, w, h, o = {}) => ({ t: "poster", txt, x, y, w, h, ...o });
+const SCREEN = (txt, x, y, w, h, o = {}) => ({ t: "screen", txt, x, y, w, h, ...o });
+const BLK = (x, y, w, h, o = {}) => ({ t: "blk", x, y, w, h, ...o });
+const COUNTER = (x, w, h, o = {}) => ({ t: "blk", cls: "counter", x, y: 18, w, h, ...o });
+const BELT = (x, w, items, o = {}) => ({ t: "belt", x, w, items, ...o });
+const POOL = (x, w, o = {}) => ({ t: "pool", x, w, ...o });
+const SHELF = (x, y, w, items, o = {}) => ({ t: "shelf", x, y, w, items, ...o });
+const DOOR = (x, txt) => ({ t: "door", x, txt });
+const BANNER = (txt, x, y, w, o = {}) => ({ t: "banner", txt, x, y, w, ...o });
+const GANTT = (x, y, w, h, rows) => ({ t: "gantt", x, y, w, h, rows });
+const ROPES = (x, w, h) => ({ t: "ropes", x, w, h });
+
+const FOYER = { id: "foyer", d: 0, lvl: "G", name: "NESA Foyer", quip: "Ground level, Sydney CBD. The lift only has one button, and it points down.",
+  wall: "panel", w1: "#C9B79C", w2: "#B49F80", floor: "tile", fl: "#8E8A84", light: "fluoro",
+  items: [
+    DOOR(13, "LIFT ↓ B1–B∞"),
+    POSTER("PLEASE\nDO NOT FEED\nTHE MARKERS", 33, 44, 15, 24, { c: "#F4E04D", r: "-3deg" }),
+    E("🧑‍💼", 62, 27, 15, "bob"),
+    COUNTER(62, 32, 15, { c: "#5B4636", txt: "RECEPTION", fs: 2.6 }),
+    SAY("Basement? We have 47 of them. Mind the markers.", 72, 56, 30),
+    SHELF(88, 62, 15, "📚📚📚", { s: 7 }),
+    E("🪴", 90, 18, 14, "sway"),
+    E("🐦", 32, 18, 7, "walk", { dx: "14cqw", dur: "8s" }),
+  ] };
+
+const DEEP = [
+  { id: "vault", d: 7000, lvl: "B99", name: "The Band 6 Vault", quip: "The trench floor of the HSC. A perfect Daily Dig lands exactly here.",
+    wall: "panel", w1: "#5C4413", w2: "#4A360E", floor: "stone", fl: "#3A2E12", light: "chand", fx: { k: "sparks", n: 10 },
+    items: [
+      POSTER("BAND 6\n90–100", 22, 46, 15, 22, { c: "#1C2430", fc: "#F5BF3F", fs: 3.6 }),
+      BLK(50, 18, 15, 16, { c: "#C9A227", rad: .8 }), E("🏆", 50, 34, 17, "pulse"),
+      E("💎", 22, 18, 9, "pulse"), E("💎", 31, 18, 7, "pulse", { d: ".6s" }), E("👑", 70, 18, 9, "bob"),
+      E("💂", 87, 18, 16, "none"),
+      SAY("Only perfect dives get in. Do not touch the 100s.", 80, 52, 26, { cls: "r" }),
+    ] },
+  { id: "magma", d: 9000, lvl: "B404", name: "Magma Marking Centre", quip: "HSC marking has moved somewhere warmer. The red pens melt on contact.",
+    wall: "rock", w1: "#4A1A10", w2: "#3A130B", floor: "lava", fl: "#7A2A0C", light: "none", fx: { k: "embers", n: 14 },
+    items: [
+      BOARD("Scripts marked: 74,000\n!Scripts left: 74,001", 72, 50, 36, 24),
+      E("🧑‍🏫", 22, 18, 16, "bob"), E("📚", 38, 18, 13, "none"), E("🖊️", 32, 38, 7, "wobble"),
+      POOL(70, 50, { cls: "lava", h: 13 }),
+      E("🔥", 60, 6, 8, "pulse"), E("🔥", 80, 6, 7, "pulse", { d: ".5s" }),
+      SAY("It's a hot marking season this year.", 24, 50, 26),
+    ] },
+  { id: "core", d: 12000, lvl: "B∞", name: "Earth's Core: Head Marker's Lair", quip: "At the centre of the Earth sits the Head Marker. The Head Marker would like a case study.",
+    wall: "lava", w1: "#FFB347", w2: "#E2531B", floor: "lava", fl: "#B8401A", light: "none", fx: { k: "sparks", n: 14 },
+    items: [
+      BOARD("Outcomes H1–H10\n!Answer the question\n!that was asked", 78, 46, 32, 30),
+      BLK(40, 18, 30, 34, { cls: "throne" }),
+      E("🐉", 40, 22, 30, "bob", { dur: "3.4s" }),
+      SAY("Use the case study. ALWAYS use the case study.", 30, 64, 30),
+    ] },
+  { id: "antipode", d: 15000, lvl: "B∞+1", name: "The Other Side: North Atlantic", quip: "You drilled straight through the Earth. Sydney's antipode is open ocean, south of the Azores.",
+    wall: "water", w1: "#0E6A8A", w2: "#083A55", floor: "sand", fl: "#C2A66B", light: "none", fx: { k: "bubbles", n: 14 },
+    items: [
+      E("🐋", 32, 46, 22, "swim", { dx: "8cqw" }),
+      E("🦐", 68, 32, 9, "swim", { dx: "-6cqw", dur: "4s" }), E("🦐", 76, 40, 7, "swim", { dx: "-5cqw", dur: "5s", d: ".6s" }),
+      E("🐟", 0, 66, 7, "slide", { dur: "9s", fl: true }),
+      E("🪸", 12, 18, 13, "sway"), E("🪸", 90, 18, 11, "sway", { d: "1s" }),
+      SAY("Wrong game, mate. Krillion's the ocean one.", 70, 52, 28, { cls: "r" }),
+    ] },
+];
+
+const DEPTHS = [150, 500, 900, 1400, 2000, 2700, 3500, 4400, 5400, 6400];
+const LVLS = ["B1", "B2", "B4", "B7", "B11", "B16", "B23", "B32", "B48", "B64"];
+
+const TOPIC_ROOMS = {
+  operations: [
+    { id: "ops-dock", name: "Inputs Loading Dock", quip: "Transformed resources arrive on the belt: materials, information and, occasionally, a customer.",
+      wall: "brick", w1: "#8F5B45", w2: "#6E4334", floor: "stone", fl: "#5E5A55", light: "fluoro", fx: { k: "dust", n: 8 },
+      items: [
+        BOARD("TRANSFORMED: materials,\ninformation, customers\n!TRANSFORMING: HR + facilities", 71, 44, 46, 30, { fs: 4.4 }),
+        BELT(40, 64, "📦🧍📦🛢️📦📨", { s: 10, dur: 9 }),
+        E("👷", 86, 18, 16, "bob"),
+        SAY("Customers are inputs too. Hop on, mate.", 84, 37, 24, { cls: "r m" }),
+      ] },
+    { id: "ops-velodrome", name: "The 4Vs Velodrome", quip: "Volume, variety, variation in demand and visibility, racing in circles. Very relatable.",
+      wall: "stripes", w1: "#2E4A6B", w2: "#27405D", floor: "wood", fl: "#B07A45", light: "fluoro",
+      items: [
+        BANNER("VOLUME · VARIETY · VARIATION · VISIBILITY", 62, 64, 66),
+        E("🚴", 0, 18, 14, "slide", { dur: "5s", fl: true }), E("🚴‍♀️", 0, 18, 14, "slide", { dur: "5s", d: "-1.7s", fl: true }), E("🚵", 0, 18, 14, "slide", { dur: "5s", d: "-3.4s", fl: true }),
+        E("📣", 86, 40, 9, "wobble"),
+        SAY("High visibility means the customer can watch you sweat.", 30, 40, 32),
+      ] },
+    { id: "ops-gantt", name: "Gantt Chart Gallery", quip: "Critical path analysis says lunch is the bottleneck. Lunch says it is on the critical path.",
+      wall: "plain", w1: "#E9E4D8", w2: "#D6CDB8", floor: "carpet", fl: "#3F5D7D", light: "fluoro",
+      items: [
+        GANTT(62, 34, 52, 40, [["Order", 0, 2, 1], ["Build", 2, 4, 1], ["Paint", 2, 2, 0], ["Test", 6, 1, 1], ["Lunch", 0, 8, 1]]),
+        E("🧑‍💼", 16, 18, 16, "bob"), E("⏱️", 27, 44, 7, "wobble"),
+        SAY("If the coffee run is on the critical path, we're doomed.", 20, 54, 28, { cls: "m" }),
+        E("☕", 92, 18, 7, "none"),
+      ] },
+    { id: "ops-jit", name: "Just-In-Time Cafeteria", quip: "Zero stock on hand. Your pie arrives the exact second you get hungry.",
+      wall: "tile", w1: "#F2E6C9", w2: "#DCCBA6", floor: "checker", fl: "#2E2A27", light: "bulb",
+      items: [
+        POSTER("STOCK HELD: 0\nWASTE: 0\nSTRESS: HIGH", 82, 48, 20, 26, { c: "#2A9D8F", fc: "#fff" }),
+        E("🧑‍🍳", 22, 25, 16, "bob"),
+        COUNTER(38, 46, 12, { c: "#B5562F" }),
+        E("🍽️", 46, 29, 7, "none"), E("🥧", 46, 30, 7, "drop"),
+        E("🕐", 62, 60, 8, "spin", { dur: "3s" }),
+        E("🧑", 70, 18, 14, "bob", { d: ".4s" }),
+        SAY("Not one second early. Not one second late.", 30, 52, 26),
+      ] },
+    { id: "ops-inventory", name: "Inventory Cave: FIFO & LIFO", quip: "First in, first out. Except Gary. Gary has been in since 2009.",
+      wall: "rock", w1: "#6E5A4A", w2: "#5B4A3D", floor: "stone", fl: "#4A3F36", light: "bulb", fx: { k: "dust", n: 6 },
+      items: [
+        SHELF(22, 30, 32, "📦📦📦📦", { s: 9 }), SHELF(22, 52, 32, "📦📦📦", { s: 9 }),
+        E("🕸️", 9, 62, 8, "none"),
+        BLK(22, 66, 18, 6, { txt: "← FIFO", c: "#2A9D8F", fs: 3 }), BLK(78, 66, 18, 6, { txt: "LIFO →", c: "#E76F51", fs: 3 }),
+        E("📦", 54, 18, 11, "none"), E("🧓", 54, 26, 13, "none"),
+        SAY("I'm Gary. I'm stock now.", 54, 46, 18, { cls: "n" }),
+        E("🧑‍🏭", 84, 18, 16, "bob"),
+      ] },
+    { id: "ops-quality", name: "The Quality Circle", quip: "Six staff, one rubber duck, forty minutes of continuous improvement.",
+      wall: "panel", w1: "#5E7F6E", w2: "#4E6D5D", floor: "carpet", fl: "#8C3B3B", light: "fluoro",
+      items: [
+        BOARD("Control ✓\nAssurance ✓\n!Improvement… forever (TQM)", 78, 44, 34, 30),
+        E("🧑‍🔬", 18, 18, 15, "bob"),
+        BLK(40, 18, 11, 9, { c: "#E7E2D6", rad: .4 }), E("🦆", 40, 27, 10, "wobble"),
+        E("👩‍💼", 58, 18, 15, "bob", { d: ".5s" }), E("🔍", 29, 36, 7, "sway"),
+        SAY("Is the duck ISO 9001 certified or not?", 24, 52, 26),
+      ] },
+    { id: "ops-robots", name: "Robot Break Room", quip: "Leading-edge technology on the couch. Established technology sulking in the corner.",
+      wall: "tile", w1: "#3B4A5C", w2: "#2E3B4A", floor: "tile", fl: "#6B7684", light: "fluoro",
+      items: [
+        POSTER("NO OIL\nIN THE SINK", 70, 54, 15, 17, { c: "#F4E04D", r: "2deg" }),
+        E("🛋️", 38, 18, 20, "none"), E("🤖", 31, 25, 12, "bob"), E("🤖", 46, 25, 12, "bob", { d: ".7s" }),
+        E("📠", 86, 18, 11, "shake", { dur: "1.4s" }),
+        SAY("I was leading edge in 1985.", 83, 34, 22, { cls: "r" }),
+        SAY("Automation means no breaks. This is a vibe check.", 34, 52, 30, { cls: "m" }),
+      ] },
+    { id: "ops-global", name: "Global Sourcing Departures", quip: "Our parts have more frequent flyer points than our managers.",
+      wall: "plain", w1: "#D8DEE6", w2: "#BCC6D2", floor: "tile", fl: "#7A8794", light: "fluoro",
+      items: [
+        E("✈️", 0, 70, 7, "slide", { dur: "6s" }),
+        SCREEN("DEPARTURES\nSHENZHEN    ON TIME\nHO CHI MINH DELAYED\nPUNE        BOARDING\n!MELBOURNE   CANCELLED", 70, 34, 46, 34),
+        E("🧳", 13, 18, 9, "none"), E("🧑‍💼", 25, 18, 15, "bob"),
+        BLK(42, 18, 3, 8, { c: "#555" }), E("🌏", 42, 25, 10, "spin", { dur: "9s" }),
+        SAY("Economies of scale! And economies of jet lag.", 27, 46, 28, { cls: "m" }),
+      ] },
+    { id: "ops-csr", name: "The Underground CSR Garden", quip: "Environmental sustainability is going well. Sunlight is a supply chain issue.",
+      wall: "plain", w1: "#2F4F3A", w2: "#203828", floor: "grass", fl: "#4F7A3A", light: "grow",
+      items: [
+        BOARD("Legal compliance = the minimum\n!Ethical responsibility = going beyond", 72, 42, 44, 30, { fs: 4.4 }),
+        E("🌳", 18, 18, 25, "sway", { dur: "5s" }), E("🐨", 21, 30, 8, "bob"),
+        E("🌻", 36, 18, 11, "sway", { d: ".4s" }), E("♻️", 54, 18, 9, "spin", { dur: "5s" }),
+        SAY("Lovely garden. Shame it's 5 km underground.", 26, 56, 26),
+      ] },
+    { id: "ops-change", name: "Resistance-to-Change Bunker", quip: "Inertia lives here. It has not moved since the last restructure.",
+      wall: "concrete", w1: "#55595E", w2: "#45494E", floor: "stone", fl: "#3A3D41", light: "bulb",
+      items: [
+        BOARD("Financial costs · New equipment\nRedundancy payments · Retraining\nReorganising plant layout\n!Inertia (see cat)", 72, 40, 46, 38, { fs: 4.2 }),
+        BLK(32, 40, 22, 6, { txt: "INERTIA", c: "#E63946", fs: 3 }),
+        E("🛋️", 32, 18, 20, "none"), E("🐈", 29, 25, 10, "none"), E("💤", 38, 34, 6, "float"),
+        SAY("I've been on this couch since 2019.", 26, 54, 26),
+      ] },
+  ],
+  marketing: [
+    { id: "mkt-focus", name: "Focus Group Room", quip: "Behind the one-way mirror, three marketers are taking notes on how you chew.",
+      wall: "panel", w1: "#7A5C8A", w2: "#644874", floor: "carpet", fl: "#4E3D58", light: "fluoro",
+      items: [
+        BLK(70, 36, 44, 32, { cls: "mirror" }), E("👀", 63, 48, 8, "blink"), E("👀", 78, 48, 8, "blink", { d: ".9s" }),
+        E("🧑", 22, 22, 13, "bob"), E("👩‍🦰", 44, 22, 13, "bob", { d: ".5s" }),
+        COUNTER(33, 44, 10, { c: "#A47148" }), E("🍪", 33, 28, 6, "hop"),
+        SAY("It tastes like… market research.", 26, 46, 26),
+      ] },
+    { id: "mkt-crimin", name: "The CRIMIN Zoo", quip: "Consumer, resource, industrial, mass, intermediate and niche markets. Please do not feed the niche market.",
+      wall: "brick", w1: "#B88B5B", w2: "#9B724A", floor: "grass", fl: "#6E8B3D", light: "fluoro",
+      items: [
+        E("🐑", 12, 18, 9, "bob"), E("🐑", 20, 18, 9, "bob", { d: ".3s" }), E("🐑", 28, 18, 9, "bob", { d: ".6s" }), E("🐑", 16, 25, 9, "bob", { d: ".9s" }), E("🐑", 24, 25, 9, "bob", { d: "1.2s" }),
+        BLK(20, 18, 30, 40, { cls: "cage", txt: "MASS MARKET" }),
+        E("🦄", 60, 18, 12, "hop"),
+        BLK(60, 18, 16, 40, { cls: "cage", txt: "NICHE" }),
+        E("🧑‍🌾", 86, 18, 15, "bob"),
+        SAY("I'm a niche market. There's one of me.", 64, 64, 28),
+      ] },
+    { id: "mkt-pizza", name: "The 4Ps Pizzeria", quip: "Product, price, place, promotion. The services marketers ordered three extra Ps.",
+      wall: "tile", w1: "#F1E3C6", w2: "#DCC9A2", floor: "checker", fl: "#9E2F2F", light: "bulb",
+      items: [
+        BOARD("PRODUCT · PRICE\nPLACE · PROMOTION\n!+ people, processes,\n!physical evidence", 75, 42, 38, 34),
+        E("🧑‍🍳", 24, 25, 16, "bob"),
+        COUNTER(32, 44, 12, { c: "#2E6F40" }),
+        E("🍕", 40, 31, 10, "spin", { dur: "2.4s" }),
+        SAY("One slice per P. Seven slices is a services pizza.", 30, 54, 30),
+      ] },
+    { id: "mkt-skim", name: "The Price Skimming Pool", quip: "Price high, skim the keen buyers off the top, then drop the price for everyone else.",
+      wall: "tile", w1: "#BFE3EE", w2: "#94C8DA", floor: "tile", fl: "#E7EEF0", light: "fluoro", fx: { k: "bubbles", n: 6 },
+      items: [
+        POSTER("DEEP END →\nPENETRATION\nPRICING", 20, 44, 18, 24, { c: "#E63946", fc: "#fff" }),
+        POOL(50, 64),
+        E("💰", 36, 5, 7, "bob"), E("💰", 56, 4, 7, "bob", { d: ".6s" }), E("🏊", 68, 4, 9, "bob", { d: ".3s" }),
+        E("🎣", 44, 14, 12, "sway"),
+        BLK(88, 18, 5, 30, { c: "#F1FAEE" }), E("🧑‍🦱", 88, 47, 11, "none"),
+        SAY("Early adopters in the shallow end, wallets out!", 76, 62, 28, { cls: "r" }),
+      ] },
+    { id: "mkt-influencer", name: "The Influencer Den", quip: "Opinion leaders work here. So does word of mouth, mostly by accident.",
+      wall: "stripes", w1: "#F2A7C3", w2: "#E58FB1", floor: "wood", fl: "#C49A6C", light: "ring", fx: { k: "hearts", n: 8 },
+      items: [
+        POSTER("ALWAYS\nDISCLOSE\n#AD", 82, 46, 16, 24, { c: "#1E1E24", fc: "#F2A7C3" }),
+        E("💁‍♀️", 42, 18, 17, "bob"), E("🤳", 51, 30, 7, "wobble"),
+        E("📱", 24, 34, 8, "wobble"), BLK(24, 18, 1.4, 16, { c: "#222" }),
+        E("👥", 66, 18, 12, "bob", { d: ".4s" }),
+        SAY("This lip balm changed my life. #ad #wordofmouth", 38, 52, 30),
+      ] },
+    { id: "mkt-accc", name: "ACCC Interview Room", quip: "Deceptive and misleading advertising gets a chair, a lamp and a lot of questions.",
+      wall: "concrete", w1: "#4B5563", w2: "#3D4552", floor: "tile", fl: "#2F343B", light: "bulb",
+      items: [
+        POSTER("COMPETITION\n& CONSUMER\nACT 2010", 18, 46, 16, 24, { c: "#F1FAEE", fc: "#1C2430" }),
+        E("🤥", 38, 25, 14, "shake", { dur: "1.2s" }), E("🕵️", 64, 25, 14, "bob"),
+        COUNTER(51, 42, 12, { c: "#6B5B4B" }), E("🧴", 51, 30, 6, "none"),
+        SAY("'100% natural'? It's made of plastic. Start talking.", 72, 56, 30, { cls: "r" }),
+      ] },
+    { id: "mkt-plc", name: "Product Life Cycle Retirement Home", quip: "Introduction, growth, maturity, decline. Then a nice room with a view of the dirt.",
+      wall: "panel", w1: "#C9A27E", w2: "#AE8662", floor: "carpet", fl: "#7C4D3A", light: "bulb",
+      items: [
+        BOARD("Introduction → Growth\n→ Maturity → !Decline", 76, 52, 36, 22),
+        E("🪑", 16, 18, 14, "none"), E("📼", 16, 28, 8, "sway"),
+        E("🪑", 36, 18, 14, "none"), E("💾", 36, 28, 7, "sway", { d: ".5s" }),
+        E("🪑", 56, 18, 14, "none"), E("📠", 56, 28, 8, "sway", { d: "1s" }),
+        E("📟", 78, 18, 7, "hop"),
+        SAY("In my growth stage I was in every lounge room.", 22, 46, 28),
+      ] },
+    { id: "mkt-forge", name: "Branding Iron Forge", quip: "Brand names, logos and trademarks, hammered out while you wait.",
+      wall: "brick", w1: "#5A3A2E", w2: "#43291F", floor: "stone", fl: "#2D2622", light: "none", fx: { k: "sparks", n: 10 },
+      items: [
+        POSTER("BRAND NAME · LOGO\nTRADEMARK · PACKAGING", 76, 56, 32, 16, { c: "#F5BF3F" }),
+        BLK(16, 18, 20, 28, { cls: "furnace" }), E("🔥", 16, 22, 11, "pulse"),
+        E("🧑‍🏭", 44, 18, 17, "bob"), E("🔨", 55, 36, 9, "hammer"),
+        BLK(66, 18, 14, 11, { c: "#2B2B2B", rad: .3 }), E("™️", 66, 29, 7, "pulse"),
+        SAY("Every logo comes with a free sense of identity.", 40, 52, 28, { cls: "m" }),
+      ] },
+    { id: "mkt-slide", name: "Distribution Channel Waterslide", quip: "Producer, wholesaler, retailer, you. Intensive distribution means a slide at every servo.",
+      wall: "tile", w1: "#9AD1D4", w2: "#71B8BD", floor: "tile", fl: "#E0F2F1", light: "fluoro",
+      items: [
+        BLK(48, 40, 76, 6, { cls: "slideway", r: "17deg" }),
+        BLK(13, 66, 18, 6, { txt: "PRODUCER", c: "#1C2430", fs: 2.6 }), BLK(40, 52, 20, 6, { txt: "WHOLESALER", c: "#1C2430", fs: 2.6 }), BLK(66, 36, 18, 6, { txt: "RETAILER", c: "#1C2430", fs: 2.6 }),
+        E("📦", 14, 52, 8, "chute", { dx: "62cqw", dy: "22cqh", dur: "3.6s" }), E("📦", 14, 52, 8, "chute", { dx: "62cqw", dy: "22cqh", dur: "3.6s", d: "-1.8s" }),
+        POOL(84, 26, { h: 12 }), E("🧑", 84, 8, 10, "bob"),
+        SAY("Exclusive distribution: one exit, and it's in Paris.", 32, 22, 30, { cls: "n m" }),
+      ] },
+    { id: "mkt-embassy", name: "Global Marketing Embassy", quip: "Standardise or customise? The embassy kitchen does both.",
+      wall: "panel", w1: "#1F3A5F", w2: "#162B47", floor: "carpet", fl: "#8C2F39", light: "chand",
+      items: [
+        BOARD("Global branding · Standardisation\n!Customisation · Global pricing\nCompetitive positioning", 72, 52, 48, 28, { fs: 4.2 }),
+        E("🧑‍💼", 18, 18, 16, "bob"),
+        BLK(46, 18, 5, 18, { c: "#C9A227" }), E("🌍", 46, 36, 15, "spin", { dur: "12s" }),
+        COUNTER(76, 26, 12, { c: "#C9A227" }), E("🍔", 72, 30, 8, "hop"), E("🍛", 82, 30, 8, "hop", { d: ".5s" }),
+        SAY("Same logo, local menu. That's customisation.", 22, 50, 26),
+      ] },
+  ],
+  finance: [
+    { id: "fin-petty", name: "Petty Cash Cupboard", quip: "Internal finance, also known as retained profits, also known as one coin and a moth.",
+      wall: "panel", w1: "#6B4F3A", w2: "#57402F", floor: "wood", fl: "#4A3628", light: "bulb",
+      items: [
+        BLK(44, 18, 38, 56, { cls: "cupboard" }),
+        E("🪙", 44, 42, 8, "pulse"), E("🦋", 50, 56, 6, "flutter"), E("🕸️", 31, 60, 8, "none"),
+        E("🧑‍💼", 82, 18, 16, "bob"),
+        SAY("Retained profits? This IS the retained profits.", 78, 50, 28, { cls: "r" }),
+      ] },
+    { id: "fin-busfail", name: "BUSFAIL Bank Branch", quip: "Banks, unit trusts, super funds, finance companies, the ASX, investment banks and life insurers. One very long queue.",
+      wall: "tile", w1: "#D9CBB0", w2: "#C2B08F", floor: "stone", fl: "#8A7F70", light: "fluoro",
+      items: [
+        BLK(28, 34, 18, 30, { cls: "teller", l: "BANKS" }), BLK(52, 34, 18, 30, { cls: "teller", l: "SUPER" }), BLK(76, 34, 18, 30, { cls: "teller", l: "ASX" }),
+        E("🧑‍💼", 28, 36, 11, "bob"), E("👩‍💼", 52, 36, 11, "bob", { d: ".4s" }), E("🧑‍💻", 76, 36, 11, "bob", { d: ".8s" }),
+        E("🧑", 14, 18, 13, "bob"), E("👩", 26, 18, 13, "bob", { d: ".3s" }), E("🧔", 38, 18, 13, "bob", { d: ".6s" }), E("👵", 50, 18, 13, "bob", { d: ".9s" }),
+        SAY("BUSFAIL. Please don't take the acronym personally.", 70, 70, 34, { cls: "n m" }),
+      ] },
+    { id: "fin-overdraft", name: "Overdraft Overflow", quip: "Overdrafts are short-term borrowing. Says everyone, every time.",
+      wall: "tile", w1: "#A7C4C2", w2: "#83A6A4", floor: "tile", fl: "#E8E2D6", light: "fluoro", fx: { k: "drip", n: 6 },
+      items: [
+        POSTER("INTEREST\nRATES ↑", 18, 48, 14, 18, { c: "#E63946", fc: "#fff" }),
+        POOL(44, 50, { h: 7 }),
+        E("🛁", 44, 14, 22, "none"), E("💸", 38, 31, 8, "bob"), E("📉", 51, 33, 8, "bob", { d: ".5s" }),
+        E("🧑‍🔧", 80, 18, 16, "bob"),
+        SAY("Your limit was $5k. You're at $50k. Mate.", 74, 52, 28, { cls: "r" }),
+      ] },
+    { id: "fin-ratiolab", name: "Ratio Analysis Lab", quip: "Where numbers go to be divided by other numbers.",
+      wall: "tile", w1: "#E8EEF2", w2: "#C8D3DB", floor: "tile", fl: "#9AA7B1", light: "fluoro", fx: { k: "bubbles", n: 6 },
+      items: [
+        BOARD("Current = CA ÷ CL\nGearing = TL ÷ TE\nNP ratio = NP ÷ sales\n!ROE = NP ÷ TE", 72, 34, 42, 42, { fs: 5.2 }),
+        E("🧑‍🔬", 36, 24, 16, "bob"),
+        COUNTER(28, 42, 12, { c: "#5B6770" }), E("🧪", 16, 30, 9, "wobble"), E("⚗️", 26, 30, 9, "bob"),
+        SAY("A current ratio of 2:1. Healthier than me.", 26, 56, 26),
+      ] },
+    { id: "fin-gearbox", name: "The Gearing Gearbox", quip: "More debt, more gears. Highly geared? Hold on to something.",
+      wall: "concrete", w1: "#4F5B66", w2: "#3E4852", floor: "stone", fl: "#33393F", light: "bulb",
+      items: [
+        E("⚙️", 34, 22, 34, "spin", { dur: "8s" }), E("⚙️", 61, 20, 22, "rspin", { dur: "5.2s" }),
+        BANNER("DEBT", 34, 64, 14, { c: "#E63946" }), BANNER("EQUITY", 62, 50, 16, { c: "#2A9D8F" }),
+        E("🧑‍🔧", 86, 18, 16, "shake", { dur: "1.6s" }),
+        SAY("Debt to equity of 3:1. Hear that screaming?", 80, 50, 24, { cls: "r m" }),
+      ] },
+    { id: "fin-factoring", name: "The Factoring Factory", quip: "Sell your accounts receivable at a discount. Instant cash, slightly sad.",
+      wall: "brick", w1: "#7D6B5D", w2: "#615146", floor: "stone", fl: "#4F4842", light: "fluoro",
+      items: [
+        POSTER("−10%\nDISCOUNT", 20, 50, 14, 18, { c: "#F5BF3F" }),
+        BELT(38, 52, "🧾🧾🧾🧾", { s: 8, dur: 6 }),
+        BLK(72, 18, 20, 36, { cls: "machine", txt: "FACTOR-\nO-MATIC" }),
+        E("💵", 88, 18, 8, "hop"), E("💵", 92, 24, 6, "hop", { d: ".7s" }),
+        SAY("Invoices in. Cash out. A bit missing.", 40, 50, 24),
+      ] },
+    { id: "fin-asx", name: "ASX Trading Pit", quip: "The bull and the bear are negotiating a rights issue. Nobody is winning.",
+      wall: "plain", w1: "#1D2A3A", w2: "#141F2C", floor: "carpet", fl: "#5A2B2B", light: "fluoro", fx: { k: "paper", n: 7 },
+      items: [
+        SCREEN("BHP   ▲ 1.2%\n!CBA   ▼ 0.8%\nWOW   ▲ 0.3%\n!XJO   ▼ 2.1%", 52, 48, 34, 30, { fs: 3.6 }),
+        E("🐂", 24, 18, 20, "shake", { dur: "1.1s" }), E("🐻", 78, 18, 20, "shake", { dur: "1.1s", d: ".3s" }),
+        SAY("Rights issue? I have the right to remain bullish.", 20, 42, 26, { cls: "m" }),
+      ] },
+    { id: "fin-hedge", name: "The Hedging Maze", quip: "Exchange rate risk gets trimmed weekly. So do the hedges.",
+      wall: "plain", w1: "#86C0E0", w2: "#5D9FC8", floor: "grass", fl: "#3E6B35", light: "none",
+      items: [
+        BOARD("Forward contracts\nOptions · Swaps\n!= derivatives", 80, 50, 30, 26),
+        E("💴", 14, 44, 7, "hop"), BLK(16, 18, 22, 28, { cls: "hedge" }),
+        E("💶", 44, 36, 7, "hop", { d: ".5s" }), BLK(44, 18, 22, 20, { cls: "hedge" }),
+        E("🧑‍🌾", 64, 18, 15, "bob"), E("✂️", 70, 30, 6, "snip"),
+        SAY("Hedging: trimming currency risk since forever.", 32, 54, 28),
+      ] },
+    { id: "fin-leaseback", name: "Sale & Leaseback Motel", quip: "We sold the building, then rented it straight back. Cash flow says thanks.",
+      wall: "stripes", w1: "#E7C9A9", w2: "#D9B490", floor: "carpet", fl: "#6F2F2F", light: "bulb",
+      items: [
+        E("🏢", 22, 18, 30, "none"), BANNER("SOLD", 22, 52, 13, { c: "#E63946" }),
+        BANNER("WELCOME BACK, TENANT!", 66, 66, 44, { c: "#2A9D8F" }),
+        E("🧑‍💼", 70, 25, 14, "bob"),
+        COUNTER(70, 32, 14, { c: "#7A4E2D", txt: "CHECK-IN", fs: 2.6 }), E("🛎️", 61, 32, 6, "hop"),
+        SAY("Same building, new landlord, more cash.", 68, 44, 26, { cls: "m" }),
+      ] },
+    { id: "fin-audit", name: "The Audit Dungeon", quip: "Capitalising your coffee as an asset was bold. The auditors would like a word.",
+      wall: "rock", w1: "#3B3542", w2: "#2C2733", floor: "stone", fl: "#26222B", light: "bulb", fx: { k: "drip", n: 5 },
+      items: [
+        E("⛓️", 10, 56, 10, "sway"), E("⛓️", 92, 56, 10, "sway", { d: ".5s" }),
+        E("🧐", 32, 25, 15, "bob"),
+        COUNTER(42, 36, 12, { c: "#4A3B2E" }), E("📒", 38, 30, 8, "none"), E("🔦", 50, 31, 7, "sway"),
+        E("🤡", 74, 18, 16, "shake", { dur: "1.5s" }),
+        SAY("Coffee is not a non-current asset, Kevin.", 30, 54, 26),
+      ] },
+  ],
+  hr: [
+    { id: "hr-waiting", name: "Recruitment Waiting Room", quip: "Internal or external candidates? This one came in through the car park.",
+      wall: "plain", w1: "#9DB4C0", w2: "#7E98A6", floor: "carpet", fl: "#5C6B73", light: "fluoro",
+      items: [
+        E("🪑", 16, 18, 13, "none"), E("🪑", 32, 18, 13, "none"), E("🪑", 48, 18, 13, "none"),
+        E("🧑‍💼", 16, 24, 12, "bob"), E("👩‍🦱", 32, 24, 12, "bob", { d: ".4s" }), E("🧑‍🦲", 48, 24, 12, "bob", { d: ".8s" }),
+        SCREEN("NOW\nSERVING\n  47", 78, 44, 14, 22, { fs: 4 }),
+        E("🪴", 91, 18, 12, "sway"),
+        SAY("I applied internally. I work in the car park.", 34, 52, 28),
+      ] },
+    { id: "hr-tug", name: "Stakeholder Tug-of-War", quip: "Employers and employer associations on the left, unions on the right, a swan named U GEESE refereeing.",
+      wall: "brick", w1: "#B5835A", w2: "#946644", floor: "wood", fl: "#7A5636", light: "fluoro",
+      items: [
+        BANNER("EMPLOYERS", 22, 64, 24, { c: "#1C2430" }), BANNER("UNIONS", 78, 64, 20, { c: "#E63946" }),
+        E("🧑‍💼", 16, 18, 15, "tug"), E("👩‍💼", 28, 18, 15, "tug", { d: ".15s" }),
+        E("🧑‍🏭", 72, 18, 15, "tug", { d: ".7s" }), E("👷", 84, 18, 15, "tug", { d: ".85s" }),
+        BLK(50, 25, 76, 2.4, { cls: "rope" }),
+        E("🦢", 50, 18, 12, "hop"),
+        SAY("I'm the U GEESE mascot. Technically a swan.", 50, 40, 26, { cls: "m" }),
+      ] },
+    { id: "hr-fwc", name: "Fair Work Hearing Room", quip: "Awards, enterprise agreements and the National Employment Standards, read aloud very slowly.",
+      wall: "panel", w1: "#7B5B3A", w2: "#634829", floor: "carpet", fl: "#2E4A3A", light: "fluoro",
+      items: [
+        E("🧑‍⚖️", 50, 35, 16, "bob"),
+        COUNTER(50, 34, 20, { c: "#5A3D22" }), E("🔨", 62, 38, 7, "hammer"),
+        E("🧑‍💼", 16, 18, 14, "bob"), E("🧑‍🏭", 84, 18, 14, "bob", { d: ".5s" }),
+        SAY("Order! The minimum wage is not a suggestion.", 50, 60, 32),
+      ] },
+    { id: "hr-dojo", name: "The Induction Dojo", quip: "Induction, training, mentoring, coaching. Belts are awarded at the performance appraisal.",
+      wall: "panel", w1: "#E9D8B4", w2: "#D1BD92", floor: "wood", fl: "#C8B27A", light: "bulb",
+      items: [
+        BOARD("INDUCTION → TRAINING\n!→ MENTORING → COACHING", 30, 50, 44, 22, { fs: 4.6 }),
+        E("🥋", 40, 18, 16, "hop"), E("🧓", 68, 18, 16, "bob"),
+        SAY("Lesson one: where the toilets are. That's induction.", 74, 46, 28, { cls: "r" }),
+      ] },
+    { id: "hr-whs", name: "WHS Hazard Museum", quip: "Every exhibit was donated by a workplace that forgot its duty of care.",
+      wall: "plain", w1: "#F1EBDD", w2: "#DDD3BD", floor: "tile", fl: "#B9B2A4", light: "fluoro",
+      items: [
+        POSTER("WHS ACT 2011\n+ WORKERS\nCOMPENSATION", 80, 50, 18, 24, { c: "#F4E04D" }),
+        BLK(18, 18, 12, 11, { c: "#D9D4C8", rad: .3 }), E("🍌", 18, 29, 8, "sway"),
+        BLK(40, 18, 12, 11, { c: "#D9D4C8", rad: .3 }), E("🪜", 40, 29, 12, "wobble"),
+        E("⚠️", 58, 18, 9, "blink"),
+        E("🧑‍🏫", 84, 18, 16, "bob"),
+        SAY("Exhibit 4: the extension cord in the puddle.", 32, 54, 28),
+      ] },
+    { id: "hr-motivation", name: "Motivation Station", quip: "Monetary and non-monetary rewards, dangled at exactly arm's length.",
+      wall: "stripes", w1: "#F4D35E", w2: "#E8BF3C", floor: "rubber", fl: "#3D3D3D", light: "fluoro", fx: { k: "money", n: 5 },
+      items: [
+        POSTER("MONETARY\nvs\nNON-MONETARY", 84, 50, 18, 24, { c: "#1C2430", fc: "#F4D35E" }),
+        BLK(42, 18, 34, 5, { cls: "tread" }), E("🏃", 40, 22, 16, "run"),
+        BLK(58, 44, 22, 1, { c: "#7A5636", r: "-8deg" }), E("🥕", 68, 34, 8, "sway"),
+        SAY("Performance pay! It's a carrot. It's always a carrot.", 26, 52, 30),
+      ] },
+    { id: "hr-thrones", name: "Leadership Throne Room", quip: "Autocratic, democratic and laissez-faire. One of them has been asleep since the meeting started.",
+      wall: "panel", w1: "#5B2A3C", w2: "#46202E", floor: "carpet", fl: "#B3893B", light: "chand",
+      items: [
+        BLK(20, 18, 15, 26, { cls: "throne" }), BLK(50, 18, 15, 26, { cls: "throne" }), BLK(80, 18, 15, 26, { cls: "throne" }),
+        E("🗣️", 20, 28, 11, "shake"), E("🗳️", 50, 28, 10, "bob"), E("😴", 80, 28, 10, "none"), E("💤", 87, 40, 6, "float"),
+        BLK(20, 48, 18, 5, { txt: "AUTOCRATIC", c: "#E63946", fs: 2.4 }), BLK(50, 48, 18, 5, { txt: "DEMOCRATIC", c: "#2A9D8F", fs: 2.4 }), BLK(80, 48, 20, 5, { txt: "LAISSEZ-FAIRE", c: "#6D597A", fs: 2.4 }),
+        SAY("Laissez-faire? More like laissez-snore.", 70, 62, 28, { cls: "r m" }),
+      ] },
+    { id: "hr-ring", name: "Dispute Resolution Ring", quip: "Negotiation, then mediation, then grievance procedures, then the tribunal. Tag-team rules apply.",
+      wall: "concrete", w1: "#2B2D42", w2: "#202235", floor: "wood", fl: "#8D99AE", light: "spot",
+      items: [
+        ROPES(50, 64, 26),
+        E("🤼", 50, 18, 22, "shake", { dur: "1.2s" }),
+        E("🧑‍⚖️", 88, 18, 13, "bob"), BLK(88, 34, 16, 5, { txt: "MEDIATOR", c: "#F4E04D", fc: "#1C2430", fs: 2.4 }),
+        SAY("Negotiation failed. Mediation failed. Tribunal time!", 30, 54, 30),
+      ] },
+    { id: "hr-farewell", name: "The Separation Lounge", quip: "Voluntary or involuntary, every separation gets a card. Only retirement gets cake.",
+      wall: "stripes", w1: "#F7C5CC", w2: "#EDAAB5", floor: "carpet", fl: "#6D597A", light: "fluoro", fx: { k: "confetti", n: 12 },
+      items: [
+        BANNER("SORRY YOU'RE LEAVING!", 56, 66, 48, { c: "#6D597A" }),
+        COUNTER(34, 30, 10, { c: "#FFFFFF" }), E("🎂", 34, 28, 11, "none"),
+        E("🧓", 68, 18, 16, "bob"), E("🏖️", 84, 18, 10, "hop"),
+        SAY("Retirement: the only separation with guaranteed cake.", 70, 44, 28, { cls: "r m" }),
+      ] },
+    { id: "hr-global", name: "Global HR Call Centre", quip: "Global contractors: lower costs, specialist skills, and a meeting at 3 am somewhere.",
+      wall: "plain", w1: "#30475E", w2: "#22364A", floor: "carpet", fl: "#222831", light: "fluoro",
+      items: [
+        SCREEN("SYD 09:00", 52, 64, 15, 9, { fs: 3 }), SCREEN("MNL 07:00", 68, 64, 15, 9, { fs: 3 }), SCREEN("LDN 23:00", 84, 64, 15, 9, { fs: 3 }),
+        E("🧑‍💻", 16, 25, 13, "bob"), E("👩‍💻", 34, 25, 13, "bob", { d: ".3s" }),
+        COUNTER(25, 40, 10, { c: "#4A5D70" }),
+        E("😵‍💫", 76, 18, 15, "wobble"),
+        SAY("It's 3 am in London and they want a payroll update.", 70, 40, 28, { cls: "r m" }),
+      ] },
+  ],
+};
+
+const ROOMS = {};
+for (const t of TOPICS) {
+  const own = TOPIC_ROOMS[t.id].map((r, i) => ({ ...r, d: DEPTHS[i], lvl: LVLS[i] }));
+  ROOMS[t.id] = [FOYER, ...own, ...DEEP];
+}
+// Deep Drill's shaft borrows rooms from every topic.
+ROOMS.deep = [FOYER, ...[
+  ["operations", 3], ["marketing", 3], ["finance", 3], ["hr", 1], ["operations", 4],
+  ["marketing", 6], ["finance", 6], ["hr", 6], ["hr", 7], ["finance", 9],
+].map(([t, i], k) => ({ ...ROOMS[t][i + 1], d: DEPTHS[k], lvl: LVLS[k] })), ...DEEP];
+const maxDepth = () => (run.mode === "endless" ? Infinity : run.topic === "deep" ? 12000 : 7000);
+const roomsFor = () => ROOMS[run.topic].filter(r => r.d <= maxDepth());
+const modeLabel = () => (run.topic === "deep" ? (run.mode === "daily" ? `Today's Deep Drill · ${dayLabel()}` : "Random Deep Drill") : run.mode === "daily" ? `Daily Dig · ${dayLabel()}` : "Endless");
+const roomIndexAt = (rooms, d) => rooms.reduce((a, r, i) => (d >= r.d ? i : a), 0);
+
+/* ================= room rendering ================= */
+function shade(hex, f) {
+  const n = parseInt(hex.slice(1), 16), t = f < 0 ? 0 : 255, p = Math.abs(f);
+  const ch = v => Math.round((t - v) * p + v);
+  const r = ch(n >> 16), g = ch((n >> 8) & 255), b = ch(n & 255);
+  return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+}
+const svgUrl = s => `url('data:image/svg+xml,${encodeURIComponent(s).replace(/'/g, "%27")}')`;
+const SV = (w, h, body) => `<svg xmlns='http://www.w3.org/2000/svg' width='${w}' height='${h}'>${body}</svg>`;
+function wallStyle(r) {
+  const a = r.w1, b = r.w2;
+  switch (r.wall) {
+    case "tile": return `background:${svgUrl(SV(40, 40, `<rect width='40' height='40' fill='${a}'/><path d='M0 1H40M1 0V40' stroke='${b}' stroke-width='2'/>`))} 0 0/8cqh 8cqh`;
+    case "brick": return `background:${svgUrl(SV(60, 30, `<rect width='60' height='30' fill='${a}'/><path d='M0 1H60M0 16H60M30 1V16M1 16V30M59 16V30' stroke='${b}' stroke-width='2.5' fill='none'/>`))} 0 0/13cqh 6.5cqh`;
+    case "panel": return `background:${svgUrl(SV(30, 60, `<rect width='30' height='60' fill='${a}'/><path d='M1 0V60' stroke='${b}' stroke-width='2.5'/><path d='M14 6q4 24 0 48' stroke='${b}' stroke-opacity='.45' fill='none'/>`))} 0 0/7cqh 14cqh`;
+    case "stripes": return `background:${svgUrl(SV(40, 10, `<rect width='40' height='10' fill='${a}'/><rect x='20' width='20' height='10' fill='${b}'/>`))} 0 0/9cqh 3cqh`;
+    case "concrete": return `background:${svgUrl(SV(100, 70, `<rect width='100' height='70' fill='${a}'/><path d='M0 69H100' stroke='${b}' stroke-width='2'/><circle cx='20' cy='20' r='2' fill='${b}'/><circle cx='70' cy='35' r='2.5' fill='${b}'/><circle cx='45' cy='55' r='1.6' fill='${b}'/><circle cx='88' cy='12' r='1.8' fill='${b}'/>`))} 0 0/22cqh 15cqh`;
+    case "rock": return `background:${svgUrl(SV(80, 80, `<rect width='80' height='80' fill='${a}'/><circle cx='15' cy='20' r='9' fill='${b}'/><circle cx='55' cy='12' r='6' fill='${b}'/><circle cx='40' cy='50' r='12' fill='${b}'/><circle cx='70' cy='65' r='7' fill='${b}'/><circle cx='10' cy='68' r='5' fill='${b}'/>`))} 0 0/18cqh 18cqh`;
+    case "water": return `background:linear-gradient(170deg,${a},${b})`;
+    case "lava": return `background:radial-gradient(circle at 50% 120%,#FFF3B0,${a} 40%,${b})`;
+    default: return `background:linear-gradient(${a},${b})`;
+  }
+}
+function floorStyle(r) {
+  const a = r.fl, b = shade(a, -.28), c = shade(a, .45);
+  switch (r.floor) {
+    case "tile": return `background:${svgUrl(SV(40, 40, `<rect width='40' height='40' fill='${a}'/><path d='M0 1H40M1 0V40' stroke='${b}' stroke-width='2'/>`))} 0 0/6cqh 6cqh`;
+    case "checker": return `background:${svgUrl(SV(20, 20, `<rect width='20' height='20' fill='${a}'/><rect width='10' height='10' fill='${c}'/><rect x='10' y='10' width='10' height='10' fill='${c}'/>`))} 0 0/6cqh 6cqh`;
+    case "wood": return `background:${svgUrl(SV(80, 12, `<rect width='80' height='12' fill='${a}'/><path d='M0 11.5H80M50 0V12' stroke='${b}' stroke-width='1.5'/>`))} 0 0/22cqh 3.4cqh`;
+    case "carpet": return `background:${svgUrl(SV(12, 12, `<rect width='12' height='12' fill='${a}'/><circle cx='3' cy='3' r='1' fill='${b}'/><circle cx='9' cy='9' r='1' fill='${b}'/>`))} 0 0/2.4cqh 2.4cqh`;
+    case "stone": return `background:${svgUrl(SV(60, 30, `<rect width='60' height='30' fill='${a}'/><path d='M0 1H60M0 15H60M22 1V15M48 15V30M8 15V30' stroke='${b}' stroke-width='2' fill='none'/>`))} 0 0/16cqh 8cqh`;
+    case "grass": return `background:${svgUrl(SV(20, 12, `<rect width='20' height='12' fill='${a}'/><path d='M2 12L4 4L6 12M11 12L13 2L15 12' stroke='${c}' stroke-width='1.4' fill='none'/>`))} 0 0/4cqh 2.6cqh`;
+    case "sand": return `background:${svgUrl(SV(16, 16, `<rect width='16' height='16' fill='${a}'/><circle cx='4' cy='5' r='1' fill='${b}'/><circle cx='12' cy='11' r='.8' fill='${b}'/>`))} 0 0/3cqh 3cqh`;
+    case "rubber": return `background:${svgUrl(SV(10, 10, `<rect width='10' height='10' fill='${a}'/><circle cx='5' cy='5' r='1.6' fill='${c}' fill-opacity='.35'/>`))} 0 0/2cqh 2cqh`;
+    case "lava": return `background:linear-gradient(#FFD166,#F3722C 50%,#9D0208);box-shadow:0 0 5cqh 1cqh #F3722C99`;
+    default: return `background:${a}`;
+  }
+}
+const lines = t => esc(t).split("\n").map(l => (l.startsWith("!") ? `<span class="red">${l.slice(1)}</span>` : l)).join("\n");
+function itemHTML(it) {
+  const v = (k, val, unit = "") => (val === undefined ? "" : `--${k}:${val}${unit};`);
+  const pos = `--x:${it.x};--y:${it.y ?? 18};` + v("w", it.w) + v("h", it.h) + v("d", it.d) + v("dur", it.dur) + v("dx", it.dx) + v("dy", it.dy) + v("fs", it.fs) + v("c", it.c) + v("fc", it.fc) + v("r", it.r);
+  switch (it.t) {
+    case "e": return `<span class="it e${it.a && it.a !== "none" ? " a-" + it.a : ""}" style="${pos}--s:${it.s}">${it.fl ? `<span class="fl">${it.e}</span>` : it.e}</span>`;
+    case "say": return `<div class="say ${it.cls || ""}" style="${pos}">${esc(it.txt)}</div>`;
+    case "board": return `<div class="board" style="${pos}">${lines(it.txt)}</div>`;
+    case "poster": return `<div class="poster" style="${pos}">${esc(it.txt)}</div>`;
+    case "screen": return `<div class="screen" style="${pos}">${lines(it.txt)}</div>`;
+    case "blk": return `<div class="blk ${it.cls || ""}" ${it.l ? `data-l="${esc(it.l)}"` : ""} style="${pos}${v("rad", it.rad)}">${it.in ? `<span class="in">${it.in}</span>` : esc(it.txt || "")}</div>`;
+    case "belt": {
+      const items = [...it.items], dur = it.dur || 8;
+      return `<div class="belt" style="${pos}--s:${it.s};--bw:${it.w}">${items.map((g, i) => `<span style="--dur:${dur}s;--d:${(-i * dur / items.length).toFixed(2)}s">${g}</span>`).join("")}</div>`;
+    }
+    case "pool": return `<div class="pool ${it.cls || ""}" style="${pos}"></div>`;
+    case "shelf": return `<div class="shelf" style="${pos}--s:${it.s}">${it.items}</div>`;
+    case "door": return `<div class="door" style="${pos}"><b>${esc(it.txt)}</b></div>`;
+    case "banner": return `<div class="banner" style="${pos}">${esc(it.txt)}</div>`;
+    case "gantt": return `<div class="gantt" style="${pos}">${it.rows.map(([lab, s, l, c]) => `<div class="gr"><span>${esc(lab)}</span><i class="${c ? "crit" : ""}" style="--s:${s};--l:${l}"></i></div>`).join("")}</div>`;
+    case "ropes": return `<div class="ropes" style="${pos}"></div>`;
+  }
+  return "";
+}
+function rng32(seed) {
+  let a = seed >>> 0;
+  return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+}
+function hashStr(s) { let h = 2166136261; for (const ch of s) { h ^= ch.codePointAt(0); h = Math.imul(h, 16777619); } return h >>> 0; }
+const FX = {
+  drip: { dir: "fall", g: "💧", s: 3 }, money: { dir: "fall", g: "💸", s: 5 }, paper: { dir: "fall", g: "📄", s: 4.5 },
+  hearts: { dir: "rise", g: "❤️", s: 4 }, bubbles: { dir: "rise", cls: "bub" }, embers: { dir: "rise", cls: "ember" },
+  sparks: { dir: "rise", g: "✨", s: 3.5 }, dust: { dir: "fall", cls: "dust" }, confetti: { dir: "fall", cls: "conf" },
+};
+const CONF = ["#E63946", "#F4D35E", "#2A9D8F", "#F07BB0", "#86E6F2"];
+function fxHTML(fx, seed, once) {
+  if (!fx) return "";
+  const k = FX[fx.k], r = rng32(seed);
+  let h = "";
+  for (let i = 0; i < fx.n; i++) {
+    const dur = (once ? 1.1 + r() * .8 : 3 + r() * 4).toFixed(2), d = once ? (r() * .3).toFixed(2) : (-r() * 7).toFixed(2);
+    const st = `left:${(4 + r() * 92).toFixed(1)}%;--dur:${dur}s;--d:${d}s;--rot:${Math.round(r() * 540 - 270)}deg;` + (k.s ? `font-size:${k.s}cqh;` : "") + (fx.k === "confetti" ? `--cc:${CONF[i % CONF.length]};` : "");
+    h += `<i class="fx ${k.dir}${k.cls ? " " + k.cls : ""}${once ? " once" : ""}" style="${st}">${k.g || ""}</i>`;
+  }
+  return h;
+}
+function roomHTML(r) {
+  return `<div class="wall" style="${wallStyle(r)}"></div><div class="ceil"></div><div class="floor" style="${floorStyle(r)}"></div>`
+    + (r.light && r.light !== "none" ? `<i class="lt lt-${r.light}"></i>` : "")
+    + `<div class="plaque"><b>${esc(r.lvl)}</b><span>${esc(r.name)}</span></div>`
+    + r.items.map(itemHTML).join("") + fxHTML(r.fx, hashStr(r.id));
+}
+function makeRoom(r) {
+  const el = document.createElement("div");
+  el.className = "room";
+  el.setAttribute("role", "img");
+  el.setAttribute("aria-label", `${r.lvl}, ${r.name}. ${r.quip}`);
+  el.innerHTML = roomHTML(r);
+  return el;
+}
+function drillSVG(id) {
+  return `<svg viewBox="0 0 100 170" aria-hidden="true"><defs>
+    <pattern id="hz${id}" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="16" height="16" fill="#FFCC1A"/><rect width="8" height="16" fill="#1B1405"/></pattern>
+    <clipPath id="cp${id}"><polygon points="20,80 80,80 50,166"/></clipPath></defs>
+    <rect x="12" y="6" width="76" height="74" rx="14" fill="#FFCC1A" stroke="#1B1405" stroke-width="5"/>
+    <rect x="14.5" y="58" width="71" height="15" fill="url(#hz${id})"/>
+    <circle cx="50" cy="32" r="17" fill="#86E6F2" stroke="#1B1405" stroke-width="5"/>
+    <text x="50" y="41" font-size="22" text-anchor="middle">🧑‍🎓</text>
+    <polygon points="20,80 80,80 50,166" fill="#CBD4DE" stroke="#1B1405" stroke-width="5" stroke-linejoin="round"/>
+    <g clip-path="url(#cp${id})"><g class="spiral"><path d="M10 50L90 70M10 70L90 90M10 90L90 110M10 110L90 130M10 130L90 150M10 150L90 170M10 170L90 190" stroke="#7D8794" stroke-width="7"/></g></g>
+  </svg>`;
+}
+const HAT = `<svg viewBox="0 0 26 20" aria-hidden="true"><path d="M3 15a10 10 0 0 1 20 0z" fill="#FFCC1A" stroke="#1B1405" stroke-width="1.6"/><rect x="1" y="14.5" width="24" height="3.5" rx="1.5" fill="#FFCC1A" stroke="#1B1405" stroke-width="1.6"/><path d="M13 5v9" stroke="#1B1405" stroke-width="1.6"/></svg>`;
+
+/* ================= answer matching (mirrors build/validate_bank.py) ================= */
+const STOP = new Set("a an the of to and or in for with on by is are be its it their as at from".split(" "));
+const stem = t => (t.length > 4 && t.endsWith("ies") ? t.slice(0, -3) + "y" : t.length > 3 && t.endsWith("s") && !t.endsWith("ss") ? t.slice(0, -1) : t);
+const norm = s => String(s || "").toLowerCase().replace(/&/g, " and ").replace(/[^a-z0-9%]+/g, " ").split(" ").filter(t => t && !STOP.has(t)).map(stem);
+function lev(a, b) {
+  if (a === b) return 0;
+  if (!a.length) return b.length;
+  if (!b.length) return a.length;
+  let prev = Array.from({ length: b.length + 1 }, (_, i) => i);
+  for (let i = 1; i <= a.length; i++) {
+    const cur = [i];
+    for (let j = 1; j <= b.length; j++) cur.push(Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] !== b[j - 1] ? 1 : 0)));
+    prev = cur;
+  }
+  return prev[b.length];
+}
+const allow = n => (n < 5 ? 0 : n < 9 ? 1 : n < 15 ? 2 : 3);
+const NEG = ["non", "un", "in", "im", "ir", "il", "dis"];
+const negPair = (a, b) => NEG.some(p => a === p + b || b === p + a); // tangible vs intangible is not a typo
+const ROLE = ["ee", "er", "or"];
+const rolePair = (a, b) => a.length > 4 && b.length > 4 && a.slice(0, -2) === b.slice(0, -2) && a.slice(-2) !== b.slice(-2) && ROLE.includes(a.slice(-2)) && ROLE.includes(b.slice(-2)); // employee vs employer
+function tokEq(a, b) {
+  if (a === b) return true;
+  if (negPair(a, b) || rolePair(a, b)) return false;
+  const m = Math.min(a.length, b.length);
+  return m >= 5 && lev(a, b) <= (m >= 9 ? 2 : 1);
+}
+function matchAlias(inp, al) {
+  if (!al.length) return null;
+  const ji = inp.join(" "), ja = al.join(" ");
+  const clash = inp.some(x => al.some(y => negPair(x, y) || rolePair(x, y)));
+  // whole-phrase typos only for run-together or split words; equal word counts must match word by word
+  if (ji && inp.length !== al.length && !clash && lev(ji, ja) <= allow(ja.length)) return new Set(inp.map((_, i) => i));
+  const used = new Set();
+  for (const t of al) {
+    const hit = inp.findIndex((x, i) => !used.has(i) && tokEq(x, t));
+    if (hit < 0) return null;
+    used.add(hit);
+  }
+  return used;
+}
+function resolve(inp, answers) {
+  const hits = [];
+  answers.forEach((a, idx) => {
+    let best = null;
+    for (const at of a._al) {
+      const u = matchAlias(inp, at);
+      if (u) { const spec = at.reduce((s, t) => s + t.length, 0); if (!best || spec > best.spec) best = { spec, u }; }
+    }
+    if (best) hits.push({ idx, ...best });
+  });
+  if (!hits.length) return null;
+  hits.sort((x, y) => y.spec - x.spec);
+  const top = hits[0];
+  const multi = hits.slice(1).filter(h => ![...h.u].every(i => top.u.has(i)));
+  if (multi.length) { const low = [top, ...multi].reduce((m, h) => (answers[h.idx].p < answers[m.idx].p ? h : m)); return { idx: low.idx, spec: low.spec, multi: true }; }
+  return { idx: top.idx, spec: top.spec, multi: false };
+}
+function prepBanks() {
+  for (const t of TOPICS) {
+    const b = BANKS[t.id];
+    for (const p of b.prompts) {
+      p.topic = t.id;
+      for (const a of p.answers) a._al = [a.a, ...(a.k || [])].map(norm).filter(x => x.length);
+      for (const n of p.near || []) n._al = (n.k || []).map(norm).filter(x => x.length);
+    }
+    b.byId = Object.fromEntries(b.prompts.map(p => [p.id, p]));
+  }
+  const all = TOPICS.flatMap(t => BANKS[t.id].prompts);
+  BANKS.deep = { prompts: all, byId: Object.fromEntries(all.map(p => [p.id, p])) };
+}
+function judge(p, text) {
+  const inp = norm(text);
+  if (!inp.length) return { kind: "blank", base: 0 };
+  const r = resolve(inp, p.answers);
+  if (r) return { kind: "hit", idx: r.idx, base: p.answers[r.idx].p, multi: r.multi };
+  for (const n of p.near || []) for (const at of n._al) if (matchAlias(inp, at)) return { kind: "near", base: n.p || 5, msg: n.msg };
+  let best = null;
+  const pools = [p.topic, ...TOPICS.map(t => t.id).filter(id => id !== p.topic)];
+  for (const tid of pools) {
+    for (const q of BANKS[tid].prompts) {
+      if (q === p) continue;
+      const r2 = resolve(inp, q.answers);
+      if (r2 && r2.spec >= 6 && (!best || r2.spec > best.spec)) best = { spec: r2.spec, q, a: q.answers[r2.idx] };
+    }
+    if (best) break;
+  }
+  if (best) return { kind: "related", base: 5, q: best.q, a: best.a };
+  return { kind: "miss", base: 0 };
+}
+const halve = p => (p ? Math.max(5, Math.round(p / 10) * 5) : 0);
+const tierOfP = p => (p <= 20 ? "copper" : p <= 50 ? "silver" : p <= 80 ? "gold" : "diamond");
+const tierOf = res => (res.pts === 0 ? "dirt" : res.kind === "hit" ? tierOfP(res.base) : "pebble");
+const TIER = { dirt: "DIRT", pebble: "PEBBLE", copper: "COPPER", silver: "SILVER", gold: "GOLD", diamond: "DIAMOND" };
+const TILE = { dirt: "⬛", pebble: "🟫", copper: "🟧", silver: "⬜", gold: "🟨", diamond: "💎" };
+
+/* ================= storage ================= */
+const KEY = "drillion.v1";
+function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } }
+function save(s) { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) { /* storage blocked: progress just isn't kept */ } }
+let S = load();
+S.best ??= {}; S.found ??= {}; S.daily ??= {}; S.timer ??= 30;
+const dayKey = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`; };
+const dayLabel = () => new Date().toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" });
+function found(topic) { return new Set(["foyer", ...(S.found[topic] || [])]); }
+function addFound(topic, id) { const f = found(topic); if (!f.has(id)) { f.add(id); S.found[topic] = [...f]; save(S); } }
+function bestOf(topic) {
+  const b = S.best[topic] || {};
+  return [b.daily, b.endless, b.random].filter(Boolean).sort((x, y) => y.depth - x.depth)[0] || null;
+}
+
+/* ================= home ================= */
+let guideTab = "operations";
+function renderXsec() {
+  const bands = STRATA.slice(0, 8);
+  $("#xsec").innerHTML = `<div class="sky"><div class="sun"></div><div class="city"></div><div class="bldg"><b>NESA</b></div></div><div class="grass"></div>
+    <div class="layers">${bands.map(s => `<div class="layer" style="background-color:${s.c}"><span>${fmt(s.d)} m</span><em>${esc(s.name)}</em></div>`).join("")}</div>
+    <div class="shaft"></div>
+    <span class="tag" style="left:calc(50% + 20px);top:30%">B1</span><span class="tag" style="left:calc(50% - 52px);top:44%">B11</span>
+    <span class="tag" style="left:calc(50% + 20px);top:58%">B32</span><span class="tag" style="left:calc(50% - 56px);top:72%">B99</span><span class="tag" style="left:calc(50% + 20px);top:90%">B∞</span>
+    <div class="pod">${drillSVG("x")}</div>`;
+}
+function renderHome() {
+  const day = dayKey();
+  const dd = DEEP_DRILL, ddb = bestOf("deep"), ddToday = S.daily[`${day}|deep`];
+  $("#deepCard").innerHTML = `<article class="tcard deep" style="--tc:var(--c-deep)">
+      <div class="deep-head"><div><div class="code">ALL FOUR SHAFTS · ${DEEP_N} PROMPTS</div><h3>${dd.name}</h3></div>
+      <div class="btns"><button class="btn go" type="button" data-start="deep" data-mode="daily">Today's Deep Drill</button><button class="btn" type="button" data-start="deep" data-mode="random">Random 12</button></div></div>
+      <p>${esc(dd.blurb)} Today's Deep Drill is the same 12 for everyone; Random 12 deals a fresh set.</p>
+      <dl><div><dt>Deepest drill</dt><dd>${ddb ? fmt(ddb.depth) + " m" : "—"}${ddb ? `<small>${esc(ddb.lvl)} · ${esc(ddb.room)}</small>` : ""}</dd></div>
+      <div><dt>Rooms found</dt><dd>${found("deep").size} / ${ROOMS.deep.length}</dd></div>
+      <div><dt>Today</dt><dd>${ddToday ? `${fmt(ddToday.depth)} m` : "—"}${ddToday ? `<small>${ddToday.tiles}</small>` : ""}</dd></div></dl>
+    </article>`;
+  $("#topics").innerHTML = TOPICS.map(t => {
+    const b = bestOf(t.id), f = found(t.id).size, today = S.daily[`${day}|${t.id}`];
+    return `<article class="tcard" style="--tc:var(--c-${t.id})">
+      <div><div class="code">${t.code} SHAFT · ${BANKS[t.id].prompts.length} PROMPTS</div><h3>${t.name}</h3></div>
+      <p>${esc(t.blurb)}</p>
+      <dl><div><dt>Deepest dig</dt><dd>${b ? fmt(b.depth) + " m" : "—"}${b ? `<small>${esc(b.lvl)} · ${esc(b.room)}</small>` : ""}</dd></div>
+      <div><dt>Rooms found</dt><dd>${f} / ${ROOMS[t.id].length}</dd></div></dl>
+      <div class="today">${today ? `Today's Daily Dig: <b>${fmt(today.depth)} m</b> ${today.tiles}` : "Today's Daily Dig: not dug yet"}</div>
+      <div class="btns"><button class="btn go" type="button" data-start="${t.id}" data-mode="daily">Daily Dig</button><button class="btn" type="button" data-start="${t.id}" data-mode="endless">Endless</button></div>
+    </article>`;
+  }).join("");
+  $("#timerSeg").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.t === S.timer)));
+  $("#guideTabs").innerHTML = [...TOPICS, DEEP_DRILL].map(t => `<button type="button" role="tab" style="--tc:var(--c-${t.id})" aria-selected="${t.id === guideTab}" data-tab="${t.id}">${t.name}</button>`).join("");
+  renderGuide();
+}
+function renderGuide() {
+  const f = found(guideTab), rooms = ROOMS[guideTab];
+  $("#guideSub").textContent = `${f.size} of ${rooms.length} ${TOPIC[guideTab].name} rooms found. Every room you reach is logged here; the deep ones only open up to rare answers.`;
+  const g = $("#guide");
+  g.innerHTML = rooms.map(r => {
+    const ok = f.has(r.id);
+    return `<div class="gcard${ok ? "" : " locked"}"><div class="mini"></div><div class="meta"><b>${esc(r.lvl)}</b><span>${ok ? esc(r.name) : "Undiscovered"}</span><small>${fmt(r.d)} m</small></div></div>`;
+  }).join("");
+  g.querySelectorAll(".mini").forEach((m, i) => { const el = makeRoom(rooms[i]); if (!f.has(rooms[i].id)) el.setAttribute("aria-label", `Undiscovered room at ${fmt(rooms[i].d)} metres`); m.append(el); });
+}
+
+/* ================= game state ================= */
+let run = null, timerRaf = 0, tweenRaf = 0, shownDepth = 0, arriveTO = 0;
+function spread(prompts, r) {
+  const groups = {};
+  for (const p of prompts) (groups[p.sec] ??= []).push(p);
+  const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const keys = shuffle(Object.keys(groups).sort());
+  keys.forEach(k => shuffle(groups[k]));
+  const out = [];
+  while (keys.some(k => groups[k].length)) for (const k of keys) if (groups[k].length) out.push(groups[k].shift());
+  return out;
+}
+function startRun(topic, mode) {
+  const bank = BANKS[topic], day = dayKey();
+  const r = rng32(mode === "daily" ? hashStr(day + "|" + topic) : (Math.random() * 2 ** 32) >>> 0);
+  let order;
+  if (topic === "deep") {
+    // three per topic, dealt in rounds so the topics alternate
+    const per = DEEP_N / TOPICS.length, hands = TOPICS.map(t => spread(BANKS[t.id].prompts, r).slice(0, per));
+    order = [];
+    for (let k = 0; k < per; k++) {
+      const round = hands.map(h => h[k]);
+      for (let i = round.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [round[i], round[j]] = [round[j], round[i]]; }
+      order.push(...round.map(p => p.id));
+    }
+  } else order = spread(bank.prompts, r).map(p => p.id);
+  const n = mode === "endless" ? null : topic === "deep" ? DEEP_N : DAILY_N;
+  run = { topic, mode, day, n, order: n ? order.slice(0, n) : order, i: 0, score: 0, depth: 0, strikes: 0, results: [], hint: false, roomIdx: 0, phase: "ask" };
+  enterGame();
+  renderPrompt();
+}
+function curPrompt() {
+  if (run.mode === "endless" && run.i >= run.order.length) {
+    const more = spread(BANKS[run.topic].prompts, rng32((Math.random() * 2 ** 32) >>> 0)).map(p => p.id);
+    run.order.push(...more);
+  }
+  return BANKS[run.topic].byId[run.order[run.i]];
+}
+function enterGame() {
+  document.body.classList.add("in-game");
+  $("#home").hidden = true;
+  $("#game").hidden = false;
+  const t = TOPIC[run.topic];
+  $("#game").style.setProperty("--tc", `var(--c-${t.id})`);
+  $("#hudTopic").textContent = t.name;
+  $("#hudMode").textContent = modeLabel();
+  buildRails();
+  const rooms = roomsFor();
+  run.roomIdx = roomIndexAt(rooms, run.depth);
+  const st = $("#stage"), box = $("#rooms");
+  box.innerHTML = "";
+  box.append(makeRoom(rooms[run.roomIdx]));
+  setEarth(rooms[run.roomIdx]);
+  setCaption(rooms[run.roomIdx]);
+  shownDepth = run.depth;
+  paintDepth(run.depth);
+  updateRails(run.depth);
+  st.classList.remove("dig", "rumble");
+  window.scrollTo(0, 0);
+}
+function exitGame() {
+  cancelAnimationFrame(timerRaf); cancelAnimationFrame(tweenRaf); clearTimeout(arriveTO);
+  run = null;
+  document.body.classList.remove("in-game");
+  $("#game").hidden = true;
+  $("#home").hidden = false;
+  renderHome();
+  window.scrollTo(0, 0);
+}
+function setEarth(room) {
+  const st = $("#stage");
+  st.style.setProperty("--earth", strataAt(room.d).c);
+  st.classList.toggle("surface", room.d === 0);
+}
+function setCaption(room) {
+  $("#cap").innerHTML = `<b>${esc(room.lvl)}</b><span>${esc(room.quip)}</span>`;
+}
+function paintDepth(d) {
+  $("#hudDepth").textContent = fmt(d);
+  const rooms = roomsFor();
+  $("#hudLvl").textContent = rooms[roomIndexAt(rooms, d)].lvl;
+}
+function hud() {
+  $("#hudProg").textContent = run.n ? `${Math.min(run.i + 1, run.n)} / ${run.n}` : `#${run.i + 1}`;
+  const hats = $("#hudHats");
+  hats.hidden = run.mode !== "endless";
+  hats.innerHTML = Array.from({ length: HATS }, (_, i) => HAT.replace("<svg", `<svg class="${i < HATS - run.strikes ? "" : "lost"}"`)).join("");
+  hats.setAttribute("aria-label", `${HATS - run.strikes} hard hats left`);
+}
+
+/* rails: piecewise scale so every room gets equal space */
+function yOf(rooms, d) {
+  const n = rooms.length;
+  if (d >= rooms[n - 1].d) return 1;
+  for (let i = 0; i < n - 1; i++) if (d < rooms[i + 1].d) return (i + (d - rooms[i].d) / (rooms[i + 1].d - rooms[i].d)) / (n - 1);
+  return 1;
+}
+function railHTML(rooms, id) {
+  const bands = STRATA.map((s, i) => {
+    const top = yOf(rooms, s.d), bot = i + 1 < STRATA.length ? yOf(rooms, STRATA[i + 1].d) : 1;
+    return top >= 1 ? "" : `<div class="band" style="top:${(top * 100).toFixed(2)}%;height:${((bot - top) * 100).toFixed(2)}%;background:${s.c}" title="${esc(s.name)}"></div>`;
+  }).join("");
+  const mk = rooms.map((r, i) => `<div class="mk" data-i="${i}" style="top:${(i / (rooms.length - 1) * 100).toFixed(2)}%"><i></i><b>${esc(r.lvl)}</b><span>${esc(r.name)}</span></div>`).join("");
+  return `<div class="rtrack"><div class="bands">${bands}</div>${mk}<div class="pb" hidden></div><div class="me">${drillSVG(id)}</div></div>`;
+}
+function buildRails() {
+  const rooms = roomsFor();
+  $("#rail").innerHTML = `<div class="top" aria-hidden="true"><div class="b"></div><div class="g"></div></div>` + railHTML(rooms, "r");
+  $("#minirail").innerHTML = railHTML(rooms, "m");
+  const pb = (S.best[run.topic] || {})[run.mode];
+  document.querySelectorAll(".rtrack .pb").forEach(el => { if (pb && pb.depth > 0) { el.hidden = false; el.style.top = (yOf(rooms, pb.depth) * 100).toFixed(2) + "%"; } });
+}
+function updateRails(d) {
+  const rooms = roomsFor(), here = roomIndexAt(rooms, d), y = (yOf(rooms, d) * 100).toFixed(2) + "%";
+  document.querySelectorAll(".rtrack").forEach(tr => {
+    tr.querySelector(".me").style.top = y;
+    tr.querySelectorAll(".mk").forEach(m => { const i = +m.dataset.i; m.classList.toggle("seen", i <= here); m.classList.toggle("here", i === here); });
+  });
+}
+
+/* ================= prompt ================= */
+function renderPrompt() {
+  run.phase = "ask"; run.hint = false;
+  const p = curPrompt();
+  hud();
+  const secs = S.timer;
+  $("#card").innerHTML = `
+    <div class="eyebrow">${eyebrow(p)}</div>
+    <h2 class="q" id="qtext">${esc(p.q)}</h2>
+    ${secs ? `<div class="timer" id="timer"><div class="tbar"><i id="tbar"></i></div><span class="tsec" id="tsec">${secs}</span></div>` : ""}
+    <form class="ans" id="ansForm" autocomplete="off"><input id="answer" name="answer" type="text" maxlength="70" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" placeholder="Type one answer" aria-labelledby="qtext"><button class="btn go" type="submit">DIG</button></form>
+    <div class="subrow">${p.hint ? `<button class="linkbtn" type="button" id="hintBtn">Show flashcard hint (halves points)</button>` : ""}<span>One answer. Rarer answers dig deeper.</span></div>
+    <div id="hintSlot"></div>`;
+  $("#ansForm").addEventListener("submit", e => { e.preventDefault(); submit(false); });
+  const hb = $("#hintBtn");
+  if (hb) hb.addEventListener("click", () => { run.hint = true; hb.remove(); $("#hintSlot").innerHTML = `<div class="hintbox"><b>FLASHCARD HINT</b>${esc(p.hint)}</div>`; $("#answer").focus(); });
+  const inp = $("#answer");
+  inp.focus({ preventScroll: true });
+  if (secs) startTimer(secs);
+}
+function startTimer(secs) {
+  cancelAnimationFrame(timerRaf);
+  const end = performance.now() + secs * 1000;
+  const tick = now => {
+    if (!run || run.phase !== "ask") return;
+    const left = Math.max(0, end - now), bar = $("#tbar"), sec = $("#tsec");
+    if (!bar) return;
+    bar.style.transform = `scaleX(${left / (secs * 1000)})`;
+    sec.textContent = Math.ceil(left / 1000);
+    $("#timer").classList.toggle("low", left < 6000);
+    if (left <= 0) { submit(true); return; }
+    timerRaf = requestAnimationFrame(tick);
+  };
+  timerRaf = requestAnimationFrame(tick);
+}
+function submit(timedOut) {
+  if (!run || run.phase !== "ask") return;
+  cancelAnimationFrame(timerRaf);
+  run.phase = "reveal"; run.revealAt = Date.now();
+  const p = curPrompt(), text = ($("#answer")?.value || "").trim();
+  const res = judge(p, text);
+  res.text = text; res.hint = run.hint; res.timedOut = timedOut;
+  res.pts = run.hint ? halve(res.base) : res.base;
+  res.tier = tierOf(res);
+  run.results.push({ id: p.id, kind: res.kind, idx: res.idx ?? null, pts: res.pts, tier: res.tier, text });
+  const from = run.depth;
+  run.score += res.pts;
+  run.depth = run.score * 10;
+  if (run.mode === "endless" && res.pts === 0) run.strikes++;
+  hud();
+  renderReveal(p, res);
+  descend(from, run.depth);
+}
+function isOver() { return run.n ? run.i + 1 >= run.n : run.strikes >= HATS; }
+function eyebrow(p) {
+  const where = run.topic === "deep" ? `<span style="color:var(--c-${p.topic})">${esc(TOPIC[p.topic].name)}</span> · ` : "";
+  return `${where}${SECS[p.sec] || ""} · ${run.n ? `Prompt ${run.i + 1} of ${run.n}` : `Endless prompt ${run.i + 1}`}`;
+}
+
+/* ================= reveal ================= */
+function renderReveal(p, res) {
+  const metres = res.pts * 10;
+  const headline = {
+    hit: res.base >= 85 ? "Rare find. Straight through the floor." : res.base >= 55 ? "Sharp answer. The drill likes it." : res.base >= 25 ? "Solid answer." : "Valid, but everyone said it.",
+    near: "Close, but not this category.", related: "Real content, wrong category.",
+    miss: "Not on the board.", blank: res.timedOut ? "Time's up." : "No answer given.",
+  }[res.kind];
+  let said = "";
+  if (res.kind === "hit") said = `You said <q>${esc(res.text)}</q> → <strong>${esc(p.answers[res.idx].a)}</strong>${res.multi ? ". One answer only, so the lowest-scoring match counted" : ""}${res.hint ? ". Hint used, points halved" : ""}.`;
+  else if (res.text) said = `You said <q>${esc(res.text)}</q>.`;
+  let msg = "";
+  if (res.kind === "near") msg = esc(res.msg);
+  else if (res.kind === "related") msg = `“${esc(res.a.a)}” is real ${esc(TOPIC[res.q.topic].name)} content (it answers “${esc(res.q.q)}”), but it doesn't fit this prompt.`;
+  else if (res.kind === "miss") msg = `That didn't match any answer for this prompt. Check the board below for what counts.`;
+  const sorted = p.answers.map((a, i) => ({ a, i })).sort((x, y) => x.a.p - y.a.p || x.i - y.i);
+  const last = isOver();
+  const nextLabel = last ? (run.n ? "See how deep you got" : "Out of hard hats: see results") : "Keep digging ↓";
+  $("#card").innerHTML = `
+    <div class="eyebrow">${eyebrow(p)}</div>
+    <h2 class="q">${esc(p.q)}</h2>
+    <div class="result t-${res.tier}" role="status">
+      <span class="chip">${TIER[res.tier]}</span>
+      <span class="gain"><b>+${res.pts}</b> pts · ${fmt(metres)} m deeper</span>
+      <span class="said">${headline}${said ? " " + said : ""}</span>
+    </div>
+    ${msg ? `<div class="msg">${msg}</div>` : ""}
+    <p class="learn">${esc(p.learn)}</p>
+    <div class="answers-h"><span class="eyebrow">Every valid answer</span><small>shallow → deep</small></div>
+    <ol class="answers">${sorted.map(({ a, i }) => `<li class="t-${tierOfP(a.p)}${res.kind === "hit" && i === res.idx ? " you" : ""}"><span class="sw"></span><span class="nm">${esc(a.a)}${a.why ? `<small>${esc(a.why)}</small>` : ""}</span><span class="bar"><i style="width:${a.p}%"></i></span><span class="pts">${a.p}</span></li>`).join("")}</ol>
+    <button class="btn go next" type="button" id="nextBtn">${nextLabel}</button>
+    <div class="kbd">or press Enter</div>`;
+  $("#nextBtn").addEventListener("click", advance);
+  $("#nextBtn").focus({ preventScroll: true });
+  $("#card").scrollTop = 0;
+}
+function advance() {
+  if (!run || run.phase !== "reveal") return;
+  if (isOver()) return finish();
+  run.i++;
+  renderPrompt();
+}
+
+/* ================= descent ================= */
+function tweenDepth(from, to) {
+  cancelAnimationFrame(tweenRaf);
+  const t0 = performance.now(), dur = 1400;
+  const step = now => {
+    const k = Math.min(1, (now - t0) / dur), e = k < .5 ? 2 * k * k : 1 - (-2 * k + 2) ** 2 / 2;
+    shownDepth = from + (to - from) * e;
+    paintDepth(shownDepth);
+    if (k < 1) tweenRaf = requestAnimationFrame(step);
+  };
+  tweenRaf = requestAnimationFrame(step);
+}
+function descend(from, to) {
+  if (to <= from) return;
+  tweenDepth(from, to);
+  updateRails(to);
+  const st = $("#stage"), rooms = roomsFor(), ni = roomIndexAt(rooms, to);
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  st.classList.remove("dig"); void st.offsetWidth; st.classList.add("dig");
+  if (ni > run.roomIdx) {
+    const room = rooms[ni], box = $("#rooms"), old = box.querySelector(".room:not(.exit)");
+    for (let i = run.roomIdx + 1; i <= ni; i++) addFound(run.topic, rooms[i].id);
+    run.roomIdx = ni;
+    const fresh = makeRoom(room);
+    if (!reduced) {
+      fresh.classList.add("enter");
+      const drill = document.createElement("div");
+      drill.className = "drill";
+      drill.innerHTML = drillSVG("d" + Date.now());
+      st.append(drill);
+      requestAnimationFrame(() => drill.classList.add("go"));
+      setTimeout(() => drill.remove(), 1900);
+      if (old) old.classList.add("exit");
+      setTimeout(() => { box.append(fresh); requestAnimationFrame(() => requestAnimationFrame(() => fresh.classList.remove("enter"))); }, 450);
+      setTimeout(() => { if (old) old.remove(); }, 1500);
+    } else {
+      if (old) old.remove();
+      box.append(fresh);
+    }
+    setEarth(room);
+    setCaption(room);
+    clearTimeout(arriveTO);
+    const ar = $("#arrive");
+    ar.innerHTML = `<small>NEW LEVEL · ${fmt(room.d)} M</small><strong>${esc(room.lvl)} · ${esc(room.name)}</strong>`;
+    setTimeout(() => ar.classList.add("show"), reduced ? 0 : 1250);
+    arriveTO = setTimeout(() => ar.classList.remove("show"), reduced ? 3000 : 4200);
+  } else {
+    st.classList.remove("rumble"); void st.offsetWidth; st.classList.add("rumble");
+    const cur = $("#rooms .room:not(.exit)");
+    if (cur && !reduced) {
+      const tmp = document.createElement("div");
+      tmp.innerHTML = fxHTML({ k: "dust", n: 9 }, Date.now() & 0xffff, true);
+      const parts = [...tmp.children];
+      parts.forEach(n => cur.append(n));
+      setTimeout(() => parts.forEach(n => n.remove()), 2300);
+    }
+  }
+}
+
+/* ================= end ================= */
+function finish() {
+  cancelAnimationFrame(timerRaf);
+  if (!run) return;
+  run.phase = "end";
+  const rooms = roomsFor(), room = rooms[roomIndexAt(rooms, run.depth)];
+  const tiles = run.results.map(r => TILE[r.tier]).join("");
+  const B = (S.best[run.topic] ??= {});
+  const prev = B[run.mode];
+  const isPB = run.results.length > 0 && (!prev || run.depth > prev.depth);
+  if (isPB) B[run.mode] = { depth: run.depth, lvl: room.lvl, room: room.name };
+  if (run.mode === "daily") {
+    const k = `${run.day}|${run.topic}`;
+    if (!S.daily[k] || run.depth > S.daily[k].depth) S.daily[k] = { depth: run.depth, tiles };
+  }
+  save(S);
+  const t = TOPIC[run.topic];
+  const share = `Drillion · ${run.topic === "deep" ? modeLabel() : `${t.name} · ${modeLabel()}`}\n⛏️ ${fmt(run.depth)} m under NESA (${room.lvl} ${room.name})\n${tiles}`;
+  const rare = run.results.filter(r => r.tier === "diamond" || r.tier === "gold").length;
+  const bank = BANKS[run.topic];
+  const review = run.results.map(r => {
+    const p = bank.byId[r.id], top = [...p.answers].sort((a, b) => b.p - a.p)[0];
+    const yours = r.kind === "hit" ? p.answers[r.idx].a : r.text ? `“${r.text}”` : "no answer";
+    return `<li><span class="rq">${esc(p.q)}</span><span class="ra">You: ${esc(yours)} · Deepest answer: <strong>${esc(top.a)}</strong> (${top.p})</span><span class="chip t-${r.tier}">+${r.pts}</span></li>`;
+  }).join("");
+  $("#card").innerHTML = `
+    <div class="eyebrow">${run.n ? (run.results.length >= run.n ? (run.topic === "deep" ? "Deep Drill complete" : "Daily Dig complete") : "Dig ended early") : run.strikes >= HATS ? "Out of hard hats" : "Dig banked"}</div>
+    <div class="endbig">${fmt(run.depth)}<small>m</small></div>
+    <p class="endroom"><b>${esc(room.lvl)}</b>${esc(room.name)} ${isPB ? `<span class="pbflag">NEW BEST</span>` : ""}</p>
+    <div class="tiles" aria-label="Results by prompt">${tiles || "—"}</div>
+    <dl class="stats"><div><dt>Points</dt><dd>${run.score}</dd></div><div><dt>Gold+</dt><dd>${rare}</dd></div><div><dt>Best</dt><dd>${fmt(Math.max(run.depth, prev?.depth || 0))} m</dd></div></dl>
+    <div class="btnrow">
+      <button class="btn go" type="button" id="copyBtn">Copy result</button>
+      <button class="btn" type="button" id="againBtn">${run.topic === "deep" ? "Random 12" : run.mode === "daily" ? "Try Endless" : "Dig again"}</button>
+      <button class="btn ghost" type="button" id="homeBtn">Back to the surface</button>
+    </div>
+    <textarea class="sharebox" id="shareBox" readonly hidden aria-label="Result to copy">${esc(share)}</textarea>
+    <div class="eyebrow">Study these</div>
+    <ol class="review">${review}</ol>`;
+  $("#copyBtn").addEventListener("click", async e => {
+    const btn = e.currentTarget, box = $("#shareBox");
+    try { await navigator.clipboard.writeText(share); btn.textContent = "Copied"; }
+    catch (err) { box.hidden = false; box.focus(); box.select(); btn.textContent = "Select and copy below"; }
+  });
+  const topic = run.topic;
+  $("#againBtn").addEventListener("click", () => startRun(topic, topic === "deep" ? "random" : "endless"));
+  $("#homeBtn").addEventListener("click", exitGame);
+  $("#card").scrollTop = 0;
+  hud();
+}
+
+/* ================= wiring ================= */
+function wire() {
+  $("#deepCard").addEventListener("click", e => { const b = e.target.closest("[data-start]"); if (b) startRun(b.dataset.start, b.dataset.mode); });
+  $("#topics").addEventListener("click", e => { const b = e.target.closest("[data-start]"); if (b) startRun(b.dataset.start, b.dataset.mode); });
+  $("#timerSeg").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; S.timer = +b.dataset.t; save(S); renderHome(); });
+  $("#guideTabs").addEventListener("click", e => { const b = e.target.closest("[data-tab]"); if (!b) return; guideTab = b.dataset.tab; renderHome(); });
+  let armTO = 0;
+  $("#quit").addEventListener("click", e => {
+    const b = e.currentTarget;
+    if (!run || run.phase === "end") return exitGame();
+    if (!b.classList.contains("arm")) {
+      b.classList.add("arm"); b.textContent = "Tap again to end";
+      clearTimeout(armTO); armTO = setTimeout(() => { b.classList.remove("arm"); b.textContent = "⟵ End dig"; }, 3000);
+      return;
+    }
+    clearTimeout(armTO); b.classList.remove("arm"); b.textContent = "⟵ End dig";
+    if (run.results.length) finish(); else exitGame();
+  });
+  document.addEventListener("keydown", e => {
+    if (e.key === "Enter" && run && run.phase === "reveal" && Date.now() - run.revealAt > 400 && !e.repeat && document.activeElement?.id !== "nextBtn") { e.preventDefault(); advance(); }
+  });
+  $("#arrive").addEventListener("click", () => $("#arrive").classList.remove("show"));
+}
+function boot(data) {
+  prepBanks();
+  renderXsec();
+  wire();
+  const saved = data && data.run;
+  if (saved && saved.phase !== "end" && BANKS[saved.topic]) {
+    run = saved;
+    if (run.n === undefined) run.n = run.mode === "endless" ? null : DAILY_N;
+    if (run.results.length > run.i) run.i++;
+    enterGame();
+    if (isOverAfterRestore()) finish(); else renderPrompt();
+  } else renderHome();
+}
+function isOverAfterRestore() { return run.n ? run.i >= run.n : run.strikes >= HATS; }
+window.claude?.hot?.snapshot?.(() => ({ run }));
+window.claude?.hot?.ready ? window.claude.hot.ready(boot) : boot(window.claude?.hot?.data ?? {});
+</script>

@@ -1,0 +1,5698 @@
+{
+ "topic": "hr",
+ "prompts": [
+  {
+   "id": "hr-role-effective",
+   "sec": "R",
+   "q": "Name an outcome of effective HRM",
+   "hint": "Think of what goes UP (skills, motivation) and what goes DOWN (the CLAW ABC problems).",
+   "learn": "The strategic role of HR is managing the total employer-employee relationship so the workforce adds value and the business reaches its goals. Effective HRM shows up as a skilled, motivated workforce with low disputes, absenteeism and turnover.",
+   "answers": [
+    {
+     "a": "Motivated, productive workforce",
+     "p": 10,
+     "k": [
+      "motivated workforce",
+      "motivation",
+      "productivity",
+      "higher productivity",
+      "motivated staff",
+      "productive workforce"
+     ],
+     "why": "Effective HRM motivates staff, and motivated staff are more productive."
+    },
+    {
+     "a": "Higher worker satisfaction and morale",
+     "p": 20,
+     "k": [
+      "worker satisfaction",
+      "job satisfaction",
+      "employee satisfaction",
+      "satisfaction",
+      "morale",
+      "happy staff"
+     ],
+     "why": "Ineffective HRM causes dissatisfaction and low morale; effective HRM reverses it."
+    },
+    {
+     "a": "Highly skilled, efficient workforce",
+     "p": 25,
+     "k": [
+      "skilled workforce",
+      "highly skilled",
+      "efficiency",
+      "efficient",
+      "skilled staff"
+     ],
+     "why": "Good acquisition and training build skills, so work gets done more efficiently."
+    },
+    {
+     "a": "Lower staff turnover",
+     "p": 30,
+     "k": [
+      "staff turnover",
+      "turnover",
+      "retention",
+      "staff retention",
+      "retain staff",
+      "keep staff"
+     ],
+     "why": "Staff stay longer, avoiding the cost of constantly replacing leavers."
+    },
+    {
+     "a": "Lower absenteeism",
+     "p": 35,
+     "k": [
+      "absenteeism",
+      "less absenteeism",
+      "fewer absences",
+      "reduced absenteeism"
+     ],
+     "why": "Engaged, satisfied staff take fewer unplanned days off."
+    },
+    {
+     "a": "Lower workplace disputation",
+     "p": 40,
+     "k": [
+      "fewer disputes",
+      "less disputes",
+      "lower disputes",
+      "disputation",
+      "less conflict",
+      "disputes"
+     ],
+     "why": "Good HR practices mean fewer grievances, less industrial action and lower dispute costs."
+    },
+    {
+     "a": "Fewer workplace accidents",
+     "p": 55,
+     "k": [
+      "accidents",
+      "fewer accidents",
+      "less accidents",
+      "safer workplace",
+      "workplace safety",
+      "fewer injuries"
+     ],
+     "why": "Good WHS management cuts accidents, sick leave and insurance premiums."
+    },
+    {
+     "a": "Lower acquisition and separation costs",
+     "p": 75,
+     "k": [
+      "acquisition costs",
+      "separation costs",
+      "lower recruitment costs",
+      "minimise acquisition costs",
+      "lower hiring costs"
+     ],
+     "why": "Keeping good staff means spending less on recruiting, inducting and paying out leavers."
+    }
+   ]
+  },
+  {
+   "id": "hr-int-marketing",
+   "sec": "R",
+   "q": "Give a way HR and Marketing depend on each other",
+   "hint": "Customer service, sales training, and who makes the job ads look good.",
+   "learn": "Interdependence means each key business function relies on the others. Marketing needs HR to hire, train and motivate customer-facing staff, and HR needs Marketing's branding and input to recruit.",
+   "answers": [
+    {
+     "a": "Motivated staff give better customer service",
+     "p": 10,
+     "k": [
+      "customer service",
+      "staff motivation",
+      "motivate staff",
+      "motivated staff",
+      "better service"
+     ],
+     "why": "HR motivates staff, and motivated staff serve customers better."
+    },
+    {
+     "a": "HR recruits and retains marketing staff",
+     "p": 20,
+     "k": [
+      "recruit marketing staff",
+      "hire marketing staff",
+      "attract marketing workers",
+      "retain marketing staff",
+      "marketing staff",
+      "marketing workers"
+     ],
+     "why": "Marketing depends on HR to attract, retain and train its marketing workers."
+    },
+    {
+     "a": "Training sales staff in customer service",
+     "p": 25,
+     "k": [
+      "sales training",
+      "train sales staff",
+      "training sales staff",
+      "customer service training",
+      "personal selling",
+      "relationship marketing"
+     ],
+     "why": "Personal selling and relationship marketing rely on staff HR has trained in customer service."
+    },
+    {
+     "a": "Satisfied staff lift customer satisfaction",
+     "p": 40,
+     "k": [
+      "employee satisfaction",
+      "satisfied staff",
+      "satisfied employees",
+      "customer satisfaction",
+      "customer loyalty"
+     ],
+     "why": "Satisfied employees interact better with customers, improving satisfaction and loyalty."
+    },
+    {
+     "a": "Input into marketing job descriptions",
+     "p": 65,
+     "k": [
+      "job description",
+      "role description",
+      "job descriptions",
+      "role descriptions"
+     ],
+     "why": "HR consults Marketing to write accurate role and job descriptions when hiring marketing staff."
+    },
+    {
+     "a": "Marketing brands recruitment ads and website",
+     "p": 80,
+     "k": [
+      "branding",
+      "recruitment ads",
+      "recruitment advertising",
+      "employer branding",
+      "job ads",
+      "careers website",
+      "brand"
+     ],
+     "why": "HR depends on Marketing for branding on recruitment ads and the careers website."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "budget",
+      "funding",
+      "funds"
+     ],
+     "p": 5,
+     "msg": "Funding for HR comes from Finance, not Marketing."
+    }
+   ]
+  },
+  {
+   "id": "hr-int-finance",
+   "sec": "R",
+   "q": "Give a way HR and Finance depend on each other",
+   "hint": "Follow the money: what does HR need funds for? And who hires the accountants?",
+   "learn": "Finance provides the budgets HR needs to recruit, train, reward and separate staff, while Finance relies on HR to attract, retain and train its own workers.",
+   "answers": [
+    {
+     "a": "Finance sets the HR budget",
+     "p": 10,
+     "k": [
+      "budget",
+      "budgets",
+      "funding",
+      "funds",
+      "provides funds",
+      "finance provides funds"
+     ],
+     "why": "HR can only act within the budget and funds Finance allocates to it."
+    },
+    {
+     "a": "Finance funds recruitment",
+     "p": 15,
+     "k": [
+      "recruitment",
+      "recruitment budget",
+      "fund recruitment",
+      "funds recruitment",
+      "budget for recruitment",
+      "pay for recruitment"
+     ],
+     "why": "Advertising, agency fees and selection all need money from Finance."
+    },
+    {
+     "a": "Finance funds training and development",
+     "p": 20,
+     "k": [
+      "training",
+      "training budget",
+      "fund training",
+      "funds training",
+      "pay for training",
+      "budget for training"
+     ],
+     "why": "Training programs are paid for out of the budget Finance provides."
+    },
+    {
+     "a": "Finance funds wages and rewards",
+     "p": 30,
+     "k": [
+      "wages",
+      "salaries",
+      "bonuses",
+      "rewards",
+      "fund rewards",
+      "rewards budget",
+      "monetary benefits",
+      "non monetary benefits",
+      "pay"
+     ],
+     "why": "Finance funds wages plus monetary and non-monetary benefits."
+    },
+    {
+     "a": "HR recruits and trains finance staff",
+     "p": 40,
+     "k": [
+      "finance staff",
+      "finance workers",
+      "hire finance staff",
+      "retain finance staff",
+      "recruit accountants",
+      "accountants"
+     ],
+     "why": "Finance depends on HR to attract, retain and train its finance workers."
+    },
+    {
+     "a": "Finance funds redundancy payouts",
+     "p": 55,
+     "k": [
+      "redundancy",
+      "redundancy payouts",
+      "redundancy payments",
+      "severance",
+      "separation costs",
+      "payouts"
+     ],
+     "why": "Separation costs such as redundancy payouts must be budgeted by Finance."
+    },
+    {
+     "a": "Input into finance job descriptions",
+     "p": 75,
+     "k": [
+      "job description",
+      "role description",
+      "job descriptions"
+     ],
+     "why": "HR consults Finance to formulate accurate role descriptions when sourcing finance staff."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "branding",
+      "employer branding"
+     ],
+     "p": 5,
+     "msg": "Branding for recruitment ads comes from Marketing, not Finance."
+    }
+   ]
+  },
+  {
+   "id": "hr-int-operations",
+   "sec": "R",
+   "q": "Give a way HR and Operations depend on each other",
+   "hint": "New technology, productivity, safety and the right skills.",
+   "learn": "Operations relies on HR for skilled, trained and motivated production staff, and HR must manage the people side of operational change such as new technology and WHS.",
+   "answers": [
+    {
+     "a": "Training and motivation lift productivity",
+     "p": 10,
+     "k": [
+      "productivity",
+      "training",
+      "motivation",
+      "staff motivation",
+      "train staff",
+      "training and development"
+     ],
+     "why": "HR's training, development and motivation strategies drive operations productivity."
+    },
+    {
+     "a": "HR recruits skilled operations staff",
+     "p": 20,
+     "k": [
+      "recruit operations staff",
+      "hire production staff",
+      "skilled staff",
+      "operations staff",
+      "production workers",
+      "recruitment",
+      "recruit"
+     ],
+     "why": "HR must recruit staff with the skills and experience needed to produce the product."
+    },
+    {
+     "a": "Coordinating WHS compliance",
+     "p": 30,
+     "k": [
+      "whs",
+      "wh&s",
+      "work health and safety",
+      "ohs",
+      "safety",
+      "health and safety",
+      "whs compliance"
+     ],
+     "why": "HR and Operations work together to implement and comply with WHS legislation."
+    },
+    {
+     "a": "Managing change from new technology",
+     "p": 45,
+     "k": [
+      "new technology",
+      "technology",
+      "restructuring",
+      "structural change",
+      "change management",
+      "new tech"
+     ],
+     "why": "New operations technology may force HR to restructure jobs and manage the change process."
+    },
+    {
+     "a": "Redundancies and separation",
+     "p": 60,
+     "k": [
+      "redundancy",
+      "redundancies",
+      "retrenchment",
+      "separation",
+      "job losses",
+      "automation"
+     ],
+     "why": "When technology replaces workers, HR runs the redundancy and separation processes."
+    },
+    {
+     "a": "Monitoring production staff performance",
+     "p": 75,
+     "k": [
+      "performance",
+      "monitor performance",
+      "performance appraisal",
+      "performance management",
+      "appraise staff"
+     ],
+     "why": "HR monitors the performance of production employees and runs training to close gaps."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "budget",
+      "funding"
+     ],
+     "p": 5,
+     "msg": "Budgets come from Finance; Operations depends on HR for people, skills and safety."
+    }
+   ]
+  },
+  {
+   "id": "hr-out-functions",
+   "sec": "R",
+   "q": "Name an HR function a business could outsource",
+   "hint": "Payroll is the classic one. Think of every job an HR department does.",
+   "learn": "Outsourcing HR means using external providers (contractors, domestic or global) for some or all HR activities, to access specialist skills, lower costs and focus on core business.",
+   "answers": [
+    {
+     "a": "Payroll",
+     "p": 10,
+     "k": [
+      "pay roll",
+      "payroll processing",
+      "wages",
+      "paying wages",
+      "pay"
+     ],
+     "why": "Payroll is a support and compliance task commonly handed to specialist providers."
+    },
+    {
+     "a": "Recruitment",
+     "p": 15,
+     "k": [
+      "recruiting",
+      "hiring",
+      "recruitment agency",
+      "headhunting",
+      "recruitment and selection",
+      "selection"
+     ],
+     "why": "Recruitment agencies and headhunters can source and screen applicants."
+    },
+    {
+     "a": "Training",
+     "p": 20,
+     "k": [
+      "staff training",
+      "training programs",
+      "training and development"
+     ],
+     "why": "External trainers deliver off-the-job courses and specialist skills training."
+    },
+    {
+     "a": "Leadership development",
+     "p": 50,
+     "k": [
+      "leadership training",
+      "leadership",
+      "management development",
+      "leadership programs"
+     ],
+     "why": "Contractors can run leadership training for current and future managers."
+    },
+    {
+     "a": "Performance management",
+     "p": 55,
+     "k": [
+      "performance appraisal",
+      "appraisals",
+      "appraisal",
+      "performance reviews",
+      "performance"
+     ],
+     "why": "Specialists can design and run appraisal and performance management systems."
+    },
+    {
+     "a": "Dispute resolution and mediation",
+     "p": 65,
+     "k": [
+      "dispute resolution",
+      "mediation",
+      "disputes",
+      "dispute",
+      "conflict resolution"
+     ],
+     "why": "An outside mediator can help resolve workplace disputes neutrally."
+    },
+    {
+     "a": "HR information systems",
+     "p": 75,
+     "k": [
+      "hris",
+      "hr systems",
+      "hr system",
+      "information systems",
+      "hr software"
+     ],
+     "why": "HRIS software and support can be provided by external technology firms."
+    },
+    {
+     "a": "Change management",
+     "p": 80,
+     "k": [
+      "managing change",
+      "change"
+     ],
+     "why": "Consultants can guide staff through restructures and other major change."
+    },
+    {
+     "a": "Writing HR policies",
+     "p": 85,
+     "k": [
+      "hr policies",
+      "policies",
+      "policy",
+      "policy writing",
+      "updating policies"
+     ],
+     "why": "Contractors can write and update HR policies to keep them legally compliant."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "core business",
+      "core functions",
+      "strategy"
+     ],
+     "p": 5,
+     "msg": "Businesses keep core functions in-house; outsourcing is for support activities so they can focus on the core."
+    }
+   ]
+  },
+  {
+   "id": "hr-out-adv",
+   "sec": "R",
+   "q": "Give an advantage of outsourcing HR functions",
+   "hint": "Core, costs, expertise... and domestic vs global contractors each have their own pluses.",
+   "learn": "Outsourcing uses external contractors to perform HR activities, letting the business focus on core functions and access specialist expertise at lower cost. Domestic contractors know local law; global contractors can offer cheaper labour and advanced technology.",
+   "answers": [
+    {
+     "a": "Focus on core business",
+     "p": 10,
+     "k": [
+      "core business",
+      "core functions",
+      "focus on core",
+      "core activities",
+      "core"
+     ],
+     "why": "Handing off support work like payroll frees management to focus on the core business."
+    },
+    {
+     "a": "Access to specialist expertise",
+     "p": 15,
+     "k": [
+      "specialist skills",
+      "specialised skills",
+      "expertise",
+      "specialist",
+      "specialised expertise",
+      "specialist knowledge",
+      "access to skills"
+     ],
+     "why": "Providers bring expert skills in support and compliance work such as payroll."
+    },
+    {
+     "a": "Lower costs",
+     "p": 20,
+     "k": [
+      "cheaper",
+      "cost savings",
+      "reduce costs",
+      "reduced costs",
+      "save money",
+      "lower cost",
+      "cost"
+     ],
+     "why": "Outsourcing is often cheaper than running the function in-house."
+    },
+    {
+     "a": "Avoid in-house staff overheads",
+     "p": 50,
+     "k": [
+      "overheads",
+      "in house staff",
+      "avoid hiring staff",
+      "fewer staff",
+      "no need to hire"
+     ],
+     "why": "Domestic contractors are used to avoid employing extra in-house staff and their overheads."
+    },
+    {
+     "a": "Familiar with local laws (domestic)",
+     "p": 55,
+     "k": [
+      "local laws",
+      "local law",
+      "know local laws",
+      "australian law",
+      "familiar with laws"
+     ],
+     "why": "A domestic contractor already knows Australian employment law."
+    },
+    {
+     "a": "Fewer language barriers (domestic)",
+     "p": 60,
+     "k": [
+      "fewer misunderstandings",
+      "same language",
+      "no language barrier",
+      "cultural understanding",
+      "communication",
+      "language",
+      "fewer cultural misunderstandings"
+     ],
+     "why": "Domestic contractors avoid the language and cultural misunderstandings of global ones."
+    },
+    {
+     "a": "Access to different legal standards (global)",
+     "p": 75,
+     "k": [
+      "different legal standards",
+      "legal standards",
+      "employment standards",
+      "cheap overseas labour",
+      "cheaper overseas labour",
+      "lower wages overseas"
+     ],
+     "why": "Global contractors work under different employment standards, which can cut labour costs."
+    },
+    {
+     "a": "Advanced technology, faster service (global)",
+     "p": 80,
+     "k": [
+      "advanced technology",
+      "technology",
+      "tech",
+      "speed",
+      "faster",
+      "increased speed"
+     ],
+     "why": "Global providers may offer more advanced HR technology and faster service."
+    },
+    {
+     "a": "Inspections possible (domestic)",
+     "p": 85,
+     "k": [
+      "inspections",
+      "inspection",
+      "inspect",
+      "can inspect",
+      "site visits"
+     ],
+     "why": "You can visit and inspect a domestic contractor, which isn't possible with global ones."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "loss of control",
+      "client poaching",
+      "confidentiality"
+     ],
+     "p": 5,
+     "msg": "Those are disadvantages of outsourcing, not advantages."
+    }
+   ]
+  },
+  {
+   "id": "hr-out-dis",
+   "sec": "R",
+   "q": "Give a disadvantage of outsourcing HR functions",
+   "hint": "Control, confidentiality, culture... and global contractors bring extra legal headaches.",
+   "learn": "Outsourcing hands HR activities to external contractors, so the business risks losing control, expertise and confidentiality. Loss of control can be reduced by negotiating service level agreements (SLAs).",
+   "answers": [
+    {
+     "a": "Loss of control over HR",
+     "p": 10,
+     "k": [
+      "loss of control",
+      "less control",
+      "lose control",
+      "control",
+      "lower standards",
+      "lower quality",
+      "quality",
+      "reliability"
+     ],
+     "why": "The business loses direct control of standards; SLAs (service level agreements) help reduce this."
+    },
+    {
+     "a": "Confidentiality and security risks",
+     "p": 25,
+     "k": [
+      "confidentiality",
+      "privacy",
+      "information security",
+      "security risks",
+      "data security",
+      "confidential information",
+      "security"
+     ],
+     "why": "Sharing confidential staff and company data with outsiders creates privacy risks."
+    },
+    {
+     "a": "Cultural and language differences",
+     "p": 30,
+     "k": [
+      "cultural differences",
+      "language differences",
+      "language barrier",
+      "culture",
+      "cultural",
+      "language",
+      "accent"
+     ],
+     "why": "Language or accent issues with global providers can hurt service quality."
+    },
+    {
+     "a": "In-house staff may be retrenched",
+     "p": 35,
+     "k": [
+      "retrenchment",
+      "retrench",
+      "job losses",
+      "redundancies",
+      "redundancy",
+      "retrenching workers"
+     ],
+     "why": "Outsourcing a function can mean retrenching the staff who used to do it."
+    },
+    {
+     "a": "Loss of internal expertise",
+     "p": 55,
+     "k": [
+      "internal expertise",
+      "lose expertise",
+      "loss of expertise",
+      "loss of skills",
+      "expertise"
+     ],
+     "why": "Skills and knowledge leave the business along with the function."
+    },
+    {
+     "a": "Complex coordination (global)",
+     "p": 60,
+     "k": [
+      "coordination",
+      "complexity",
+      "complex",
+      "hard to coordinate",
+      "coordinating activities"
+     ],
+     "why": "Coordinating activities with an overseas provider is more complex."
+    },
+    {
+     "a": "Ethical and CSR issues (global)",
+     "p": 65,
+     "k": [
+      "ethical issues",
+      "ethics",
+      "ethical",
+      "unethical",
+      "csr",
+      "exploitation"
+     ],
+     "why": "Using cheaper overseas labour can raise ethical concerns and damage CSR standing."
+    },
+    {
+     "a": "Client poaching",
+     "p": 70,
+     "k": [
+      "poaching",
+      "poach",
+      "poach clients",
+      "stealing clients"
+     ],
+     "why": "A contractor with access to client information may poach clients."
+    },
+    {
+     "a": "Loss of customer contact",
+     "p": 75,
+     "k": [
+      "customer contact",
+      "contact with customers",
+      "lose customer contact"
+     ],
+     "why": "Outsourced staff, not your own, deal with people, so direct contact is lost."
+    },
+    {
+     "a": "No legal remedy under foreign law (global)",
+     "p": 90,
+     "k": [
+      "legal remedies",
+      "legal remedy",
+      "foreign legal system",
+      "foreign law",
+      "breach of contract",
+      "no legal recourse"
+     ],
+     "why": "If a global contractor breaches the contract, remedies under foreign legal systems may be lacking."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "focus on core business",
+      "cost savings",
+      "cheaper"
+     ],
+     "p": 5,
+     "msg": "Those are advantages of outsourcing, not disadvantages."
+    }
+   ]
+  },
+  {
+   "id": "hr-stake-ugeese",
+   "sec": "I",
+   "q": "Name a stakeholder in human resource management",
+   "hint": "U GEESE",
+   "learn": "HR stakeholders are individuals or groups with an interest in, or affected by, how a business manages its people: Unions, Government organisations, Employees, Employers, Society and Employer associations (U GEESE).",
+   "answers": [
+    {
+     "a": "Employees",
+     "p": 10,
+     "k": [
+      "employee",
+      "workers",
+      "worker",
+      "staff",
+      "staff members"
+     ],
+     "why": "Employees provide their labour in exchange for wages and want pay, conditions, security and flexibility."
+    },
+    {
+     "a": "Employers",
+     "p": 15,
+     "k": [
+      "management",
+      "managers",
+      "bosses",
+      "business owners",
+      "owners"
+     ],
+     "why": "Employers control and pay employees, negotiate agreements, resolve disputes and manage labour costs."
+    },
+    {
+     "a": "Unions",
+     "p": 20,
+     "k": [
+      "union",
+      "trade unions",
+      "trade union",
+      "unionists"
+     ],
+     "why": "Unions represent workers to improve wages and conditions, e.g. the TWU or the NSW Teachers Federation."
+    },
+    {
+     "a": "Government organisations",
+     "p": 30,
+     "k": [
+      "government",
+      "govt",
+      "government agencies",
+      "fair work commission",
+      "fwc",
+      "fair work ombudsman",
+      "fwo",
+      "safe work nsw"
+     ],
+     "why": "Government sets the legal framework through legislation, agencies, courts and tribunals (LEGJI)."
+    },
+    {
+     "a": "Society",
+     "p": 45,
+     "k": [
+      "community",
+      "the public",
+      "general public",
+      "public"
+     ],
+     "why": "Society pressures business to act ethically, employ diverse staff and avoid offshoring local jobs."
+    },
+    {
+     "a": "Employer associations",
+     "p": 70,
+     "k": [
+      "employer association",
+      "employers association",
+      "employer groups",
+      "industry associations",
+      "ai group",
+      "aig",
+      "acci",
+      "afei"
+     ],
+     "why": "Groups like Ai Group and ACCI advise employers, bargain for them and lobby government."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "shareholders",
+      "customers",
+      "suppliers",
+      "consumers",
+      "investors"
+     ],
+     "p": 10,
+     "msg": "Not on the HR stakeholder list: it's U GEESE (unions, government, employees, employers, society, employer associations)."
+    }
+   ]
+  },
+  {
+   "id": "hr-stake-employees",
+   "sec": "I",
+   "q": "Name something employees want from their job",
+   "hint": "Money, conditions, security, a say, a future... and a life outside work.",
+   "learn": "Employees provide labour in exchange for wages. Beyond pay they want good conditions, security, involvement, career growth and flexibility, which pushes HR to invest in maintaining staff.",
+   "answers": [
+    {
+     "a": "Higher wages",
+     "p": 10,
+     "k": [
+      "more money",
+      "better pay",
+      "pay rise",
+      "higher pay",
+      "wages",
+      "salary",
+      "pay"
+     ],
+     "why": "Pay is the core of the exchange: labour for wages and salaries."
+    },
+    {
+     "a": "Better working conditions",
+     "p": 20,
+     "k": [
+      "working conditions",
+      "good conditions",
+      "conditions"
+     ],
+     "why": "Employees want safe, fair conditions such as reasonable hours and breaks."
+    },
+    {
+     "a": "Job security",
+     "p": 25,
+     "k": [
+      "security",
+      "secure job",
+      "permanent job",
+      "stable job"
+     ],
+     "why": "Secure employment lets workers plan their finances and lives."
+    },
+    {
+     "a": "Work-life balance",
+     "p": 30,
+     "k": [
+      "work life balance",
+      "balance",
+      "wellbeing"
+     ],
+     "why": "Employees increasingly expect time for family and life outside work."
+    },
+    {
+     "a": "Flexibility, e.g. working from home",
+     "p": 35,
+     "k": [
+      "flexibility",
+      "flexible work",
+      "working from home",
+      "wfh",
+      "telecommuting",
+      "remote work",
+      "flexible hours"
+     ],
+     "why": "Many want workplace flexibility such as telecommuting and flexible hours."
+    },
+    {
+     "a": "Training and development",
+     "p": 40,
+     "k": [
+      "training",
+      "development",
+      "upskilling",
+      "learning"
+     ],
+     "why": "Training builds skills and future earning potential."
+    },
+    {
+     "a": "Promotion opportunities",
+     "p": 45,
+     "k": [
+      "promotion",
+      "promotions",
+      "career progression",
+      "higher positions",
+      "career advancement"
+     ],
+     "why": "Employees want to move into higher positions within the business."
+    },
+    {
+     "a": "Meaningful work",
+     "p": 60,
+     "k": [
+      "meaningful",
+      "interesting work",
+      "meaningful job",
+      "purpose"
+     ],
+     "why": "Work that feels worthwhile keeps employees engaged."
+    },
+    {
+     "a": "Say in decision-making",
+     "p": 70,
+     "k": [
+      "decision making",
+      "involvement",
+      "participation",
+      "involvement in decisions",
+      "have a say",
+      "voice"
+     ],
+     "why": "Being involved in decisions makes staff feel valued and empowered."
+    },
+    {
+     "a": "Non-monetary benefits",
+     "p": 75,
+     "k": [
+      "non monetary benefits",
+      "benefits",
+      "perks",
+      "non monetary rewards"
+     ],
+     "why": "Perks like recognition, social activities and development opportunities matter as well as pay."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "minimise costs",
+      "maximise profit",
+      "profit"
+     ],
+     "p": 5,
+     "msg": "That's what employers want, not employees."
+    }
+   ]
+  },
+  {
+   "id": "hr-gov-legji",
+   "sec": "I",
+   "q": "Name a way government influences HRM",
+   "hint": "LEGJI",
+   "learn": "Government shapes HR through Legislation (e.g. Fair Work Act 2009, WHS Act 2011), Economic policies, Government agencies, the Judicial system and Industrial tribunals (LEGJI).",
+   "answers": [
+    {
+     "a": "Legislation",
+     "p": 10,
+     "k": [
+      "laws",
+      "law",
+      "acts",
+      "fair work act",
+      "whs act",
+      "legal framework"
+     ],
+     "why": "Laws such as the Fair Work Act 2009 and WHS Act 2011 set the rules for employment."
+    },
+    {
+     "a": "Government agencies",
+     "p": 30,
+     "k": [
+      "agencies",
+      "agency",
+      "fair work ombudsman",
+      "fwo",
+      "safe work nsw",
+      "safework nsw",
+      "safe work australia",
+      "regulators",
+      "wgea"
+     ],
+     "why": "Agencies like the Fair Work Ombudsman and Safe Work NSW implement and enforce the law."
+    },
+    {
+     "a": "Economic policies",
+     "p": 45,
+     "k": [
+      "economic policy",
+      "economy",
+      "economic",
+      "monetary policy",
+      "fiscal policy",
+      "interest rates"
+     ],
+     "why": "Government economic policy affects growth, demand for labour, inflation and wage growth."
+    },
+    {
+     "a": "Industrial tribunals",
+     "p": 55,
+     "k": [
+      "tribunals",
+      "tribunal",
+      "fair work commission",
+      "fwc",
+      "industrial relations commission"
+     ],
+     "why": "Tribunals like the FWC resolve disputes over issues such as discrimination and unfair dismissal."
+    },
+    {
+     "a": "Judicial system (courts)",
+     "p": 75,
+     "k": [
+      "courts",
+      "court",
+      "federal court",
+      "judicial system",
+      "judiciary",
+      "judges"
+     ],
+     "why": "The Federal Court hears cases on industrial action, breaches of IR law and common law contracts."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "unions",
+      "trade unions"
+     ],
+     "p": 5,
+     "msg": "Unions are a separate stakeholder, not part of government."
+    }
+   ]
+  },
+  {
+   "id": "hr-legal-fwc",
+   "sec": "I",
+   "q": "Name a role of the Fair Work Commission",
+   "hint": "It's the tribunal: wages, awards, agreements and disputes. Enforcing is someone else's job.",
+   "learn": "The Fair Work Commission (FWC) is the independent national workplace relations tribunal set up under the Fair Work Act 2009. It provides a safety net of minimum conditions, approves agreements and decides disputes, but it cannot enforce entitlements or give advice on them.",
+   "answers": [
+    {
+     "a": "Sets the national minimum wage",
+     "p": 10,
+     "k": [
+      "minimum wage",
+      "minimum wages",
+      "national minimum wage",
+      "annual wage review",
+      "wage review",
+      "sets wages",
+      "wages",
+      "wage"
+     ],
+     "why": "Each year its Annual Wage Review sets a new national minimum wage order."
+    },
+    {
+     "a": "Approves enterprise agreements",
+     "p": 20,
+     "k": [
+      "enterprise agreements",
+      "enterprise agreement",
+      "approve agreements",
+      "approves agreements",
+      "approving agreements",
+      "varying agreements",
+      "terminating agreements",
+      "enterprise bargaining",
+      "boot test",
+      "boot",
+      "better off overall test",
+      "eas",
+      "approves eas"
+     ],
+     "why": "Agreements must pass the BOOT: employees must be better off overall than under the award."
+    },
+    {
+     "a": "Creates and adjusts modern awards",
+     "p": 25,
+     "k": [
+      "awards",
+      "award",
+      "modern awards",
+      "modern award",
+      "sets awards",
+      "adjust awards",
+      "creates awards"
+     ],
+     "why": "The FWC makes and varies the modern awards that set minimum industry conditions."
+    },
+    {
+     "a": "Hears unfair dismissal claims",
+     "p": 30,
+     "k": [
+      "unfair dismissal",
+      "unfair dismissals",
+      "dismissal claims",
+      "dismissal"
+     ],
+     "why": "Employees who are dismissed in a harsh, unjust or unreasonable way can apply to the FWC."
+    },
+    {
+     "a": "Resolves workplace disputes",
+     "p": 35,
+     "k": [
+      "disputes",
+      "dispute",
+      "dispute resolution",
+      "resolve disputes",
+      "industrial disputes",
+      "conciliation",
+      "arbitration",
+      "mediation",
+      "major cases"
+     ],
+     "why": "It conciliates and, if needed, arbitrates disputes, and hears major cases."
+    },
+    {
+     "a": "Deals with bullying and sexual harassment",
+     "p": 65,
+     "k": [
+      "bullying",
+      "workplace bullying",
+      "bullying at work",
+      "sexual harassment",
+      "harassment"
+     ],
+     "why": "Workers can apply to the FWC for orders to stop bullying or sexual harassment."
+    },
+    {
+     "a": "Ensures good faith bargaining",
+     "p": 70,
+     "k": [
+      "good faith",
+      "good faith bargaining",
+      "bargaining in good faith",
+      "bargaining"
+     ],
+     "why": "It makes sure employers and employees bargain in good faith for agreements."
+    },
+    {
+     "a": "Decides general protections breaches",
+     "p": 85,
+     "k": [
+      "general protections",
+      "general protection",
+      "adverse action",
+      "adverse",
+      "discrimination"
+     ],
+     "why": "It handles claims of discrimination and adverse action against workers."
+    },
+    {
+     "a": "Flexible work and casual conversion disputes",
+     "p": 90,
+     "k": [
+      "flexible working arrangements",
+      "flexible work",
+      "casual conversion",
+      "casual to permanent",
+      "right to disconnect",
+      "parental leave",
+      "unpaid parental leave"
+     ],
+     "why": "It helps with disputes on flexible work, casual to permanent status, parental leave and the right to disconnect."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "enforce",
+      "enforces",
+      "enforcing",
+      "enforcement",
+      "investigates underpayments",
+      "underpayments",
+      "fair work ombudsman",
+      "fwo",
+      "litigation"
+     ],
+     "p": 10,
+     "msg": "Enforcing pay and entitlements is the Fair Work Ombudsman's job; the FWC can't enforce minimum pay."
+    },
+    {
+     "k": [
+      "give advice",
+      "advice",
+      "advice on entitlements",
+      "educate"
+     ],
+     "p": 5,
+     "msg": "The FWC can't advise on award entitlements; the Fair Work Ombudsman educates and advises."
+    }
+   ]
+  },
+  {
+   "id": "hr-legal-agreements",
+   "sec": "I",
+   "q": "Name a type of employment contract or agreement",
+   "hint": "From the industry safety net down to a one-on-one deal.",
+   "learn": "An employment contract is a legally binding agreement between employer and employee setting out rights and obligations, and it must meet the National Employment Standards and minimum wage. Pay and conditions may come from awards, enterprise agreements or individual contracts.",
+   "answers": [
+    {
+     "a": "Modern award",
+     "p": 10,
+     "k": [
+      "award",
+      "awards",
+      "modern awards",
+      "industry award"
+     ],
+     "why": "A safety net of minimum pay, hours, penalty rates, leave loading and allowances for a whole industry."
+    },
+    {
+     "a": "Enterprise agreement",
+     "p": 15,
+     "k": [
+      "enterprise agreements",
+      "enterprise bargaining",
+      "enterprise bargaining agreement",
+      "eba",
+      "collective agreement",
+      "eas"
+     ],
+     "why": "Negotiated at workplace level, approved by the FWC and must pass the better off overall test."
+    },
+    {
+     "a": "Common law individual contract",
+     "p": 35,
+     "k": [
+      "common law contract",
+      "common law agreement",
+      "individual contract",
+      "individual agreement",
+      "common law"
+     ],
+     "why": "Negotiated one-on-one, usually for managers; not registered with the FWC, so disputes go to court."
+    },
+    {
+     "a": "Fixed-term contract",
+     "p": 50,
+     "k": [
+      "fixed term",
+      "fixed contract",
+      "temporary contract"
+     ],
+     "why": "Employment for a set period, ending when the contract expires."
+    },
+    {
+     "a": "Independent contractor arrangement",
+     "p": 55,
+     "k": [
+      "independent contractor",
+      "independent contractors",
+      "contractor",
+      "freelancer",
+      "consultant"
+     ],
+     "why": "Contractors control their own work and arrange their own tax, super and insurance; no leave."
+    },
+    {
+     "a": "Contract of indefinite duration",
+     "p": 65,
+     "k": [
+      "indefinite duration",
+      "indefinite contract",
+      "indefinite",
+      "ongoing contract",
+      "permanent contract",
+      "open ended contract"
+     ],
+     "why": "Ongoing employment with no set end date."
+    },
+    {
+     "a": "Individual flexibility arrangement",
+     "p": 80,
+     "k": [
+      "ifa",
+      "individual flexibility agreement",
+      "individual flexibility",
+      "flexibility arrangement"
+     ],
+     "why": "Lets one employee vary award or agreement terms, as long as they are better off overall."
+    },
+    {
+     "a": "Multi-enterprise agreement",
+     "p": 85,
+     "k": [
+      "multi enterprise",
+      "multi enterprise agreement",
+      "multi employer agreement",
+      "multiple employer agreement"
+     ],
+     "why": "An agreement between two or more employers and groups of their employees."
+    },
+    {
+     "a": "Greenfield agreement",
+     "p": 90,
+     "k": [
+      "greenfield",
+      "greenfields",
+      "new project agreement"
+     ],
+     "why": "Made between a union and a new employer that has no employees yet."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "casual",
+      "casual employment",
+      "part time",
+      "full time",
+      "permanent full time"
+     ],
+     "p": 10,
+     "msg": "That's an employment status, not the instrument that sets pay and conditions."
+    }
+   ]
+  },
+  {
+   "id": "hr-legal-common-law",
+   "sec": "I",
+   "q": "Name a common law obligation of an employer or employee",
+   "hint": "Four each. Employer: work, pay, legislation, care. Employee: obey, skill, good faith, notice.",
+   "learn": "Common law is law made by courts and judges, as opposed to statute law made by parliament. Every employment contract carries common law obligations for both the employer and the employee.",
+   "answers": [
+    {
+     "a": "Duty of care (employer)",
+     "p": 10,
+     "k": [
+      "duty of care",
+      "safe workplace",
+      "provide a safe workplace",
+      "safe system of work",
+      "workplace safety"
+     ],
+     "why": "Employer: provide reasonable care and a safe system of work without risks to health."
+    },
+    {
+     "a": "Obey lawful, reasonable orders (employee)",
+     "p": 15,
+     "k": [
+      "obey",
+      "obey commands",
+      "follow orders",
+      "follow instructions",
+      "lawful commands",
+      "reasonable commands",
+      "lawful orders",
+      "reasonable orders"
+     ],
+     "why": "Employee: refusing lawful, reasonable orders risks dismissal (orders can't expose them to danger)."
+    },
+    {
+     "a": "Pay wages and expenses (employer)",
+     "p": 20,
+     "k": [
+      "pay wages",
+      "pay",
+      "payment",
+      "pay employees",
+      "payment of income",
+      "pay income",
+      "reimburse expenses",
+      "reimbursement"
+     ],
+     "why": "Employer: pay the income in the award or agreement and reimburse work expenses."
+    },
+    {
+     "a": "Use care and skill (employee)",
+     "p": 35,
+     "k": [
+      "care and skill",
+      "skill",
+      "not be negligent",
+      "not negligent",
+      "negligence",
+      "work carefully"
+     ],
+     "why": "Employee: do the work with care and skill, not negligently."
+    },
+    {
+     "a": "Give notice when leaving (employee)",
+     "p": 45,
+     "k": [
+      "give notice",
+      "notice",
+      "notice of termination",
+      "provide notice",
+      "notice period",
+      "resignation notice"
+     ],
+     "why": "Employee: give the notice set out in the award, agreement or contract."
+    },
+    {
+     "a": "Act in good faith (employee)",
+     "p": 55,
+     "k": [
+      "good faith",
+      "faith",
+      "loyalty",
+      "confidentiality",
+      "keep information confidential",
+      "not take confidential information"
+     ],
+     "why": "Employee: e.g. don't take confidential information to a new employer."
+    },
+    {
+     "a": "Provide work (employer)",
+     "p": 70,
+     "k": [
+      "provide work",
+      "providing work",
+      "give work",
+      "no stand downs",
+      "not stand down"
+     ],
+     "why": "Employer: can't simply stand staff down when it's quiet; must keep paying correct wages."
+    },
+    {
+     "a": "Comply with IR legislation (employer)",
+     "p": 75,
+     "k": [
+      "industrial relations legislation",
+      "ir legislation",
+      "comply with legislation",
+      "meet legislation",
+      "follow ir laws",
+      "legislation"
+     ],
+     "why": "Employer: meet IR laws such as anti-discrimination, super, workers comp, the NES and awards."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "paid leave",
+      "annual leave",
+      "leave entitlements",
+      "long service leave"
+     ],
+     "p": 10,
+     "msg": "Leave is an employee right under the NES and awards, not a common law obligation."
+    }
+   ]
+  },
+  {
+   "id": "hr-legal-nes-leave",
+   "sec": "I",
+   "q": "Name a leave entitlement in the National Employment Standards",
+   "hint": "The NES are 12 minimum standards in the Fair Work Act. Many of them are leave.",
+   "learn": "The Fair Work Act 2009 sets 12 National Employment Standards (NES) that every employee must receive; contracts, awards and agreements cannot go below them. Many of the 12 are leave entitlements.",
+   "answers": [
+    {
+     "a": "Annual leave",
+     "p": 10,
+     "k": [
+      "annual",
+      "holiday leave",
+      "vacation",
+      "4 weeks annual leave"
+     ],
+     "why": "4 weeks paid leave a year, plus an extra week for some shift workers."
+    },
+    {
+     "a": "Personal/carer's leave",
+     "p": 15,
+     "k": [
+      "sick leave",
+      "personal leave",
+      "carers leave",
+      "carer leave",
+      "personal carers leave",
+      "sick days"
+     ],
+     "why": "10 days paid personal/carer's leave a year (includes sick leave), plus 2 days unpaid carer's leave."
+    },
+    {
+     "a": "Parental leave",
+     "p": 20,
+     "k": [
+      "parental",
+      "maternity leave",
+      "paternity leave",
+      "adoption leave",
+      "maternity",
+      "paternity"
+     ],
+     "why": "Up to 12 months unpaid, with the right to request another 12 months."
+    },
+    {
+     "a": "Long service leave",
+     "p": 30,
+     "k": [
+      "long service",
+      "lsl"
+     ],
+     "why": "Extra leave after long service; the rules vary between older awards and modern awards."
+    },
+    {
+     "a": "Public holidays",
+     "p": 35,
+     "k": [
+      "public holiday",
+      "paid public holidays"
+     ],
+     "why": "A paid day off on each public holiday unless the employer reasonably asks the employee to work."
+    },
+    {
+     "a": "Compassionate leave",
+     "p": 55,
+     "k": [
+      "compassionate",
+      "bereavement leave",
+      "bereavement"
+     ],
+     "why": "2 days per occasion when a family or household member dies or is seriously ill (unpaid for casuals)."
+    },
+    {
+     "a": "Community service leave",
+     "p": 70,
+     "k": [
+      "community service",
+      "jury duty",
+      "jury service",
+      "emergency services leave",
+      "volunteer emergency"
+     ],
+     "why": "Unpaid leave for voluntary emergency work, and up to 10 days paid for jury duty."
+    },
+    {
+     "a": "Family and domestic violence leave",
+     "p": 80,
+     "k": [
+      "domestic violence leave",
+      "family violence leave",
+      "domestic violence",
+      "fdv leave",
+      "dv leave"
+     ],
+     "why": "10 days paid family and domestic violence leave in a 12-month period."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "maximum weekly hours",
+      "38 hours",
+      "superannuation",
+      "super",
+      "casual conversion",
+      "casual to permanent",
+      "flexible working arrangements",
+      "notice of termination",
+      "redundancy pay",
+      "information statement",
+      "fair work information statement"
+     ],
+     "p": 10,
+     "msg": "That IS one of the 12 NES, just not a leave entitlement. Nice recall."
+    }
+   ]
+  },
+  {
+   "id": "hr-legal-whs",
+   "sec": "I",
+   "q": "Name an employer duty under WHS law",
+   "hint": "Work Health and Safety Act 2011 (NSW): information, equipment, standards, safe machinery...",
+   "learn": "Work health and safety (WHS) means keeping everyone at work safe from hazards and risks. Under the WHS Act 2011 (NSW), employers must keep both the physical environment and employees' emotional wellbeing safe, or face heavy fines and even jail.",
+   "answers": [
+    {
+     "a": "Provide protective equipment (PPE)",
+     "p": 10,
+     "k": [
+      "ppe",
+      "protective equipment",
+      "personal protective equipment",
+      "safety gear",
+      "safety equipment",
+      "protective clothing"
+     ],
+     "why": "Employers must supply protective equipment where the work requires it."
+    },
+    {
+     "a": "Provide training and supervision",
+     "p": 20,
+     "k": [
+      "training",
+      "safety training",
+      "supervision",
+      "instruction",
+      "information",
+      "information and instruction"
+     ],
+     "why": "Businesses must provide information, instruction, training and supervision."
+    },
+    {
+     "a": "Ensure machinery is safe to use",
+     "p": 30,
+     "k": [
+      "safe machinery",
+      "machinery",
+      "machines",
+      "maintain equipment",
+      "safe to operate"
+     ],
+     "why": "All equipment and machinery must be safe to operate."
+    },
+    {
+     "a": "Take out workers compensation insurance",
+     "p": 35,
+     "k": [
+      "workers compensation",
+      "workers comp",
+      "workers compensation insurance",
+      "insurance"
+     ],
+     "why": "Compulsory insurance covers injured workers' medical costs and lost wages."
+    },
+    {
+     "a": "Meet safety and noise standards",
+     "p": 40,
+     "k": [
+      "safety standards",
+      "noise standards",
+      "noise",
+      "safety signs",
+      "signs",
+      "signage",
+      "emergency procedures"
+     ],
+     "why": "E.g. safety signs, noise limits and emergency procedures."
+    },
+    {
+     "a": "Conduct regular safety audits",
+     "p": 50,
+     "k": [
+      "safety audits",
+      "safety audit",
+      "audits",
+      "audit",
+      "inspections",
+      "safety inspections",
+      "risk assessments"
+     ],
+     "why": "Regular audits review the workplace and find hazards before they cause harm."
+    },
+    {
+     "a": "Prevent bullying (emotional wellbeing)",
+     "p": 60,
+     "k": [
+      "bullying",
+      "emotional wellbeing",
+      "mental health",
+      "psychological safety",
+      "wellbeing",
+      "psychosocial"
+     ],
+     "why": "A safe workplace includes employees' emotional wellbeing, so bullying must be prevented."
+    },
+    {
+     "a": "Form a WHS committee",
+     "p": 75,
+     "k": [
+      "whs committee",
+      "safety committee",
+      "ohs committee",
+      "health and safety committee",
+      "committee"
+     ],
+     "why": "A WHS committee brings workers and managers together to consult on safety issues."
+    },
+    {
+     "a": "Report deaths and serious injuries",
+     "p": 80,
+     "k": [
+      "report injuries",
+      "report serious injuries",
+      "report accidents",
+      "notify safe work",
+      "notify safework",
+      "notify injuries",
+      "register injuries"
+     ],
+     "why": "Safe Work NSW must be notified of any death or serious injury."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "unfair dismissal",
+      "minimum wage",
+      "annual leave"
+     ],
+     "p": 5,
+     "msg": "That's Fair Work Act territory, not WHS."
+    }
+   ]
+  },
+  {
+   "id": "hr-legal-eeo",
+   "sec": "I",
+   "q": "Name a way employers meet anti-discrimination and EEO law",
+   "hint": "Audit, train, document, report... and treat men and women equally on pay.",
+   "learn": "Discrimination is a policy or practice that disadvantages someone because of a characteristic irrelevant to the job, such as age, gender, race, religion, disability, pregnancy or sexual orientation. Equal employment opportunity (EEO) means equitable policies in recruitment, selection, development and promotion.",
+   "answers": [
+    {
+     "a": "Train staff to prevent discrimination",
+     "p": 15,
+     "k": [
+      "training",
+      "train managers",
+      "train staff",
+      "discrimination training",
+      "anti discrimination training"
+     ],
+     "why": "Training managers and staff helps them prevent and deal with discrimination."
+    },
+    {
+     "a": "Equal pay for work of equal value",
+     "p": 20,
+     "k": [
+      "equal pay",
+      "pay equity",
+      "same pay",
+      "equal pay for men and women",
+      "equal remuneration"
+     ],
+     "why": "Men and women doing work of similar value must get equal pay and conditions."
+    },
+    {
+     "a": "Merit-based, bias-free recruitment",
+     "p": 25,
+     "k": [
+      "merit",
+      "merit based selection",
+      "fair recruitment",
+      "fair hiring",
+      "bias free hiring",
+      "blind recruitment",
+      "equal opportunity in recruitment"
+     ],
+     "why": "Recruitment, selection and promotion decisions must be based on merit, free from bias."
+    },
+    {
+     "a": "Code of conduct and written policies",
+     "p": 30,
+     "k": [
+      "code of conduct",
+      "written policies",
+      "documented policies",
+      "communicate policies",
+      "policies",
+      "policy",
+      "anti discrimination policy"
+     ],
+     "why": "Documenting and communicating policies makes clear that discrimination isn't tolerated."
+    },
+    {
+     "a": "Grievance procedures",
+     "p": 35,
+     "k": [
+      "grievance",
+      "grievances",
+      "complaints procedure",
+      "complaint process",
+      "complaints"
+     ],
+     "why": "Employers must have grievance procedures so complaints can be raised and resolved."
+    },
+    {
+     "a": "Audit policies and practices",
+     "p": 45,
+     "k": [
+      "audit",
+      "audits",
+      "audit policies",
+      "audit practices",
+      "review policies"
+     ],
+     "why": "All policies and practices should be audited to check they are free from discrimination."
+    },
+    {
+     "a": "Affirmative action program",
+     "p": 70,
+     "k": [
+      "affirmative action",
+      "affirmative action program",
+      "affirmative action programme",
+      "aap"
+     ],
+     "why": "Affirmative action removes discrimination and overcomes a lack of equal opportunity for women."
+    },
+    {
+     "a": "Report progress to WGEA",
+     "p": 85,
+     "k": [
+      "wgea",
+      "workplace gender equality agency",
+      "workplace gender equity agency",
+      "report to wgea",
+      "progress reports",
+      "gender equality reporting"
+     ],
+     "why": "Employers with 100+ staff must report to the Workplace Gender Equality Agency."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "age",
+      "race",
+      "gender",
+      "sex",
+      "religion",
+      "disability",
+      "pregnancy",
+      "sexual orientation"
+     ],
+     "p": 10,
+     "msg": "That's a ground of unlawful discrimination; the prompt wants something an employer does to comply."
+    }
+   ]
+  },
+  {
+   "id": "hr-econ-cycle",
+   "sec": "I",
+   "q": "Name an effect of economic conditions on HR",
+   "hint": "Boom vs bust, high vs low unemployment: who holds the bargaining power?",
+   "learn": "Economic influences are macroeconomic conditions (growth, unemployment, inflation, interest rates) that shape the labour market. In a boom or low unemployment workers are scarce and wages rise; in a downturn or high unemployment employers hold the power and may downsize.",
+   "answers": [
+    {
+     "a": "Wage growth in a boom",
+     "p": 10,
+     "k": [
+      "wage growth",
+      "higher wages",
+      "rising wages",
+      "wages rise",
+      "wage increases",
+      "upward pressure on wages"
+     ],
+     "why": "In an expansion employers compete for workers, pushing wages up."
+    },
+    {
+     "a": "Downsizing in a downturn",
+     "p": 15,
+     "k": [
+      "downsizing",
+      "redundancies",
+      "redundancy",
+      "retrenchment",
+      "retrenchments",
+      "job cuts",
+      "layoffs",
+      "cut hours",
+      "reduced hours"
+     ],
+     "why": "In a contraction firms cut staff or hours to save costs, and must manage redundancies sensitively."
+    },
+    {
+     "a": "Labour shortages",
+     "p": 25,
+     "k": [
+      "labour shortage",
+      "labor shortage",
+      "skills shortage",
+      "skill shortages",
+      "shortage of workers",
+      "talent shortage",
+      "shortages"
+     ],
+     "why": "Booms and low unemployment leave businesses struggling to find enough workers."
+    },
+    {
+     "a": "Larger pool of applicants",
+     "p": 40,
+     "k": [
+      "larger pool",
+      "bigger pool",
+      "larger labour pool",
+      "applicant pool",
+      "more applicants",
+      "more selective",
+      "more selective recruitment",
+      "selective"
+     ],
+     "why": "High unemployment means more applicants, so HR can be more selective."
+    },
+    {
+     "a": "Downward pressure on wages",
+     "p": 45,
+     "k": [
+      "downward pressure",
+      "lower wages",
+      "falling wages",
+      "wages fall",
+      "wage cuts",
+      "wage decline",
+      "slower wage growth",
+      "lower wage growth"
+     ],
+     "why": "With more people competing for fewer jobs, wage growth slows."
+    },
+    {
+     "a": "Shift in bargaining power",
+     "p": 55,
+     "k": [
+      "bargaining power",
+      "negotiating power",
+      "bargaining",
+      "power"
+     ],
+     "why": "Low unemployment gives employees the power; high unemployment gives it to employers."
+    },
+    {
+     "a": "Higher risk of staff turnover",
+     "p": 60,
+     "k": [
+      "staff turnover",
+      "turnover",
+      "more turnover",
+      "higher turnover",
+      "job hopping",
+      "employees leave",
+      "resignations"
+     ],
+     "why": "When jobs are plentiful, employees have more options and leave more easily."
+    },
+    {
+     "a": "Spend more to attract and retain staff",
+     "p": 70,
+     "k": [
+      "employee value proposition",
+      "evp",
+      "attract and retain",
+      "retention strategies",
+      "better benefits",
+      "invest in benefits",
+      "spend more",
+      "higher recruitment costs"
+     ],
+     "why": "In tight markets HR must invest in its employee value proposition, benefits and culture."
+    },
+    {
+     "a": "Better retention but lower engagement",
+     "p": 85,
+     "k": [
+      "better retention",
+      "lower engagement",
+      "less turnover",
+      "fewer resignations",
+      "staff less likely to leave"
+     ],
+     "why": "In high unemployment staff stay put, but some may be disengaged."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "automation",
+      "artificial intelligence",
+      "technology",
+      "robots"
+     ],
+     "p": 5,
+     "msg": "That's a technological influence, not an economic one."
+    }
+   ]
+  },
+  {
+   "id": "hr-tech-head",
+   "sec": "I",
+   "q": "Name a technology that is changing HRM",
+   "hint": "HEAD",
+   "learn": "Technological influences reshape the nature of work, the skills needed and how HR functions are performed. HEAD: HR information systems, E-learning, Automation and AI, Digital communication tools.",
+   "answers": [
+    {
+     "a": "Artificial intelligence",
+     "p": 10,
+     "k": [
+      "ai tools",
+      "generative ai",
+      "machine learning",
+      "chatgpt",
+      "ai"
+     ],
+     "why": "AI automates routine and increasingly complex tasks, displacing some jobs and creating new ones."
+    },
+    {
+     "a": "Automation",
+     "p": 15,
+     "k": [
+      "automate",
+      "automated",
+      "automating",
+      "robots",
+      "robotics"
+     ],
+     "why": "Automation replaces repetitive, predictable tasks and raises demand for higher-skilled roles."
+    },
+    {
+     "a": "HR information systems (HRIS)",
+     "p": 25,
+     "k": [
+      "hris",
+      "hrms",
+      "hr information system",
+      "hr software",
+      "hr system",
+      "hr systems",
+      "payroll software",
+      "information systems"
+     ],
+     "why": "HRIS digitise payroll, leave, appraisal tracking and recruitment, and give real-time workforce data."
+    },
+    {
+     "a": "E-learning platforms",
+     "p": 30,
+     "k": [
+      "e learning",
+      "elearning",
+      "e learning platform",
+      "online training",
+      "online learning",
+      "digital training",
+      "learning platforms"
+     ],
+     "why": "Train dispersed workforces at scale, at lower cost and more flexibly than classrooms."
+    },
+    {
+     "a": "Digital communication tools",
+     "p": 35,
+     "k": [
+      "digital communication",
+      "communication tools",
+      "communication technology",
+      "email"
+     ],
+     "why": "Digital tools changed where, when and how people work, enabling remote and hybrid work."
+    },
+    {
+     "a": "Video conferencing",
+     "p": 40,
+     "k": [
+      "video",
+      "video calls",
+      "video conference",
+      "online meetings",
+      "zoom",
+      "teams",
+      "microsoft teams"
+     ],
+     "why": "Video calls let remote and hybrid teams meet without being in the same place."
+    },
+    {
+     "a": "Cloud collaboration software",
+     "p": 60,
+     "k": [
+      "cloud",
+      "cloud software",
+      "collaboration",
+      "collaboration tools",
+      "collaboration software",
+      "google docs",
+      "sharepoint"
+     ],
+     "why": "Cloud tools let staff work on shared files from anywhere."
+    },
+    {
+     "a": "Instant messaging",
+     "p": 65,
+     "k": [
+      "messaging",
+      "instant messages",
+      "chat",
+      "chat apps",
+      "slack"
+     ],
+     "why": "Messaging apps give fast, informal communication across locations."
+    },
+    {
+     "a": "Virtual simulations",
+     "p": 80,
+     "k": [
+      "simulations",
+      "simulation",
+      "virtual reality",
+      "vr training"
+     ],
+     "why": "Virtual simulations are a digital training tool for practising skills safely."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "remote work",
+      "working from home",
+      "hybrid work"
+     ],
+     "p": 10,
+     "msg": "Remote and hybrid work are effects of technology (a changing work pattern), not technologies themselves."
+    }
+   ]
+  },
+  {
+   "id": "hr-social-work-patterns",
+   "sec": "I",
+   "q": "Give an example of a changing work pattern",
+   "hint": "Think post-COVID offices, the gig economy and an older, more female workforce.",
+   "learn": "Changing work patterns are the evolving ways work is structured, scheduled and performed, driven by technology, employee expectations, globalisation and COVID-19. HR must respond with flexible, forward-thinking people strategies.",
+   "answers": [
+    {
+     "a": "Remote and hybrid work",
+     "p": 10,
+     "k": [
+      "remote work",
+      "remote",
+      "hybrid work",
+      "hybrid",
+      "working from home",
+      "work from home",
+      "wfh",
+      "telecommuting"
+     ],
+     "why": "COVID-19 and digital tools made remote and hybrid work a permanent feature."
+    },
+    {
+     "a": "Flexible hours",
+     "p": 20,
+     "k": [
+      "flexible working arrangements",
+      "flexible work",
+      "flexibility",
+      "flexitime",
+      "flexible working hours",
+      "flexible start times"
+     ],
+     "why": "More flexibility in the hours and days people work."
+    },
+    {
+     "a": "Gig economy / platform work",
+     "p": 30,
+     "k": [
+      "gig economy",
+      "gig work",
+      "gig workers",
+      "gig",
+      "platform work",
+      "platform based work",
+      "uber"
+     ],
+     "why": "Short-term, app-based jobs are a growing non-traditional form of employment."
+    },
+    {
+     "a": "Casual work",
+     "p": 40,
+     "k": [
+      "casual",
+      "casuals",
+      "casual employment",
+      "casualisation",
+      "casualization"
+     ],
+     "why": "More people work casually rather than in permanent roles."
+    },
+    {
+     "a": "Contract and freelance work",
+     "p": 45,
+     "k": [
+      "contract work",
+      "contracting",
+      "contractors",
+      "freelance",
+      "freelancing",
+      "freelancers"
+     ],
+     "why": "Contract and freelance work are growing non-traditional employment forms."
+    },
+    {
+     "a": "Job sharing",
+     "p": 50,
+     "k": [
+      "job share",
+      "job sharing"
+     ],
+     "why": "Two or more people share one job, often as part-time arrangements."
+    },
+    {
+     "a": "Automation and AI changing jobs",
+     "p": 55,
+     "k": [
+      "automation",
+      "artificial intelligence",
+      "ai tools",
+      "technology",
+      "robots"
+     ],
+     "why": "Automation and AI are changing the nature of work itself."
+    },
+    {
+     "a": "Rising female participation",
+     "p": 75,
+     "k": [
+      "female participation",
+      "female workforce participation",
+      "more women",
+      "women in the workforce",
+      "women working",
+      "women"
+     ],
+     "why": "The share of women in the workforce keeps rising."
+    },
+    {
+     "a": "Phased retirement, longer careers",
+     "p": 80,
+     "k": [
+      "phased retirement",
+      "later retirement",
+      "extended working lives",
+      "working longer",
+      "older workers",
+      "ageing workforce",
+      "aging workforce"
+     ],
+     "why": "People work longer and ease into retirement, so HR manages an ageing workforce."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "full time job",
+      "nine to five"
+     ],
+     "p": 5,
+     "msg": "Standard full-time hours are the traditional pattern, not a change."
+    }
+   ]
+  },
+  {
+   "id": "hr-social-living",
+   "sec": "I",
+   "q": "Name a way HRM affects employees' living standards",
+   "hint": "Four areas: pay, security, safety and wellbeing, careers. Bad practice counts too.",
+   "learn": "Living standards are the level of wealth, comfort, goods and necessities available to people. HR decisions on pay, job security, safety and development directly raise or lower employees' living standards.",
+   "answers": [
+    {
+     "a": "Fair wages and remuneration",
+     "p": 10,
+     "k": [
+      "wages",
+      "wage",
+      "pay",
+      "fair pay",
+      "salary",
+      "remuneration",
+      "income",
+      "purchasing power"
+     ],
+     "why": "Fair, competitive pay lets employees meet basic needs, support families and take part in the economy."
+    },
+    {
+     "a": "Job security",
+     "p": 20,
+     "k": [
+      "security",
+      "secure jobs",
+      "secure employment",
+      "permanent jobs",
+      "permanent employment",
+      "stable income",
+      "income stability"
+     ],
+     "why": "Secure, permanent work lets people commit to mortgages and investments."
+    },
+    {
+     "a": "Health, safety and wellbeing",
+     "p": 30,
+     "k": [
+      "safety",
+      "whs",
+      "health",
+      "health and safety",
+      "safe workplace",
+      "wellbeing",
+      "wellness"
+     ],
+     "why": "Good WHS protects staff from injury, illness and the financial hardship that follows."
+    },
+    {
+     "a": "Training and career development",
+     "p": 35,
+     "k": [
+      "training",
+      "development",
+      "career development",
+      "career progression",
+      "upskilling",
+      "promotion",
+      "earning potential"
+     ],
+     "why": "Development lifts earning potential and lets workers move into higher-paid roles."
+    },
+    {
+     "a": "Wage theft and underpayment",
+     "p": 65,
+     "k": [
+      "wage theft",
+      "underpayment",
+      "underpayments",
+      "underpaying",
+      "underpaid"
+     ],
+     "why": "Poor HR practice like wage theft or underpayment directly lowers living standards."
+    },
+    {
+     "a": "Insecure casual or gig work",
+     "p": 75,
+     "k": [
+      "casual work",
+      "casual contracts",
+      "excessive casuals",
+      "casualisation",
+      "gig work",
+      "gig",
+      "insecure work",
+      "income insecurity"
+     ],
+     "why": "Over-reliance on casual or gig workers creates income insecurity and financial vulnerability."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "remote work",
+      "hybrid work",
+      "working from home"
+     ],
+     "p": 10,
+     "msg": "That's a changing work pattern, the other half of the social influence."
+    }
+   ]
+  },
+  {
+   "id": "hr-ethics-csr",
+   "sec": "I",
+   "q": "Name a way a business shows ethics and CSR in HRM",
+   "hint": "Fair pay, wellbeing, work-life balance, DEI, learning, transparency.",
+   "learn": "Ethics and CSR in HRM means applying moral principles to how people are managed, going beyond legal compliance. It lifts motivation, retention and brand image, though it can raise costs in the short term.",
+   "answers": [
+    {
+     "a": "Flexible working arrangements",
+     "p": 10,
+     "k": [
+      "flexible work",
+      "flexibility",
+      "flexible hours",
+      "remote work",
+      "working from home",
+      "hybrid work"
+     ],
+     "why": "Offering remote work and flexible hours supports employee wellbeing."
+    },
+    {
+     "a": "Mental health and wellbeing programs",
+     "p": 15,
+     "k": [
+      "wellbeing",
+      "employee wellbeing",
+      "wellness",
+      "wellness programs",
+      "health programs",
+      "mental health",
+      "mental health support"
+     ],
+     "why": "Comprehensive health and wellness programs, including mental health support."
+    },
+    {
+     "a": "Pay a living wage above the minimum",
+     "p": 25,
+     "k": [
+      "living wage",
+      "above minimum wage",
+      "above award",
+      "above award wages",
+      "fair pay",
+      "fair wages",
+      "equitable wages"
+     ],
+     "why": "Fair employment practice: equitable wages above the legal minimum."
+    },
+    {
+     "a": "Training, upskilling and reskilling",
+     "p": 30,
+     "k": [
+      "training",
+      "upskilling",
+      "reskilling",
+      "development",
+      "learning and development",
+      "education",
+      "tuition assistance"
+     ],
+     "why": "Learning programs and tuition assistance help staff grow."
+    },
+    {
+     "a": "Generous parental leave",
+     "p": 35,
+     "k": [
+      "parental leave",
+      "paid parental leave",
+      "maternity leave",
+      "paternity leave"
+     ],
+     "why": "Parental leave beyond the legal minimum supports work-life balance."
+    },
+    {
+     "a": "Diversity and inclusion (DEI) targets",
+     "p": 40,
+     "k": [
+      "diversity",
+      "diversity targets",
+      "diverse workforce",
+      "inclusion",
+      "dei",
+      "inclusive hiring",
+      "bias free hiring",
+      "unconscious bias",
+      "equity"
+     ],
+     "why": "Set measurable DEI targets, build inclusive hiring pipelines and reduce unconscious bias."
+    },
+    {
+     "a": "Pay equity audits",
+     "p": 70,
+     "k": [
+      "pay equity",
+      "pay audits",
+      "pay gap",
+      "gender pay gap",
+      "close the pay gap",
+      "equal pay"
+     ],
+     "why": "Regular pay equity audits close gender and racial wage gaps."
+    },
+    {
+     "a": "Respect the right to disconnect",
+     "p": 70,
+     "k": [
+      "right to disconnect",
+      "disconnect",
+      "no after hours emails",
+      "after hours contact"
+     ],
+     "why": "Don't expect staff to answer work contact outside working hours."
+    },
+    {
+     "a": "Publish CSR reports, allow audits",
+     "p": 75,
+     "k": [
+      "csr report",
+      "csr reports",
+      "csr reporting",
+      "sustainability report",
+      "publish reports",
+      "third party audits",
+      "transparency",
+      "accountability",
+      "reporting"
+     ],
+     "why": "Report publicly on turnover, absenteeism, diversity and pay ratios, and allow third-party audits."
+    },
+    {
+     "a": "Support staff displaced by AI",
+     "p": 85,
+     "k": [
+      "displaced by ai",
+      "displaced workers",
+      "displaced",
+      "support displaced",
+      "retraining displaced workers",
+      "redeployment"
+     ],
+     "why": "Retrain and support employees whose jobs are replaced by automation."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "obey the law",
+      "follow the law",
+      "comply with the law",
+      "legal compliance",
+      "minimum wage"
+     ],
+     "p": 5,
+     "msg": "Compliance is the legal minimum; ethics and CSR mean going beyond what the law requires."
+    }
+   ]
+  },
+  {
+   "id": "hr-acq-steps",
+   "sec": "P",
+   "q": "Name a step in acquiring new staff",
+   "hint": "IRS: Identify, Recruit, Select... plus the tools along the way.",
+   "learn": "Acquisition is the process of attracting and recruiting the right staff for roles in the business, in three stages: identifying staffing needs, recruitment and selection (IRS). A skills audit and job analysis help define the job before it is advertised.",
+   "answers": [
+    {
+     "a": "Recruitment",
+     "p": 10,
+     "k": [
+      "recruit",
+      "recruiting",
+      "advertise",
+      "advertising",
+      "advertise the job",
+      "attract applicants"
+     ],
+     "why": "Locating and attracting the right quantity and quality of applicants for vacancies."
+    },
+    {
+     "a": "Selection",
+     "p": 15,
+     "k": [
+      "select",
+      "selecting",
+      "hiring decision",
+      "choose the best applicant",
+      "interview",
+      "interviews",
+      "interviewing"
+     ],
+     "why": "Gathering information on each applicant and choosing the most appropriate one."
+    },
+    {
+     "a": "Identify staffing needs",
+     "p": 25,
+     "k": [
+      "identifying staffing needs",
+      "staffing needs",
+      "identify needs",
+      "needs analysis",
+      "workforce planning",
+      "human resource planning",
+      "hr planning"
+     ],
+     "why": "Analyse internal and external environments to work out how many staff, with what skills."
+    },
+    {
+     "a": "Write a job description",
+     "p": 45,
+     "k": [
+      "job description",
+      "job descriptions",
+      "position description",
+      "job specification",
+      "person specification",
+      "job design"
+     ],
+     "why": "Job designs and descriptions are developed to guide recruitment."
+    },
+    {
+     "a": "Job analysis",
+     "p": 60,
+     "k": [
+      "analyse the job",
+      "analyze the job",
+      "analysis of job",
+      "job analyses"
+     ],
+     "why": "A systematic study of each employee's duties, tasks and work environment."
+    },
+    {
+     "a": "Skills audit",
+     "p": 65,
+     "k": [
+      "skill audit",
+      "skills audits",
+      "audit skills",
+      "skills gap analysis"
+     ],
+     "why": "Reviews the skills current staff have to reveal gaps that new hires must fill."
+    },
+    {
+     "a": "Probationary period",
+     "p": 80,
+     "k": [
+      "probation",
+      "probation period",
+      "trial period"
+     ],
+     "why": "New employees usually serve a three-month probation after selection."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "induction",
+      "training",
+      "orientation"
+     ],
+     "p": 10,
+     "msg": "Induction and training belong to the development process (ITOMP), after acquisition."
+    }
+   ]
+  },
+  {
+   "id": "hr-acq-selection",
+   "sec": "P",
+   "q": "Name a selection method used to choose an applicant",
+   "hint": "From the paperwork to the final checks.",
+   "learn": "Selection involves gathering information about each applicant and determining the most appropriate one. It must be fair and free from discrimination, and the best hire's motivation, goals and values align with the business.",
+   "answers": [
+    {
+     "a": "Interview",
+     "p": 10,
+     "k": [
+      "interviews",
+      "interviewing",
+      "job interview",
+      "panel interview"
+     ],
+     "why": "A formal discussion to test the applicant's fit, skills and attitude."
+    },
+    {
+     "a": "CV and application letter",
+     "p": 15,
+     "k": [
+      "cv",
+      "resume",
+      "resumes",
+      "application letter",
+      "cover letter",
+      "application",
+      "applications"
+     ],
+     "why": "The first screen of each applicant's experience and qualifications."
+    },
+    {
+     "a": "Reference checks",
+     "p": 30,
+     "k": [
+      "references",
+      "referees",
+      "referee checks",
+      "reference check",
+      "background check",
+      "background checks",
+      "police check"
+     ],
+     "why": "Checks with past employers and background checks confirm the applicant's claims."
+    },
+    {
+     "a": "Shortlisting",
+     "p": 40,
+     "k": [
+      "shortlist",
+      "short list",
+      "short listing",
+      "screening",
+      "screening applications"
+     ],
+     "why": "Narrowing the field to the best applicants before interviews."
+    },
+    {
+     "a": "Assessments and tests",
+     "p": 45,
+     "k": [
+      "assessment",
+      "tests",
+      "testing",
+      "psychometric",
+      "psychometric tests",
+      "aptitude test",
+      "skills test"
+     ],
+     "why": "Tests measure skills, aptitude or personality objectively."
+    },
+    {
+     "a": "Group scenarios",
+     "p": 75,
+     "k": [
+      "group scenario",
+      "group activities",
+      "group tasks",
+      "group exercise",
+      "assessment centre",
+      "role play"
+     ],
+     "why": "Group tasks show how applicants communicate and work in a team."
+    },
+    {
+     "a": "Probationary period",
+     "p": 80,
+     "k": [
+      "probation",
+      "probation period",
+      "trial period"
+     ],
+     "why": "A three-month probation lets the business confirm the new hire is right for the job."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "advertising",
+      "job ads",
+      "seek",
+      "recruitment agency",
+      "headhunting"
+     ],
+     "p": 10,
+     "msg": "That's recruitment (attracting applicants); selection is choosing between them."
+    }
+   ]
+  },
+  {
+   "id": "hr-dev-itomp",
+   "sec": "P",
+   "q": "Name a stage in the development of staff",
+   "hint": "ITOMP",
+   "learn": "Development improves staff skills, abilities and knowledge through Induction, Training, Organisational development, Mentoring and coaching, and Performance appraisal (ITOMP). It lifts productivity, flexibility, motivation and retention.",
+   "answers": [
+    {
+     "a": "Training",
+     "p": 10,
+     "k": [
+      "train",
+      "staff training",
+      "on the job training",
+      "off the job training"
+     ],
+     "why": "A long-term improvement in skills, knowledge and attributes, on or off the job."
+    },
+    {
+     "a": "Induction",
+     "p": 15,
+     "k": [
+      "orientation",
+      "onboarding",
+      "inducting",
+      "induction program"
+     ],
+     "why": "Smooth transition of new staff into the business, making them productive sooner."
+    },
+    {
+     "a": "Performance appraisal",
+     "p": 30,
+     "k": [
+      "appraisal",
+      "appraisals",
+      "performance appraisals",
+      "performance review",
+      "performance reviews",
+      "performance management"
+     ],
+     "why": "Systematic evaluation of strengths, weaknesses and development needs."
+    },
+    {
+     "a": "Mentoring",
+     "p": 40,
+     "k": [
+      "mentor",
+      "mentors",
+      "mentorship",
+      "mentoring and coaching"
+     ],
+     "why": "Informal: an experienced employee passes knowledge and advice to a less experienced one."
+    },
+    {
+     "a": "Coaching",
+     "p": 50,
+     "k": [
+      "coach",
+      "coaches"
+     ],
+     "why": "More formal: focused on improving a specific employee's skills and performance."
+    },
+    {
+     "a": "Organisational development",
+     "p": 75,
+     "k": [
+      "organizational development",
+      "org development",
+      "job rotation",
+      "job enrichment",
+      "job enlargement",
+      "job sharing"
+     ],
+     "why": "Develops skills by changing an employee's role, e.g. job rotation or enrichment."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "recruitment",
+      "selection",
+      "identifying staffing needs"
+     ],
+     "p": 5,
+     "msg": "Those are acquisition steps (IRS), which come before development."
+    }
+   ]
+  },
+  {
+   "id": "hr-dev-orgdev",
+   "sec": "P",
+   "q": "Name an organisational development or job design method",
+   "hint": "Most of them start with 'job'... then think teams.",
+   "learn": "Organisational development builds skills by changing an employee's role or responsibilities, while job design shapes a job's content to inform, motivate and retain staff.",
+   "answers": [
+    {
+     "a": "Job rotation",
+     "p": 10,
+     "k": [
+      "rotation",
+      "rotate jobs",
+      "rotating jobs"
+     ],
+     "why": "Moving staff through a variety of jobs to broaden their skill sets."
+    },
+    {
+     "a": "Job enlargement",
+     "p": 15,
+     "k": [
+      "enlargement",
+      "more tasks",
+      "broader tasks",
+      "wider range of tasks"
+     ],
+     "why": "Increasing the range and breadth of tasks in a job."
+    },
+    {
+     "a": "Job enrichment",
+     "p": 20,
+     "k": [
+      "enrichment",
+      "enriching",
+      "enriched jobs",
+      "more responsibility"
+     ],
+     "why": "Increasing the responsibility and challenge of a role."
+    },
+    {
+     "a": "Job sharing",
+     "p": 40,
+     "k": [
+      "job share",
+      "sharing",
+      "job sharing arrangement"
+     ],
+     "why": "Two or more people share the same job, e.g. as part-time arrangements."
+    },
+    {
+     "a": "Self-managing teams",
+     "p": 55,
+     "k": [
+      "self managing",
+      "self managed teams",
+      "self directed teams"
+     ],
+     "why": "Team members make and manage the team's decisions themselves."
+    },
+    {
+     "a": "Semi-autonomous work groups",
+     "p": 70,
+     "k": [
+      "semi autonomous",
+      "semi autonomous teams",
+      "autonomous work groups",
+      "autonomous groups",
+      "autonomous teams"
+     ],
+     "why": "Groups given a high level of control over how they organise their work."
+    },
+    {
+     "a": "Flexible work structures",
+     "p": 75,
+     "k": [
+      "flexible work structure",
+      "flexible structure",
+      "flexible work",
+      "flexible working"
+     ],
+     "why": "Structuring jobs flexibly so staff and tasks can shift as needs change."
+    },
+    {
+     "a": "Cross-functional teams",
+     "p": 80,
+     "k": [
+      "cross functional",
+      "cross functional team",
+      "matrix",
+      "matrix structure",
+      "matrix teams"
+     ],
+     "why": "Team-based matrix structures that bring together staff from different functions."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "mentoring",
+      "coaching",
+      "induction"
+     ],
+     "p": 10,
+     "msg": "Those are other development stages; organisational development changes the job itself."
+    }
+   ]
+  },
+  {
+   "id": "hr-dev-appraisal",
+   "sec": "P",
+   "q": "Name a performance appraisal method",
+   "hint": "Scales, ratings, rankings, essays, incidents... and a full circle.",
+   "learn": "Performance appraisal is the systematic analysis and evaluation of an employee's performance for strengths, weaknesses and development opportunities. Results guide training, promotion and pay decisions, and the records help defend against unfair dismissal claims.",
+   "answers": [
+    {
+     "a": "Appraisal interview",
+     "p": 10,
+     "k": [
+      "interview",
+      "appraisal meeting",
+      "formal discussion",
+      "one on one meeting",
+      "performance review meeting"
+     ],
+     "why": "A formal discussion between supervisor and employee about performance."
+    },
+    {
+     "a": "360-degree feedback",
+     "p": 25,
+     "k": [
+      "360",
+      "360 degree",
+      "360 degrees",
+      "360 feedback",
+      "360 degree appraisal",
+      "multi source feedback"
+     ],
+     "why": "Anonymous feedback from managers, co-workers and subordinates."
+    },
+    {
+     "a": "Self-assessment",
+     "p": 30,
+     "k": [
+      "self assessment",
+      "self evaluation",
+      "self appraisal",
+      "self review",
+      "self rating"
+     ],
+     "why": "The worker rates themselves; in 360-degree feedback this is compared with others' ratings."
+    },
+    {
+     "a": "Graphic rating scale",
+     "p": 55,
+     "k": [
+      "rating scale",
+      "rating scales",
+      "graphic rating",
+      "graphic scale",
+      "ratings"
+     ],
+     "why": "Rates traits like reliability, cooperation and quality of work on a scale."
+    },
+    {
+     "a": "Performance ranking",
+     "p": 60,
+     "k": [
+      "ranking",
+      "ranking method",
+      "rank",
+      "rank employees"
+     ],
+     "why": "Employees are ranked from best to worst."
+    },
+    {
+     "a": "Behaviour observation scale",
+     "p": 65,
+     "k": [
+      "behaviour observation",
+      "behavior observation scale",
+      "observation",
+      "observation scales",
+      "bos"
+     ],
+     "why": "A supervisor observes and records evidence of behaviour and performance over time."
+    },
+    {
+     "a": "Essay evaluation",
+     "p": 75,
+     "k": [
+      "essay",
+      "essay method",
+      "written evaluation",
+      "written report"
+     ],
+     "why": "The supervisor writes a report on the employee's strengths and weaknesses."
+    },
+    {
+     "a": "Critical incident method",
+     "p": 85,
+     "k": [
+      "critical incident",
+      "critical incidents",
+      "incident method"
+     ],
+     "why": "Records how an employee responds in specific situations; often used for supervisors."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "kpis",
+      "kpi",
+      "key performance indicators"
+     ],
+     "p": 10,
+     "msg": "KPIs are the criteria performance is measured against, not the appraisal method itself."
+    }
+   ]
+  },
+  {
+   "id": "hr-maint-flecr",
+   "sec": "P",
+   "q": "Name an element of maintaining staff",
+   "hint": "FLECR",
+   "learn": "Maintenance is the set of processes used to retain staff and manage their wellbeing: Flexible working arrangements, Legal compliance and CSR, Employee participation, Communication and workplace culture, and Rewards (FLECR).",
+   "answers": [
+    {
+     "a": "Rewards (monetary and non-monetary)",
+     "p": 10,
+     "k": [
+      "rewards",
+      "reward",
+      "monetary rewards",
+      "non monetary rewards",
+      "benefits",
+      "bonuses",
+      "pay",
+      "remuneration"
+     ],
+     "why": "Rewards encourage staff to lift productivity and stay with the business."
+    },
+    {
+     "a": "Flexible working arrangements",
+     "p": 20,
+     "k": [
+      "flexible work",
+      "flexible working",
+      "flexibility",
+      "flexible hours",
+      "working from home",
+      "fwa"
+     ],
+     "why": "Flexibility in when, how much and where staff work improves retention."
+    },
+    {
+     "a": "Communication and workplace culture",
+     "p": 35,
+     "k": [
+      "communication",
+      "communications",
+      "workplace culture",
+      "culture",
+      "newsletters",
+      "team meetings",
+      "feedback"
+     ],
+     "why": "Regular communication and a supportive culture where staff feel valued."
+    },
+    {
+     "a": "Employee participation",
+     "p": 45,
+     "k": [
+      "participation",
+      "involvement",
+      "employee involvement",
+      "empowerment",
+      "consultation",
+      "employee voice"
+     ],
+     "why": "Involving staff in decisions through meetings, surveys and share plans builds commitment."
+    },
+    {
+     "a": "Legal compliance and CSR",
+     "p": 70,
+     "k": [
+      "legal compliance",
+      "compliance",
+      "legal",
+      "following the law",
+      "csr",
+      "corporate social responsibility",
+      "ethics"
+     ],
+     "why": "Obeying the law is the minimum; CSR means treating staff fairly beyond it."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "training",
+      "induction",
+      "recruitment"
+     ],
+     "p": 5,
+     "msg": "Training and induction are development; recruitment is acquisition. Maintenance is about keeping staff."
+    }
+   ]
+  },
+  {
+   "id": "hr-maint-flex-adv",
+   "sec": "P",
+   "q": "Give an advantage of flexible working arrangements",
+   "hint": "Motivation, attendance, retention, talent... and rent.",
+   "learn": "Flexible working arrangements give employees flexibility in when, how much and where they work, e.g. part-time, job share, compressed weeks, working from home, hybrid work or purchased leave. The Fair Work Act gives some employees the right to request them.",
+   "answers": [
+    {
+     "a": "Higher motivation and productivity",
+     "p": 10,
+     "k": [
+      "motivation",
+      "motivated",
+      "motivated staff",
+      "productivity",
+      "more productive",
+      "satisfaction",
+      "job satisfaction",
+      "satisfied employees"
+     ],
+     "why": "Satisfied employees perform better."
+    },
+    {
+     "a": "Better work-life balance",
+     "p": 15,
+     "k": [
+      "work life balance",
+      "balance",
+      "personal commitments",
+      "manage personal commitments",
+      "wellbeing"
+     ],
+     "why": "Staff can fit work around family and personal commitments."
+    },
+    {
+     "a": "Better staff retention",
+     "p": 25,
+     "k": [
+      "retention",
+      "retain staff",
+      "turnover",
+      "staff turnover",
+      "lower turnover",
+      "reduces turnover"
+     ],
+     "why": "Reduces costly turnover and re-recruitment."
+    },
+    {
+     "a": "Reduced absenteeism",
+     "p": 30,
+     "k": [
+      "absenteeism",
+      "less absenteeism",
+      "fewer absences",
+      "fewer sick days",
+      "attendance"
+     ],
+     "why": "Employees can manage personal commitments without taking days off."
+    },
+    {
+     "a": "Wider talent pool",
+     "p": 50,
+     "k": [
+      "talent pool",
+      "wider pool",
+      "attract talent",
+      "attract staff",
+      "attracts employees",
+      "attraction",
+      "recruitment"
+     ],
+     "why": "Attracts people who need flexibility, such as carers."
+    },
+    {
+     "a": "Savings on office space",
+     "p": 65,
+     "k": [
+      "office space",
+      "less office space",
+      "cost savings",
+      "lower costs",
+      "saves money",
+      "lower overheads",
+      "cheaper facilities",
+      "rent"
+     ],
+     "why": "Remote work reduces the need for office space and facilities."
+    },
+    {
+     "a": "Positive workplace culture",
+     "p": 70,
+     "k": [
+      "workplace culture",
+      "positive culture",
+      "culture",
+      "valued",
+      "shows staff are valued",
+      "values wellbeing"
+     ],
+     "why": "Shows the business values employee wellbeing."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "management challenges",
+      "harder to supervise",
+      "communication difficulties",
+      "technology costs",
+      "equity concerns",
+      "resentment"
+     ],
+     "p": 10,
+     "msg": "That's a disadvantage of flexible work (supervision, communication, tech costs or equity)."
+    }
+   ]
+  },
+  {
+   "id": "hr-sep-voluntary",
+   "sec": "P",
+   "q": "Name a type of voluntary separation",
+   "hint": "RRRV",
+   "learn": "Separation is the process of ending employment. Voluntary separation is when the employee chooses to leave of their own free will: Resignation, Retirement, Relocation or Voluntary redundancy (RRRV).",
+   "answers": [
+    {
+     "a": "Resignation",
+     "p": 10,
+     "k": [
+      "resign",
+      "resigning",
+      "quit",
+      "quitting",
+      "new job"
+     ],
+     "why": "The employee chooses to leave, often for another job or personal reasons."
+    },
+    {
+     "a": "Retirement",
+     "p": 15,
+     "k": [
+      "retire",
+      "retiring"
+     ],
+     "why": "Leaving the labour force permanently at the end of a career."
+    },
+    {
+     "a": "Relocation",
+     "p": 40,
+     "k": [
+      "relocate",
+      "relocating",
+      "moving away",
+      "moving house",
+      "moving interstate"
+     ],
+     "why": "Moving to a new location makes it impossible to keep the job."
+    },
+    {
+     "a": "Voluntary redundancy",
+     "p": 75,
+     "k": [
+      "voluntary redundancies",
+      "volunteer for redundancy",
+      "taking a redundancy package"
+     ],
+     "why": "Nominating yourself for redundancy during a restructure; appeals to workers near retirement."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "retrenchment",
+      "dismissal",
+      "contract expiry",
+      "fired",
+      "sacked"
+     ],
+     "p": 10,
+     "msg": "That's involuntary separation (CIDR): the employee doesn't choose to leave."
+    }
+   ]
+  },
+  {
+   "id": "hr-sep-involuntary",
+   "sec": "P",
+   "q": "Name a type of involuntary separation",
+   "hint": "CIDR, and the D splits into SUD.",
+   "learn": "Involuntary separation is when an employee is made to leave against their will: Contract expiry, Involuntary redundancy, Dismissal and Retrenchment (CIDR). Dismissal can be Summary, Unfair or on notice (SUD). Redundancy targets positions; retrenchment targets people.",
+   "answers": [
+    {
+     "a": "Dismissal",
+     "p": 10,
+     "k": [
+      "fired",
+      "firing",
+      "getting fired",
+      "sacked",
+      "sacking",
+      "terminated",
+      "termination"
+     ],
+     "why": "Employment is ended for poor performance or a serious breach of contract."
+    },
+    {
+     "a": "Involuntary redundancy",
+     "p": 20,
+     "k": [
+      "redundancy",
+      "redundancies",
+      "redundant",
+      "made redundant",
+      "forced redundancy"
+     ],
+     "why": "The position is no longer needed, e.g. site closure, new technology or restructuring."
+    },
+    {
+     "a": "Retrenchment",
+     "p": 35,
+     "k": [
+      "retrenched",
+      "retrench",
+      "laid off",
+      "layoff",
+      "layoffs"
+     ],
+     "why": "Not enough work for the person, usually in a downturn; the business must show evidence."
+    },
+    {
+     "a": "Contract expiry",
+     "p": 50,
+     "k": [
+      "expiry",
+      "contract ends",
+      "contract expires",
+      "contract expiration",
+      "contract finished",
+      "end of contract",
+      "fixed term ends"
+     ],
+     "why": "Employment ends when a fixed-term contract finishes."
+    },
+    {
+     "a": "Summary dismissal",
+     "p": 65,
+     "k": [
+      "summary",
+      "instant dismissal",
+      "immediate dismissal",
+      "misconduct",
+      "serious misconduct"
+     ],
+     "why": "Instant dismissal for a serious breach such as theft or serious misconduct."
+    },
+    {
+     "a": "Unfair dismissal",
+     "p": 70,
+     "k": [
+      "unfair",
+      "unfairly dismissed",
+      "unjust dismissal",
+      "harsh dismissal",
+      "unfair termination"
+     ],
+     "why": "Harsh, unjust or unreasonable dismissal; the FWC can order reinstatement or compensation."
+    },
+    {
+     "a": "Dismissal on notice",
+     "p": 75,
+     "k": [
+      "on notice",
+      "notice",
+      "notice dismissal",
+      "dismissal with notice",
+      "dismissed on notice"
+     ],
+     "why": "For consistently poor performance, after written warnings, support and a chance to respond."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "resignation",
+      "resign",
+      "retirement",
+      "retire",
+      "relocation",
+      "quit"
+     ],
+     "p": 10,
+     "msg": "That's voluntary separation (RRRV): the employee chooses to leave."
+    }
+   ]
+  },
+  {
+   "id": "hr-lead-adv",
+   "sec": "S",
+   "q": "Give an advantage of a leadership style",
+   "hint": "LAD: Laissez-faire, Autocratic, Democratic. Each has its own strengths.",
+   "learn": "Leadership style is the traits and behaviours a leader uses to lead, motivate and communicate with staff, and it can affect profitability by around 30%. The best style depends on the situation and the skill of the staff.",
+   "answers": [
+    {
+     "a": "Fast decisions (autocratic)",
+     "p": 10,
+     "k": [
+      "fast decisions",
+      "quick decisions",
+      "faster decision making",
+      "faster process",
+      "faster",
+      "fast",
+      "quick",
+      "speed"
+     ],
+     "why": "Management decides with little input, so it suits urgent decisions."
+    },
+    {
+     "a": "Valuable staff ideas (democratic)",
+     "p": 15,
+     "k": [
+      "valuable insights",
+      "insights",
+      "staff ideas",
+      "more ideas",
+      "ideas",
+      "employee input",
+      "input",
+      "suggestions"
+     ],
+     "why": "Staff are asked for suggestions and may offer valuable insights."
+    },
+    {
+     "a": "Empowered, satisfied staff (democratic)",
+     "p": 25,
+     "k": [
+      "empowerment",
+      "empowered",
+      "involvement",
+      "employee satisfaction",
+      "job satisfaction",
+      "satisfaction",
+      "higher morale",
+      "lower turnover",
+      "lower absenteeism"
+     ],
+     "why": "Involvement lifts satisfaction and cuts absenteeism and turnover."
+    },
+    {
+     "a": "Consistent, organised results (autocratic)",
+     "p": 40,
+     "k": [
+      "consistent results",
+      "consistent",
+      "consistency",
+      "organised",
+      "organized",
+      "more organised"
+     ],
+     "why": "Clear top-down control gives organised, consistent outcomes."
+    },
+    {
+     "a": "Better teamwork and collaboration (democratic)",
+     "p": 45,
+     "k": [
+      "teamwork",
+      "team work",
+      "team based",
+      "collaboration"
+     ],
+     "why": "Democratic style focuses on teamwork, collaboration and engagement."
+    },
+    {
+     "a": "Experts work independently (laissez-faire)",
+     "p": 55,
+     "k": [
+      "competence",
+      "experienced staff",
+      "experts",
+      "autonomy",
+      "independence",
+      "independent",
+      "freedom"
+     ],
+     "why": "Experienced, skilled self-starters can use their own expertise."
+    },
+    {
+     "a": "Positive work environment (laissez-faire)",
+     "p": 65,
+     "k": [
+      "positive work environment",
+      "positive environment",
+      "work environment",
+      "relaxed environment",
+      "relaxed"
+     ],
+     "why": "Trusting skilled staff can create a positive work environment."
+    },
+    {
+     "a": "Aligns staff and business goals",
+     "p": 80,
+     "k": [
+      "employee engagement",
+      "engagement",
+      "goal alignment",
+      "aligned goals",
+      "align goals"
+     ],
+     "why": "Effective leadership creates engagement, where employee and business goals align."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "slow",
+      "slower",
+      "less openness",
+      "time consuming"
+     ],
+     "p": 5,
+     "msg": "That's a disadvantage (democratic is slower; autocratic is less open to ideas)."
+    },
+    {
+     "k": [
+      "autocratic",
+      "democratic",
+      "laissez faire",
+      "participative"
+     ],
+     "p": 5,
+     "msg": "That's the style itself; name one of its advantages, e.g. fast decisions (autocratic)."
+    }
+   ]
+  },
+  {
+   "id": "hr-lead-dis",
+   "sec": "S",
+   "q": "Give a disadvantage of a leadership style",
+   "hint": "LAD: too controlling, too slow, or too hands-off.",
+   "learn": "No style suits every situation: autocratic suits unskilled staff and urgent decisions, democratic suits engaged teams, and laissez-faire suits experienced self-starters. Ineffective leadership lowers motivation, morale, productivity and retention.",
+   "answers": [
+    {
+     "a": "Slower decisions (democratic)",
+     "p": 10,
+     "k": [
+      "slow",
+      "slower",
+      "slow decisions",
+      "slower process",
+      "time consuming",
+      "takes longer"
+     ],
+     "why": "Consulting staff takes time before management makes the final call."
+    },
+    {
+     "a": "Low morale and dissatisfaction (autocratic)",
+     "p": 15,
+     "k": [
+      "low morale",
+      "poor morale",
+      "morale",
+      "dissatisfaction",
+      "dissatisfied",
+      "unhappy staff",
+      "demotivated",
+      "low empowerment"
+     ],
+     "why": "Low empowerment and involvement leave staff dissatisfied."
+    },
+    {
+     "a": "Higher absenteeism and turnover (autocratic)",
+     "p": 30,
+     "k": [
+      "absenteeism",
+      "turnover",
+      "staff turnover",
+      "higher turnover"
+     ],
+     "why": "Dissatisfied, disempowered staff stay away more and leave sooner."
+    },
+    {
+     "a": "Closed to new ideas (autocratic)",
+     "p": 35,
+     "k": [
+      "less openness",
+      "not open to ideas",
+      "closed to ideas",
+      "less openness to other solutions",
+      "ignores staff input",
+      "no input",
+      "less input",
+      "no employee input"
+     ],
+     "why": "Management decides alone, so other solutions get ignored."
+    },
+    {
+     "a": "Worse decisions, unskilled staff (democratic)",
+     "p": 55,
+     "k": [
+      "worse decisions",
+      "poor decisions",
+      "bad decisions",
+      "inexperienced staff",
+      "inexperienced",
+      "unskilled staff"
+     ],
+     "why": "Input from unskilled or inexperienced staff can lead to poorer decisions."
+    },
+    {
+     "a": "Team disagreements and splits (laissez-faire)",
+     "p": 65,
+     "k": [
+      "disagreements",
+      "disagreement",
+      "conflict",
+      "team conflict",
+      "splits",
+      "arguments"
+     ],
+     "why": "Without direction, teams can split, hurting motivation and morale."
+    },
+    {
+     "a": "Unclear responsibility (laissez-faire)",
+     "p": 70,
+     "k": [
+      "unclear responsibility",
+      "no clear responsibility",
+      "command responsibility",
+      "responsibility",
+      "lack of control",
+      "lack of direction",
+      "no direction"
+     ],
+     "why": "Command responsibility may not be properly defined when managers step back."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "quick decisions",
+      "fast decisions",
+      "valuable insights",
+      "teamwork"
+     ],
+     "p": 5,
+     "msg": "That's an advantage, not a disadvantage."
+    },
+    {
+     "k": [
+      "autocratic",
+      "democratic",
+      "laissez faire",
+      "participative"
+     ],
+     "p": 5,
+     "msg": "That's the style itself; name one of its drawbacks, e.g. slower decisions (democratic)."
+    }
+   ]
+  },
+  {
+   "id": "hr-jobdesign",
+   "sec": "S",
+   "q": "Name a factor to consider when designing a job",
+   "hint": "Variety, responsibility, autonomy... and general vs specific tasks.",
+   "learn": "Job design is designing the content of a job and how it fits with other jobs, to inform, motivate and retain staff. General tasks give variety and flexibility; specific tasks give specialisation and efficiency but can be boring.",
+   "answers": [
+    {
+     "a": "Variety of tasks",
+     "p": 10,
+     "k": [
+      "variety",
+      "task variety",
+      "varied tasks",
+      "variety in tasks",
+      "different tasks"
+     ],
+     "why": "Variety keeps work engaging and builds a more flexible workforce."
+    },
+    {
+     "a": "Level of responsibility",
+     "p": 20,
+     "k": [
+      "responsibility",
+      "responsibilities"
+     ],
+     "why": "How much the employee is accountable for shapes motivation and challenge."
+    },
+    {
+     "a": "Working environment",
+     "p": 35,
+     "k": [
+      "work environment",
+      "workplace environment",
+      "environment",
+      "working conditions",
+      "conditions"
+     ],
+     "why": "The physical and social setting the job is done in."
+    },
+    {
+     "a": "Level of autonomy",
+     "p": 40,
+     "k": [
+      "autonomy",
+      "independence",
+      "freedom"
+     ],
+     "why": "How much freedom the employee has to decide how to do the work."
+    },
+    {
+     "a": "Participation in decision-making",
+     "p": 55,
+     "k": [
+      "decision making",
+      "decisions",
+      "participation",
+      "involvement",
+      "input into decisions"
+     ],
+     "why": "Involvement in decisions increases commitment."
+    },
+    {
+     "a": "Avoiding boredom",
+     "p": 60,
+     "k": [
+      "boredom",
+      "bored",
+      "boring",
+      "prevent boredom",
+      "monotony"
+     ],
+     "why": "Poorly designed jobs cause boredom, higher turnover and trouble attracting talent."
+    },
+    {
+     "a": "General or specific tasks",
+     "p": 70,
+     "k": [
+      "general tasks",
+      "specific tasks",
+      "specialised tasks",
+      "specialized tasks",
+      "specialisation",
+      "specialization",
+      "generalist"
+     ],
+     "why": "General tasks build flexible skills; specific tasks build specialisation (scientific management)."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "salary",
+      "wages",
+      "pay"
+     ],
+     "p": 5,
+     "msg": "Pay is set through rewards and awards; job design is about the content and structure of the work."
+    }
+   ]
+  },
+  {
+   "id": "hr-rec-int-adv",
+   "sec": "S",
+   "q": "Give an advantage of internal recruitment",
+   "hint": "Known person, known culture, no ad bill.",
+   "learn": "Internal recruitment fills vacancies from within the business by transfer, promotion or recommendation. It is quicker, cheaper and less risky, but brings in no new skills or ideas.",
+   "answers": [
+    {
+     "a": "Cheaper (no ads or agency fees)",
+     "p": 10,
+     "k": [
+      "cheaper",
+      "cheap",
+      "cost",
+      "lower cost",
+      "less costly",
+      "costs less",
+      "saves money",
+      "no advertising",
+      "no agency fees"
+     ],
+     "why": "No advertising or recruitment agency fees."
+    },
+    {
+     "a": "Faster process",
+     "p": 15,
+     "k": [
+      "faster",
+      "fast",
+      "quicker",
+      "quick",
+      "quicker process",
+      "speed",
+      "faster to fill"
+     ],
+     "why": "The candidate is already in the building, so the role is filled quickly."
+    },
+    {
+     "a": "Motivates staff through promotion",
+     "p": 20,
+     "k": [
+      "motivation",
+      "motivating",
+      "motivates staff",
+      "promotion",
+      "promote",
+      "promotional opportunities",
+      "career progression",
+      "rewards staff"
+     ],
+     "why": "Promotion opportunities motivate and develop existing staff."
+    },
+    {
+     "a": "Already knows the business culture",
+     "p": 35,
+     "k": [
+      "business culture",
+      "culture",
+      "familiar with culture",
+      "knows the culture",
+      "familiarity",
+      "quicker adjustment",
+      "settle in faster"
+     ],
+     "why": "Already familiar with the culture, so they adjust quickly."
+    },
+    {
+     "a": "Less risk: strengths already known",
+     "p": 40,
+     "k": [
+      "less risk",
+      "lower risk",
+      "less risky",
+      "risk",
+      "known strengths",
+      "known performance",
+      "track record",
+      "know the employee",
+      "known quantity"
+     ],
+     "why": "The business already knows the employee's strengths and weaknesses."
+    },
+    {
+     "a": "Builds loyalty and commitment",
+     "p": 50,
+     "k": [
+      "loyalty",
+      "loyal",
+      "loyal staff",
+      "commitment"
+     ],
+     "why": "Staff see a future in the business and become more committed."
+    },
+    {
+     "a": "Supports succession planning",
+     "p": 80,
+     "k": [
+      "succession planning",
+      "succession"
+     ],
+     "why": "Grooming insiders for senior roles keeps leadership continuity."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "new ideas",
+      "new skills",
+      "fresh ideas",
+      "wider pool",
+      "more applicants",
+      "diversity"
+     ],
+     "p": 10,
+     "msg": "That's an advantage of EXTERNAL recruitment; internal recruitment brings no new skills or ideas."
+    }
+   ]
+  },
+  {
+   "id": "hr-rec-int-dis",
+   "sec": "S",
+   "q": "Give a disadvantage of internal recruitment",
+   "hint": "Same people, same ideas... and someone has to fill the gap.",
+   "learn": "Internal recruitment promotes or transfers existing staff. Its main weakness is that it adds no new skills, ideas or experiences, and it can create rivalry and a fresh vacancy.",
+   "answers": [
+    {
+     "a": "No new skills or ideas",
+     "p": 10,
+     "k": [
+      "no new ideas",
+      "no new skills",
+      "no fresh ideas",
+      "lack of new ideas",
+      "same ideas",
+      "new ideas",
+      "new skills",
+      "fresh ideas",
+      "ideas",
+      "stagnation",
+      "little value added"
+     ],
+     "why": "Little value is added: no new skills, ideas or experiences come in."
+    },
+    {
+     "a": "Overlooked staff lose motivation",
+     "p": 25,
+     "k": [
+      "lose motivation",
+      "motivation",
+      "demotivation",
+      "demotivated",
+      "not promoted",
+      "unsuccessful applicants",
+      "resentment",
+      "jealousy"
+     ],
+     "why": "Staff who miss out on the promotion may lose motivation."
+    },
+    {
+     "a": "Competition between staff",
+     "p": 30,
+     "k": [
+      "competition",
+      "internal competition",
+      "competing",
+      "rivalry",
+      "conflict",
+      "less teamwork",
+      "lower teamwork"
+     ],
+     "why": "Competing for positions lowers teamwork and collaboration."
+    },
+    {
+     "a": "No suitable internal candidate",
+     "p": 40,
+     "k": [
+      "no suitable candidate",
+      "no suitable",
+      "not suitable",
+      "limited pool",
+      "small pool",
+      "smaller pool",
+      "limited choice",
+      "limited applicants",
+      "lack of candidates"
+     ],
+     "why": "There may be nobody inside the business who can fill the role."
+    },
+    {
+     "a": "Vacated position must be refilled",
+     "p": 45,
+     "k": [
+      "vacated position",
+      "vacancy",
+      "another vacancy",
+      "new vacancy",
+      "fill the old position",
+      "replace their old job",
+      "refill",
+      "backfill",
+      "domino effect"
+     ],
+     "why": "Recruiting again for the job the candidate leaves can be disruptive and expensive."
+    },
+    {
+     "a": "Keeps old politics and power structures",
+     "p": 80,
+     "k": [
+      "internal politics",
+      "office politics",
+      "politics",
+      "power structures",
+      "status quo"
+     ],
+     "why": "Promoting insiders leaves existing internal politics untouched (external hires shake them up)."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "more risk",
+      "riskier",
+      "unknown staff",
+      "slower",
+      "more expensive",
+      "costly"
+     ],
+     "p": 10,
+     "msg": "That's a disadvantage of EXTERNAL recruitment; internal is quicker, cheaper and less risky."
+    }
+   ]
+  },
+  {
+   "id": "hr-rec-ext-adv",
+   "sec": "S",
+   "q": "Give an advantage of external recruitment",
+   "hint": "Bigger pool, fresh blood.",
+   "learn": "External recruitment fills vacancies from outside the business through agencies, online ads, universities and the media. It widens the talent pool and brings new skills and ideas, at greater cost and risk.",
+   "answers": [
+    {
+     "a": "New skills, ideas and experience",
+     "p": 10,
+     "k": [
+      "new ideas",
+      "new skills",
+      "fresh ideas",
+      "ideas",
+      "new experiences",
+      "fresh perspective",
+      "new perspectives",
+      "innovation",
+      "new blood",
+      "fresh blood"
+     ],
+     "why": "Outsiders bring skills, ideas and experiences the business doesn't have."
+    },
+    {
+     "a": "Wider pool of applicants",
+     "p": 15,
+     "k": [
+      "wider pool",
+      "larger pool",
+      "bigger pool",
+      "talent pool",
+      "larger talent pool",
+      "more applicants",
+      "more candidates",
+      "wider range",
+      "more choice"
+     ],
+     "why": "More applicants means a better chance of finding the right person."
+    },
+    {
+     "a": "Greater diversity",
+     "p": 30,
+     "k": [
+      "diversity",
+      "diverse",
+      "more diverse",
+      "diverse workforce"
+     ],
+     "why": "Hiring from outside can make the workforce more diverse."
+    },
+    {
+     "a": "Hire someone experienced in the role",
+     "p": 55,
+     "k": [
+      "experienced candidate",
+      "experienced",
+      "experience",
+      "already experienced",
+      "done the job before",
+      "less training",
+      "no need to train"
+     ],
+     "why": "You may get someone who has done the role elsewhere instead of training an insider."
+    },
+    {
+     "a": "Avoids creating another vacancy",
+     "p": 70,
+     "k": [
+      "no vacancy",
+      "no new vacancy",
+      "no vacated position",
+      "no domino effect",
+      "no gap left"
+     ],
+     "why": "Unlike promoting from within, no second position is left empty."
+    },
+    {
+     "a": "Shakes up internal politics",
+     "p": 80,
+     "k": [
+      "internal politics",
+      "office politics",
+      "politics",
+      "power structures",
+      "new power structures",
+      "changes politics"
+     ],
+     "why": "An outsider can change internal politics and power structures."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "cheaper",
+      "faster",
+      "quicker",
+      "less risk",
+      "loyalty",
+      "succession planning"
+     ],
+     "p": 10,
+     "msg": "That's an advantage of INTERNAL recruitment."
+    }
+   ]
+  },
+  {
+   "id": "hr-rec-ext-dis",
+   "sec": "S",
+   "q": "Give a disadvantage of external recruitment",
+   "hint": "Unknown person, unknown fit, bigger bill.",
+   "learn": "External recruitment brings in people from outside the business. It costs more, takes longer and is riskier because the business doesn't know the person, and new hires need time to adjust.",
+   "answers": [
+    {
+     "a": "More expensive (ads, agency fees)",
+     "p": 10,
+     "k": [
+      "expensive",
+      "costly",
+      "more costly",
+      "cost",
+      "costs more",
+      "higher cost",
+      "agency fees",
+      "advertising costs"
+     ],
+     "why": "Advertising and recruitment agency fees add up."
+    },
+    {
+     "a": "Slower process",
+     "p": 15,
+     "k": [
+      "slower",
+      "slow",
+      "takes longer",
+      "longer process",
+      "time consuming"
+     ],
+     "why": "Advertising, screening and interviewing outsiders takes time."
+    },
+    {
+     "a": "More risk with an unknown person",
+     "p": 20,
+     "k": [
+      "more risk",
+      "risk",
+      "risky",
+      "riskier",
+      "unknown",
+      "unknown staff",
+      "unknown candidate"
+     ],
+     "why": "The business doesn't know the person's real strengths and weaknesses."
+    },
+    {
+     "a": "May not fit the culture",
+     "p": 35,
+     "k": [
+      "culture fit",
+      "cultural fit",
+      "culture",
+      "cultural",
+      "fit",
+      "poor fit",
+      "not fit in",
+      "may not perform"
+     ],
+     "why": "New employees may not perform or fit into the business culture."
+    },
+    {
+     "a": "Lost productivity during induction",
+     "p": 55,
+     "k": [
+      "induction",
+      "lost productivity",
+      "productivity",
+      "settling in",
+      "familiarisation",
+      "adjustment",
+      "longer to adjust"
+     ],
+     "why": "Productivity is lost while the newcomer is inducted and learns the business."
+    },
+    {
+     "a": "Internal staff resent the outsider",
+     "p": 70,
+     "k": [
+      "resentment",
+      "internal resentment",
+      "resent",
+      "resentful",
+      "jealousy",
+      "demotivates current staff"
+     ],
+     "why": "Existing employees may resent an outsider being brought in over them."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "no new ideas",
+      "competition between staff",
+      "vacated position",
+      "no suitable candidate"
+     ],
+     "p": 10,
+     "msg": "That's a disadvantage of INTERNAL recruitment."
+    }
+   ]
+  },
+  {
+   "id": "hr-td-benefits",
+   "sec": "S",
+   "q": "Give a benefit of training and developing staff",
+   "hint": "Training builds current skills; development builds future ones.",
+   "learn": "Training improves employees' current skills for productivity and efficiency, while development builds skills for the future needs of the business and greater responsibility. Both cost time and money, but under-investing leads to poor quality, accidents, low morale and separation.",
+   "answers": [
+    {
+     "a": "Higher productivity and efficiency",
+     "p": 10,
+     "k": [
+      "productivity",
+      "productive",
+      "more productive",
+      "efficiency",
+      "efficient"
+     ],
+     "why": "Better-skilled staff work faster and more efficiently."
+    },
+    {
+     "a": "Higher motivation and commitment",
+     "p": 20,
+     "k": [
+      "motivation",
+      "motivated",
+      "motivated staff",
+      "commitment"
+     ],
+     "why": "Training lifts motivation and commitment, at least in the short term."
+    },
+    {
+     "a": "Lower staff turnover",
+     "p": 30,
+     "k": [
+      "staff turnover",
+      "turnover",
+      "retention",
+      "retain staff",
+      "retain talent",
+      "feel valued"
+     ],
+     "why": "Staff who feel valued stay, so talent is easier to retain."
+    },
+    {
+     "a": "Flexible, multi-skilled workforce",
+     "p": 40,
+     "k": [
+      "multi skilled",
+      "multiskilled",
+      "multi skilling",
+      "flexible workforce",
+      "flexibility",
+      "adaptable"
+     ],
+     "why": "Multi-skilled staff can cover more roles and adapt to change."
+    },
+    {
+     "a": "Better customer service",
+     "p": 45,
+     "k": [
+      "customer service",
+      "customer satisfaction",
+      "employee satisfaction",
+      "satisfaction"
+     ],
+     "why": "More satisfied, capable staff give better service, lifting customer satisfaction."
+    },
+    {
+     "a": "Higher quality output",
+     "p": 50,
+     "k": [
+      "quality",
+      "better quality",
+      "higher quality",
+      "fewer errors"
+     ],
+     "why": "Under-trained staff produce poor quality; training fixes weaknesses."
+    },
+    {
+     "a": "Lower absenteeism",
+     "p": 55,
+     "k": [
+      "absenteeism",
+      "fewer absences"
+     ],
+     "why": "Motivated, committed staff take fewer days off."
+    },
+    {
+     "a": "Prepares staff for future roles",
+     "p": 65,
+     "k": [
+      "future roles",
+      "future skills",
+      "future needs",
+      "greater responsibility",
+      "succession",
+      "promotion"
+     ],
+     "why": "Development readies staff for greater responsibility and future positions."
+    },
+    {
+     "a": "Fewer accidents",
+     "p": 70,
+     "k": [
+      "accidents",
+      "fewer injuries",
+      "safety"
+     ],
+     "why": "Insufficient training leads to accidents; well-trained staff work safely."
+    },
+    {
+     "a": "Sustainable competitive advantage",
+     "p": 80,
+     "k": [
+      "competitive advantage",
+      "competitive edge",
+      "edge over competitors"
+     ],
+     "why": "Developing staff is key to a long-term, sustainable competitive advantage."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "costly",
+      "expensive",
+      "time consuming"
+     ],
+     "p": 5,
+     "msg": "That's the downside: training and development cost time and money (but under-investing costs more)."
+    }
+   ]
+  },
+  {
+   "id": "hr-perf-purpose",
+   "sec": "S",
+   "q": "Give a purpose of performance management",
+   "hint": "Developmental (employee focus) or administrative (organisation focus).",
+   "learn": "Performance management is the systematic evaluation and management of employee performance against criteria. Developmental performance management builds the individual; administrative performance management uses aggregate data for organisational decisions such as pay, promotion and strategy.",
+   "answers": [
+    {
+     "a": "Give feedback and recognition",
+     "p": 10,
+     "k": [
+      "feedback",
+      "recognition",
+      "recognise performance"
+     ],
+     "why": "Feedback and recognition make employees feel valued, lowering turnover."
+    },
+    {
+     "a": "Identify training needs",
+     "p": 15,
+     "k": [
+      "training needs",
+      "identify training",
+      "training",
+      "development needs"
+     ],
+     "why": "Shows where staff need training and development."
+    },
+    {
+     "a": "Decide bonuses and pay rises",
+     "p": 20,
+     "k": [
+      "bonuses",
+      "bonus",
+      "pay rise",
+      "pay rises",
+      "pay",
+      "salary",
+      "remuneration"
+     ],
+     "why": "Administrative: results determine eligibility for bonuses and pay rises."
+    },
+    {
+     "a": "Decide promotions",
+     "p": 30,
+     "k": [
+      "promotion",
+      "promotions",
+      "promote"
+     ],
+     "why": "Administrative: identifies who is ready for promotion."
+    },
+    {
+     "a": "Reduce weaknesses, build strengths",
+     "p": 40,
+     "k": [
+      "weaknesses",
+      "reduce weaknesses",
+      "strengths",
+      "improve strengths",
+      "improve skills"
+     ],
+     "why": "Developmental: uses data to develop each employee's skills and knowledge."
+    },
+    {
+     "a": "Prepare staff for future responsibility",
+     "p": 55,
+     "k": [
+      "future responsibility",
+      "greater responsibility",
+      "prepare for future",
+      "career development",
+      "succession planning"
+     ],
+     "why": "Developmental: prepares staff to take on more responsibility later."
+    },
+    {
+     "a": "Track progress on strategic objectives",
+     "p": 70,
+     "k": [
+      "strategic objectives",
+      "business objectives",
+      "objectives",
+      "organisational goals",
+      "goals",
+      "track progress",
+      "aggregate data"
+     ],
+     "why": "Administrative: aggregate data shows how the business is tracking and where to improve."
+    },
+    {
+     "a": "Culture of continuous improvement",
+     "p": 75,
+     "k": [
+      "continuous improvement",
+      "improvement culture"
+     ],
+     "why": "Regular appraisal builds a culture of continuous improvement."
+    },
+    {
+     "a": "Records to defend unfair dismissal claims",
+     "p": 85,
+     "k": [
+      "unfair dismissal",
+      "dismissal claims",
+      "records",
+      "documentation",
+      "evidence for dismissal"
+     ],
+     "why": "Documented reviews support the separation process and can head off unfair dismissal claims."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "recruitment",
+      "selection"
+     ],
+     "p": 5,
+     "msg": "Performance management assesses current staff; recruitment and selection bring new staff in."
+    }
+   ]
+  },
+  {
+   "id": "hr-rewards",
+   "sec": "S",
+   "q": "Name a reward an employer can offer staff",
+   "hint": "Monetary (financial value) or non-monetary; individual or group.",
+   "learn": "Rewards are extra benefits, monetary or non-monetary, given in recognition of service, effort or achievement. Monetary rewards have a financial value; non-monetary rewards cost little; group rewards build team culture; performance pay links income to KPIs.",
+   "answers": [
+    {
+     "a": "Bonus",
+     "p": 10,
+     "k": [
+      "bonuses",
+      "cash bonus",
+      "performance bonus",
+      "group bonus",
+      "group performance bonus",
+      "performance pay"
+     ],
+     "why": "Monetary, individual or group: paid for meeting or exceeding KPIs."
+    },
+    {
+     "a": "Salary increase",
+     "p": 15,
+     "k": [
+      "pay rise",
+      "payrise",
+      "pay increase",
+      "wage increase",
+      "salary",
+      "higher salary",
+      "higher pay",
+      "pay raise"
+     ],
+     "why": "Monetary: a higher salary rewards and helps retain talented staff."
+    },
+    {
+     "a": "Recognition, e.g. certificates",
+     "p": 25,
+     "k": [
+      "recognition",
+      "certificate",
+      "certificates",
+      "awards",
+      "trophy",
+      "trophies",
+      "employee of the month",
+      "positive feedback",
+      "acknowledgement",
+      "praise"
+     ],
+     "why": "Non-monetary: recognition costs the business little or nothing."
+    },
+    {
+     "a": "Commission",
+     "p": 30,
+     "k": [
+      "commissions",
+      "sales commission"
+     ],
+     "why": "Monetary performance pay: income rises with the sales the employee makes."
+    },
+    {
+     "a": "Flexible work arrangements",
+     "p": 35,
+     "k": [
+      "flexible work",
+      "flexible working",
+      "flexibility",
+      "flexible hours",
+      "working from home"
+     ],
+     "why": "Non-monetary: flexibility is highly valued but costs little."
+    },
+    {
+     "a": "Training and development opportunities",
+     "p": 40,
+     "k": [
+      "training",
+      "training opportunities",
+      "development",
+      "development opportunities",
+      "career development",
+      "more responsibility",
+      "increased responsibility",
+      "new challenges"
+     ],
+     "why": "Non-monetary: development, extra responsibility and new challenges."
+    },
+    {
+     "a": "Profit-sharing",
+     "p": 55,
+     "k": [
+      "profit sharing",
+      "profit share",
+      "profit sharing scheme"
+     ],
+     "why": "Monetary: staff share in the business's profits."
+    },
+    {
+     "a": "Fringe benefits, e.g. company car",
+     "p": 60,
+     "k": [
+      "fringe benefits",
+      "perks",
+      "company car",
+      "car",
+      "gym membership",
+      "product discounts",
+      "staff discounts",
+      "discounts",
+      "travel allowance",
+      "allowances",
+      "housing assistance",
+      "childcare",
+      "insurance cover"
+     ],
+     "why": "Monetary benefits paid in a form other than wages, such as a car or gym membership."
+    },
+    {
+     "a": "Employee share purchase plan",
+     "p": 65,
+     "k": [
+      "shares",
+      "share plan",
+      "share purchase plan",
+      "share scheme",
+      "share options",
+      "employee shares",
+      "esop"
+     ],
+     "why": "Monetary: staff become part-owners, aligning them with the business."
+    },
+    {
+     "a": "Gain-sharing plan",
+     "p": 90,
+     "k": [
+      "gain sharing",
+      "gain sharing plan",
+      "gainsharing",
+      "gain share"
+     ],
+     "why": "Group reward: if team-based profitability rises, team members share the gain."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "minimum wage",
+      "annual leave",
+      "sick leave",
+      "superannuation",
+      "super"
+     ],
+     "p": 5,
+     "msg": "Those are legal entitlements (NES or award), not rewards for effort."
+    }
+   ]
+  },
+  {
+   "id": "hr-global-adv",
+   "sec": "S",
+   "q": "Give an advantage of using overseas staff or contractors",
+   "hint": "Global strategies tackle costs, skills and supply.",
+   "learn": "Global HR strategies deal with Australia's high labour costs, skill shortages and limited domestic labour supply, e.g. offshoring to China or India or hiring on temporary skilled visas. The trade-offs are communication problems, training needs and possible brand damage.",
+   "answers": [
+    {
+     "a": "Lower labour costs",
+     "p": 10,
+     "k": [
+      "labour costs",
+      "low cost labour",
+      "cheaper labour",
+      "cheap labour",
+      "cheaper",
+      "lower costs",
+      "lower wages",
+      "cost savings",
+      "cost"
+     ],
+     "why": "Countries like China have lower minimum wages than Australia."
+    },
+    {
+     "a": "Access to skilled labour",
+     "p": 20,
+     "k": [
+      "skilled labour",
+      "skilled workers",
+      "skilled staff",
+      "skilled",
+      "skills",
+      "specialist labour",
+      "expertise"
+     ],
+     "why": "Specialist overseas labour can improve the quality of outsourced work."
+    },
+    {
+     "a": "Larger supply of labour",
+     "p": 35,
+     "k": [
+      "labour supply",
+      "supply of labour",
+      "supply",
+      "high supply",
+      "large supply",
+      "more workers",
+      "bigger labour pool"
+     ],
+     "why": "Countries such as India have a large supply of workers."
+    },
+    {
+     "a": "Fill domestic skill shortages",
+     "p": 45,
+     "k": [
+      "skill shortages",
+      "skills shortage",
+      "shortages",
+      "shortage",
+      "fill shortages",
+      "work visas",
+      "temporary work visas",
+      "visas"
+     ],
+     "why": "Temporary work visas bring in skilled workers for shortage areas like IT and health."
+    },
+    {
+     "a": "Cultural diversity",
+     "p": 55,
+     "k": [
+      "diversity",
+      "diverse workforce",
+      "multicultural",
+      "cultural"
+     ],
+     "why": "A culturally diverse workforce is also a CSR positive."
+    },
+    {
+     "a": "Access to advanced technology",
+     "p": 70,
+     "k": [
+      "advanced technology",
+      "technology",
+      "tech",
+      "faster service",
+      "speed"
+     ],
+     "why": "Global HR contractors may offer more advanced technology and faster service."
+    },
+    {
+     "a": "Educated English-speaking workers (India)",
+     "p": 75,
+     "k": [
+      "english speaking",
+      "english speaking workforce",
+      "english",
+      "india",
+      "educated workforce",
+      "highly educated"
+     ],
+     "why": "India offers a highly educated, English-speaking workforce for IT, legal, accounting and call centres."
+    },
+    {
+     "a": "Minimal on-costs",
+     "p": 85,
+     "k": [
+      "oncosts",
+      "oncost",
+      "fewer oncosts",
+      "low oncosts"
+     ],
+     "why": "Besides lower wages, some countries have minimal on-costs such as payroll tax and super."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "language barriers",
+      "communication problems",
+      "misunderstandings",
+      "brand damage",
+      "domestic morale"
+     ],
+     "p": 10,
+     "msg": "That's a disadvantage of using overseas staff."
+    }
+   ]
+  },
+  {
+   "id": "hr-dispute-causes",
+   "sec": "S",
+   "q": "Name a cause of workplace disputes",
+   "hint": "Pay, security, safety, change... and unpopular management decisions.",
+   "learn": "A workplace dispute is a disagreement between an employer and employees that remains unresolved. Disputes cost productivity, morale, staff and reputation, and resolving them is slow and expensive, so high disputation signals poor HRM.",
+   "answers": [
+    {
+     "a": "Pay and pay negotiations",
+     "p": 10,
+     "k": [
+      "pay",
+      "wages",
+      "salary",
+      "remuneration",
+      "pay rise",
+      "pay disputes",
+      "pay negotiations",
+      "breakdown in pay negotiations"
+     ],
+     "why": "A breakdown in pay negotiations is a major cause of disputes."
+    },
+    {
+     "a": "Working conditions and safety",
+     "p": 20,
+     "k": [
+      "working conditions",
+      "conditions",
+      "safety",
+      "whs",
+      "health and safety",
+      "unsafe conditions"
+     ],
+     "why": "Poor conditions or WHS issues spark disputes."
+    },
+    {
+     "a": "Redundancies and restructuring",
+     "p": 25,
+     "k": [
+      "redundancies",
+      "redundancy",
+      "downsizing",
+      "restructuring",
+      "restructure",
+      "retrenchments",
+      "layoffs"
+     ],
+     "why": "Downsizing and restructuring threaten jobs and anger staff."
+    },
+    {
+     "a": "Job security",
+     "p": 30,
+     "k": [
+      "security",
+      "insecurity",
+      "job insecurity",
+      "job losses",
+      "fear of job losses"
+     ],
+     "why": "Fear of losing jobs is a common trigger for disputes."
+    },
+    {
+     "a": "Outsourcing",
+     "p": 45,
+     "k": [
+      "outsource",
+      "offshoring",
+      "offshore",
+      "outsourcing jobs"
+     ],
+     "why": "Sending work to contractors or offshore threatens existing jobs."
+    },
+    {
+     "a": "Bullying, harassment or discrimination",
+     "p": 50,
+     "k": [
+      "bullying",
+      "harassment",
+      "sexual harassment",
+      "discrimination",
+      "unfair treatment",
+      "bias"
+     ],
+     "why": "Common grievances that can escalate into disputes."
+    },
+    {
+     "a": "Managerial policy",
+     "p": 55,
+     "k": [
+      "management policy",
+      "managerial decisions",
+      "management decisions",
+      "management",
+      "policies",
+      "policy"
+     ],
+     "why": "Unpopular management policies and decisions cause disagreement."
+    },
+    {
+     "a": "Promotion decisions",
+     "p": 60,
+     "k": [
+      "promotion",
+      "promotions",
+      "missed promotion",
+      "passed over",
+      "promotion opportunities"
+     ],
+     "why": "Missed promotions and unfavourable promotion decisions lead to grievances."
+    },
+    {
+     "a": "Work-life balance",
+     "p": 70,
+     "k": [
+      "work life balance",
+      "balance",
+      "long hours",
+      "hours",
+      "overtime",
+      "rosters"
+     ],
+     "why": "Unfavourable decisions about hours and work-life balance cause disputes."
+    },
+    {
+     "a": "Personality clashes",
+     "p": 80,
+     "k": [
+      "personality clash",
+      "personality",
+      "clash",
+      "clash with coworker",
+      "conflict with coworker",
+      "coworker conflict"
+     ],
+     "why": "A personality clash with a co-worker is a classic grievance example."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "strikes",
+      "lockouts",
+      "industrial action"
+     ],
+     "p": 5,
+     "msg": "Industrial action is a result of a dispute, not a cause."
+    }
+   ]
+  },
+  {
+   "id": "hr-dispute-resolution",
+   "sec": "S",
+   "q": "Name a way to resolve a workplace dispute",
+   "hint": "From cheap and informal to a binding order: N, M, C, A... plus grievance procedures and the courts.",
+   "learn": "Disputes are escalated step by step: negotiation (no third party), mediation (neutral third party), then FWC conciliation (suggests solutions) and arbitration (legally binding order). Grievance procedures resolve issues internally first; courts handle breaches of IR law and common law contracts.",
+   "answers": [
+    {
+     "a": "Negotiation",
+     "p": 10,
+     "k": [
+      "negotiate",
+      "negotiating",
+      "direct negotiation",
+      "discussion",
+      "talking it out",
+      "bargaining"
+     ],
+     "why": "Cheap, fast and flexible with no third party, but not guaranteed and not binding."
+    },
+    {
+     "a": "Mediation",
+     "p": 15,
+     "k": [
+      "mediator",
+      "mediate",
+      "neutral third party",
+      "third party"
+     ],
+     "why": "A neutral third party facilitates; cheaper than tribunals but non-binding."
+    },
+    {
+     "a": "Grievance procedures",
+     "p": 35,
+     "k": [
+      "grievance procedure",
+      "grievance",
+      "grievances",
+      "internal procedures",
+      "complaints process"
+     ],
+     "why": "Formal internal steps, usually set out in the award or agreement, to resolve issues quickly."
+    },
+    {
+     "a": "Arbitration",
+     "p": 40,
+     "k": [
+      "arbitrator",
+      "arbitrate",
+      "binding decision",
+      "binding order",
+      "fwc arbitration"
+     ],
+     "why": "A tribunal makes a legally binding, enforceable decision; costly and neither party controls the outcome."
+    },
+    {
+     "a": "Conciliation",
+     "p": 50,
+     "k": [
+      "conciliator",
+      "conciliate",
+      "fwc conciliation"
+     ],
+     "why": "An FWC conciliator suggests solutions but doesn't impose a decision."
+    },
+    {
+     "a": "Industrial tribunal (FWC)",
+     "p": 55,
+     "k": [
+      "tribunal",
+      "tribunals",
+      "industrial tribunals",
+      "fair work commission",
+      "fwc"
+     ],
+     "why": "Tribunals like the FWC step in when negotiation and mediation fail."
+    },
+    {
+     "a": "Courts (common law action)",
+     "p": 70,
+     "k": [
+      "court",
+      "courts",
+      "federal court",
+      "common law",
+      "common law action",
+      "legal action",
+      "litigation",
+      "lawsuit",
+      "sue"
+     ],
+     "why": "For breaches of IR law, serious industrial action or common law contract disputes."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "strike",
+      "strikes",
+      "lockout",
+      "industrial action"
+     ],
+     "p": 5,
+     "msg": "Industrial action is a symptom of a dispute, not a way to resolve it."
+    }
+   ]
+  },
+  {
+   "id": "hr-industrial-action",
+   "sec": "S",
+   "q": "Name a form of industrial action",
+   "hint": "Some are overt (obvious), some covert (hidden).",
+   "learn": "Industrial action is collective action taken in a workplace dispute, either overt (obvious) or covert (hidden). It causes lost productivity, disrupted supply and negative publicity.",
+   "answers": [
+    {
+     "a": "Strike",
+     "p": 10,
+     "k": [
+      "strikes",
+      "striking",
+      "going on strike",
+      "walkout",
+      "walk out"
+     ],
+     "why": "Overt: employees stop work altogether."
+    },
+    {
+     "a": "Picket",
+     "p": 30,
+     "k": [
+      "pickets",
+      "picketing",
+      "picket line",
+      "protest",
+      "protests"
+     ],
+     "why": "Overt: striking workers block deliveries, staff and employers from the workplace."
+    },
+    {
+     "a": "Lockout",
+     "p": 40,
+     "k": [
+      "lockouts",
+      "lock out",
+      "lock outs",
+      "locking out"
+     ],
+     "why": "Overt: the employer refuses to let employees into the workplace."
+    },
+    {
+     "a": "Go-slow",
+     "p": 45,
+     "k": [
+      "go slow",
+      "go slows",
+      "slow down",
+      "slowdown",
+      "work slowly",
+      "working slowly"
+     ],
+     "why": "Overt: employees deliberately work at a slower rate."
+    },
+    {
+     "a": "Work bans",
+     "p": 55,
+     "k": [
+      "work ban",
+      "bans",
+      "ban",
+      "refusing certain tasks"
+     ],
+     "why": "Overt: employees refuse to do a certain part of their work."
+    },
+    {
+     "a": "Work-to-rule",
+     "p": 60,
+     "k": [
+      "work to rule",
+      "working to rule",
+      "no extra work",
+      "refuse overtime",
+      "no overtime"
+     ],
+     "why": "Overt: employees refuse to do anything beyond their basic duties."
+    },
+    {
+     "a": "Sabotage (covert)",
+     "p": 75,
+     "k": [
+      "sabotage",
+      "sabotaging",
+      "damaging equipment"
+     ],
+     "why": "Covert: hidden damage to the business's operations."
+    },
+    {
+     "a": "Absenteeism (covert)",
+     "p": 80,
+     "k": [
+      "absenteeism",
+      "absence",
+      "absences",
+      "sick days",
+      "sickies",
+      "pulling sickies"
+     ],
+     "why": "Covert: staff quietly stay away from work."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "mediation",
+      "negotiation",
+      "arbitration"
+     ],
+     "p": 5,
+     "msg": "That's a way to resolve a dispute, not industrial action."
+    }
+   ]
+  },
+  {
+   "id": "hr-eff-claw",
+   "sec": "E",
+   "q": "Name an indicator of HR effectiveness",
+   "hint": "CLAW ABC",
+   "learn": "HR effectiveness is judged by CLAW ABC: Corporate culture, Levels of disputation, Absenteeism, Worker satisfaction, Accidents, Benchmarking key variables and Changes in staff turnover.",
+   "answers": [
+    {
+     "a": "Changes in staff turnover",
+     "p": 10,
+     "k": [
+      "staff turnover",
+      "turnover",
+      "labour turnover",
+      "retention",
+      "staff retention"
+     ],
+     "why": "The share of staff leaving over a period; Australia averages 12-15% a year."
+    },
+    {
+     "a": "Absenteeism",
+     "p": 15,
+     "k": [
+      "absence",
+      "absences",
+      "absentee rate",
+      "sick leave"
+     ],
+     "why": "High absenteeism signals HRM problems and costs productivity."
+    },
+    {
+     "a": "Worker satisfaction",
+     "p": 20,
+     "k": [
+      "employee satisfaction",
+      "job satisfaction",
+      "staff satisfaction",
+      "satisfaction",
+      "employee engagement",
+      "engagement",
+      "morale"
+     ],
+     "why": "Measured through satisfaction surveys and feedback over time."
+    },
+    {
+     "a": "Accidents",
+     "p": 30,
+     "k": [
+      "accident",
+      "workplace accidents",
+      "accident rates",
+      "injuries",
+      "safety"
+     ],
+     "why": "More accidents mean higher workers comp premiums, lost productivity and lower morale."
+    },
+    {
+     "a": "Corporate culture",
+     "p": 35,
+     "k": [
+      "culture",
+      "workplace culture",
+      "organisational culture",
+      "organizational culture",
+      "company culture"
+     ],
+     "why": "The shared values, ideas and expectations of staff."
+    },
+    {
+     "a": "Levels of disputation",
+     "p": 45,
+     "k": [
+      "disputation",
+      "disputes",
+      "level of disputes",
+      "industrial disputes",
+      "grievances",
+      "conflict"
+     ],
+     "why": "High levels of disputes show a poor employer-employee relationship."
+    },
+    {
+     "a": "Benchmarking key variables",
+     "p": 75,
+     "k": [
+      "benchmarking",
+      "benchmark",
+      "benchmarks",
+      "compare with competitors"
+     ],
+     "why": "Comparing HR indicators internally or with other businesses to find areas to improve."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "profit",
+      "profitability",
+      "sales",
+      "market share"
+     ],
+     "p": 5,
+     "msg": "Those are financial or marketing measures; HR effectiveness is measured by CLAW ABC."
+    }
+   ]
+  },
+  {
+   "id": "hr-eff-absenteeism",
+   "sec": "E",
+   "q": "Name a possible cause of absenteeism",
+   "hint": "Stress, balance, attitude, home life, satisfaction, motivation, culture.",
+   "learn": "Absenteeism is when an employee is absent from work, with or without a genuine reason; sick leave costs Australian businesses about $7 billion a year. High absenteeism signals problems with HRM and costs productivity.",
+   "answers": [
+    {
+     "a": "Illness or injury",
+     "p": 10,
+     "k": [
+      "illness",
+      "sickness",
+      "sick",
+      "being sick",
+      "injury",
+      "injuries"
+     ],
+     "why": "A genuine reason, though absences may or may not be genuine."
+    },
+    {
+     "a": "Stress",
+     "p": 15,
+     "k": [
+      "stressed",
+      "burnout",
+      "workload",
+      "pressure"
+     ],
+     "why": "Stressed staff are more likely to take days off."
+    },
+    {
+     "a": "Low motivation",
+     "p": 25,
+     "k": [
+      "motivation",
+      "lack of motivation",
+      "unmotivated",
+      "demotivated"
+     ],
+     "why": "Unmotivated employees find reasons not to come in."
+    },
+    {
+     "a": "Employee dissatisfaction",
+     "p": 30,
+     "k": [
+      "dissatisfaction",
+      "job dissatisfaction",
+      "dissatisfied",
+      "unsatisfied",
+      "unhappy"
+     ],
+     "why": "Dissatisfied workers disengage and stay away."
+    },
+    {
+     "a": "Poor work-life balance",
+     "p": 35,
+     "k": [
+      "work life balance",
+      "balance",
+      "overwork",
+      "long hours"
+     ],
+     "why": "Staff who can't balance work and life take time off to cope."
+    },
+    {
+     "a": "Personal or family issues",
+     "p": 40,
+     "k": [
+      "personal issues",
+      "personal problems",
+      "family issues",
+      "family",
+      "caring responsibilities",
+      "carer responsibilities"
+     ],
+     "why": "Personal and family pressures pull people away from work."
+    },
+    {
+     "a": "Poor workplace culture or morale",
+     "p": 45,
+     "k": [
+      "culture",
+      "poor culture",
+      "toxic culture",
+      "morale",
+      "low morale"
+     ],
+     "why": "A poor culture and low morale make people avoid work."
+    },
+    {
+     "a": "Boredom",
+     "p": 65,
+     "k": [
+      "bored",
+      "boring",
+      "boring work",
+      "monotony"
+     ],
+     "why": "High absenteeism and turnover can indicate boredom in the job."
+    },
+    {
+     "a": "Poor relationship with management",
+     "p": 75,
+     "k": [
+      "poor relationships",
+      "poor management",
+      "bad management",
+      "bad manager",
+      "management relationship",
+      "conflict with management"
+     ],
+     "why": "Poor employee-management relationships show up as absenteeism."
+    },
+    {
+     "a": "Entitlement mentality",
+     "p": 85,
+     "k": [
+      "entitlement",
+      "entitled",
+      "feeling entitled",
+      "chucking sickies"
+     ],
+     "why": "Some staff see sick leave as owed to them and take it whether sick or not."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "annual leave",
+      "public holidays",
+      "holidays"
+     ],
+     "p": 5,
+     "msg": "Planned leave is an entitlement, not absenteeism."
+    }
+   ]
+  },
+  {
+   "id": "hr-eff-turnover",
+   "sec": "E",
+   "q": "Name a cost or effect of high staff turnover",
+   "hint": "Follow a leaver out the door and a new hire in.",
+   "learn": "Staff turnover is the number or percentage of employees who leave over a period; it is higher in retail and hospitality. High turnover is expensive and signals dissatisfaction and a problem with HRM, though some turnover brings in fresh ideas.",
+   "answers": [
+    {
+     "a": "Recruitment costs",
+     "p": 10,
+     "k": [
+      "recruitment",
+      "recruiting costs",
+      "hiring costs",
+      "cost of hiring",
+      "advertising costs"
+     ],
+     "why": "Every leaver has to be replaced through recruitment."
+    },
+    {
+     "a": "Training new staff",
+     "p": 15,
+     "k": [
+      "training",
+      "training costs",
+      "retraining",
+      "train new staff"
+     ],
+     "why": "New staff need training and development to reach full performance."
+    },
+    {
+     "a": "Lower productivity",
+     "p": 20,
+     "k": [
+      "productivity",
+      "lost productivity",
+      "less productive"
+     ],
+     "why": "Gaps and inexperienced replacements reduce output."
+    },
+    {
+     "a": "Lower morale and weaker culture",
+     "p": 30,
+     "k": [
+      "morale",
+      "low morale",
+      "workplace morale",
+      "culture",
+      "corporate culture"
+     ],
+     "why": "Constant departures damage corporate culture and morale."
+    },
+    {
+     "a": "Induction costs",
+     "p": 40,
+     "k": [
+      "induction",
+      "onboarding",
+      "inducting new staff"
+     ],
+     "why": "Each new hire must be inducted, using staff time and money."
+    },
+    {
+     "a": "Lower profitability",
+     "p": 45,
+     "k": [
+      "profitability",
+      "profit",
+      "lower profits",
+      "less profit"
+     ],
+     "why": "Extra costs and lost productivity eat into profit."
+    },
+    {
+     "a": "Lost corporate knowledge and skills",
+     "p": 55,
+     "k": [
+      "corporate knowledge",
+      "lost knowledge",
+      "knowledge loss",
+      "lost skills",
+      "loss of skills",
+      "expertise"
+     ],
+     "why": "Leavers take knowledge, skills and competencies with them."
+    },
+    {
+     "a": "Redundancy payouts",
+     "p": 60,
+     "k": [
+      "redundancy",
+      "redundancy payments",
+      "payouts",
+      "termination payments"
+     ],
+     "why": "Separations can involve redundancy and termination payments."
+    },
+    {
+     "a": "Signals employee dissatisfaction",
+     "p": 70,
+     "k": [
+      "dissatisfaction",
+      "dissatisfied staff",
+      "unhappy staff",
+      "indicates problems",
+      "sign of poor hrm"
+     ],
+     "why": "High turnover shows staff are dissatisfied and there is a problem with HRM."
+    },
+    {
+     "a": "Damaged customer and supplier relationships",
+     "p": 75,
+     "k": [
+      "customer relationships",
+      "supplier relationships",
+      "relationships",
+      "customers",
+      "suppliers"
+     ],
+     "why": "Customers and suppliers lose their familiar contacts, straining relationships."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "new ideas",
+      "fresh ideas",
+      "new skills"
+     ],
+     "p": 10,
+     "msg": "That's the upside: some turnover brings in new ideas, skills and experience."
+    }
+   ]
+  },
+  {
+   "id": "hr-eff-benchmarking",
+   "sec": "E",
+   "q": "Name a type of benchmarking",
+   "hint": "PIBB",
+   "learn": "Benchmarking compares HR indicators such as labour costs, disputes, turnover, absenteeism, accidents and worker satisfaction between sections of the business or against other businesses, so areas for improvement can be found and corrective action taken.",
+   "answers": [
+    {
+     "a": "Best practice benchmarking",
+     "p": 15,
+     "k": [
+      "best practice",
+      "best in industry",
+      "industry leaders"
+     ],
+     "why": "Comparing against the leading businesses in the industry and copying their processes."
+    },
+    {
+     "a": "Performance benchmarking",
+     "p": 20,
+     "k": [
+      "performance",
+      "comparing performance"
+     ],
+     "why": "Comparing performance levels of a process or activity with other businesses."
+    },
+    {
+     "a": "External benchmarking",
+     "p": 35,
+     "k": [
+      "external",
+      "other businesses",
+      "against competitors",
+      "competitor benchmarking"
+     ],
+     "why": "Comparing HR indicators against other businesses."
+    },
+    {
+     "a": "Informal benchmarking",
+     "p": 45,
+     "k": [
+      "informal",
+      "networking",
+      "conferences",
+      "site visits"
+     ],
+     "why": "Networking, visiting other businesses, researching best practice online and attending conferences."
+    },
+    {
+     "a": "Internal benchmarking",
+     "p": 50,
+     "k": [
+      "internal",
+      "internal sections",
+      "between departments"
+     ],
+     "why": "Comparing indicators between sections of the same business."
+    },
+    {
+     "a": "Balanced scorecard benchmarking",
+     "p": 75,
+     "k": [
+      "balanced scorecard",
+      "scorecard",
+      "strategic plan"
+     ],
+     "why": "Comparing performance with the objectives in the business's strategic plan."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "staff turnover",
+      "absenteeism",
+      "labour costs",
+      "accidents",
+      "disputes",
+      "worker satisfaction"
+     ],
+     "p": 10,
+     "msg": "That's a variable you benchmark, not a type of benchmarking."
+    }
+   ]
+  }
+ ]
+}

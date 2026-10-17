@@ -1,0 +1,4733 @@
+{
+ "topic": "finance",
+ "prompts": [
+  {
+   "id": "fin-objectives",
+   "sec": "R",
+   "q": "Name an objective of financial management",
+   "hint": "PEGSL",
+   "learn": "Financial management aims for PEGSL: profitability, efficiency, growth, solvency and liquidity. Liquidity is short-term (debts due within 12 months); solvency is long-term (beyond 12 months).",
+   "answers": [
+    {
+     "a": "Profitability",
+     "p": 10,
+     "k": [
+      "profit",
+      "maximise profit",
+      "profit maximisation"
+     ],
+     "why": "Financial gain after all expenses; lifted by raising revenue or cutting COGS and expenses."
+    },
+    {
+     "a": "Growth",
+     "p": 20,
+     "k": [
+      "grow",
+      "expansion",
+      "expand",
+      "business growth"
+     ],
+     "why": "Expanding size and activities, organically (outlets, market share) or externally (mergers, acquisitions)."
+    },
+    {
+     "a": "Liquidity",
+     "p": 35,
+     "k": [
+      "liquid",
+      "short term debts",
+      "pay short term debts"
+     ],
+     "why": "Ability to pay short-term debts as they fall due (within 12 months)."
+    },
+    {
+     "a": "Solvency",
+     "p": 55,
+     "k": [
+      "solvent",
+      "long term debts",
+      "pay long term debts"
+     ],
+     "why": "Ability to pay long-term debts as they fall due (over 12 months)."
+    },
+    {
+     "a": "Efficiency",
+     "p": 70,
+     "k": [
+      "efficient",
+      "efficiently",
+      "use resources efficiently"
+     ],
+     "why": "Using resources to maximise outputs, and collecting outstanding payments quickly."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "cash flow",
+      "cash"
+     ],
+     "p": 10,
+     "msg": "Cash flow supports the liquidity objective; name the objective itself (PEGSL)."
+    },
+    {
+     "k": [
+      "gearing",
+      "debt to equity"
+     ],
+     "p": 10,
+     "msg": "Gearing is the ratio that measures solvency; the objective is solvency."
+    },
+    {
+     "k": [
+      "cost leadership",
+      "differentiation"
+     ],
+     "p": 5,
+     "msg": "That's the strategic role of operations, not a financial objective."
+    }
+   ]
+  },
+  {
+   "id": "fin-growth",
+   "sec": "R",
+   "q": "Name a way a business can achieve growth",
+   "hint": "Internal (organic) or external (BVI, FVI, HI, D)",
+   "learn": "Growth is the expansion of business activities and size. Internal (organic) growth builds from within; external growth comes through mergers and acquisitions.",
+   "answers": [
+    {
+     "a": "Mergers and acquisitions",
+     "p": 15,
+     "k": [
+      "merger",
+      "acquisition",
+      "acquire",
+      "takeover",
+      "merge",
+      "buy another business"
+     ],
+     "why": "External growth: combining with or buying another business."
+    },
+    {
+     "a": "Increase market share",
+     "p": 15,
+     "k": [
+      "market share",
+      "more customers",
+      "new markets"
+     ],
+     "why": "Organic growth: winning a bigger share of the market, or expanding into a new one."
+    },
+    {
+     "a": "Open more outlets",
+     "p": 20,
+     "k": [
+      "outlets",
+      "more stores",
+      "new stores",
+      "new locations",
+      "new branches"
+     ],
+     "why": "Organic growth: adding stores, branches or sites."
+    },
+    {
+     "a": "Expand the product range",
+     "p": 25,
+     "k": [
+      "product range",
+      "new products",
+      "more products",
+      "product development"
+     ],
+     "why": "Organic growth: selling more products to new or existing customers."
+    },
+    {
+     "a": "Hire more employees",
+     "p": 35,
+     "k": [
+      "employees",
+      "more staff",
+      "hire",
+      "workers",
+      "staff"
+     ],
+     "why": "Organic growth: a larger workforce lifts capacity."
+    },
+    {
+     "a": "Invest in new technology",
+     "p": 40,
+     "k": [
+      "technology",
+      "new technology",
+      "machinery"
+     ],
+     "why": "Organic growth: technology expands capacity and output."
+    },
+    {
+     "a": "Horizontal integration",
+     "p": 60,
+     "k": [
+      "horizontal",
+      "horizontal merger",
+      "horizontal acquisition",
+      "buy a competitor",
+      "acquire competitor"
+     ],
+     "why": "External: merging with or acquiring a competitor at the same stage of production."
+    },
+    {
+     "a": "Backward vertical integration",
+     "p": 75,
+     "k": [
+      "backward",
+      "backward integration",
+      "vertical integration",
+      "vertical merger",
+      "acquire supplier",
+      "buy a supplier"
+     ],
+     "why": "External: taking over a supplier at an earlier stage of production."
+    },
+    {
+     "a": "Forward vertical integration",
+     "p": 80,
+     "k": [
+      "forward",
+      "forward integration",
+      "acquire retailer",
+      "buy a retailer",
+      "acquire distributor"
+     ],
+     "why": "External: taking over a distributor or retailer at a later stage of production."
+    },
+    {
+     "a": "Diversification",
+     "p": 85,
+     "k": [
+      "diversify",
+      "conglomerate",
+      "unrelated industry",
+      "conglomerate merger"
+     ],
+     "why": "External: acquiring a business in an unrelated industry."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "retained profits",
+      "borrowing",
+      "loan"
+     ],
+     "p": 5,
+     "msg": "That's how growth is funded, not how a business grows."
+    }
+   ]
+  },
+  {
+   "id": "fin-interdep-ops",
+   "sec": "R",
+   "q": "Give a way Finance and Operations depend on each other",
+   "hint": "Funds for inputs one way; efficiency the other",
+   "learn": "Interdependence is the mutual dependence of the key business functions. Finance funds production and sets targets; Operations safeguards those funds by working efficiently and sourcing cost-effective resources.",
+   "answers": [
+    {
+     "a": "Finance funds raw materials and inputs",
+     "p": 10,
+     "k": [
+      "raw materials",
+      "inputs",
+      "materials",
+      "fund production",
+      "funds production",
+      "purchase inputs"
+     ],
+     "why": "Operations relies on Finance to pay for the inputs that production needs."
+    },
+    {
+     "a": "Operations minimises wasted resources",
+     "p": 25,
+     "k": [
+      "waste",
+      "wasted resources",
+      "minimise waste",
+      "efficient",
+      "efficiency",
+      "efficiently"
+     ],
+     "why": "Finance relies on Operations to be efficient so financial resources aren't wasted."
+    },
+    {
+     "a": "Finance funds new technology",
+     "p": 30,
+     "k": [
+      "technology",
+      "new technology",
+      "machinery",
+      "equipment"
+     ],
+     "why": "Operations relies on Finance to fund new technology and capital equipment."
+    },
+    {
+     "a": "Operations maximises outputs",
+     "p": 45,
+     "k": [
+      "outputs",
+      "maximise outputs",
+      "productive",
+      "productivity",
+      "productively"
+     ],
+     "why": "Operations works productively to get the most output from the funds provided."
+    },
+    {
+     "a": "Operations sources cost-effective resources",
+     "p": 60,
+     "k": [
+      "cost effective",
+      "cheaper suppliers",
+      "cheaper inputs",
+      "cheap suppliers",
+      "cheaper resources",
+      "cost effective resources"
+     ],
+     "why": "Sourcing cost-effective resources helps safeguard the business's financial resources."
+    },
+    {
+     "a": "Finance sets production targets",
+     "p": 70,
+     "k": [
+      "production targets",
+      "targets",
+      "output targets"
+     ],
+     "why": "Finance sets production targets; Operations works efficiently to meet them."
+    },
+    {
+     "a": "Finance budgets labour hours and materials",
+     "p": 85,
+     "k": [
+      "labour hours",
+      "labour",
+      "operating budget",
+      "budget"
+     ],
+     "why": "Operating budgets set the number and cost of labour hours and raw materials needed."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "sales revenue",
+      "promotion",
+      "advertising"
+     ],
+     "p": 5,
+     "msg": "Sales revenue and promotion spending are the Finance–Marketing link."
+    },
+    {
+     "k": [
+      "wages",
+      "bonuses",
+      "training"
+     ],
+     "p": 5,
+     "msg": "Wage, bonus and training budgets are the Finance–HR link."
+    }
+   ]
+  },
+  {
+   "id": "fin-interdep-hr",
+   "sec": "R",
+   "q": "Give a way Finance and HR depend on each other",
+   "hint": "Budgets one way; prudent spending the other",
+   "learn": "HR relies on Finance for budgets (wages, bonuses) that keep workers motivated, engaged and productive. Finance relies on HR to spend prudently on hiring, training and development to safeguard financial resources.",
+   "answers": [
+    {
+     "a": "Finance sets the wages budget",
+     "p": 10,
+     "k": [
+      "wages",
+      "salaries",
+      "salary",
+      "remuneration",
+      "wage budget"
+     ],
+     "why": "HR relies on Finance to budget for wages so staff can be paid."
+    },
+    {
+     "a": "Finance funds bonuses and incentives",
+     "p": 30,
+     "k": [
+      "bonus",
+      "incentives",
+      "rewards",
+      "performance pay"
+     ],
+     "why": "Bonus budgets help HR keep workers motivated and engaged."
+    },
+    {
+     "a": "HR spends prudently on recruitment",
+     "p": 40,
+     "k": [
+      "recruitment",
+      "recruiting",
+      "recruit",
+      "hiring",
+      "hire",
+      "selection"
+     ],
+     "why": "Finance relies on HR to be prudent when hiring, safeguarding financial resources."
+    },
+    {
+     "a": "HR spends prudently on training",
+     "p": 50,
+     "k": [
+      "training",
+      "development",
+      "training and development",
+      "training budget"
+     ],
+     "why": "Careful spending on training and development protects the business's funds."
+    },
+    {
+     "a": "Motivated, productive workforce",
+     "p": 65,
+     "k": [
+      "motivated",
+      "motivation",
+      "productive workers",
+      "productivity",
+      "engaged",
+      "engagement"
+     ],
+     "why": "Well-funded pay and bonuses keep workers motivated, engaged and productive."
+    },
+    {
+     "a": "HR uses casual staff to cut on-costs",
+     "p": 85,
+     "k": [
+      "casual",
+      "casuals",
+      "casual staff",
+      "oncosts"
+     ],
+     "why": "Replacing full-time staff with casuals saves on-costs, a variable cost control."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "raw materials",
+      "inputs",
+      "production targets"
+     ],
+     "p": 5,
+     "msg": "Funding inputs and setting production targets is the Finance–Operations link."
+    },
+    {
+     "k": [
+      "advertising",
+      "promotion",
+      "marketing budget"
+     ],
+     "p": 5,
+     "msg": "Promotion budgets are the Finance–Marketing link."
+    }
+   ]
+  },
+  {
+   "id": "fin-interdep-mkt",
+   "sec": "R",
+   "q": "Give a way Finance and Marketing depend on each other",
+   "hint": "Budgets and advice one way; sales and careful spending the other",
+   "learn": "Finance sets the marketing budget and offers suggestions after market research; Marketing generates the sales and cash flow behind liquidity and profitability, and must spend carefully.",
+   "answers": [
+    {
+     "a": "Marketing generates sales and cash flow",
+     "p": 10,
+     "k": [
+      "sales",
+      "revenue",
+      "cash flow",
+      "sales revenue",
+      "generate cash",
+      "sell products"
+     ],
+     "why": "Marketing promotes and sells goods, generating cash flow for liquidity and profitability."
+    },
+    {
+     "a": "Finance sets the marketing budget",
+     "p": 20,
+     "k": [
+      "marketing budget",
+      "budget",
+      "fund marketing",
+      "funds marketing"
+     ],
+     "why": "Finance sets budgets for the marketing plan."
+    },
+    {
+     "a": "Marketing spends carefully on promotion",
+     "p": 35,
+     "k": [
+      "promotion",
+      "advertising",
+      "careful spending",
+      "spend carefully",
+      "prudent",
+      "promotion budget"
+     ],
+     "why": "Finance relies on Marketing to be careful with promotion spending, safeguarding funds."
+    },
+    {
+     "a": "Finance advises after market research",
+     "p": 60,
+     "k": [
+      "market research",
+      "research",
+      "suggestions",
+      "advice",
+      "advises"
+     ],
+     "why": "Finance gives Marketing suggestions after market research into consumers' wants."
+    },
+    {
+     "a": "Marketing sets the pricing policy",
+     "p": 70,
+     "k": [
+      "pricing",
+      "price",
+      "pricing policy"
+     ],
+     "why": "Revenue control: overpricing loses buyers; underpricing may not cover costs."
+    },
+    {
+     "a": "Marketing manages the sales mix",
+     "p": 80,
+     "k": [
+      "sales mix",
+      "product mix",
+      "product deletion",
+      "product lines"
+     ],
+     "why": "Push high-demand lines and cut underperformers to maximise revenue."
+    },
+    {
+     "a": "Break-even sales targets",
+     "p": 90,
+     "k": [
+      "break even",
+      "breakeven",
+      "cost volume profit",
+      "cvp",
+      "sales targets",
+      "sales objectives"
+     ],
+     "why": "Cost-volume-profit analysis finds the units needed to break even, setting sales objectives."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "wages",
+      "bonuses",
+      "recruitment"
+     ],
+     "p": 5,
+     "msg": "Wage, bonus and hiring budgets are the Finance–HR link."
+    },
+    {
+     "k": [
+      "raw materials",
+      "production targets"
+     ],
+     "p": 5,
+     "msg": "Funding inputs and production targets is the Finance–Operations link."
+    }
+   ]
+  },
+  {
+   "id": "fin-rp-advantage",
+   "sec": "I",
+   "q": "Give an advantage of using retained profits as finance",
+   "hint": "Internal finance: no lender, no new owners",
+   "learn": "Retained profits are profits kept in the business rather than paid to shareholders as dividends, the main internal source of finance. The catch: funds may be limited and slow to accumulate.",
+   "answers": [
+    {
+     "a": "No interest repayments",
+     "p": 10,
+     "k": [
+      "no interest",
+      "interest free",
+      "interest",
+      "no interest payments"
+     ],
+     "why": "No lender is involved, so there is no interest to pay."
+    },
+    {
+     "a": "Immediate access to funds",
+     "p": 20,
+     "k": [
+      "immediate",
+      "immediately",
+      "instant",
+      "quick access",
+      "readily available",
+      "fast"
+     ],
+     "why": "The money is already in the business, so it can be used straight away."
+    },
+    {
+     "a": "Does not increase gearing",
+     "p": 35,
+     "k": [
+      "gearing",
+      "no debt",
+      "debt levels",
+      "leverage",
+      "no increase in debt"
+     ],
+     "why": "No borrowing, so debt levels and the gearing ratio stay the same."
+    },
+    {
+     "a": "Never has to be repaid",
+     "p": 45,
+     "k": [
+      "repaid",
+      "repay",
+      "repayment",
+      "no repayment",
+      "not repaid"
+     ],
+     "why": "Like all equity, the money does not have to be paid back."
+    },
+    {
+     "a": "Less financial risk",
+     "p": 55,
+     "k": [
+      "less risk",
+      "lower risk",
+      "risk",
+      "safer"
+     ],
+     "why": "No fixed repayments, so less risk for the business and its owners."
+    },
+    {
+     "a": "No dilution of ownership",
+     "p": 70,
+     "k": [
+      "dilution",
+      "no dilution",
+      "ownership",
+      "keep control",
+      "control"
+     ],
+     "why": "No new shareholders, so existing owners keep full control."
+    },
+    {
+     "a": "No establishment fees",
+     "p": 85,
+     "k": [
+      "fees",
+      "no fees",
+      "establishment fees",
+      "set up fees"
+     ],
+     "why": "Unlike overdrafts or commercial bills, there are no set-up or establishment fees."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "limited funds",
+      "limited",
+      "takes time",
+      "time to accumulate",
+      "missed opportunities"
+     ],
+     "p": 5,
+     "msg": "That's a disadvantage: retained profits may be limited and slow to build, so opportunities are missed."
+    }
+   ]
+  },
+  {
+   "id": "fin-short-term-debt",
+   "sec": "I",
+   "q": "Name a source of short-term debt finance",
+   "hint": "COF",
+   "learn": "Short-term borrowing is repaid within 12 months and funds short-term needs: commercial bills, overdrafts and factoring (COF). Supplier-based credit such as trade credit, floor plan and consignment finance is also short-term.",
+   "answers": [
+    {
+     "a": "Bank overdraft",
+     "p": 10,
+     "k": [
+      "overdraft",
+      "overdraw",
+      "overdrawing"
+     ],
+     "why": "The bank lets the business overdraw its account to an agreed limit; flexible but high interest."
+    },
+    {
+     "a": "Factoring",
+     "p": 30,
+     "k": [
+      "factor",
+      "debt factoring",
+      "selling receivables",
+      "sell accounts receivable",
+      "factoring company"
+     ],
+     "why": "Selling accounts receivable at a discount to a factoring company for cash within 48 hours."
+    },
+    {
+     "a": "Commercial bills",
+     "p": 40,
+     "k": [
+      "commercial bill",
+      "bank bill"
+     ],
+     "why": "A bill of exchange for large sums (usually over $100,000) for 30 to 180 days."
+    },
+    {
+     "a": "Trade credit",
+     "p": 60,
+     "k": [
+      "accounts payable",
+      "supplier credit",
+      "credit from suppliers",
+      "payables",
+      "interest free credit"
+     ],
+     "why": "Using suppliers' interest-free credit periods before payment is due."
+    },
+    {
+     "a": "Bridging finance",
+     "p": 80,
+     "k": [
+      "bridging",
+      "bridging loan"
+     ],
+     "why": "A short-term loan used until permanent finance is available."
+    },
+    {
+     "a": "Floor plan finance",
+     "p": 90,
+     "k": [
+      "floor plan",
+      "floorplan"
+     ],
+     "why": "Suppliers provide the goods for a period of time before payment is due."
+    },
+    {
+     "a": "Consignment finance",
+     "p": 95,
+     "k": [
+      "consignment"
+     ],
+     "why": "Suppliers provide goods and payment isn't required until the goods are sold."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "mortgage",
+      "debenture",
+      "unsecured note",
+      "leasing",
+      "lease"
+     ],
+     "p": 10,
+     "msg": "That's long-term debt (MUDL), repaid over more than 12 months."
+    },
+    {
+     "k": [
+      "retained profits",
+      "shares"
+     ],
+     "p": 5,
+     "msg": "That's equity finance, not debt."
+    }
+   ]
+  },
+  {
+   "id": "fin-long-term-debt",
+   "sec": "I",
+   "q": "Name a source of long-term debt finance",
+   "hint": "MUDL",
+   "learn": "Long-term borrowing is repaid over more than 12 months and funds long-term assets: mortgages, unsecured notes, debentures and leasing (MUDL).",
+   "answers": [
+    {
+     "a": "Mortgage",
+     "p": 10,
+     "k": [
+      "mortgage loan",
+      "property loan"
+     ],
+     "why": "A loan secured by the borrower's property, with regular periodic repayments."
+    },
+    {
+     "a": "Long-term bank loan",
+     "p": 20,
+     "k": [
+      "bank loan",
+      "business loan",
+      "term loan",
+      "loan"
+     ],
+     "why": "Borrowing from a bank over several years, usually secured against assets."
+    },
+    {
+     "a": "Leasing",
+     "p": 30,
+     "k": [
+      "lease",
+      "finance lease",
+      "operating lease"
+     ],
+     "why": "The lessor owns the asset and lets the lessee use it for regular lease payments."
+    },
+    {
+     "a": "Debentures",
+     "p": 50,
+     "k": [
+      "corporate bonds"
+     ],
+     "why": "Fixed-interest loans from investors (not banks) for a set term, secured by company assets."
+    },
+    {
+     "a": "Unsecured notes",
+     "p": 70,
+     "k": [
+      "unsecured note",
+      "unsecured"
+     ],
+     "why": "Fixed, high-interest loans from investors for a set term, with no assets as security."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "overdraft",
+      "commercial bill",
+      "factoring"
+     ],
+     "p": 10,
+     "msg": "That's short-term debt (COF), repaid within 12 months."
+    },
+    {
+     "k": [
+      "shares",
+      "share issue",
+      "private equity"
+     ],
+     "p": 5,
+     "msg": "That's equity: investors become owners, not lenders."
+    }
+   ]
+  },
+  {
+   "id": "fin-equity-sources",
+   "sec": "I",
+   "q": "Name a source of equity finance",
+   "hint": "NSPR, PE (plus retained profits)",
+   "learn": "Equity finance comes from the owners. Externally: ordinary shares via new issues, rights issues, placements and share purchase plans, or private equity (NSPR, PE). Internally: retained profits and owners' capital.",
+   "answers": [
+    {
+     "a": "Ordinary shares",
+     "p": 10,
+     "k": [
+      "shares",
+      "share issue",
+      "issuing shares",
+      "stock"
+     ],
+     "why": "Part ownership entitling holders to dividends and a vote at the AGM."
+    },
+    {
+     "a": "New issue (IPO)",
+     "p": 25,
+     "k": [
+      "new issue",
+      "ipo",
+      "initial public offering",
+      "float",
+      "new share issue"
+     ],
+     "why": "Shares offered to the public for the first time through an ASX listing, with a prospectus."
+    },
+    {
+     "a": "Retained profits",
+     "p": 35,
+     "k": [
+      "retained earnings",
+      "reinvested profits"
+     ],
+     "why": "Profits kept rather than paid out as dividends: the main internal source."
+    },
+    {
+     "a": "Rights issue",
+     "p": 45,
+     "k": [
+      "rights",
+      "rights offer"
+     ],
+     "why": "Existing shareholders may buy new shares at a discount, in proportion to their holdings."
+    },
+    {
+     "a": "Owners' capital",
+     "p": 55,
+     "k": [
+      "capital",
+      "owners capital",
+      "capital contribution",
+      "owner contribution"
+     ],
+     "why": "Funds the owners put in themselves: an internal source of equity."
+    },
+    {
+     "a": "Placements",
+     "p": 60,
+     "k": [
+      "placement",
+      "private placement",
+      "share placement"
+     ],
+     "why": "Shares allotted directly to selected sophisticated investors, such as super funds."
+    },
+    {
+     "a": "Private equity",
+     "p": 70,
+     "k": [
+      "venture capital",
+      "private equity firm",
+      "private investors"
+     ],
+     "why": "Capital invested in a private company not listed on the ASX, e.g. by Archer Capital."
+    },
+    {
+     "a": "Share purchase plan",
+     "p": 85,
+     "k": [
+      "spp",
+      "employee share plan",
+      "employee shares",
+      "share purchase"
+     ],
+     "why": "Existing shareholders, employees and managers buy shares, paying no brokerage."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "debentures",
+      "unsecured notes",
+      "bank loan",
+      "mortgage"
+     ],
+     "p": 10,
+     "msg": "That's debt: lenders are repaid with interest and gain no ownership."
+    }
+   ]
+  },
+  {
+   "id": "fin-needs-prospectus",
+   "sec": "I",
+   "q": "Name a source of finance that needs a prospectus",
+   "hint": "Public offers regulated by ASIC",
+   "learn": "A prospectus tells investors how much is being raised and how it will be used. It is costly and slow to prepare and alerts competitors to strategic plans, compromising competitive advantage.",
+   "answers": [
+    {
+     "a": "New issue (IPO)",
+     "p": 15,
+     "k": [
+      "new issue",
+      "ipo",
+      "initial public offering",
+      "share issue",
+      "issuing shares",
+      "float"
+     ],
+     "why": "Every IPO launched on the ASX must be accompanied by a prospectus."
+    },
+    {
+     "a": "Debentures",
+     "p": 40,
+     "k": [
+      "corporate bonds"
+     ],
+     "why": "Companies borrowing from the public must issue a prospectus under ASIC rules."
+    },
+    {
+     "a": "Unsecured notes",
+     "p": 60,
+     "k": [
+      "unsecured note",
+      "unsecured"
+     ],
+     "why": "Like debentures, they are offered to investors, so a prospectus is required."
+    },
+    {
+     "a": "Rights issue",
+     "p": 75,
+     "k": [
+      "rights",
+      "rights offer"
+     ],
+     "why": "Another prospectus must be issued, which can alert competitors."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "placements",
+      "placement",
+      "share purchase plan",
+      "spp"
+     ],
+     "p": 10,
+     "msg": "No prospectus: placements go to selected sophisticated investors, and SPPs are exempt up to $15,000."
+    },
+    {
+     "k": [
+      "overdraft",
+      "mortgage",
+      "bank loan",
+      "retained profits"
+     ],
+     "p": 5,
+     "msg": "Bank borrowing and retained profits need no prospectus; it applies to public offers of securities."
+    }
+   ]
+  },
+  {
+   "id": "fin-secured-finance",
+   "sec": "I",
+   "q": "Name a source of finance usually secured by assets",
+   "hint": "Default, and the lender can seize the asset",
+   "learn": "Secured finance is backed by the borrower's assets, which can be confiscated if repayments aren't made. Security lowers the lender's risk, so interest is usually lower.",
+   "answers": [
+    {
+     "a": "Mortgage",
+     "p": 10,
+     "k": [
+      "mortgage loan",
+      "property loan"
+     ],
+     "why": "Secured by property, which can't be sold or re-used as security until the loan is repaid."
+    },
+    {
+     "a": "Long-term bank loan",
+     "p": 25,
+     "k": [
+      "bank loan",
+      "business loan",
+      "term loan",
+      "loan"
+     ],
+     "why": "Security is often required for debt finance."
+    },
+    {
+     "a": "Debentures",
+     "p": 40,
+     "k": [
+      "corporate bonds"
+     ],
+     "why": "Backed by company assets, offered as security to investors."
+    },
+    {
+     "a": "Bank overdraft",
+     "p": 60,
+     "k": [
+      "overdraft"
+     ],
+     "why": "Banks may require security, though often not for overdrafts under $250,000."
+    },
+    {
+     "a": "Commercial bills",
+     "p": 75,
+     "k": [
+      "commercial bill",
+      "bank bill"
+     ],
+     "why": "Usually secured against company assets, which are lost on default."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "unsecured notes",
+      "unsecured note",
+      "unsecured"
+     ],
+     "p": 10,
+     "msg": "The name gives it away: no security, so investors demand higher interest."
+    },
+    {
+     "k": [
+      "shares",
+      "retained profits",
+      "private equity"
+     ],
+     "p": 5,
+     "msg": "Equity is never secured; owners share the risk instead."
+    }
+   ]
+  },
+  {
+   "id": "fin-shares-disadvantage",
+   "sec": "I",
+   "q": "Give a disadvantage of raising finance by issuing shares",
+   "hint": "Think IPO, rights issue, placement, SPP",
+   "learn": "Issuing shares avoids interest and gearing, but every new share spreads ownership more thinly, and public issues need a costly prospectus that reveals the firm's plans.",
+   "answers": [
+    {
+     "a": "Dilution of ownership",
+     "p": 10,
+     "k": [
+      "dilution",
+      "dilutes ownership",
+      "loss of control",
+      "lose control",
+      "ownership",
+      "control"
+     ],
+     "why": "New shareholders mean existing owners hold a smaller share of control and profits."
+    },
+    {
+     "a": "Expensive to issue",
+     "p": 20,
+     "k": [
+      "expensive",
+      "costly",
+      "high cost",
+      "listing costs",
+      "listing fees"
+     ],
+     "why": "Listing on the ASX and running an IPO is expensive."
+    },
+    {
+     "a": "Time-consuming",
+     "p": 30,
+     "k": [
+      "slow",
+      "takes time",
+      "takes longer",
+      "weeks or months",
+      "time"
+     ],
+     "why": "An IPO can take weeks or months, longer than arranging debt."
+    },
+    {
+     "a": "Undersubscription",
+     "p": 45,
+     "k": [
+      "undersubscribed",
+      "under subscription",
+      "under subscribed",
+      "not enough buyers",
+      "not enough people"
+     ],
+     "why": "Not enough investors may buy the shares on offer."
+    },
+    {
+     "a": "Dividend expectations",
+     "p": 50,
+     "k": [
+      "dividends",
+      "pay dividends"
+     ],
+     "why": "Shareholders expect dividends, paid out of the business's profits."
+    },
+    {
+     "a": "Prospectus alerts competitors",
+     "p": 60,
+     "k": [
+      "prospectus",
+      "competitors",
+      "competitive advantage"
+     ],
+     "why": "The prospectus reveals strategic plans, compromising competitive advantage."
+    },
+    {
+     "a": "Discounting lowers the share price",
+     "p": 70,
+     "k": [
+      "discount",
+      "discounted",
+      "share price",
+      "share price falls",
+      "lower share price",
+      "share value"
+     ],
+     "why": "Rights issues and placements are discounted as an incentive, which can drive the price down."
+    },
+    {
+     "a": "Underwriting fees",
+     "p": 80,
+     "k": [
+      "underwriting",
+      "underwriter",
+      "underwritten"
+     ],
+     "why": "If the issue is underwritten, the business must pay the underwriter's fees."
+    },
+    {
+     "a": "Brokerage costs (SPP)",
+     "p": 90,
+     "k": [
+      "brokerage",
+      "brokerage fees"
+     ],
+     "why": "In a share purchase plan the business, not the shareholder, pays the brokerage."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "interest",
+      "interest repayments",
+      "gearing",
+      "security"
+     ],
+     "p": 5,
+     "msg": "Shares carry no interest, security or gearing; those are debt disadvantages."
+    }
+   ]
+  },
+  {
+   "id": "fin-institutions",
+   "sec": "I",
+   "q": "Name a type of financial institution",
+   "hint": "BUSFAIL",
+   "learn": "Financial institutions help businesses meet their financial needs by collecting funds, providing financial services and supplying debt and equity finance. BUSFAIL: banks, unit trusts, super funds, finance companies, ASX, investment banks, life insurers.",
+   "answers": [
+    {
+     "a": "Banks",
+     "p": 10,
+     "k": [
+      "commercial bank",
+      "retail bank",
+      "nab",
+      "cba",
+      "commonwealth bank",
+      "westpac",
+      "anz"
+     ],
+     "why": "Take deposits and lend: commercial bills, overdrafts, mortgages (e.g. NAB, CBA, Westpac, ANZ)."
+    },
+    {
+     "a": "Australian Securities Exchange",
+     "p": 25,
+     "k": [
+      "asx",
+      "stock exchange",
+      "stock market",
+      "share market",
+      "securities exchange"
+     ],
+     "why": "Primary market for raising equity through share issues; secondary market for trading them."
+    },
+    {
+     "a": "Investment banks",
+     "p": 40,
+     "k": [
+      "investment bank",
+      "merchant bank",
+      "macquarie",
+      "macquarie bank",
+      "ubs",
+      "deutsche bank"
+     ],
+     "why": "Help raise capital and underwrite share issues; they don't take deposits (e.g. Macquarie, UBS)."
+    },
+    {
+     "a": "Superannuation funds",
+     "p": 45,
+     "k": [
+      "super fund",
+      "superannuation",
+      "super",
+      "australiansuper",
+      "australian super",
+      "colonial first state",
+      "mlc"
+     ],
+     "why": "Invest employees' compulsory savings in shares, property and cash (e.g. AustralianSuper)."
+    },
+    {
+     "a": "Finance companies",
+     "p": 55,
+     "k": [
+      "finance company",
+      "ge capital",
+      "non bank lender"
+     ],
+     "why": "Non-bank lenders specialising in smaller commercial finance and leasing (e.g. GE Capital)."
+    },
+    {
+     "a": "Life insurance companies",
+     "p": 70,
+     "k": [
+      "life insurance",
+      "life insurer",
+      "insurance company",
+      "insurers",
+      "amp",
+      "axa"
+     ],
+     "why": "Invest surplus premiums in businesses via shares or property loans (e.g. AMP, AXA)."
+    },
+    {
+     "a": "Unit trusts",
+     "p": 80,
+     "k": [
+      "unit trust",
+      "managed fund",
+      "trust"
+     ],
+     "why": "Pool money from many investors; professional managers invest it in shares, property and loans."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "asic",
+      "rba",
+      "ato"
+     ],
+     "p": 5,
+     "msg": "Regulators aren't BUSFAIL institutions; ASIC is a government influence that oversees them."
+    },
+    {
+     "k": [
+      "private equity",
+      "venture capital"
+     ],
+     "p": 5,
+     "msg": "Private equity is a source of finance; investment banks often help arrange it."
+    }
+   ]
+  },
+  {
+   "id": "fin-institution-services",
+   "sec": "I",
+   "q": "Name a service financial institutions offer businesses",
+   "learn": "Banks offer loans, overdrafts, commercial bills and advice (COM); investment banks raise capital, underwrite share issues and advise on mergers (NSPR, PE); finance companies provide leasing (L).",
+   "answers": [
+    {
+     "a": "Loans",
+     "p": 10,
+     "k": [
+      "business loans",
+      "lending",
+      "mortgage",
+      "credit cards",
+      "credit card"
+     ],
+     "why": "Banks lend to borrowers, including mortgages, from the deposits they collect."
+    },
+    {
+     "a": "Overdrafts",
+     "p": 15,
+     "k": [
+      "overdraft facility"
+     ],
+     "why": "Banks let businesses overdraw to an agreed limit for short-term cash needs."
+    },
+    {
+     "a": "Transaction accounts",
+     "p": 25,
+     "k": [
+      "bank account",
+      "daily transactions",
+      "transactions",
+      "deposits",
+      "savings accounts"
+     ],
+     "why": "Help with daily operations: deposits and everyday bank account transactions."
+    },
+    {
+     "a": "Raising equity capital",
+     "p": 35,
+     "k": [
+      "raising capital",
+      "raise capital",
+      "equity finance",
+      "share issues",
+      "issuing shares",
+      "ipo",
+      "new issue"
+     ],
+     "why": "Investment banks help firms raise capital through new issues, placements and rights issues."
+    },
+    {
+     "a": "Commercial bills",
+     "p": 45,
+     "k": [
+      "commercial bill",
+      "bank bill"
+     ],
+     "why": "Banks provide commercial bills for large sums over 30 to 180 days."
+    },
+    {
+     "a": "Lease finance",
+     "p": 50,
+     "k": [
+      "leasing",
+      "lease",
+      "equipment leasing"
+     ],
+     "why": "Finance companies specialise in lease finance."
+    },
+    {
+     "a": "Legal and taxation advice",
+     "p": 60,
+     "k": [
+      "legal advice",
+      "tax advice",
+      "taxation advice",
+      "legal",
+      "taxation",
+      "tax"
+     ],
+     "why": "Banks offer legal and tax advice to business customers."
+    },
+    {
+     "a": "Underwriting share issues",
+     "p": 70,
+     "k": [
+      "underwriting",
+      "underwrite",
+      "underwriter",
+      "underwritten"
+     ],
+     "why": "Investment banks buy any unsold shares, making an issue safe."
+    },
+    {
+     "a": "Merger and forex advice",
+     "p": 80,
+     "k": [
+      "mergers",
+      "acquisitions",
+      "corporate advice",
+      "foreign exchange",
+      "forex",
+      "corporate financial advice"
+     ],
+     "why": "Investment banks give corporate advice on mergers, acquisitions and foreign exchange."
+    },
+    {
+     "a": "Economic outlook information",
+     "p": 90,
+     "k": [
+      "economic outlook",
+      "economic information",
+      "economic forecasts"
+     ],
+     "why": "Banks supply economic outlook information to help business planning."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "regulation",
+      "regulating",
+      "asic"
+     ],
+     "p": 5,
+     "msg": "Regulation is ASIC's job, a government influence, not a financial institution service."
+    }
+   ]
+  },
+  {
+   "id": "fin-asic",
+   "sec": "I",
+   "q": "Name an effect of ASIC on a business's finances",
+   "hint": "ASIC enforces the Corporations Act 2001 (Cth)",
+   "learn": "ASIC (Australian Securities and Investments Commission) is Australia's corporate, markets and financial services regulator. It administers and enforces the Corporations Act 2001 (Cth).",
+   "answers": [
+    {
+     "a": "Must comply with the Corporations Act",
+     "p": 10,
+     "k": [
+      "corporations act",
+      "comply",
+      "compliance",
+      "follow the law",
+      "legal compliance"
+     ],
+     "why": "Every company must comply with the Corporations Act 2001 (Cth), which ASIC enforces."
+    },
+    {
+     "a": "Must lodge annual financial statements",
+     "p": 25,
+     "k": [
+      "lodge",
+      "lodgement",
+      "annual report",
+      "annual financial statements",
+      "financial statements"
+     ],
+     "why": "Companies lodge their annual financial statements with ASIC."
+    },
+    {
+     "a": "Prospectus needed to raise finance",
+     "p": 40,
+     "k": [
+      "prospectus",
+      "issue a prospectus",
+      "regulatory oversight",
+      "oversight"
+     ],
+     "why": "When raising finance from the public, ASIC oversight means a prospectus must be produced."
+    },
+    {
+     "a": "Compliance is costly and slow",
+     "p": 60,
+     "k": [
+      "costly",
+      "expensive",
+      "time consuming",
+      "slow",
+      "compliance costs",
+      "cost"
+     ],
+     "why": "Preparing and submitting a prospectus is costly and time-consuming."
+    },
+    {
+     "a": "External audits for public companies",
+     "p": 75,
+     "k": [
+      "external audit",
+      "audit",
+      "audited",
+      "auditors"
+     ],
+     "why": "The Corporations Act requires public companies' reports to be independently audited."
+    },
+    {
+     "a": "Prospectus reveals plans to competitors",
+     "p": 85,
+     "k": [
+      "competitors",
+      "competitive advantage",
+      "alerts competitors",
+      "prospectus alerts competitors",
+      "prospectus reveals plans"
+     ],
+     "why": "Disclosure in a prospectus can compromise competitive advantage."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "company tax",
+      "tax",
+      "ato"
+     ],
+     "p": 5,
+     "msg": "Tax is collected by the ATO; ASIC regulates companies and markets."
+    }
+   ]
+  },
+  {
+   "id": "fin-company-tax",
+   "sec": "I",
+   "q": "Name an effect of company tax on business",
+   "hint": "30% (25% for smaller firms): less profit to keep or share",
+   "learn": "Company tax is a direct tax on company profit: 30%, or 25% for companies with aggregated turnover under $50 million. It shapes decisions, and the government targets multinationals that shift profits offshore.",
+   "answers": [
+    {
+     "a": "Less retained profit",
+     "p": 10,
+     "k": [
+      "retained profits",
+      "less profit",
+      "lower profit",
+      "reduces profit",
+      "profit"
+     ],
+     "why": "Tax on profit leaves less to reinvest as retained profits."
+    },
+    {
+     "a": "Lower dividends",
+     "p": 20,
+     "k": [
+      "dividends",
+      "less dividends",
+      "smaller dividends"
+     ],
+     "why": "Less after-tax profit means lower dividend distributions to shareholders."
+    },
+    {
+     "a": "Shapes business decision-making",
+     "p": 40,
+     "k": [
+      "decision making",
+      "decisions",
+      "investment decisions",
+      "where to invest"
+     ],
+     "why": "High company tax in Australia affects where and how much firms invest."
+    },
+    {
+     "a": "Legal tax minimisation",
+     "p": 50,
+     "k": [
+      "minimise tax",
+      "minimize tax",
+      "tax minimisation",
+      "reduce tax",
+      "tax planning",
+      "legal methods"
+     ],
+     "why": "Firms look for legal ways to reduce the tax they pay."
+    },
+    {
+     "a": "International competitiveness",
+     "p": 60,
+     "k": [
+      "competitiveness",
+      "competitive",
+      "economic growth",
+      "compete internationally"
+     ],
+     "why": "The tax rate (Australia 30% vs Ireland 12.5%) affects competitiveness and economic growth."
+    },
+    {
+     "a": "Multinationals shift profits offshore",
+     "p": 70,
+     "k": [
+      "transfer pricing",
+      "shift profits",
+      "profit shifting",
+      "tax havens",
+      "low tax jurisdictions",
+      "tax avoidance",
+      "offshore"
+     ],
+     "why": "Some multinationals use intercompany transfer pricing to move profits to low-tax countries."
+    },
+    {
+     "a": "Multinational Anti-Avoidance Law",
+     "p": 85,
+     "k": [
+      "maal",
+      "anti avoidance",
+      "anti avoidance law"
+     ],
+     "why": "Targets firms with global revenue over $1 billion; ATO audit teams are embedded in them."
+    },
+    {
+     "a": "Diverted Profits Tax",
+     "p": 90,
+     "k": [
+      "dpt",
+      "diverted profits",
+      "40% tax"
+     ],
+     "why": "A 40% charge on large multinationals that artificially divert profits from Australia."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "gst",
+      "goods and services tax",
+      "payroll tax"
+     ],
+     "p": 5,
+     "msg": "Company tax is a direct tax on company profit, not on sales or wages."
+    }
+   ]
+  },
+  {
+   "id": "fin-global-influences",
+   "sec": "I",
+   "q": "Name a global market influence on financial management",
+   "hint": "IEA",
+   "learn": "Global market influences are interest rates, the economic outlook and the availability of funds. A positive outlook invites investment, scarce funds raise borrowing costs, and lower rates make firms more willing to gear up.",
+   "answers": [
+    {
+     "a": "Interest rates",
+     "p": 10,
+     "k": [
+      "global interest rates",
+      "cost of borrowing",
+      "interest"
+     ],
+     "why": "The cost of borrowing; lower rates make firms more willing to increase gearing."
+    },
+    {
+     "a": "Global economic outlook",
+     "p": 25,
+     "k": [
+      "economic outlook",
+      "outlook",
+      "economic growth",
+      "economy",
+      "economic conditions"
+     ],
+     "why": "Expected growth by region: a positive outlook draws investment, a negative one means scaling back."
+    },
+    {
+     "a": "Availability of funds",
+     "p": 45,
+     "k": [
+      "availability",
+      "available funds",
+      "access to funds",
+      "supply of funds",
+      "funds availability",
+      "credit availability"
+     ],
+     "why": "Ease of accessing funds internationally; high availability means lower interest rates."
+    },
+    {
+     "a": "Global inflation",
+     "p": 65,
+     "k": [
+      "inflation",
+      "rising inflation",
+      "rising prices"
+     ],
+     "why": "Rising global inflation has pushed central banks to raise interest rates."
+    },
+    {
+     "a": "Political instability",
+     "p": 80,
+     "k": [
+      "political",
+      "geopolitical",
+      "war",
+      "conflict",
+      "russia",
+      "ukraine",
+      "instability"
+     ],
+     "why": "Conflicts such as Russia–Ukraine and Israel–Gaza cloud the economic outlook."
+    },
+    {
+     "a": "Commodity and oil prices",
+     "p": 85,
+     "k": [
+      "oil prices",
+      "oil",
+      "commodity prices",
+      "commodity",
+      "fuel prices",
+      "rising oil prices"
+     ],
+     "why": "Rising commodity and oil prices lift costs and weaken the outlook."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "exchange rates",
+      "currency"
+     ],
+     "p": 10,
+     "msg": "Exchange rates matter, but the syllabus places them in global financial management (DHIME); influences are IEA."
+    },
+    {
+     "k": [
+      "asic",
+      "company tax"
+     ],
+     "p": 5,
+     "msg": "That's a government influence, not a global market one."
+    }
+   ]
+  },
+  {
+   "id": "fin-planning",
+   "sec": "P",
+   "q": "Name an element of financial planning and implementing",
+   "hint": "BRF3: budgets, records, financial needs, risks, controls",
+   "learn": "Planning and implementing means determining financial needs, preparing budgets, keeping record systems, assessing financial risks and setting financial controls, then choosing debt or equity and matching finance to its purpose.",
+   "answers": [
+    {
+     "a": "Budgets",
+     "p": 10,
+     "k": [
+      "budget",
+      "budgeting"
+     ],
+     "why": "Quantitative plans of what is needed to achieve a purpose (financial, operating, project)."
+    },
+    {
+     "a": "Financial needs",
+     "p": 25,
+     "k": [
+      "needs",
+      "finance needs",
+      "funding needs",
+      "how much finance"
+     ],
+     "why": "How much finance is needed, given size, life-cycle stage, future plans and capacity to raise funds."
+    },
+    {
+     "a": "Financial controls",
+     "p": 30,
+     "k": [
+      "controls",
+      "internal controls"
+     ],
+     "why": "Policies such as separation of duties that prevent theft, fraud and errors."
+    },
+    {
+     "a": "Financial risks",
+     "p": 40,
+     "k": [
+      "risk",
+      "risk management"
+     ],
+     "why": "The risk of being unable to meet financial obligations."
+    },
+    {
+     "a": "Record systems",
+     "p": 50,
+     "k": [
+      "records",
+      "record keeping",
+      "accounting records",
+      "myob"
+     ],
+     "why": "Processes to gather, store and retrieve accurate, reliable, accessible information (e.g. MYOB)."
+    },
+    {
+     "a": "Debt and equity financing",
+     "p": 60,
+     "k": [
+      "debt or equity",
+      "debt",
+      "equity",
+      "financing mix"
+     ],
+     "why": "Choosing the mix of borrowed and owners' funds, weighing the advantages and disadvantages of each."
+    },
+    {
+     "a": "Matching terms and source of finance",
+     "p": 75,
+     "k": [
+      "matching",
+      "matching principle",
+      "match finance",
+      "terms and source"
+     ],
+     "why": "Short-term funds for short-term needs; long-term funds for long-term assets."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "ratios",
+      "financial ratios",
+      "income statement",
+      "balance sheet",
+      "cash flow statement"
+     ],
+     "p": 10,
+     "msg": "Those are monitoring and controlling tools, the process after planning and implementing."
+    }
+   ]
+  },
+  {
+   "id": "fin-budget-types",
+   "sec": "P",
+   "q": "Name a type of budget",
+   "hint": "FOP",
+   "learn": "Budgets give quantitative information about what's needed to achieve a purpose. The three types are financial, operating and project (FOP); operating and project budgets feed the financial budget.",
+   "answers": [
+    {
+     "a": "Operating budget",
+     "p": 15,
+     "k": [
+      "operating",
+      "operational budget",
+      "operations budget",
+      "sales budget"
+     ],
+     "why": "Covers main activities: production, raw materials, labour, COGS and expenses."
+    },
+    {
+     "a": "Financial budget",
+     "p": 20,
+     "k": [
+      "financial",
+      "finance budget",
+      "forecast income statement",
+      "budgeted income statement",
+      "forecast balance sheet",
+      "budgeted balance sheet"
+     ],
+     "why": "Forecast income statement, balance sheet and cash flows, shaped by the other two budgets."
+    },
+    {
+     "a": "Cash flow budget",
+     "p": 30,
+     "k": [
+      "cash flow",
+      "cash budget",
+      "cashflow"
+     ],
+     "why": "Part of the financial budget; plans the timing of cash inflows and outflows."
+    },
+    {
+     "a": "Project budget",
+     "p": 40,
+     "k": [
+      "project"
+     ],
+     "why": "Covers capital expenditure and research and development projects."
+    },
+    {
+     "a": "Production budget",
+     "p": 50,
+     "k": [
+      "production",
+      "raw materials",
+      "materials budget"
+     ],
+     "why": "Operating budget for production, including the use and cost of raw materials."
+    },
+    {
+     "a": "Labour budget",
+     "p": 60,
+     "k": [
+      "labour",
+      "labor",
+      "labour hours",
+      "wages"
+     ],
+     "why": "Operating budget for the number and cost of labour hours needed for production."
+    },
+    {
+     "a": "Capital expenditure budget",
+     "p": 75,
+     "k": [
+      "capital expenditure",
+      "capex",
+      "capital budget"
+     ],
+     "why": "Project budget for buying major non-current assets."
+    },
+    {
+     "a": "Research and development budget",
+     "p": 85,
+     "k": [
+      "r&d",
+      "research",
+      "rnd"
+     ],
+     "why": "Project budget for R&D work."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "fixed costs",
+      "variable costs"
+     ],
+     "p": 5,
+     "msg": "Fixed and variable are kinds of cost, not types of budget."
+    }
+   ]
+  },
+  {
+   "id": "fin-controls",
+   "sec": "P",
+   "q": "Give an example of a financial control",
+   "hint": "Stops theft, fraud, lost assets and record errors",
+   "learn": "Financial controls are the policies and procedures that ensure objectives are achieved efficiently. They prevent theft, fraud, lost or damaged assets and errors in record systems.",
+   "answers": [
+    {
+     "a": "Protection of assets",
+     "p": 15,
+     "k": [
+      "security cameras",
+      "cameras",
+      "cctv",
+      "asset protection",
+      "inventory checks",
+      "stocktake",
+      "security",
+      "protect assets"
+     ],
+     "why": "Security cameras and regular inventory checks protect physical assets."
+    },
+    {
+     "a": "Internal audits",
+     "p": 20,
+     "k": [
+      "internal audit",
+      "audit",
+      "auditing"
+     ],
+     "why": "Internal checks of practices and records to ensure the data is accurate."
+    },
+    {
+     "a": "Separation of duties",
+     "p": 30,
+     "k": [
+      "separating duties",
+      "segregation of duties",
+      "segregation",
+      "separation",
+      "separate duties"
+     ],
+     "why": "No one person handles a whole transaction, e.g. both ordering and paying."
+    },
+    {
+     "a": "Clear authorisation and responsibility",
+     "p": 40,
+     "k": [
+      "authorisation",
+      "authorization",
+      "authorise",
+      "approval",
+      "responsibility",
+      "clear responsibility"
+     ],
+     "why": "Every task has a clearly authorised person who is responsible for it."
+    },
+    {
+     "a": "Cash banked daily",
+     "p": 50,
+     "k": [
+      "bank cash daily",
+      "banked daily",
+      "bank daily",
+      "control of cash",
+      "cash control",
+      "no cash overnight",
+      "cash"
+     ],
+     "why": "Cash is banked each day and no money is kept on the premises overnight."
+    },
+    {
+     "a": "Credit procedures",
+     "p": 70,
+     "k": [
+      "credit checks",
+      "credit policy",
+      "credit",
+      "overdue accounts",
+      "follow up overdue accounts"
+     ],
+     "why": "Customer credit checks and following up overdue accounts."
+    },
+    {
+     "a": "Rotation of duties",
+     "p": 75,
+     "k": [
+      "rotation",
+      "rotating duties",
+      "rotate duties",
+      "job rotation",
+      "rotate"
+     ],
+     "why": "Rotating staff between tasks makes ongoing fraud harder to hide."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "theft",
+      "fraud",
+      "errors"
+     ],
+     "p": 5,
+     "msg": "That's a problem controls prevent; name the control itself, e.g. separation of duties."
+    }
+   ]
+  },
+  {
+   "id": "fin-risk",
+   "sec": "P",
+   "q": "Name something to consider when managing financial risk",
+   "learn": "Financial risk is the risk of being unable to cover financial obligations. Some risk can bring greater returns, but too much can mean missed loan repayments and confiscated assets.",
+   "answers": [
+    {
+     "a": "Interest rates",
+     "p": 10,
+     "k": [
+      "interest rate",
+      "interest"
+     ],
+     "why": "Rising rates increase the cost of servicing debt."
+    },
+    {
+     "a": "Amount and timing of debt",
+     "p": 15,
+     "k": [
+      "amount of debt",
+      "level of debt",
+      "debt levels",
+      "when debt is due",
+      "debt due",
+      "debt"
+     ],
+     "why": "How much is owed and when it falls due."
+    },
+    {
+     "a": "Economic conditions",
+     "p": 30,
+     "k": [
+      "economy",
+      "economic",
+      "economic climate",
+      "recession"
+     ],
+     "why": "A downturn can cut sales and the capacity to repay."
+    },
+    {
+     "a": "Exchange rates",
+     "p": 40,
+     "k": [
+      "exchange rate",
+      "currency",
+      "forex"
+     ],
+     "why": "Currency movements can raise the cost of overseas debts and payments."
+    },
+    {
+     "a": "Borrowing capacity (debt or equity)",
+     "p": 50,
+     "k": [
+      "borrowing capacity",
+      "capacity to borrow",
+      "debt or equity",
+      "debt vs equity",
+      "gearing",
+      "equity"
+     ],
+     "why": "Whether to use debt or equity, given how much more the business can safely borrow."
+    },
+    {
+     "a": "Liquidity and solvency",
+     "p": 60,
+     "k": [
+      "liquidity",
+      "solvency",
+      "liquid",
+      "solvent"
+     ],
+     "why": "The ability to meet short- and long-term debts as they fall due."
+    },
+    {
+     "a": "Increase working capital",
+     "p": 75,
+     "k": [
+      "working capital",
+      "more working capital"
+     ],
+     "why": "More working capital is a buffer that minimises financial risk."
+    },
+    {
+     "a": "Monitor profit levels",
+     "p": 80,
+     "k": [
+      "profit levels",
+      "monitor profit",
+      "monitoring profit",
+      "profit",
+      "profitability"
+     ],
+     "why": "Profit must cover debt repayments and still provide dividends to shareholders."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "theft",
+      "fraud"
+     ],
+     "p": 5,
+     "msg": "Theft and fraud are handled by financial controls, not financial risk planning."
+    }
+   ]
+  },
+  {
+   "id": "fin-debt-advantage",
+   "sec": "P",
+   "q": "Give an advantage of debt finance",
+   "learn": "Debt finance is short- and long-term borrowing from external sources. Owners keep control, and the interest is tax deductible.",
+   "answers": [
+    {
+     "a": "Funds readily available",
+     "p": 15,
+     "k": [
+      "readily available",
+      "available",
+      "easy to get",
+      "quick",
+      "fast",
+      "accessible"
+     ],
+     "why": "Debt funds are usually readily available from banks and other lenders."
+    },
+    {
+     "a": "Owners keep control",
+     "p": 20,
+     "k": [
+      "keep control",
+      "control",
+      "ownership",
+      "no ownership",
+      "no dilution",
+      "dilution"
+     ],
+     "why": "The lender gains no ownership or control of the business."
+    },
+    {
+     "a": "Interest is tax deductible",
+     "p": 30,
+     "k": [
+      "tax deductible",
+      "tax",
+      "deductible",
+      "tax deduction"
+     ],
+     "why": "Interest is a deductible expense, lowering the business's tax bill."
+    },
+    {
+     "a": "More funds to boost earnings",
+     "p": 45,
+     "k": [
+      "earnings",
+      "increase profits",
+      "profit",
+      "investment",
+      "invest",
+      "growth",
+      "expansion"
+     ],
+     "why": "Borrowed funds invested well can lead to increased earnings and profits."
+    },
+    {
+     "a": "Flexible rates and repayments",
+     "p": 70,
+     "k": [
+      "flexible",
+      "flexibility",
+      "flexible repayments",
+      "flexible interest"
+     ],
+     "why": "Interest rates and repayment terms can often be negotiated to suit the business."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "no interest",
+      "never repaid",
+      "no repayments",
+      "doesn't need to be repaid"
+     ],
+     "p": 5,
+     "msg": "That's an equity advantage; debt must be repaid with interest."
+    }
+   ]
+  },
+  {
+   "id": "fin-debt-disadvantage",
+   "sec": "P",
+   "q": "Give a disadvantage of debt finance",
+   "learn": "Debt must be serviced on schedule whatever the business's cash flow or profit, and it raises gearing, weakening the solvency objective.",
+   "answers": [
+    {
+     "a": "Interest must be paid regardless",
+     "p": 10,
+     "k": [
+      "interest",
+      "interest payments",
+      "interest repayments",
+      "repayments",
+      "must be repaid",
+      "regardless of cash flow"
+     ],
+     "why": "Repayments fall due at set times, whatever the business's liquidity or profitability."
+    },
+    {
+     "a": "Increases gearing",
+     "p": 20,
+     "k": [
+      "gearing",
+      "leverage",
+      "highly geared",
+      "solvency",
+      "debt to equity"
+     ],
+     "why": "More debt raises the gearing ratio, harming the solvency objective."
+    },
+    {
+     "a": "Security often required",
+     "p": 30,
+     "k": [
+      "security",
+      "collateral",
+      "secured",
+      "assets as security",
+      "lose assets"
+     ],
+     "why": "Assets pledged as security can be confiscated on default."
+    },
+    {
+     "a": "Default risk if interest rates rise",
+     "p": 45,
+     "k": [
+      "default",
+      "defaulting",
+      "rising interest rates",
+      "interest rates rise",
+      "rate rises",
+      "servicing costs"
+     ],
+     "why": "High debt plus rising rates can leave the business unable to meet repayments."
+    },
+    {
+     "a": "Lenders have first claim",
+     "p": 75,
+     "k": [
+      "first claim",
+      "bankruptcy",
+      "liquidation",
+      "creditors paid first",
+      "lenders paid first"
+     ],
+     "why": "If the business goes bankrupt, lenders are paid before owners."
+    },
+    {
+     "a": "Supply of funds can dry up",
+     "p": 85,
+     "k": [
+      "availability",
+      "gfc",
+      "global financial crisis",
+      "funds dry up",
+      "supply of funds",
+      "credit crunch"
+     ],
+     "why": "Debt availability fluctuates, e.g. it fell sharply during the GFC."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "dilution",
+      "loss of control",
+      "dividends"
+     ],
+     "p": 5,
+     "msg": "That's an equity disadvantage; lenders gain no ownership."
+    }
+   ]
+  },
+  {
+   "id": "fin-equity-advantage",
+   "sec": "P",
+   "q": "Give an advantage of equity finance",
+   "learn": "Equity finance comes from the owners, through retained profits or shares. It never has to be repaid, carries no interest and doesn't raise gearing.",
+   "answers": [
+    {
+     "a": "No interest repayments",
+     "p": 10,
+     "k": [
+      "no interest",
+      "interest free",
+      "interest",
+      "no interest payments"
+     ],
+     "why": "Owners receive dividends, if any, rather than interest."
+    },
+    {
+     "a": "Never has to be repaid",
+     "p": 20,
+     "k": [
+      "not repaid",
+      "no repayment",
+      "never repaid",
+      "repaid",
+      "repay",
+      "repayment"
+     ],
+     "why": "Equity is permanent capital; the money is never paid back."
+    },
+    {
+     "a": "Does not increase gearing",
+     "p": 30,
+     "k": [
+      "gearing",
+      "no debt",
+      "leverage",
+      "solvency"
+     ],
+     "why": "Using owners' funds rather than debt keeps the gearing ratio down."
+    },
+    {
+     "a": "Dividends are optional",
+     "p": 50,
+     "k": [
+      "dividends",
+      "no dividends",
+      "optional dividends",
+      "dividends not compulsory"
+     ],
+     "why": "The business isn't compelled to pay dividends, e.g. in a poor year."
+    },
+    {
+     "a": "Less risk",
+     "p": 60,
+     "k": [
+      "lower risk",
+      "risk",
+      "safer"
+     ],
+     "why": "No compulsory repayments means less risk for the business and its owners."
+    },
+    {
+     "a": "Cheaper than debt",
+     "p": 70,
+     "k": [
+      "cheaper",
+      "cheap",
+      "low cost",
+      "lower cost"
+     ],
+     "why": "With no interest to pay, equity can be cheaper than other sources."
+    },
+    {
+     "a": "Can raise large sums",
+     "p": 85,
+     "k": [
+      "large amounts",
+      "large sums",
+      "substantial capital",
+      "significant funds",
+      "lots of capital"
+     ],
+     "why": "A new issue can raise a substantial amount of capital to fund expansion."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "tax deductible",
+      "tax"
+     ],
+     "p": 5,
+     "msg": "Tax-deductible interest is a debt advantage; dividends aren't deductible."
+    },
+    {
+     "k": [
+      "keep control",
+      "no dilution"
+     ],
+     "p": 5,
+     "msg": "Equity dilutes ownership; keeping control is a debt advantage."
+    }
+   ]
+  },
+  {
+   "id": "fin-equity-disadvantage",
+   "sec": "P",
+   "q": "Give a disadvantage of equity finance",
+   "learn": "Equity spreads ownership across more people, so control and profits are shared, and raising external equity can be slow and may not be fully taken up.",
+   "answers": [
+    {
+     "a": "Dilution of ownership and control",
+     "p": 10,
+     "k": [
+      "dilution",
+      "dilutes ownership",
+      "loss of control",
+      "lose control",
+      "ownership",
+      "control"
+     ],
+     "why": "New owners share control, and anyone holding over 50% could take it."
+    },
+    {
+     "a": "Profits paid out as dividends",
+     "p": 25,
+     "k": [
+      "dividends",
+      "share profits",
+      "profits shared"
+     ],
+     "why": "Shareholders expect dividends paid from the business's profits."
+    },
+    {
+     "a": "Slower than debt",
+     "p": 40,
+     "k": [
+      "slow",
+      "takes longer",
+      "longer process",
+      "time consuming",
+      "takes time"
+     ],
+     "why": "Raising equity can take longer than arranging a loan."
+    },
+    {
+     "a": "Potential undersubscription",
+     "p": 50,
+     "k": [
+      "undersubscription",
+      "undersubscribed",
+      "under subscription",
+      "not enough buyers"
+     ],
+     "why": "An external share offer may not attract enough buyers."
+    },
+    {
+     "a": "Costly to issue shares",
+     "p": 60,
+     "k": [
+      "expensive",
+      "costly",
+      "prospectus",
+      "listing costs",
+      "ipo costs"
+     ],
+     "why": "An IPO and its prospectus are expensive to prepare."
+    },
+    {
+     "a": "Lower returns for owners",
+     "p": 70,
+     "k": [
+      "lower returns",
+      "less return",
+      "returns"
+     ],
+     "why": "Profit is spread over more equity, so each owner's return may be lower."
+    },
+    {
+     "a": "Retained profits may be limited",
+     "p": 80,
+     "k": [
+      "limited",
+      "limited funds",
+      "take time to accumulate",
+      "accumulate"
+     ],
+     "why": "Internal equity is limited and slow to build, so opportunities may be missed."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "interest",
+      "gearing",
+      "security"
+     ],
+     "p": 5,
+     "msg": "Those are debt disadvantages; equity carries no interest, gearing or security."
+    }
+   ]
+  },
+  {
+   "id": "fin-matching",
+   "sec": "P",
+   "q": "Name a rule or example of the matching principle",
+   "hint": "Short for short, long for long",
+   "learn": "The matching principle: short-term funds pay short-term debts and long-term funds buy long-term assets, with the term of finance matched to the asset's economic life and earnings.",
+   "answers": [
+    {
+     "a": "Short-term finance for short-term debts",
+     "p": 10,
+     "k": [
+      "short term debts",
+      "short term funds",
+      "short term needs",
+      "short term",
+      "short for short"
+     ],
+     "why": "Overdrafts and trade credit suit short-term debts like paying suppliers."
+    },
+    {
+     "a": "Long-term finance for long-term assets",
+     "p": 15,
+     "k": [
+      "long term assets",
+      "long term funds",
+      "long term",
+      "long for long",
+      "non current assets"
+     ],
+     "why": "Mortgages, debentures and leases suit long-term (non-current) assets."
+    },
+    {
+     "a": "Match the term to the asset's life",
+     "p": 45,
+     "k": [
+      "economic life",
+      "life of the asset",
+      "asset life",
+      "useful life"
+     ],
+     "why": "Funding should be matched to the asset's economic life."
+    },
+    {
+     "a": "Match repayments to the asset's earnings",
+     "p": 65,
+     "k": [
+      "earnings",
+      "asset earnings",
+      "earnings of the asset",
+      "repayments match earnings"
+     ],
+     "why": "Loan repayments for an asset should be matched to what the asset earns."
+    },
+    {
+     "a": "Lease a computer for two years",
+     "p": 80,
+     "k": [
+      "computer",
+      "two year lease",
+      "2 year lease",
+      "two year loan"
+     ],
+     "why": "A computer suits a two-year lease or two-year bank loan, matching its economic life."
+    },
+    {
+     "a": "Don't buy a vehicle with an overdraft",
+     "p": 85,
+     "k": [
+      "vehicle",
+      "car",
+      "overdraft"
+     ],
+     "why": "An overdraft is short-term finance and should never fund a long-term asset like a vehicle."
+    },
+    {
+     "a": "Don't pay suppliers with a 5-year loan",
+     "p": 90,
+     "k": [
+      "suppliers",
+      "five year loan",
+      "5 year loan"
+     ],
+     "why": "A five-year bank loan should never be used to pay suppliers."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "revenue and expenses",
+      "same period",
+      "same financial year",
+      "time period"
+     ],
+     "p": 10,
+     "msg": "That's the accounting matching principle (timing issues); here it means matching finance to its purpose."
+    }
+   ]
+  },
+  {
+   "id": "fin-income-statement",
+   "sec": "P",
+   "q": "Name an item in the income statement",
+   "hint": "Revenue − COGS = GP; GP − expenses = NP",
+   "learn": "The income statement (profit and loss statement) summarises income earned and expenses incurred over a period: revenue less cost of goods sold gives gross profit; less expenses gives net profit.",
+   "answers": [
+    {
+     "a": "Revenue (sales)",
+     "p": 10,
+     "k": [
+      "revenue",
+      "sales",
+      "sales revenue",
+      "income",
+      "turnover"
+     ],
+     "why": "Income from sales; less sales returns and discounts allowed gives net revenue."
+    },
+    {
+     "a": "Net profit",
+     "p": 15,
+     "k": [
+      "net income",
+      "net loss",
+      "bottom line"
+     ],
+     "why": "Gross profit minus expenses."
+    },
+    {
+     "a": "Gross profit",
+     "p": 20,
+     "k": [
+      "gross margin",
+      "gross income"
+     ],
+     "why": "Revenue minus cost of goods sold."
+    },
+    {
+     "a": "Expenses",
+     "p": 25,
+     "k": [
+      "operating expenses",
+      "costs",
+      "wages",
+      "rent"
+     ],
+     "why": "Costs of running the business, e.g. wages and rent, deducted from gross profit."
+    },
+    {
+     "a": "Cost of goods sold",
+     "p": 30,
+     "k": [
+      "cogs",
+      "cost of sales",
+      "goods sold"
+     ],
+     "why": "Opening stock + purchases + freight inwards − discounts received − closing stock."
+    },
+    {
+     "a": "Purchases",
+     "p": 55,
+     "k": [
+      "stock purchases",
+      "inventory purchases"
+     ],
+     "why": "Stock bought during the period, added when calculating COGS."
+    },
+    {
+     "a": "Opening stock",
+     "p": 65,
+     "k": [
+      "opening inventory",
+      "beginning stock",
+      "opening"
+     ],
+     "why": "Stock on hand at the start of the period, the first line of COGS."
+    },
+    {
+     "a": "Closing stock",
+     "p": 70,
+     "k": [
+      "closing inventory",
+      "ending stock",
+      "closing"
+     ],
+     "why": "Stock left at the end of the period, subtracted in COGS."
+    },
+    {
+     "a": "Discounts received",
+     "p": 80,
+     "k": [
+      "discounts",
+      "purchase discounts"
+     ],
+     "why": "Discounts from suppliers, subtracted when calculating COGS."
+    },
+    {
+     "a": "Freight inwards",
+     "p": 85,
+     "k": [
+      "freight",
+      "freight in",
+      "carriage inwards"
+     ],
+     "why": "The cost of transporting stock in, added to COGS."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "assets",
+      "liabilities",
+      "equity",
+      "owners equity"
+     ],
+     "p": 5,
+     "msg": "Those belong on the balance sheet, a snapshot at a point in time."
+    },
+    {
+     "k": [
+      "cash receipts",
+      "cash payments",
+      "cash inflows",
+      "cash outflows"
+     ],
+     "p": 5,
+     "msg": "Those belong on the cash flow statement."
+    }
+   ]
+  },
+  {
+   "id": "fin-ratios",
+   "sec": "P",
+   "q": "Name a financial ratio",
+   "hint": "4 categories, 7 ratios",
+   "learn": "The syllabus has seven ratios in four groups: liquidity (current ratio), gearing (debt to equity), profitability (gross profit, net profit, return on equity) and efficiency (expense ratio, accounts receivable turnover).",
+   "answers": [
+    {
+     "a": "Current ratio",
+     "p": 10,
+     "k": [
+      "current",
+      "liquidity ratio",
+      "working capital ratio",
+      "ca cl"
+     ],
+     "why": "Liquidity: current assets ÷ current liabilities; 2:1 is considered healthy."
+    },
+    {
+     "a": "Net profit ratio",
+     "p": 20,
+     "k": [
+      "net profit",
+      "net profit margin",
+      "net margin",
+      "np ratio",
+      "npr",
+      "np margin"
+     ],
+     "why": "Profitability: net profit ÷ sales; around 15% is generally accepted."
+    },
+    {
+     "a": "Debt to equity ratio",
+     "p": 25,
+     "k": [
+      "debt to equity",
+      "gearing ratio",
+      "gearing",
+      "solvency ratio",
+      "d/e",
+      "d/e ratio",
+      "de ratio"
+     ],
+     "why": "Gearing: total liabilities ÷ total equity; the higher it is, the higher the risk."
+    },
+    {
+     "a": "Gross profit ratio",
+     "p": 30,
+     "k": [
+      "gross profit",
+      "gross profit margin",
+      "gross margin",
+      "gp ratio",
+      "gpr",
+      "gp margin"
+     ],
+     "why": "Profitability: gross profit ÷ sales; a low figure may mean underpricing or costly supplies."
+    },
+    {
+     "a": "Return on equity",
+     "p": 45,
+     "k": [
+      "roe",
+      "return on equity ratio",
+      "return on owners equity"
+     ],
+     "why": "Profitability: net profit ÷ total equity; 10 to 15% is generally good."
+    },
+    {
+     "a": "Expense ratio",
+     "p": 60,
+     "k": [
+      "expense"
+     ],
+     "why": "Efficiency: total expenses ÷ sales; lower shows better cost control."
+    },
+    {
+     "a": "Accounts receivable turnover ratio",
+     "p": 75,
+     "k": [
+      "arto",
+      "accounts receivable turnover",
+      "receivables turnover",
+      "debtors turnover",
+      "ar turnover",
+      "receivable"
+     ],
+     "why": "Efficiency: sales ÷ accounts receivable; 365 ÷ the ratio gives days to collect."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "quick ratio",
+      "acid test"
+     ],
+     "p": 10,
+     "msg": "A real ratio, but not one of the seven in the HSC syllabus; liquidity uses the current ratio."
+    },
+    {
+     "k": [
+      "inventory turnover",
+      "stock turnover"
+     ],
+     "p": 10,
+     "msg": "Not in the HSC seven; efficiency uses the expense ratio and accounts receivable turnover."
+    }
+   ]
+  },
+  {
+   "id": "fin-ratio-benchmarks",
+   "sec": "P",
+   "q": "Give a benchmark for a healthy financial ratio",
+   "hint": "e.g. a current ratio of 2:1",
+   "learn": "Benchmarks help interpret ratios, but always compare with industry averages and prior years. A current ratio of 4:1 is too high (idle assets) and 0.5:1 means short-term debts can't be met.",
+   "answers": [
+    {
+     "a": "Current ratio of 2:1",
+     "p": 10,
+     "k": [
+      "2:1",
+      "two to one",
+      "current 2:1"
+     ],
+     "why": "For every $1 of current liabilities there is $2 of current assets to cover it."
+    },
+    {
+     "a": "Net profit ratio of about 15%",
+     "p": 45,
+     "k": [
+      "15%",
+      "15 percent",
+      "net profit 15%",
+      "np 15%"
+     ],
+     "why": "Every $1 of sales leaves 15 cents of net profit; check the industry average too."
+    },
+    {
+     "a": "Debt to equity of 0.5:1",
+     "p": 55,
+     "k": [
+      "0.5:1",
+      "0.5",
+      "gearing 0.5",
+      "half as much debt"
+     ],
+     "why": "Generally considered sound: debt is half the owners' equity."
+    },
+    {
+     "a": "Return on equity of 10–15%",
+     "p": 70,
+     "k": [
+      "10-15%",
+      "10 to 15 percent",
+      "10%",
+      "roe 10%"
+     ],
+     "why": "Owners receive 10 to 15 cents for every $1 of equity they contribute."
+    },
+    {
+     "a": "ROE above bank deposit returns",
+     "p": 85,
+     "k": [
+      "higher than bank",
+      "bank interest",
+      "alternative investments",
+      "better than bank",
+      "above bank"
+     ],
+     "why": "ROE should beat what owners could earn from alternative investments, like a bank."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "4:1",
+      "4 to 1"
+     ],
+     "p": 10,
+     "msg": "4:1 is too high for a current ratio: assets sit idle instead of funding growth."
+    },
+    {
+     "k": [
+      "1:1",
+      "1 to 1"
+     ],
+     "p": 10,
+     "msg": "A 1:1 gearing ratio means equal debt and equity; 0.5:1 is considered sound."
+    }
+   ]
+  },
+  {
+   "id": "fin-comparative-analysis",
+   "sec": "P",
+   "q": "Name a basis for comparative ratio analysis",
+   "hint": "WAO: over time, against standards, with similar businesses",
+   "learn": "A ratio means little on its own. It is compared over different time periods, against standards (internal budgets or industry benchmarks) and with similar businesses, so trends are spotted and corrective action taken.",
+   "answers": [
+    {
+     "a": "Over different time periods",
+     "p": 10,
+     "k": [
+      "over time",
+      "previous years",
+      "prior years",
+      "past years",
+      "time periods",
+      "previous periods",
+      "trends"
+     ],
+     "why": "Comparing with previous periods reveals trends and prompts corrective action."
+    },
+    {
+     "a": "With similar businesses",
+     "p": 20,
+     "k": [
+      "competitors",
+      "other businesses",
+      "peers",
+      "industry peers",
+      "similar firms"
+     ],
+     "why": "Valid because factors affecting one business likely affect others in the same industry."
+    },
+    {
+     "a": "Against industry standards",
+     "p": 50,
+     "k": [
+      "industry standard",
+      "industry average",
+      "industry benchmark",
+      "benchmark",
+      "standards",
+      "against standards"
+     ],
+     "why": "External benchmarks, e.g. the industry standard level of gearing."
+    },
+    {
+     "a": "Against internal budgets",
+     "p": 70,
+     "k": [
+      "budget",
+      "internal budgets",
+      "budgeted figures",
+      "actual vs budget",
+      "predicted figures",
+      "planned figures"
+     ],
+     "why": "Internal standards: comparing actual figures with budgeted or predicted figures."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "liquidity",
+      "profitability",
+      "efficiency",
+      "gearing"
+     ],
+     "p": 5,
+     "msg": "Those are ratio categories; comparative analysis is about what you compare against."
+    }
+   ]
+  },
+  {
+   "id": "fin-report-limitations",
+   "sec": "P",
+   "q": "Name a limitation of financial reports",
+   "hint": "CNN DTV",
+   "learn": "Financial reports can mislead: earnings may not be normalised, expenses may be capitalised, assets valued poorly, revenue and expenses shifted between periods, debt details omitted and key information left in the notes.",
+   "answers": [
+    {
+     "a": "Valuing assets",
+     "p": 15,
+     "k": [
+      "asset valuation",
+      "valuation",
+      "value of assets",
+      "historical cost",
+      "depreciation",
+      "intangibles",
+      "goodwill",
+      "asset values"
+     ],
+     "why": "Historical cost, chosen depreciation rates and subjective intangibles (goodwill) distort value."
+    },
+    {
+     "a": "Timing issues",
+     "p": 20,
+     "k": [
+      "timing",
+      "cut off periods",
+      "cut off",
+      "shifting expenses",
+      "shifting revenue",
+      "shift expenses"
+     ],
+     "why": "Expenses or revenue shifted between years to cut tax or inflate profit."
+    },
+    {
+     "a": "Capitalising expenses",
+     "p": 35,
+     "k": [
+      "capitalising",
+      "capitalizing",
+      "capitalisation",
+      "capitalise",
+      "expenses as assets"
+     ],
+     "why": "Recording an expense (e.g. R&D) as an asset understates expenses and overstates profit."
+    },
+    {
+     "a": "Debt repayments",
+     "p": 50,
+     "k": [
+      "debt repayment",
+      "debt",
+      "debt information",
+      "repayments"
+     ],
+     "why": "Reports may not show when debts are due, or whether the business and its debtors can repay."
+    },
+    {
+     "a": "Normalised earnings",
+     "p": 60,
+     "k": [
+      "normalising",
+      "normalizing",
+      "normalised",
+      "normalisation",
+      "one off items",
+      "one off",
+      "abnormal items"
+     ],
+     "why": "Without removing one-off items (e.g. a land sale), earnings give a false impression."
+    },
+    {
+     "a": "Notes to the financial statements",
+     "p": 75,
+     "k": [
+      "notes",
+      "footnotes",
+      "notes to the accounts"
+     ],
+     "why": "Key details, like accounting methods, sit in notes that users may not read."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "fraud",
+      "theft"
+     ],
+     "p": 5,
+     "msg": "Fraud is an ethical and legal issue, not one of the six limitations (CNN DTV)."
+    }
+   ]
+  },
+  {
+   "id": "fin-ethical-reporting",
+   "sec": "P",
+   "q": "Name a way to keep financial reporting ethical",
+   "hint": "Audits are the go-to example",
+   "learn": "Ethical reporting gives stakeholders a true and fair view. External audits are a legal requirement for public companies under the Corporations Act 2001 (Cth); internal audits are an ethical choice.",
+   "answers": [
+    {
+     "a": "Full disclosure and transparency",
+     "p": 15,
+     "k": [
+      "disclosure",
+      "transparency",
+      "transparent",
+      "honesty",
+      "honest",
+      "directors pay"
+     ],
+     "why": "Disclose relevant information, such as payments to directors, to all stakeholders."
+    },
+    {
+     "a": "Internal audits",
+     "p": 20,
+     "k": [
+      "internal audit",
+      "audit",
+      "auditing",
+      "audited accounts"
+     ],
+     "why": "Optional, ethical checks of practices and procedures to ensure accurate data."
+    },
+    {
+     "a": "External audits",
+     "p": 35,
+     "k": [
+      "external audit",
+      "external auditors",
+      "independent audit",
+      "independent auditors"
+     ],
+     "why": "Independent auditors confirm the reports give a true and fair view (legal for public companies)."
+    },
+    {
+     "a": "Normalise earnings",
+     "p": 45,
+     "k": [
+      "normalising",
+      "normalised",
+      "normalisation",
+      "remove one off items"
+     ],
+     "why": "Remove one-off items so earnings reflect true performance."
+    },
+    {
+     "a": "Value assets correctly",
+     "p": 50,
+     "k": [
+      "value assets",
+      "valuing assets",
+      "asset valuation",
+      "correct valuation",
+      "accurate valuation"
+     ],
+     "why": "Avoid overvaluing intangibles or using misleading depreciation rates."
+    },
+    {
+     "a": "Avoid capitalising expenses",
+     "p": 60,
+     "k": [
+      "capitalising",
+      "capitalizing",
+      "capitalise",
+      "dont capitalise",
+      "not capitalising"
+     ],
+     "why": "Record expenses as expenses so profit and assets aren't overstated."
+    },
+    {
+     "a": "Disclose debt repayment details",
+     "p": 70,
+     "k": [
+      "debt repayments",
+      "debt",
+      "debt information",
+      "disclose debt repayments"
+     ],
+     "why": "Show when debts are due and whether they can be repaid."
+    },
+    {
+     "a": "Avoid conflicts of interest",
+     "p": 75,
+     "k": [
+      "conflict of interest",
+      "conflicts",
+      "conflict"
+     ],
+     "why": "Those preparing the accounts shouldn't benefit from how the figures look."
+    },
+    {
+     "a": "Follow accounting standards",
+     "p": 85,
+     "k": [
+      "accounting standards",
+      "gaap",
+      "ifrs",
+      "accounting conventions",
+      "best practice",
+      "standards",
+      "conventions"
+     ],
+     "why": "Prepare accounts using best practice and accounting conventions such as GAAP and IFRS."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "window dressing",
+      "shift expenses",
+      "cook the books"
+     ],
+     "p": 5,
+     "msg": "That's the unethical practice; name what an ethical business does instead."
+    }
+   ]
+  },
+  {
+   "id": "fin-cash-flow-strategies",
+   "sec": "S",
+   "q": "Name a cash flow management strategy",
+   "hint": "DDF",
+   "learn": "Cash flow management is managing the movement of cash in and out of the business, using cash flow statements and the DDF strategies: distribution of payments, discounts for early payment and factoring.",
+   "answers": [
+    {
+     "a": "Factoring",
+     "p": 15,
+     "k": [
+      "factor",
+      "debt factoring",
+      "sell receivables",
+      "sell accounts receivable"
+     ],
+     "why": "Sell accounts receivable at a discount for immediate cash."
+    },
+    {
+     "a": "Discounts for early payment",
+     "p": 20,
+     "k": [
+      "discounts",
+      "early payment discount",
+      "early payment"
+     ],
+     "why": "Offer debtors a discount to pay before the due date, speeding up inflows."
+    },
+    {
+     "a": "Cash flow statements and budgets",
+     "p": 35,
+     "k": [
+      "cash flow statement",
+      "cash flow budget",
+      "cash budget",
+      "cash flow forecast",
+      "forecasting",
+      "forecast"
+     ],
+     "why": "Show the timing of inflows and outflows so trends can be found and shortages forecast."
+    },
+    {
+     "a": "Distribution of payments",
+     "p": 40,
+     "k": [
+      "distributing payments",
+      "distribution",
+      "timing payments",
+      "time payments",
+      "spread payments",
+      "stagger payments",
+      "spreading payments"
+     ],
+     "why": "Time payments to creditors to match inflows, so they don't all fall due at once."
+    },
+    {
+     "a": "Late payment fees",
+     "p": 70,
+     "k": [
+      "late fees",
+      "late payment",
+      "penalties",
+      "late payment penalty"
+     ],
+     "why": "Fees on overdue accounts discourage late payment, though they may strain relationships."
+    },
+    {
+     "a": "Build cash reserves",
+     "p": 80,
+     "k": [
+      "cash reserves",
+      "reserves",
+      "cash buffer",
+      "savings"
+     ],
+     "why": "A cash reserve covers unexpected expenses and avoids cash shortfalls."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "leasing",
+      "sale and lease back"
+     ],
+     "p": 10,
+     "msg": "Leasing and sale and lease back are working capital strategies (SL), not DDF."
+    }
+   ]
+  },
+  {
+   "id": "fin-factoring-advantage",
+   "sec": "S",
+   "q": "Give an advantage of factoring",
+   "learn": "Factoring is selling accounts receivable at a discount to a factoring company for immediate cash. With recourse, the business still bears bad debts; without recourse, the factor does.",
+   "answers": [
+    {
+     "a": "Immediate access to cash",
+     "p": 10,
+     "k": [
+      "immediate",
+      "immediately",
+      "immediate cash",
+      "quick cash",
+      "fast cash",
+      "instant",
+      "48 hours"
+     ],
+     "why": "Funds usually arrive within 48 hours."
+    },
+    {
+     "a": "Improves cash flow",
+     "p": 20,
+     "k": [
+      "cash flow",
+      "cashflow",
+      "cash on hand"
+     ],
+     "why": "Receivables become cash on hand, smoothing cash flow."
+    },
+    {
+     "a": "Saves time and cost of debt collection",
+     "p": 35,
+     "k": [
+      "saves time",
+      "debt collection",
+      "collection",
+      "chasing debts",
+      "following up",
+      "unpaid accounts",
+      "saves money",
+      "collection costs"
+     ],
+     "why": "No time or money spent following up unpaid accounts."
+    },
+    {
+     "a": "More liquid position",
+     "p": 45,
+     "k": [
+      "liquidity",
+      "liquid",
+      "liquidity objective"
+     ],
+     "why": "Turning receivables into cash puts the business in a more liquid position."
+    },
+    {
+     "a": "Factor bears bad debts (without recourse)",
+     "p": 80,
+     "k": [
+      "without recourse",
+      "bad debts",
+      "no bad debts",
+      "bad debt risk"
+     ],
+     "why": "Without recourse, unpaid debts become the factoring company's responsibility."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "face value",
+      "full value",
+      "customer relationships"
+     ],
+     "p": 5,
+     "msg": "That's a disadvantage: less than face value, and a third party now chases your customers."
+    },
+    {
+     "k": [
+      "with recourse"
+     ],
+     "p": 5,
+     "msg": "With recourse, the business still carries the bad debts, so that's a disadvantage."
+    }
+   ]
+  },
+  {
+   "id": "fin-factoring-disadvantage",
+   "sec": "S",
+   "q": "Give a disadvantage of factoring",
+   "learn": "The factoring company keeps a cut (often around 10%) of the receivables' face value, and its involvement can strain customer relationships.",
+   "answers": [
+    {
+     "a": "Less than full face value",
+     "p": 10,
+     "k": [
+      "face value",
+      "full value",
+      "discount",
+      "discounted",
+      "10%",
+      "less money",
+      "lose money",
+      "fees"
+     ],
+     "why": "Receivables are sold at a discount, often around 10% below face value."
+    },
+    {
+     "a": "Harms customer relationships",
+     "p": 25,
+     "k": [
+      "customer relationships",
+      "customers",
+      "relationships",
+      "third party",
+      "3rd party",
+      "customer relations"
+     ],
+     "why": "A third party now collects the debt, which may sour customer relationships."
+    },
+    {
+     "a": "Still liable for bad debts with recourse",
+     "p": 55,
+     "k": [
+      "with recourse",
+      "recourse",
+      "bad debts",
+      "unpaid debts"
+     ],
+     "why": "Under recourse factoring, any bad debts remain the business's responsibility."
+    },
+    {
+     "a": "Worsens the current ratio",
+     "p": 80,
+     "k": [
+      "current ratio",
+      "ratio",
+      "working capital ratio",
+      "ca cl"
+     ],
+     "why": "Receivables are swapped for less cash, so current assets fall and CA:CL drops."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "immediate cash",
+      "cash flow",
+      "saves time"
+     ],
+     "p": 5,
+     "msg": "That's an advantage of factoring."
+    }
+   ]
+  },
+  {
+   "id": "fin-cash-outflows",
+   "sec": "S",
+   "q": "Name a cash outflow on a cash flow statement",
+   "learn": "A cash flow statement shows cash receipts (inflows) and cash payments (outflows) over a period. Tracking their timing reveals trends and supports better spending decisions when inflows are low.",
+   "answers": [
+    {
+     "a": "Wages",
+     "p": 10,
+     "k": [
+      "salaries",
+      "salary",
+      "paying employees",
+      "employees",
+      "staff"
+     ],
+     "why": "Payments to employees, usually the biggest regular outflow."
+    },
+    {
+     "a": "Payments to suppliers",
+     "p": 15,
+     "k": [
+      "suppliers",
+      "stock",
+      "inventory",
+      "purchases",
+      "buying stock"
+     ],
+     "why": "Paying for stock and raw materials."
+    },
+    {
+     "a": "Other expenses (rent, power)",
+     "p": 25,
+     "k": [
+      "rent",
+      "electricity",
+      "bills",
+      "utilities",
+      "expenses",
+      "power"
+     ],
+     "why": "Everyday expense payments such as rent and electricity."
+    },
+    {
+     "a": "Loan repayments",
+     "p": 30,
+     "k": [
+      "loan",
+      "repayments",
+      "interest",
+      "debt repayments",
+      "financial institutions"
+     ],
+     "why": "Payments to financial institutions for loans and interest."
+    },
+    {
+     "a": "Insurance",
+     "p": 45,
+     "k": [
+      "insurance premiums",
+      "premiums"
+     ],
+     "why": "Insurance premiums are an expense payment."
+    },
+    {
+     "a": "Dividends",
+     "p": 55,
+     "k": [
+      "shareholders",
+      "paying shareholders"
+     ],
+     "why": "Cash paid to shareholders as their share of profit."
+    },
+    {
+     "a": "Purchase of assets",
+     "p": 70,
+     "k": [
+      "assets",
+      "buying assets",
+      "equipment",
+      "machinery",
+      "capital expenditure"
+     ],
+     "why": "Buying non-current assets like machinery is a cash outflow, though not an expense."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "cash sales",
+      "credit sales",
+      "sales",
+      "share issue",
+      "investment returns"
+     ],
+     "p": 10,
+     "msg": "That's a cash inflow (receipt), not an outflow."
+    }
+   ]
+  },
+  {
+   "id": "fin-working-capital",
+   "sec": "S",
+   "q": "Name a way to manage working capital",
+   "hint": "RIC, LOP, SL",
+   "learn": "Working capital management finds the best mix of current assets and current liabilities: control current assets (receivables, inventories, cash), control current liabilities (loans, overdrafts, payables) and use leasing and sale and lease back.",
+   "answers": [
+    {
+     "a": "Control cash",
+     "p": 10,
+     "k": [
+      "cash",
+      "cash management",
+      "cash reserves"
+     ],
+     "why": "Plan the timing of receipts, payments and asset purchases to avoid shortfalls."
+    },
+    {
+     "a": "Control receivables",
+     "p": 20,
+     "k": [
+      "receivables",
+      "accounts receivable",
+      "debtors",
+      "credit control"
+     ],
+     "why": "Speed up collection with credit checks and follow-ups."
+    },
+    {
+     "a": "Control inventories",
+     "p": 25,
+     "k": [
+      "inventory",
+      "stock",
+      "jit",
+      "just in time"
+     ],
+     "why": "Avoid over- and under-stocking, e.g. with a JIT system."
+    },
+    {
+     "a": "Control payables",
+     "p": 35,
+     "k": [
+      "payables",
+      "accounts payable",
+      "creditors",
+      "suppliers"
+     ],
+     "why": "Use credit periods and early payment discounts wisely."
+    },
+    {
+     "a": "Leasing",
+     "p": 40,
+     "k": [
+      "lease"
+     ],
+     "why": "Avoids a large upfront payment, freeing working capital."
+    },
+    {
+     "a": "Control loans",
+     "p": 50,
+     "k": [
+      "loans",
+      "borrowing"
+     ],
+     "why": "Compare interest rates and terms; consider bridging finance."
+    },
+    {
+     "a": "Control overdrafts",
+     "p": 55,
+     "k": [
+      "overdraft"
+     ],
+     "why": "Useful for short-term liquidity, but repay quickly given high interest and fees."
+    },
+    {
+     "a": "Sale and lease back",
+     "p": 70,
+     "k": [
+      "sale and leaseback",
+      "leaseback",
+      "sell and lease back"
+     ],
+     "why": "Selling an asset and leasing it back injects working capital."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "factoring",
+      "discounts for early payment",
+      "distribution of payments"
+     ],
+     "p": 10,
+     "msg": "Those are cash flow management strategies (DDF); working capital is RIC, LOP, SL."
+    }
+   ]
+  },
+  {
+   "id": "fin-receivables-control",
+   "sec": "S",
+   "q": "Name a strategy to speed up collection of receivables",
+   "learn": "Slow collection of accounts receivable ties up cash. Tighter controls lift the accounts receivable turnover ratio, though credit that is too tight may push customers to competitors.",
+   "answers": [
+    {
+     "a": "Tighter credit policies",
+     "p": 15,
+     "k": [
+      "tighter credit",
+      "credit policy",
+      "stricter credit",
+      "shorter credit terms",
+      "tight credit"
+     ],
+     "why": "Shorter, stricter credit terms mean customers pay sooner."
+    },
+    {
+     "a": "Credit checks before granting credit",
+     "p": 20,
+     "k": [
+      "credit check",
+      "credit rating",
+      "credit history",
+      "check credit"
+     ],
+     "why": "Check customers' credit ratings before letting them buy on credit."
+    },
+    {
+     "a": "Follow up unpaid accounts",
+     "p": 25,
+     "k": [
+      "follow up",
+      "following up",
+      "reminder letters",
+      "formal letters",
+      "reminders",
+      "chase debts",
+      "chasing"
+     ],
+     "why": "Send formal letters to customers who haven't paid."
+    },
+    {
+     "a": "Discounts for early payment",
+     "p": 30,
+     "k": [
+      "discount",
+      "early payment",
+      "early payment discount"
+     ],
+     "why": "An incentive to pay before the due date, improving ARTO."
+    },
+    {
+     "a": "Charge interest on overdue accounts",
+     "p": 50,
+     "k": [
+      "charge interest",
+      "interest",
+      "interest on overdue",
+      "overdue interest"
+     ],
+     "why": "Interest makes paying late costly for customers."
+    },
+    {
+     "a": "Late payment fees",
+     "p": 55,
+     "k": [
+      "late fees",
+      "late payment",
+      "penalties"
+     ],
+     "why": "Fees deter late payment but may strain customer relationships."
+    },
+    {
+     "a": "Cash-only payment policy",
+     "p": 60,
+     "k": [
+      "cash only",
+      "cash payments",
+      "no credit",
+      "cash"
+     ],
+     "why": "No credit means no receivables to chase."
+    },
+    {
+     "a": "Factoring",
+     "p": 70,
+     "k": [
+      "factor",
+      "debt factoring",
+      "sell receivables"
+     ],
+     "why": "Sell receivables to a factoring company for immediate cash."
+    },
+    {
+     "a": "Bad and doubtful debt policies",
+     "p": 85,
+     "k": [
+      "bad debts",
+      "doubtful debts",
+      "doubtful",
+      "bad debt policy"
+     ],
+     "why": "Clear policies for handling debts that may never be paid."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "extend credit",
+      "more credit",
+      "longer credit terms"
+     ],
+     "p": 5,
+     "msg": "Looser credit slows collection; tighter credit speeds it up."
+    }
+   ]
+  },
+  {
+   "id": "fin-current-liabilities",
+   "sec": "S",
+   "q": "Name a strategy to manage current liabilities",
+   "hint": "LOP: loans, overdrafts, payables",
+   "learn": "Current liabilities are managed by using supplier credit wisely, shopping around for loans and keeping costly overdrafts to a minimum. Overdue payables bring interest charges and damage supplier relations.",
+   "answers": [
+    {
+     "a": "Repay overdrafts quickly",
+     "p": 15,
+     "k": [
+      "overdraft",
+      "repay overdraft",
+      "avoid overdrafts",
+      "minimise overdraft"
+     ],
+     "why": "Overdrafts carry high interest and fees, so pay them back as soon as possible."
+    },
+    {
+     "a": "Compare loan rates and terms",
+     "p": 20,
+     "k": [
+      "compare loans",
+      "compare interest rates",
+      "best deal",
+      "shop around",
+      "compare",
+      "interest rates",
+      "loan terms"
+     ],
+     "why": "Shop around, and monitor establishment fees, rates and ongoing charges."
+    },
+    {
+     "a": "Take early payment discounts",
+     "p": 25,
+     "k": [
+      "early payment discount",
+      "discount",
+      "pay early"
+     ],
+     "why": "Paying suppliers early to earn a discount lowers costs."
+    },
+    {
+     "a": "Use interest-free credit periods",
+     "p": 30,
+     "k": [
+      "interest free",
+      "interest free period",
+      "credit period",
+      "trade credit",
+      "pay on due date"
+     ],
+     "why": "Hold payment until the due date to use suppliers' free credit."
+    },
+    {
+     "a": "Negotiate extended payment terms",
+     "p": 45,
+     "k": [
+      "extended terms",
+      "negotiate terms",
+      "longer terms",
+      "extend payment terms",
+      "negotiate",
+      "extension"
+     ],
+     "why": "An established supplier relationship may win longer payment terms."
+    },
+    {
+     "a": "Avoid overdue payables",
+     "p": 50,
+     "k": [
+      "pay on time",
+      "avoid overdue",
+      "overdue",
+      "supplier relations",
+      "supplier relationships",
+      "avoid late payments"
+     ],
+     "why": "Late payment brings interest charges and may cost future trade credit."
+    },
+    {
+     "a": "Bridging finance",
+     "p": 70,
+     "k": [
+      "bridging",
+      "bridging loan"
+     ],
+     "why": "A short-term loan used until permanent finance is available."
+    },
+    {
+     "a": "Floor plan finance",
+     "p": 80,
+     "k": [
+      "floor plan",
+      "floorplan"
+     ],
+     "why": "Suppliers provide goods for a period before payment is due."
+    },
+    {
+     "a": "Consignment finance",
+     "p": 85,
+     "k": [
+      "consignment"
+     ],
+     "why": "Suppliers provide goods and are paid only once the goods are sold."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "factoring",
+      "credit checks"
+     ],
+     "p": 5,
+     "msg": "That manages receivables (a current asset), not liabilities."
+    }
+   ]
+  },
+  {
+   "id": "fin-leasing-advantage",
+   "sec": "S",
+   "q": "Give an advantage of leasing an asset",
+   "learn": "Leasing is hiring an asset from a lessor who bought it and keeps ownership. It avoids a large upfront payment, freeing working capital for use elsewhere.",
+   "answers": [
+    {
+     "a": "Frees up working capital",
+     "p": 15,
+     "k": [
+      "working capital",
+      "no upfront payment",
+      "no upfront cost",
+      "upfront",
+      "frees up cash",
+      "cash flow",
+      "liquidity"
+     ],
+     "why": "No large upfront payment, so cash stays available for other uses."
+    },
+    {
+     "a": "Lease payments are tax deductible",
+     "p": 20,
+     "k": [
+      "tax deductible",
+      "tax",
+      "deductible",
+      "tax deduction"
+     ],
+     "why": "Payments are a deductible expense, lowering tax."
+    },
+    {
+     "a": "Fixed payments aid budgeting",
+     "p": 40,
+     "k": [
+      "fixed payments",
+      "budgeting",
+      "budget",
+      "forecasting",
+      "predictable",
+      "regular payments"
+     ],
+     "why": "Payments are fixed for a set time, helping cash flow forecasts and budgets."
+    },
+    {
+     "a": "Lessor covers maintenance",
+     "p": 70,
+     "k": [
+      "maintenance",
+      "operating lease",
+      "repairs",
+      "lessor maintains"
+     ],
+     "why": "Under an operating lease, the lessor pays the maintenance costs."
+    },
+    {
+     "a": "Cheaper than issuing securities",
+     "p": 85,
+     "k": [
+      "cheaper",
+      "lower cost",
+      "no prospectus",
+      "cheaper than debentures"
+     ],
+     "why": "Can cost less than raising debentures or unsecured notes, which need a prospectus."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "own the asset",
+      "ownership"
+     ],
+     "p": 5,
+     "msg": "The lessee never owns the asset; that's a disadvantage of leasing."
+    }
+   ]
+  },
+  {
+   "id": "fin-leasing-disadvantage",
+   "sec": "S",
+   "q": "Give a disadvantage of leasing an asset",
+   "learn": "The lessor keeps ownership, so the lessee pays for use without owning anything at the end, and is locked in for the full term.",
+   "answers": [
+    {
+     "a": "Never owns the asset",
+     "p": 10,
+     "k": [
+      "no ownership",
+      "dont own",
+      "doesnt own",
+      "not owned",
+      "ownership",
+      "own"
+     ],
+     "why": "The asset goes back to the lessor at the end of the lease."
+    },
+    {
+     "a": "Locked in for the full term",
+     "p": 25,
+     "k": [
+      "full term",
+      "penalties",
+      "early termination",
+      "locked in",
+      "obliged",
+      "contract"
+     ],
+     "why": "Payments are owed for the whole term; ending early brings penalties."
+    },
+    {
+     "a": "Higher interest than other borrowing",
+     "p": 40,
+     "k": [
+      "higher interest",
+      "interest",
+      "expensive",
+      "costly",
+      "more expensive"
+     ],
+     "why": "An interest component is embedded in the lease payments."
+    },
+    {
+     "a": "Maintenance costs (financial lease)",
+     "p": 75,
+     "k": [
+      "maintenance",
+      "financial lease",
+      "finance lease",
+      "repairs"
+     ],
+     "why": "Under a financial lease, the business pays to maintain the asset."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "tax deductible",
+      "working capital"
+     ],
+     "p": 5,
+     "msg": "That's an advantage of leasing."
+    }
+   ]
+  },
+  {
+   "id": "fin-sale-leaseback",
+   "sec": "S",
+   "q": "Name an effect of a sale and lease back",
+   "learn": "A sale and lease back sells an owned asset, such as a building, then leases it back from the new owner, turning a fixed asset into cash while keeping its use.",
+   "answers": [
+    {
+     "a": "Boosts working capital and liquidity",
+     "p": 10,
+     "k": [
+      "working capital",
+      "liquidity",
+      "cash",
+      "cash injection",
+      "lump sum",
+      "sale proceeds",
+      "liquid"
+     ],
+     "why": "Sale proceeds increase working capital and liquidity."
+    },
+    {
+     "a": "No longer owns the asset",
+     "p": 20,
+     "k": [
+      "no longer owns",
+      "lose ownership",
+      "ownership",
+      "dont own",
+      "own"
+     ],
+     "why": "The business gives up ownership of the asset."
+    },
+    {
+     "a": "Lease payments are tax deductible",
+     "p": 40,
+     "k": [
+      "tax deductible",
+      "tax",
+      "deductible",
+      "profitability"
+     ],
+     "why": "Deductible lease payments support profitability."
+    },
+    {
+     "a": "Proceeds repay debt, improving solvency",
+     "p": 50,
+     "k": [
+      "solvency",
+      "pay off debt",
+      "repay debt",
+      "pay off liabilities",
+      "reduce debt",
+      "gearing",
+      "solvent"
+     ],
+     "why": "Proceeds can pay off outstanding liabilities, improving solvency."
+    },
+    {
+     "a": "Locked in for the full lease term",
+     "p": 65,
+     "k": [
+      "full term",
+      "penalties",
+      "early termination",
+      "locked in",
+      "obliged"
+     ],
+     "why": "Repayments are owed for the whole term, with penalties for ending early."
+    },
+    {
+     "a": "Lease payments may rise",
+     "p": 75,
+     "k": [
+      "increase lease payments",
+      "rent increases",
+      "payments increase",
+      "higher payments",
+      "rising payments",
+      "rent rises",
+      "lease increases"
+     ],
+     "why": "The new owner is likely to raise lease payments over time."
+    }
+   ]
+  },
+  {
+   "id": "fin-profitability-management",
+   "sec": "S",
+   "q": "Name a way to manage profitability",
+   "hint": "Cost controls (FEC) and revenue controls",
+   "learn": "Profitability management controls costs (fixed and variable costs, cost centres, expense minimisation) and revenue through marketing objectives (sales objectives, sales mix, pricing policy).",
+   "answers": [
+    {
+     "a": "Control fixed and variable costs",
+     "p": 10,
+     "k": [
+      "cost control",
+      "cut costs",
+      "reduce costs",
+      "fixed costs",
+      "variable costs",
+      "costs",
+      "cost cutting"
+     ],
+     "why": "Monitoring both cost types is key to cost leadership and maximum profit."
+    },
+    {
+     "a": "Expense minimisation",
+     "p": 20,
+     "k": [
+      "minimise expenses",
+      "minimize expenses",
+      "reduce expenses",
+      "cut expenses",
+      "expenses"
+     ],
+     "why": "Actions to reduce expenses, e.g. supplier rationalisation and lean production."
+    },
+    {
+     "a": "Pricing policy",
+     "p": 30,
+     "k": [
+      "pricing",
+      "price",
+      "raise prices",
+      "pricing strategy"
+     ],
+     "why": "Find the optimal price: too high loses buyers, too low may not cover costs."
+    },
+    {
+     "a": "Sales objectives",
+     "p": 50,
+     "k": [
+      "sales targets",
+      "break even",
+      "breakeven",
+      "cvp",
+      "cost volume profit",
+      "increase sales",
+      "revenue",
+      "increase revenue",
+      "sales"
+     ],
+     "why": "Cost-volume-profit analysis finds break-even sales, then targets are set."
+    },
+    {
+     "a": "Sales mix",
+     "p": 60,
+     "k": [
+      "product mix",
+      "product deletion",
+      "delete products",
+      "product range"
+     ],
+     "why": "Push high-demand lines and cut underperforming products."
+    },
+    {
+     "a": "Cost centres",
+     "p": 70,
+     "k": [
+      "cost centre",
+      "cost center",
+      "departments",
+      "department budgets"
+     ],
+     "why": "Costs traced to departments give them ownership and accountability for spending."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "factoring",
+      "leasing"
+     ],
+     "p": 5,
+     "msg": "Those manage cash flow and working capital, not profitability."
+    }
+   ]
+  },
+  {
+   "id": "fin-expense-minimisation",
+   "sec": "S",
+   "q": "Name an expense minimisation strategy",
+   "learn": "Expense minimisation is the actions a business takes to reduce expenses, mostly through smarter buying, leaner processes and cheaper labour arrangements.",
+   "answers": [
+    {
+     "a": "Switch to cheaper suppliers",
+     "p": 10,
+     "k": [
+      "cheaper suppliers",
+      "cheaper inputs",
+      "change suppliers",
+      "cheap suppliers"
+     ],
+     "why": "Sourcing cheaper inputs cuts COGS."
+    },
+    {
+     "a": "Bulk buying (volume aggregation)",
+     "p": 25,
+     "k": [
+      "bulk buying",
+      "bulk",
+      "buy in bulk",
+      "volume aggregation",
+      "aggregation",
+      "central purchasing",
+      "supplier discounts",
+      "negotiate discounts"
+     ],
+     "why": "Pooling orders centrally (not office by office) wins better deals from suppliers."
+    },
+    {
+     "a": "Lean production",
+     "p": 40,
+     "k": [
+      "lean",
+      "lean manufacturing",
+      "reduce waste",
+      "minimise waste",
+      "waste"
+     ],
+     "why": "Minimising waste and maximising efficiency."
+    },
+    {
+     "a": "Supplier rationalisation",
+     "p": 55,
+     "k": [
+      "supplier consolidation",
+      "rationalisation",
+      "rationalization",
+      "consolidation",
+      "fewer suppliers",
+      "reduce suppliers"
+     ],
+     "why": "Using fewer suppliers to win better terms."
+    },
+    {
+     "a": "Casual staff instead of full-time",
+     "p": 60,
+     "k": [
+      "casual",
+      "casuals",
+      "casual staff"
+     ],
+     "why": "Replacing full-time staff with casuals saves on-costs."
+    },
+    {
+     "a": "Competitive bidding",
+     "p": 65,
+     "k": [
+      "bidding",
+      "tender",
+      "tendering",
+      "dual supplier",
+      "competitive tension"
+     ],
+     "why": "Suppliers bid against each other, or dual suppliers create competitive tension."
+    },
+    {
+     "a": "Low-cost country sourcing",
+     "p": 70,
+     "k": [
+      "offshore sourcing",
+      "low cost country",
+      "overseas suppliers",
+      "sourcing overseas",
+      "offshoring",
+      "overseas"
+     ],
+     "why": "Sourcing inputs from countries with lower costs."
+    },
+    {
+     "a": "Cut supply chain intermediaries",
+     "p": 75,
+     "k": [
+      "intermediaries",
+      "middlemen",
+      "cut out the middleman",
+      "direct to customer"
+     ],
+     "why": "Going directly from manufacturer to customer."
+    },
+    {
+     "a": "Customer self-service",
+     "p": 85,
+     "k": [
+      "self service",
+      "self servicing",
+      "self checkout"
+     ],
+     "why": "Customers serve themselves, reducing staff requirements and wages."
+    },
+    {
+     "a": "Specification improvement",
+     "p": 90,
+     "k": [
+      "specification",
+      "spec improvement",
+      "only buy what you need"
+     ],
+     "why": "Buy only what's needed, e.g. 80 GSM paper rather than 100 GSM."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "raise prices",
+      "increase prices",
+      "increase sales"
+     ],
+     "p": 5,
+     "msg": "That's a revenue control, not expense minimisation."
+    }
+   ]
+  },
+  {
+   "id": "fin-variable-costs",
+   "sec": "S",
+   "q": "Give an example of a variable cost",
+   "learn": "Variable costs change with the level of production or sales. Fixed costs (salaries, rent, lease payments, fixed-rate interest) stay the same and are often locked in by contract, so they're harder to cut.",
+   "answers": [
+    {
+     "a": "Raw materials",
+     "p": 10,
+     "k": [
+      "materials",
+      "inputs",
+      "purchases",
+      "stock purchases"
+     ],
+     "why": "More output needs more materials."
+    },
+    {
+     "a": "Employee wages",
+     "p": 20,
+     "k": [
+      "wages",
+      "hourly wages"
+     ],
+     "why": "Wages rise with hours worked (salaries, by contrast, are fixed)."
+    },
+    {
+     "a": "Electricity",
+     "p": 25,
+     "k": [
+      "power",
+      "energy",
+      "utilities",
+      "electricity bills"
+     ],
+     "why": "Machines running longer use more power."
+    },
+    {
+     "a": "Transport",
+     "p": 40,
+     "k": [
+      "transportation",
+      "freight",
+      "shipping",
+      "delivery",
+      "fuel"
+     ],
+     "why": "Delivering more goods costs more."
+    },
+    {
+     "a": "Advertising",
+     "p": 50,
+     "k": [
+      "promotion",
+      "marketing",
+      "ads",
+      "advertisements"
+     ],
+     "why": "Listed in the flashcards as a variable cost: spending changes with sales activity."
+    },
+    {
+     "a": "Overtime payments",
+     "p": 60,
+     "k": [
+      "overtime",
+      "overtime pay"
+     ],
+     "why": "Paid only when extra hours are needed for more output."
+    },
+    {
+     "a": "Telephone",
+     "p": 75,
+     "k": [
+      "phone",
+      "phone bills",
+      "mobile",
+      "phone costs"
+     ],
+     "why": "Call costs vary with activity levels."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "rent",
+      "salaries",
+      "salary",
+      "lease payments",
+      "fixed interest"
+     ],
+     "p": 10,
+     "msg": "That's a fixed cost: it stays the same whatever the level of output."
+    }
+   ]
+  },
+  {
+   "id": "fin-international-payment",
+   "sec": "S",
+   "q": "Name a method of international payment",
+   "hint": "PLBC: safest to riskiest for the exporter",
+   "learn": "From least to most risk for the exporter: payment in advance, letter of credit, bill of exchange and clean payment. The importer's risk runs the opposite way.",
+   "answers": [
+    {
+     "a": "Payment in advance",
+     "p": 15,
+     "k": [
+      "advance payment",
+      "pay in advance",
+      "prepayment",
+      "upfront"
+     ],
+     "why": "The importer pays before shipping: virtually no risk for the exporter, most for the importer."
+    },
+    {
+     "a": "Letter of credit",
+     "p": 25,
+     "k": [
+      "loc",
+      "documentary credit",
+      "credit letter"
+     ],
+     "why": "The importer's bank guarantees payment once goods arrive; safer for both, but bank fees are high."
+    },
+    {
+     "a": "Bill of exchange",
+     "p": 45,
+     "k": [
+      "boe"
+     ],
+     "why": "The importer pays on arrival; the exporter keeps legal ownership until payment."
+    },
+    {
+     "a": "Clean payment",
+     "p": 70,
+     "k": [
+      "open account",
+      "clean",
+      "goods before payment",
+      "ship before payment"
+     ],
+     "why": "Goods are shipped before payment: quick and cheap, but risky for the exporter."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "bill of lading"
+     ],
+     "p": 10,
+     "msg": "The bill of lading is the shipping document used with a bill of exchange, not a payment method."
+    },
+    {
+     "k": [
+      "forward exchange contract",
+      "option contract",
+      "hedging"
+     ],
+     "p": 5,
+     "msg": "That manages exchange rate risk, not how payment is made."
+    }
+   ]
+  },
+  {
+   "id": "fin-hedging",
+   "sec": "S",
+   "q": "Name a way to hedge against exchange rate risk",
+   "hint": "Derivatives or natural hedges",
+   "learn": "Hedging reduces the financial risk of exchange rate movements by locking in the spot rate at the time of the deal. Businesses use derivatives (forward exchange contracts, options) or natural hedges built into normal operations.",
+   "answers": [
+    {
+     "a": "Forward exchange contract",
+     "p": 10,
+     "k": [
+      "forward contract",
+      "forward exchange",
+      "forward",
+      "fec"
+     ],
+     "why": "A bank guarantees an agreed rate on an agreed amount at a future date: certainty, but no upside."
+    },
+    {
+     "a": "Option contract",
+     "p": 30,
+     "k": [
+      "option",
+      "currency option"
+     ],
+     "why": "The right to buy or sell currency at an agreed rate, used only if rates move against you; it costs more."
+    },
+    {
+     "a": "Contracts in Australian dollars",
+     "p": 45,
+     "k": [
+      "australian dollars",
+      "aud",
+      "invoice in aud",
+      "contracts in aud",
+      "denominate in aud"
+     ],
+     "why": "Insisting import and export contracts are in AUD removes the currency risk."
+    },
+    {
+     "a": "Match currency of imports and exports",
+     "p": 65,
+     "k": [
+      "same currency",
+      "match currencies",
+      "matching currencies",
+      "natural hedge",
+      "natural hedging",
+      "offset"
+     ],
+     "why": "Payments and receipts in the same currency offset each other's losses and gains."
+    },
+    {
+     "a": "Offshore subsidiaries",
+     "p": 75,
+     "k": [
+      "offshore subsidiary",
+      "subsidiary",
+      "overseas subsidiary",
+      "overseas operations"
+     ],
+     "why": "A natural hedge: operating abroad means costs and revenue share a currency."
+    },
+    {
+     "a": "Reduce price sensitivity of exports",
+     "p": 90,
+     "k": [
+      "price sensitivity",
+      "marketing",
+      "branding",
+      "less price sensitive"
+     ],
+     "why": "A natural hedge: marketing makes exports less sensitive to currency-driven price changes."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "derivatives"
+     ],
+     "p": 15,
+     "msg": "Right family: now name the derivative, a forward exchange contract or an option."
+    },
+    {
+     "k": [
+      "letter of credit",
+      "payment in advance",
+      "bill of exchange"
+     ],
+     "p": 5,
+     "msg": "That manages the risk of non-payment, not exchange rate risk."
+    }
+   ]
+  },
+  {
+   "id": "fin-overseas-borrowing",
+   "sec": "S",
+   "q": "Name an effect of a business borrowing from overseas",
+   "hint": "Compare the interest rate, then think about the currency",
+   "learn": "Interest rates vary between countries, and integrated global markets let Australian businesses borrow offshore. A cheaper rate can be wiped out by unfavourable exchange rate movements unless the loan is hedged.",
+   "answers": [
+    {
+     "a": "Lower interest rates",
+     "p": 10,
+     "k": [
+      "lower interest",
+      "cheaper interest",
+      "lower rate",
+      "cheaper rates",
+      "cheaper"
+     ],
+     "why": "Rates overseas may be cheaper than in Australia."
+    },
+    {
+     "a": "Exchange rate losses",
+     "p": 25,
+     "k": [
+      "exchange rate",
+      "currency risk",
+      "currency",
+      "exchange rate risk",
+      "forex"
+     ],
+     "why": "Unfavourable currency moves on a foreign loan can outweigh a lower rate (unless hedged)."
+    },
+    {
+     "a": "Quicker, easier finance",
+     "p": 40,
+     "k": [
+      "quicker",
+      "easier",
+      "faster",
+      "quick",
+      "easy",
+      "more easily"
+     ],
+     "why": "Finance may be acquired more quickly and easily overseas."
+    },
+    {
+     "a": "Overseas rates could change",
+     "p": 50,
+     "k": [
+      "rate change",
+      "interest rate changes",
+      "rates rise",
+      "variable rate",
+      "rate could change"
+     ],
+     "why": "The overseas interest rate could move against the business."
+    },
+    {
+     "a": "Fewer restrictions",
+     "p": 65,
+     "k": [
+      "less restrictions",
+      "restrictions",
+      "less regulation",
+      "fewer rules"
+     ],
+     "why": "Overseas lenders may impose fewer restrictions."
+    },
+    {
+     "a": "Access funds scarce at home",
+     "p": 70,
+     "k": [
+      "scarce",
+      "low availability",
+      "availability of funds",
+      "availability",
+      "domestic shortage",
+      "funds unavailable"
+     ],
+     "why": "If funds are scarce in Australia, businesses may borrow from overseas markets."
+    },
+    {
+     "a": "Higher rate due to perceived risk",
+     "p": 80,
+     "k": [
+      "higher interest",
+      "higher rate",
+      "riskier",
+      "risky",
+      "risk premium"
+     ],
+     "why": "Lenders may see a loan to a foreign company as riskier and charge more."
+    }
+   ]
+  }
+ ]
+}

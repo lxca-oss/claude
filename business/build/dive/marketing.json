@@ -1,0 +1,4699 @@
+{
+ "topic": "marketing",
+ "prompts": [
+  {
+   "id": "mkt-role-strategic",
+   "sec": "R",
+   "q": "Name part of marketing's strategic role",
+   "hint": "Design, plan, price, promote and distribute... to win what?",
+   "learn": "Marketing's strategic role is to maximise sales by developing strategies that design, plan, price, promote and distribute goods and services in an attempt to obtain a competitive advantage.",
+   "answers": [
+    {
+     "a": "Promoting products",
+     "p": 10,
+     "k": [
+      "promote",
+      "promotion",
+      "promoting",
+      "advertising"
+     ],
+     "why": "Promotion informs and persuades customers to buy, one of the strategies in marketing's role."
+    },
+    {
+     "a": "Maximising sales",
+     "p": 15,
+     "k": [
+      "maximise sales",
+      "increase sales",
+      "sales",
+      "selling"
+     ],
+     "why": "The goal of marketing's strategic role is to maximise sales for the organisation."
+    },
+    {
+     "a": "Pricing products",
+     "p": 25,
+     "k": [
+      "price",
+      "pricing",
+      "setting prices"
+     ],
+     "why": "Setting the price customers will pay is a core marketing strategy."
+    },
+    {
+     "a": "Distributing products",
+     "p": 35,
+     "k": [
+      "distribute",
+      "distribution",
+      "place",
+      "getting products to customers"
+     ],
+     "why": "Getting goods and services to customers when and where they want them."
+    },
+    {
+     "a": "Designing products",
+     "p": 45,
+     "k": [
+      "design",
+      "product design",
+      "designing"
+     ],
+     "why": "Marketing designs goods and services around what customers need and want."
+    },
+    {
+     "a": "Planning marketing strategies",
+     "p": 55,
+     "k": [
+      "plan",
+      "planning",
+      "marketing plan",
+      "strategy",
+      "strategies",
+      "developing strategies"
+     ],
+     "why": "Marketing plans the strategies (the marketing plan) used to reach its objectives."
+    },
+    {
+     "a": "Gaining a competitive advantage",
+     "p": 75,
+     "k": [
+      "competitive advantage",
+      "competitive edge",
+      "beat competitors",
+      "advantage over competitors"
+     ],
+     "why": "The whole point: design, plan, price, promote and distribute better than rivals do."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "manufacturing",
+      "producing goods",
+      "making products"
+     ],
+     "p": 5,
+     "msg": "Making the product is Operations' role; marketing designs, prices, promotes and distributes it."
+    }
+   ]
+  },
+  {
+   "id": "mkt-interdep-ops",
+   "sec": "R",
+   "q": "Give a way Marketing and Operations depend on each other",
+   "hint": "Forecasts one way, specifications the other",
+   "learn": "Interdependence is the mutual dependence the key business functions have on one another. Marketing tells operations what customers want and how much will sell; operations sets what can actually be made.",
+   "answers": [
+    {
+     "a": "Sales forecasts set production volumes",
+     "p": 15,
+     "k": [
+      "sales forecast",
+      "forecasts",
+      "forecast",
+      "production volume",
+      "how much to produce",
+      "demand forecast",
+      "secure resources"
+     ],
+     "why": "Operations relies on marketing's sales forecasts to secure resources and set how much to produce."
+    },
+    {
+     "a": "Market research guides product design",
+     "p": 25,
+     "k": [
+      "market research",
+      "product design",
+      "design specifications",
+      "design specs",
+      "customer wants"
+     ],
+     "why": "Marketing passes market research and design specifications to operations."
+    },
+    {
+     "a": "Ops sets limits on design and specifications",
+     "p": 50,
+     "k": [
+      "limits",
+      "restrictions",
+      "operations sets limits",
+      "production constraints",
+      "constraints"
+     ],
+     "why": "Operations may restrict what marketing can promise on design and product specifications."
+    },
+    {
+     "a": "Joint new product design",
+     "p": 55,
+     "k": [
+      "new product design",
+      "new product development",
+      "new products",
+      "npd"
+     ],
+     "why": "Marketing, finance and operations work together when designing a new product."
+    },
+    {
+     "a": "Stock availability affects sales",
+     "p": 75,
+     "k": [
+      "inventory",
+      "stock levels",
+      "out of stock",
+      "stock outs",
+      "stockouts"
+     ],
+     "why": "If stock runs out, marketing loses sales, market share and customer satisfaction."
+    },
+    {
+     "a": "Customisation needs different production",
+     "p": 80,
+     "k": [
+      "customisation",
+      "customised products",
+      "different product designs",
+      "customising"
+     ],
+     "why": "Customising for global markets means different product designs and production, raising costs."
+    },
+    {
+     "a": "Product quality affects warranty claims",
+     "p": 85,
+     "k": [
+      "quality",
+      "warranty claims",
+      "poor quality",
+      "warranties",
+      "warranty"
+     ],
+     "why": "Consistently poor-quality output means complaints and costly warranty claims."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "budget",
+      "funding"
+     ],
+     "p": 5,
+     "msg": "Budgets come from Finance, not Operations."
+    }
+   ]
+  },
+  {
+   "id": "mkt-interdep-fin",
+   "sec": "R",
+   "q": "Give a way Marketing and Finance depend on each other",
+   "hint": "Money one way, forecasts and sales the other",
+   "learn": "Marketing relies on Finance for budgets to fund research and promotion. Finance relies on Marketing for sales and profit forecasts, research for investment decisions and the sales that create cash flow.",
+   "answers": [
+    {
+     "a": "Finance funds the marketing budget",
+     "p": 10,
+     "k": [
+      "budget",
+      "budgets",
+      "funding",
+      "funds",
+      "marketing budget",
+      "money for promotion"
+     ],
+     "why": "Marketing relies on finance for budgets to run market research and promotional strategies."
+    },
+    {
+     "a": "Marketing generates sales and cash flow",
+     "p": 20,
+     "k": [
+      "cash flow",
+      "generate sales",
+      "sales revenue",
+      "revenue",
+      "sales",
+      "cash"
+     ],
+     "why": "Finance relies on marketing to generate the sales and cash flow that fund the business."
+    },
+    {
+     "a": "Sales and profit forecasts",
+     "p": 30,
+     "k": [
+      "forecast",
+      "forecasts",
+      "sales forecast",
+      "profit forecast",
+      "financial statements"
+     ],
+     "why": "Marketing's sales and profit forecasts feed into finance's key financial statements."
+    },
+    {
+     "a": "Setting prices together",
+     "p": 40,
+     "k": [
+      "pricing",
+      "price",
+      "prices",
+      "set prices"
+     ],
+     "why": "Marketing and finance work together to set prices that sell and still cover costs."
+    },
+    {
+     "a": "Research informs investment decisions",
+     "p": 60,
+     "k": [
+      "investment decisions",
+      "investment",
+      "market research",
+      "research"
+     ],
+     "why": "Marketing's market research helps finance make business investment decisions."
+    },
+    {
+     "a": "Joint new product design",
+     "p": 75,
+     "k": [
+      "new product design",
+      "new product",
+      "product design",
+      "new product development",
+      "npd"
+     ],
+     "why": "Marketing, finance and operations collaborate on new product design."
+    },
+    {
+     "a": "Financial forecast of marketing costs",
+     "p": 80,
+     "k": [
+      "financial forecast",
+      "cost projections",
+      "revenue projections",
+      "marketing costs"
+     ],
+     "why": "Implementing the plan needs a financial forecast of costs (research, promotion) and revenue."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "recruitment",
+      "recruit",
+      "training"
+     ],
+     "p": 5,
+     "msg": "Recruiting and training marketing staff is the HR link, not Finance."
+    }
+   ]
+  },
+  {
+   "id": "mkt-interdep-hr",
+   "sec": "R",
+   "q": "Give a way Marketing and HR depend on each other",
+   "hint": "Source, train, develop, motivate... and who writes the role description?",
+   "learn": "Marketing relies on HR to recruit, train, develop and motivate marketing staff. HR relies on Marketing to provide role descriptions and skill requirements so it can source the right people.",
+   "answers": [
+    {
+     "a": "HR recruits marketing staff",
+     "p": 10,
+     "k": [
+      "recruit",
+      "recruitment",
+      "recruiting",
+      "hiring",
+      "hire",
+      "source staff"
+     ],
+     "why": "Marketing relies on HR to source and recruit marketing staff."
+    },
+    {
+     "a": "HR trains marketing staff",
+     "p": 15,
+     "k": [
+      "train",
+      "training",
+      "develop staff",
+      "development"
+     ],
+     "why": "HR trains and develops marketing staff, e.g. in product knowledge and customer service."
+    },
+    {
+     "a": "HR motivates marketing staff",
+     "p": 35,
+     "k": [
+      "motivate",
+      "motivation",
+      "motivating",
+      "rewards"
+     ],
+     "why": "HR's rewards and policies motivate marketing staff to perform."
+    },
+    {
+     "a": "Marketing writes role descriptions",
+     "p": 55,
+     "k": [
+      "role description",
+      "job description",
+      "skill requirements",
+      "requirements"
+     ],
+     "why": "HR relies on marketing for role descriptions and requirements so it hires the right skills."
+    },
+    {
+     "a": "Trained staff deliver the People P",
+     "p": 70,
+     "k": [
+      "people",
+      "customer service",
+      "service staff"
+     ],
+     "why": "The People P depends on HR recruiting and training staff who treat customers well."
+    },
+    {
+     "a": "Skilled sales staff for personal selling",
+     "p": 80,
+     "k": [
+      "personal selling",
+      "sales skills",
+      "sales consultant",
+      "salespeople",
+      "sales reps"
+     ],
+     "why": "A sales pitch is only as good as the consultant's skills, which HR recruits and builds."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "budget",
+      "funding"
+     ],
+     "p": 5,
+     "msg": "Budgets are the Finance link; HR supplies and develops the people."
+    }
+   ]
+  },
+  {
+   "id": "mkt-approach-modern",
+   "sec": "R",
+   "q": "Name a feature of the marketing approach (1960s on)",
+   "hint": "Stage 1 found out what customers want; stage 2 added CSR, customer orientation and...",
+   "learn": "The production (1820s–1920s) and selling (1920s–60s) approaches pushed what the firm could make. The marketing approach finds out what customers want through market research and satisfies it; stage 2 (1980s on) adds CSR, customer orientation and relationship marketing.",
+   "answers": [
+    {
+     "a": "Market research",
+     "p": 15,
+     "k": [
+      "research",
+      "researching customers"
+     ],
+     "why": "Stage 1 (1960s–80s) found out what customers want through market research."
+    },
+    {
+     "a": "Customer orientation",
+     "p": 20,
+     "k": [
+      "customer focus",
+      "customer oriented",
+      "customer satisfaction",
+      "exceed customer expectations",
+      "meeting customer needs",
+      "customer wants"
+     ],
+     "why": "Decisions are based on customer wants, aiming to exceed expectations and satisfy customers."
+    },
+    {
+     "a": "Relationship marketing",
+     "p": 35,
+     "k": [
+      "relationships",
+      "long term relationships",
+      "customer loyalty",
+      "customer retention",
+      "repeat sales"
+     ],
+     "why": "Long-term, cost-effective customer relationships for retention, loyalty and repeat sales."
+    },
+    {
+     "a": "Corporate social responsibility",
+     "p": 45,
+     "k": [
+      "csr",
+      "social responsibility",
+      "triple bottom line",
+      "tbl",
+      "environmental outcomes"
+     ],
+     "why": "Stage 2 adds social, environmental and financial outcomes: the triple bottom line."
+    },
+    {
+     "a": "The marketing concept",
+     "p": 70,
+     "k": [
+      "concept"
+     ],
+     "why": "The idea that the business exists to identify and satisfy customer needs, a focus of stage 1."
+    },
+    {
+     "a": "Marketing central to all functions",
+     "p": 80,
+     "k": [
+      "central",
+      "marketing is central",
+      "all business functions",
+      "integrated with all functions"
+     ],
+     "why": "In the marketing approach, marketing becomes central to every business function."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "mass production",
+      "henry ford",
+      "production oriented",
+      "production approach"
+     ],
+     "p": 5,
+     "msg": "That's the production approach (1820s–1920s): making goods quickly and cheaply, not asking customers."
+    },
+    {
+     "k": [
+      "sales reps",
+      "creating demand",
+      "selling approach",
+      "radio advertising",
+      "hard selling"
+     ],
+     "p": 10,
+     "msg": "That's the selling approach (1920s–60s): advertising and sales reps pushed what the firm could make."
+    }
+   ]
+  },
+  {
+   "id": "mkt-market-types",
+   "sec": "R",
+   "q": "Name a type of market",
+   "hint": "CRIMIN",
+   "learn": "The six market types are consumer, resource, industrial, intermediate, mass and niche. They differ by who buys and why: final users, producers, resellers, everyone or a narrow group.",
+   "answers": [
+    {
+     "a": "Consumer market",
+     "p": 10,
+     "k": [
+      "consumer",
+      "final consumers"
+     ],
+     "why": "Individuals buying finished goods for personal use; split into mass, niche and segments."
+    },
+    {
+     "a": "Mass market",
+     "p": 15,
+     "k": [
+      "mass"
+     ],
+     "why": "Mass-produced, mass-distributed and mass-promoted to everyone, e.g. aspirin, petrol, toothpaste."
+    },
+    {
+     "a": "Niche market",
+     "p": 20,
+     "k": [
+      "niche"
+     ],
+     "why": "A small section of the market with a specific need, e.g. gluten-free products."
+    },
+    {
+     "a": "Industrial market",
+     "p": 45,
+     "k": [
+      "industrial",
+      "manufacturers",
+      "business to business",
+      "b2b"
+     ],
+     "why": "Businesses buying inputs to make their own products, e.g. Coca-Cola buying cans from Alcoa."
+    },
+    {
+     "a": "Intermediate market",
+     "p": 60,
+     "k": [
+      "intermediate",
+      "intermediaries",
+      "wholesalers",
+      "retailers",
+      "resellers"
+     ],
+     "why": "Businesses buying finished goods to resell, e.g. wholesalers, retailers, Woolworths."
+    },
+    {
+     "a": "Resource market",
+     "p": 70,
+     "k": [
+      "resource",
+      "primary producers",
+      "primary production",
+      "mining",
+      "agriculture"
+     ],
+     "why": "Primary producers and extractors: agriculture, forestry, fishing, mining."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "segment",
+      "market segment",
+      "target market"
+     ],
+     "p": 5,
+     "msg": "A segment is a slice of the consumer market, not one of the six market types (CRIMIN)."
+    }
+   ]
+  },
+  {
+   "id": "mkt-choice-psych",
+   "sec": "I",
+   "q": "Name a psychological factor influencing customer choice",
+   "hint": "LAMPP (the P in PEGS)",
+   "learn": "Psychological factors are influences within an individual that affect buying behaviour: perception, motives, attitudes, personality and learning.",
+   "answers": [
+    {
+     "a": "Perception",
+     "p": 10,
+     "k": [
+      "perceptions",
+      "perceive",
+      "perceived"
+     ],
+     "why": "How an individual views a business and its product; firms want it seen as quality or innovative."
+    },
+    {
+     "a": "Motives",
+     "p": 20,
+     "k": [
+      "motive",
+      "motivation",
+      "reason for buying"
+     ],
+     "why": "The reason someone buys, e.g. comfort, safety, taste, fear or cleanliness."
+    },
+    {
+     "a": "Attitude",
+     "p": 35,
+     "k": [
+      "attitudes",
+      "overall feeling",
+      "feelings about the product"
+     ],
+     "why": "A person's overall feeling about a business or product; a negative one means strategies must change."
+    },
+    {
+     "a": "Personality",
+     "p": 45,
+     "k": [
+      "self image",
+      "character"
+     ],
+     "why": "Behaviours and traits that shape which brands people buy; products target self-image."
+    },
+    {
+     "a": "Learning",
+     "p": 75,
+     "k": [
+      "learn",
+      "experience",
+      "past experience",
+      "information and experience"
+     ],
+     "why": "Changes in buying behaviour from information and experience, which can build brand loyalty."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "culture",
+      "family",
+      "peer group",
+      "social class",
+      "reference group"
+     ],
+     "p": 5,
+     "msg": "That's sociocultural (CRFS): pressure from other people, not from inside the individual."
+    },
+    {
+     "k": [
+      "income",
+      "interest rates"
+     ],
+     "p": 5,
+     "msg": "That's an economic or government factor, not psychological."
+    }
+   ]
+  },
+  {
+   "id": "mkt-choice-socio",
+   "sec": "I",
+   "q": "Name a sociocultural factor influencing customer choice",
+   "hint": "CRFS (the S in PEGS)",
+   "learn": "Sociocultural factors are forces exerted by other people and groups that affect an individual's buying behaviour: culture and subculture, reference (peer) groups, family and social class.",
+   "answers": [
+    {
+     "a": "Culture",
+     "p": 15,
+     "k": [
+      "cultural",
+      "values and beliefs",
+      "traditions"
+     ],
+     "why": "Society's values, beliefs and traditions shape lifestyle and product choices, e.g. healthy eating."
+    },
+    {
+     "a": "Family",
+     "p": 20,
+     "k": [
+      "families",
+      "parents",
+      "family role"
+     ],
+     "why": "A person's family role shapes their buying and their say in household purchases."
+    },
+    {
+     "a": "Reference groups",
+     "p": 40,
+     "k": [
+      "reference group",
+      "peer group",
+      "peers",
+      "peer pressure",
+      "friends"
+     ],
+     "why": "Peers who influence attitudes, values and beliefs, and therefore purchases."
+    },
+    {
+     "a": "Social class",
+     "p": 50,
+     "k": [
+      "class",
+      "socioeconomic status",
+      "ses",
+      "occupation",
+      "education"
+     ],
+     "why": "Education, income and occupation influence the type, quality and quantity of goods bought."
+    },
+    {
+     "a": "Subculture",
+     "p": 70,
+     "k": [
+      "subcultures",
+      "sub culture"
+     ],
+     "why": "Groups within a culture with their own values; marketing must respect them or risk its image."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "perception",
+      "attitude",
+      "personality",
+      "motive"
+     ],
+     "p": 5,
+     "msg": "That's psychological (LAMPP): it comes from inside the individual."
+    }
+   ]
+  },
+  {
+   "id": "mkt-choice-econ",
+   "sec": "I",
+   "q": "Name an effect of an economic downturn on customer choice",
+   "hint": "Think incomes, jobs, and how fussy buyers get about price",
+   "learn": "Economic factors are changes in spending and income in the wider economy. In a downturn incomes fall, unemployment rises and buyers become more price-sensitive, so businesses review pricing to hold sales.",
+   "answers": [
+    {
+     "a": "Falling incomes",
+     "p": 10,
+     "k": [
+      "lower income",
+      "less income",
+      "reduced income",
+      "income falls",
+      "less money"
+     ],
+     "why": "In a downturn incomes fall, so consumers have less to spend."
+    },
+    {
+     "a": "Higher unemployment",
+     "p": 20,
+     "k": [
+      "unemployment",
+      "job losses",
+      "unemployed"
+     ],
+     "why": "Rising unemployment cuts household spending power."
+    },
+    {
+     "a": "Less willingness to spend",
+     "p": 25,
+     "k": [
+      "spend less",
+      "less spending",
+      "reduced spending",
+      "lower consumption",
+      "less consumption"
+     ],
+     "why": "Consumers hold back on purchases when the economy declines."
+    },
+    {
+     "a": "More price-sensitive buyers",
+     "p": 45,
+     "k": [
+      "price sensitive",
+      "price sensitivity",
+      "price conscious"
+     ],
+     "why": "Customers become more price-conscious and hunt for value."
+    },
+    {
+     "a": "Falling consumer confidence",
+     "p": 60,
+     "k": [
+      "consumer confidence",
+      "confidence",
+      "less confidence"
+     ],
+     "why": "Confidence and consumption rise in growth and fall in decline."
+    },
+    {
+     "a": "Businesses review pricing strategies",
+     "p": 75,
+     "k": [
+      "review pricing",
+      "lower prices",
+      "cut prices",
+      "pricing strategies",
+      "discounting"
+     ],
+     "why": "Firms respond to a downturn by reviewing prices to maintain sales and revenue."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "rising incomes",
+      "intensified promotion",
+      "more spending"
+     ],
+     "p": 10,
+     "msg": "That's what happens in economic growth; in a downturn the opposite occurs."
+    },
+    {
+     "k": [
+      "interest rates",
+      "cash rate"
+     ],
+     "p": 5,
+     "msg": "Interest rates are set through monetary policy, the government factor in PEGS."
+    }
+   ]
+  },
+  {
+   "id": "mkt-choice-govt",
+   "sec": "I",
+   "q": "Name a way government influences customer choice",
+   "hint": "FMR (the G in PEGS)",
+   "learn": "Government influences buying through fiscal policy (taxes and spending), monetary policy (interest rates) and regulation, e.g. the ACL/CCA enforced by the ACCC.",
+   "answers": [
+    {
+     "a": "Interest rates (monetary policy)",
+     "p": 15,
+     "k": [
+      "interest rates",
+      "monetary policy",
+      "cash rate",
+      "interest"
+     ],
+     "why": "A rise or fall in the cash rate changes how much people borrow and spend."
+    },
+    {
+     "a": "Income tax rates (fiscal policy)",
+     "p": 20,
+     "k": [
+      "fiscal policy",
+      "income tax",
+      "personal income tax",
+      "government spending",
+      "taxation",
+      "tax",
+      "taxes"
+     ],
+     "why": "Changes to personal income tax change disposable income and spending."
+    },
+    {
+     "a": "Taxes on products (tariffs, excise)",
+     "p": 40,
+     "k": [
+      "tariffs",
+      "excise",
+      "excise tax",
+      "taxes on products",
+      "gst"
+     ],
+     "why": "Tariffs and excise taxes raise prices and reduce consumption of those goods."
+    },
+    {
+     "a": "Regulation (ACL, CCA, ACCC)",
+     "p": 45,
+     "k": [
+      "legislation",
+      "laws",
+      "regulation",
+      "regulatory bodies",
+      "acl",
+      "cca",
+      "accc",
+      "australian consumer law"
+     ],
+     "why": "Businesses must comply with the ACL and CCA, enforced by the ACCC."
+    },
+    {
+     "a": "Age restrictions on alcohol and tobacco",
+     "p": 65,
+     "k": [
+      "age restrictions",
+      "age limits",
+      "alcohol",
+      "tobacco",
+      "cigarettes",
+      "drinking age"
+     ],
+     "why": "Laws on who can buy alcohol and tobacco directly limit consumer choice."
+    },
+    {
+     "a": "Plain packaging rules",
+     "p": 80,
+     "k": [
+      "plain packaging",
+      "packaging laws",
+      "cigarette packaging"
+     ],
+     "why": "Cigarette makers must use plain packaging, limiting how the product can be marketed."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "income levels",
+      "unemployment",
+      "recession"
+     ],
+     "p": 5,
+     "msg": "That's the economic factor; government acts through fiscal, monetary and regulatory policy."
+    }
+   ]
+  },
+  {
+   "id": "mkt-law-misleading",
+   "sec": "I",
+   "q": "Give an example of deceptive or misleading advertising",
+   "hint": "Before/after, bait and switch, packaging, surveys...",
+   "learn": "Under the ACL the dominant message and overall impression of an ad cannot be misleading. Breaches risk ACCC investigation, Federal Court action and fines up to $10 million for businesses and $500,000 for individuals.",
+   "answers": [
+    {
+     "a": "Doctored before and after images",
+     "p": 15,
+     "k": [
+      "before and after",
+      "before after",
+      "edited photos",
+      "photoshopped images"
+     ],
+     "why": "Distorting the 'before' and enhancing the 'after' to exaggerate results."
+    },
+    {
+     "a": "Bait and switch advertising",
+     "p": 25,
+     "k": [
+      "bait and switch",
+      "bait",
+      "bait advertising"
+     ],
+     "why": "Advertising a few cheap items, then steering customers to dearer ones when they run out."
+    },
+    {
+     "a": "Misleading packaging size or shape",
+     "p": 35,
+     "k": [
+      "packaging",
+      "misleading packaging",
+      "oversized packaging",
+      "slack fill"
+     ],
+     "why": "Packaging whose size or shape gives a misleading impression of the contents."
+    },
+    {
+     "a": "False claims about contents",
+     "p": 45,
+     "k": [
+      "misrepresenting contents",
+      "false ingredients",
+      "wrong contents",
+      "contents"
+     ],
+     "why": "Misrepresenting what a product contains is banned under the CCA/ACL."
+    },
+    {
+     "a": "Unsubstantiated tests and surveys",
+     "p": 55,
+     "k": [
+      "9 out of 10",
+      "nine out of ten",
+      "fake surveys",
+      "surveys",
+      "tests and surveys",
+      "unsubstantiated claims"
+     ],
+     "why": "Claiming '9 out of 10 people prefer' when no survey was done."
+    },
+    {
+     "a": "False place of production",
+     "p": 75,
+     "k": [
+      "place of production",
+      "country of origin",
+      "made in australia",
+      "origin"
+     ],
+     "why": "Misrepresenting where a product was made is banned under the CCA/ACL."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "puffery",
+      "best in the world",
+      "exaggeration"
+     ],
+     "p": 10,
+     "msg": "Puffery is unethical exaggeration, but no reasonable person takes it as fact, so it is usually not illegal."
+    },
+    {
+     "k": [
+      "price discrimination"
+     ],
+     "p": 10,
+     "msg": "Price discrimination is a separate consumer law issue: different prices for the same product in different markets."
+    }
+   ]
+  },
+  {
+   "id": "mkt-law-guarantees",
+   "sec": "I",
+   "q": "Name a consumer guarantee or warranty right under the ACL",
+   "hint": "Goods: MMF. Services: TFC. Faulty? Three Rs",
+   "learn": "Implied conditions are guarantees the ACL builds into every consumer contract, even if never stated. A warranty is a promise to repair, replace or refund faulty products for a reasonable period.",
+   "answers": [
+    {
+     "a": "Repair, replace or refund",
+     "p": 10,
+     "k": [
+      "repair",
+      "replace",
+      "refund",
+      "replacement",
+      "three rs"
+     ],
+     "why": "A warranty promises to repair, replace or refund faulty products."
+    },
+    {
+     "a": "Fit for purpose",
+     "p": 20,
+     "k": [
+      "fitness for purpose",
+      "fit purpose",
+      "does what it should"
+     ],
+     "why": "Goods and services must do the job they are sold for."
+    },
+    {
+     "a": "Matches its description",
+     "p": 30,
+     "k": [
+      "matches description",
+      "match description",
+      "as described",
+      "matches sample",
+      "description"
+     ],
+     "why": "Goods must match their description, sample or demonstration model."
+    },
+    {
+     "a": "Merchantable (acceptable) quality",
+     "p": 45,
+     "k": [
+      "merchantable",
+      "acceptable quality",
+      "free from defects",
+      "durable",
+      "safe"
+     ],
+     "why": "Goods must be safe, durable, free from defects and of acceptable quality."
+    },
+    {
+     "a": "Services done with due care and skill",
+     "p": 55,
+     "k": [
+      "due care",
+      "care and skill",
+      "skill"
+     ],
+     "why": "Service providers must do the job competently and carefully."
+    },
+    {
+     "a": "Services done in a reasonable time",
+     "p": 70,
+     "k": [
+      "reasonable time",
+      "timely"
+     ],
+     "why": "If no deadline is agreed, a service must be finished in a reasonable time."
+    },
+    {
+     "a": "Warranty lasts a reasonable period",
+     "p": 75,
+     "k": [
+      "reasonable period",
+      "warranty period",
+      "expected lifespan",
+      "lifespan",
+      "no fixed time"
+     ],
+     "why": "No fixed term: based on expected lifespan, price and usage (e.g. phones 2 yrs, cars 5 yrs)."
+    },
+    {
+     "a": "Consumer chooses remedy for major failure",
+     "p": 85,
+     "k": [
+      "major",
+      "consumer chooses",
+      "customer chooses"
+     ],
+     "why": "For a major failure the CONSUMER picks repair, replace or refund."
+    },
+    {
+     "a": "Business chooses remedy for minor failure",
+     "p": 90,
+     "k": [
+      "minor",
+      "business chooses",
+      "seller chooses"
+     ],
+     "why": "For a minor failure the BUSINESS picks repair, replace or refund."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "price discrimination",
+      "misleading advertising"
+     ],
+     "p": 5,
+     "msg": "That's a different consumer law area (WIPD); guarantees cover what the product itself must be."
+    }
+   ]
+  },
+  {
+   "id": "mkt-ethics-gtapes",
+   "sec": "I",
+   "q": "Name an ethical issue marketers face",
+   "hint": "G TAPES",
+   "learn": "Ethics are the moral rules governing how businesses operate. The syllabus issues are truth, accuracy and good taste in advertising, products that may damage health, fair competition and sugging; ethical behaviour builds reputation, loyalty and repeat sales.",
+   "answers": [
+    {
+     "a": "Truth in advertising",
+     "p": 10,
+     "k": [
+      "truth",
+      "honesty",
+      "truthful",
+      "honest advertising",
+      "misleading"
+     ],
+     "why": "Claims must be true: no concealed facts, puffery or vague statements."
+    },
+    {
+     "a": "Accuracy in advertising",
+     "p": 25,
+     "k": [
+      "accuracy",
+      "accurate",
+      "accurate claims"
+     ],
+     "why": "Claims must be precise; ads can be vetted by the ASB and AANA first."
+    },
+    {
+     "a": "Good taste in advertising",
+     "p": 30,
+     "k": [
+      "good taste",
+      "taste",
+      "bad taste",
+      "tasteful"
+     ],
+     "why": "Ads should meet community norms: no over-sexualisation, discrimination or mature content for kids."
+    },
+    {
+     "a": "Products that may damage health",
+     "p": 40,
+     "k": [
+      "damage health",
+      "health",
+      "harmful products",
+      "unhealthy products",
+      "junk food",
+      "cigarettes",
+      "alcohol"
+     ],
+     "why": "Promoting harmful products like junk food to children, cigarettes or alcohol is unethical."
+    },
+    {
+     "a": "Engaging in fair competition",
+     "p": 55,
+     "k": [
+      "fair competition",
+      "competition",
+      "anti competitive",
+      "price fixing"
+     ],
+     "why": "Not using cartels, misuse of market power or exclusive dealing to crush rivals."
+    },
+    {
+     "a": "Sugging",
+     "p": 75,
+     "k": [
+      "selling under the guise",
+      "fake market research",
+      "selling under guise of research"
+     ],
+     "why": "Selling Under the Guise of market research, which makes people wary of genuine surveys."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "price discrimination",
+      "warranties",
+      "implied conditions"
+     ],
+     "p": 10,
+     "msg": "That's a consumer LAW (WIPD); ethics covers what's right beyond what's legally required."
+    }
+   ]
+  },
+  {
+   "id": "mkt-ethics-unethical",
+   "sec": "I",
+   "q": "Name an unethical marketing practice",
+   "hint": "Puffery, vague claims, sex to sell, sugging...",
+   "learn": "Truth and accuracy rule out puffery, vague statements and concealed facts; good taste rules out over-sexualised, discriminatory or mature content aimed at children. Wider criticisms include creating needs, stereotyping and invading privacy.",
+   "answers": [
+    {
+     "a": "Using sex to sell",
+     "p": 15,
+     "k": [
+      "sex sells",
+      "sex",
+      "over sexualisation",
+      "oversexualisation",
+      "sexualisation",
+      "sexualised ads"
+     ],
+     "why": "Over-sexualised ads breach good taste and community standards."
+    },
+    {
+     "a": "Targeting children",
+     "p": 25,
+     "k": [
+      "children",
+      "kids",
+      "mature content to children",
+      "advertising to children",
+      "junk food ads to kids"
+     ],
+     "why": "Junk food ads or mature content aimed at children exploit their naivety and pester power."
+    },
+    {
+     "a": "Puffery",
+     "p": 35,
+     "k": [
+      "puff",
+      "exaggerated claims",
+      "exaggeration",
+      "best in the world"
+     ],
+     "why": "Wildly exaggerated claims like 'the best steaks in the world' that no one takes literally."
+    },
+    {
+     "a": "Stereotyping or discrimination",
+     "p": 45,
+     "k": [
+      "stereotypes",
+      "stereotyping",
+      "gender stereotypes",
+      "discrimination",
+      "discriminatory",
+      "sexism"
+     ],
+     "why": "Ads that perpetuate gender stereotypes or discriminate breach good taste."
+    },
+    {
+     "a": "Concealing important facts",
+     "p": 50,
+     "k": [
+      "concealed facts",
+      "concealment",
+      "hiding information",
+      "omission",
+      "leaving out information"
+     ],
+     "why": "Deliberately omitting critical information breaches truth and accuracy."
+    },
+    {
+     "a": "Vague statements",
+     "p": 55,
+     "k": [
+      "vague",
+      "ambiguous",
+      "ambiguous claims",
+      "unclear statements"
+     ],
+     "why": "Unclear, ambiguous claims that can't be pinned down or tested."
+    },
+    {
+     "a": "Invasion of privacy",
+     "p": 65,
+     "k": [
+      "privacy",
+      "tracking users",
+      "tracking web users",
+      "data tracking"
+     ],
+     "why": "E.g. tracking web users' behaviour without their knowledge."
+    },
+    {
+     "a": "Sugging",
+     "p": 70,
+     "k": [
+      "selling under the guise",
+      "fake market research",
+      "fake surveys"
+     ],
+     "why": "Selling under the guise of market research."
+    },
+    {
+     "a": "Creating needs (materialism)",
+     "p": 80,
+     "k": [
+      "materialism",
+      "creating needs",
+      "creation of needs",
+      "creating wants",
+      "consumerism"
+     ],
+     "why": "Marketing is criticised for creating wants people didn't have, fuelling materialism."
+    },
+    {
+     "a": "Product placement",
+     "p": 85,
+     "k": [
+      "placement",
+      "hidden product placement"
+     ],
+     "why": "Embedding brands in shows or films so viewers don't realise they're being advertised to."
+    }
+   ]
+  },
+  {
+   "id": "mkt-ethics-competition",
+   "sec": "I",
+   "q": "Name an anti-competitive practice banned by the CCA",
+   "hint": "Cartels, market power, exclusive deals, land...",
+   "learn": "Engaging in fair competition means avoiding practices that restrict competition. The ACCC enforces the CCA and lets businesses lodge complaints about rivals' unfair conduct.",
+   "answers": [
+    {
+     "a": "Price fixing (cartel conduct)",
+     "p": 10,
+     "k": [
+      "price fixing",
+      "cartel",
+      "cartel conduct",
+      "collusion",
+      "price collusion"
+     ],
+     "why": "Competitors agree to act together on price instead of competing."
+    },
+    {
+     "a": "Predatory pricing",
+     "p": 30,
+     "k": [
+      "predatory",
+      "undercutting rivals",
+      "pricing out competitors"
+     ],
+     "why": "A dominant firm slashes prices to damage or remove a competitor."
+    },
+    {
+     "a": "Misuse of market power",
+     "p": 35,
+     "k": [
+      "market power",
+      "misuse of power",
+      "abusing market power"
+     ],
+     "why": "A dominant firm uses its power to damage rivals or block new entrants."
+    },
+    {
+     "a": "Exclusive dealing",
+     "p": 50,
+     "k": [
+      "exclusive",
+      "exclusive deals",
+      "exclusive dealing arrangements"
+     ],
+     "why": "A dominant firm forces suppliers not to sell to its competitors."
+    },
+    {
+     "a": "Anti-competitive price discrimination",
+     "p": 65,
+     "k": [
+      "price discrimination",
+      "discrimination",
+      "different prices for same product"
+     ],
+     "why": "Different prices that substantially lessen competition; legal if due to transport costs or local taxes."
+    },
+    {
+     "a": "Land banking",
+     "p": 85,
+     "k": [
+      "land bank",
+      "buying up land",
+      "land"
+     ],
+     "why": "Buying up land and retail sites so competitors can't open there."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "puffery",
+      "sugging",
+      "bait and switch"
+     ],
+     "p": 5,
+     "msg": "That's about misleading consumers, not restricting competition between businesses."
+    }
+   ]
+  },
+  {
+   "id": "mkt-swot-internal",
+   "sec": "P",
+   "q": "Give an internal strength or weakness in a SWOT",
+   "hint": "Internal = inside the business: people, products, money, equipment",
+   "learn": "A SWOT analysis identifies internal strengths and weaknesses and external opportunities and threats. The business then exploits strengths and opportunities and minimises weaknesses and threats.",
+   "answers": [
+    {
+     "a": "Loyal customers",
+     "p": 15,
+     "k": [
+      "customer loyalty",
+      "loyal customer base",
+      "loyalty"
+     ],
+     "why": "Strength: a loyal customer base delivers repeat sales."
+    },
+    {
+     "a": "Popular products",
+     "p": 20,
+     "k": [
+      "product popularity",
+      "popular product",
+      "brand popularity"
+     ],
+     "why": "Strength: products customers already want."
+    },
+    {
+     "a": "Skilled, motivated workforce",
+     "p": 25,
+     "k": [
+      "skilled staff",
+      "skilled workforce",
+      "motivated staff",
+      "skilled employees",
+      "good staff"
+     ],
+     "why": "Strength: capable staff who deliver quality and service."
+    },
+    {
+     "a": "Solid financial position",
+     "p": 35,
+     "k": [
+      "strong finances",
+      "financial position",
+      "good cash flow",
+      "profitable"
+     ],
+     "why": "Strength: funds to invest in marketing and growth."
+    },
+    {
+     "a": "Inexperienced workforce",
+     "p": 40,
+     "k": [
+      "inexperienced staff",
+      "inexperienced employees",
+      "unskilled staff",
+      "untrained staff"
+     ],
+     "why": "Weakness: staff lacking the skills or experience to perform."
+    },
+    {
+     "a": "Efficient operations",
+     "p": 50,
+     "k": [
+      "efficiency",
+      "efficient production"
+     ],
+     "why": "Strength: low costs and reliable output."
+    },
+    {
+     "a": "State-of-the-art equipment",
+     "p": 60,
+     "k": [
+      "modern equipment",
+      "new technology",
+      "latest technology",
+      "advanced equipment"
+     ],
+     "why": "Strength: modern equipment improves quality and efficiency."
+    },
+    {
+     "a": "Technology nearing obsolescence",
+     "p": 70,
+     "k": [
+      "obsolete technology",
+      "outdated technology",
+      "old technology",
+      "obsolete equipment",
+      "outdated equipment",
+      "obsolescence"
+     ],
+     "why": "Weakness: ageing technology that will soon need replacing."
+    },
+    {
+     "a": "Past failures",
+     "p": 80,
+     "k": [
+      "previous failures",
+      "failures",
+      "past mistakes"
+     ],
+     "why": "Weakness: earlier flops that hurt reputation and confidence."
+    },
+    {
+     "a": "Facilities in disrepair",
+     "p": 85,
+     "k": [
+      "disrepair",
+      "run down facilities",
+      "rundown facilities",
+      "poor facilities",
+      "old buildings"
+     ],
+     "why": "Weakness: run-down premises that hurt image and efficiency."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "new competitors",
+      "economic growth",
+      "interest rates",
+      "new laws",
+      "emerging technology"
+     ],
+     "p": 5,
+     "msg": "That's external (an opportunity or threat); strengths and weaknesses come from inside the business."
+    }
+   ]
+  },
+  {
+   "id": "mkt-swot-external",
+   "sec": "P",
+   "q": "Give an external opportunity or threat in a SWOT",
+   "hint": "External = outside the business: economy, laws, rivals, tech",
+   "learn": "Opportunities and threats come from the external environment, which the business can't control, only exploit or mitigate. SWOT shows the business's competitive position relative to its rivals.",
+   "answers": [
+    {
+     "a": "New competitors entering",
+     "p": 10,
+     "k": [
+      "new competitors",
+      "competition",
+      "new competition",
+      "new entrants"
+     ],
+     "why": "Threat: new rivals take sales."
+    },
+    {
+     "a": "Economic growth",
+     "p": 20,
+     "k": [
+      "growing economy",
+      "economic boom",
+      "boom",
+      "strong economy"
+     ],
+     "why": "Opportunity: rising incomes and confidence lift spending."
+    },
+    {
+     "a": "New markets to expand into",
+     "p": 25,
+     "k": [
+      "new markets",
+      "expansion",
+      "expand overseas",
+      "expansion opportunities",
+      "new geographic markets"
+     ],
+     "why": "Opportunity: expansion into new markets, including overseas."
+    },
+    {
+     "a": "Emerging technology",
+     "p": 30,
+     "k": [
+      "new technology",
+      "technological change",
+      "emerging tech"
+     ],
+     "why": "Opportunity: new technology in the industry the business can adopt."
+    },
+    {
+     "a": "Falling interest rates",
+     "p": 45,
+     "k": [
+      "lower interest rates",
+      "interest rates",
+      "rate cuts",
+      "interest rate cuts"
+     ],
+     "why": "Opportunity: cheaper borrowing for the business and more spending by consumers."
+    },
+    {
+     "a": "New laws or regulations",
+     "p": 50,
+     "k": [
+      "new laws",
+      "regulation",
+      "regulations",
+      "legislation",
+      "government regulation"
+     ],
+     "why": "Threat: legislation that could adversely affect the business."
+    },
+    {
+     "a": "Rivals growing market share",
+     "p": 65,
+     "k": [
+      "competitors gaining market share",
+      "competitor market share",
+      "rivals gaining share"
+     ],
+     "why": "Threat: existing competitors increasing their share at your expense."
+    },
+    {
+     "a": "Acquisition or takeover opportunities",
+     "p": 75,
+     "k": [
+      "acquisition",
+      "acquisitions",
+      "takeover",
+      "takeovers",
+      "mergers"
+     ],
+     "why": "Opportunity: buying another business to grow quickly."
+    },
+    {
+     "a": "Worrying industry trends",
+     "p": 85,
+     "k": [
+      "industry trends",
+      "market trends",
+      "negative trends",
+      "declining industry"
+     ],
+     "why": "Threat: negative trends within the industry or market."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "loyal customers",
+      "skilled staff",
+      "obsolete equipment",
+      "past failures"
+     ],
+     "p": 5,
+     "msg": "That's internal (a strength or weakness); opportunities and threats come from outside."
+    }
+   ]
+  },
+  {
+   "id": "mkt-plc-stages",
+   "sec": "P",
+   "q": "Name a stage of the product life cycle",
+   "hint": "Intro, growth, maturity... then three post-maturity paths",
+   "learn": "The product life cycle is the sequence of stages a product goes through: introduction, growth, maturity, then post-maturity (renewal, steady state or decline). Each stage needs different marketing strategies.",
+   "answers": [
+    {
+     "a": "Introduction",
+     "p": 10,
+     "k": [
+      "intro",
+      "launch",
+      "introduction stage"
+     ],
+     "why": "Low awareness, slow sales; use intensive promotion and penetration or loss-leader pricing."
+    },
+    {
+     "a": "Growth",
+     "p": 15,
+     "k": [
+      "growth stage",
+      "growing"
+     ],
+     "why": "Sales rise fast; build brand loyalty and widen promotion and distribution."
+    },
+    {
+     "a": "Maturity",
+     "p": 20,
+     "k": [
+      "mature",
+      "maturity stage",
+      "saturation"
+     ],
+     "why": "Sales plateau in a saturated market; redesign packaging, add features or cut price."
+    },
+    {
+     "a": "Decline",
+     "p": 25,
+     "k": [
+      "declining",
+      "decline stage"
+     ],
+     "why": "Sales fall; narrow distribution, cut price to clear stock, drop promotion or delete the product."
+    },
+    {
+     "a": "Post-maturity",
+     "p": 60,
+     "k": [
+      "post maturity",
+      "postmaturity"
+     ],
+     "why": "The stage after maturity, which leads to renewal, steady state or decline."
+    },
+    {
+     "a": "Renewal",
+     "p": 75,
+     "k": [
+      "renew",
+      "rejuvenation",
+      "revival"
+     ],
+     "why": "Post-maturity path where sales are revived, e.g. by modifying the product."
+    },
+    {
+     "a": "Steady state",
+     "p": 85,
+     "k": [
+      "steady",
+      "stable sales"
+     ],
+     "why": "Post-maturity path where sales level off and hold steady."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "development",
+      "research and development",
+      "product development"
+     ],
+     "p": 10,
+     "msg": "Development happens before launch; the life cycle on the cards starts at introduction."
+    }
+   ]
+  },
+  {
+   "id": "mkt-plc-intro",
+   "sec": "P",
+   "q": "Name a strategy for a product in the introduction stage",
+   "hint": "Awareness, a launch price, and someone else's shops",
+   "learn": "In the introduction stage customer awareness is limited and sales are slow. Strategies aim to build awareness and win initial market share quickly.",
+   "answers": [
+    {
+     "a": "Intensive promotion",
+     "p": 15,
+     "k": [
+      "promotion",
+      "advertising",
+      "build awareness",
+      "heavy promotion"
+     ],
+     "why": "Builds market awareness of a product no one knows yet."
+    },
+    {
+     "a": "Penetration pricing",
+     "p": 20,
+     "k": [
+      "penetration",
+      "low price",
+      "low prices"
+     ],
+     "why": "A low launch price wins initial market share."
+    },
+    {
+     "a": "Price skimming",
+     "p": 40,
+     "k": [
+      "skimming",
+      "high price",
+      "premium price"
+     ],
+     "why": "The highest possible launch price targets early adopters and recovers R&D costs."
+    },
+    {
+     "a": "Loss leader pricing",
+     "p": 50,
+     "k": [
+      "loss leader",
+      "loss leading",
+      "below cost"
+     ],
+     "why": "Selling at or below cost to attract buyers and gain initial share."
+    },
+    {
+     "a": "Use indirect channels",
+     "p": 70,
+     "k": [
+      "indirect channels",
+      "indirect distribution",
+      "retailers",
+      "established retailers",
+      "retail networks"
+     ],
+     "why": "Established retailer networks build market share quickly."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "redesign packaging",
+      "new features"
+     ],
+     "p": 10,
+     "msg": "That's a maturity-stage move to differentiate the product."
+    },
+    {
+     "k": [
+      "product deletion",
+      "limited production",
+      "clear remaining stock"
+     ],
+     "p": 5,
+     "msg": "That's a decline-stage move."
+    }
+   ]
+  },
+  {
+   "id": "mkt-research-primary",
+   "sec": "P",
+   "q": "Name a method of collecting primary data",
+   "hint": "Three families: survey, observation, experiment",
+   "learn": "Primary data is collected first-hand for the specific research problem using survey, observation or experiment methods. Market research steps are DDD: determine information needs, collect data, analyse and interpret it.",
+   "answers": [
+    {
+     "a": "Surveys",
+     "p": 10,
+     "k": [
+      "survey",
+      "survey method"
+     ],
+     "why": "The survey method asks people directly via interviews, focus groups or questionnaires."
+    },
+    {
+     "a": "Questionnaires",
+     "p": 15,
+     "k": [
+      "questionnaire"
+     ],
+     "why": "Written sets of questions, a form of the survey method."
+    },
+    {
+     "a": "Interviews",
+     "p": 20,
+     "k": [
+      "interview",
+      "face to face interview"
+     ],
+     "why": "One-on-one questioning that gives detailed answers."
+    },
+    {
+     "a": "Focus groups",
+     "p": 30,
+     "k": [
+      "focus group"
+     ],
+     "why": "A small group discussion that reveals attitudes and opinions."
+    },
+    {
+     "a": "Observation",
+     "p": 40,
+     "k": [
+      "observing",
+      "observe",
+      "personal observation",
+      "mystery shopper"
+     ],
+     "why": "No direct contact, e.g. a researcher posing as a customer in a store."
+    },
+    {
+     "a": "Telephone surveys",
+     "p": 50,
+     "k": [
+      "phone surveys",
+      "telephone",
+      "phone",
+      "electronic surveys"
+     ],
+     "why": "An electronic survey method: asking questions over the phone."
+    },
+    {
+     "a": "Experiments",
+     "p": 70,
+     "k": [
+      "experiment",
+      "experimental",
+      "experiment method",
+      "test marketing",
+      "changing a variable"
+     ],
+     "why": "Change one variable (e.g. price) and observe the effect."
+    },
+    {
+     "a": "Electronic observation (scanner data)",
+     "p": 75,
+     "k": [
+      "scanner data",
+      "scanners",
+      "electronic observation",
+      "barcode scanners",
+      "checkout data"
+     ],
+     "why": "Checkout scanners record sales data and purchase patterns."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "abs",
+      "abs data",
+      "sales reports",
+      "news articles",
+      "industry reports",
+      "government publications"
+     ],
+     "p": 5,
+     "msg": "That's secondary data: information already collected by the business or someone else."
+    }
+   ]
+  },
+  {
+   "id": "mkt-research-secondary",
+   "sec": "P",
+   "q": "Name a source of secondary data",
+   "hint": "Internal records or external publications",
+   "learn": "Secondary data is information already collected, either internal (from inside the business) or external (published by other organisations). Market research's limits include time, cost, bias and small samples.",
+   "answers": [
+    {
+     "a": "Sales reports",
+     "p": 15,
+     "k": [
+      "sales records",
+      "sales data",
+      "sales figures",
+      "management reports"
+     ],
+     "why": "Internal: the business's own sales and management reports."
+    },
+    {
+     "a": "ABS data",
+     "p": 20,
+     "k": [
+      "abs",
+      "australian bureau of statistics",
+      "census",
+      "abs publications"
+     ],
+     "why": "External: Australian Bureau of Statistics publications."
+    },
+    {
+     "a": "Government publications",
+     "p": 30,
+     "k": [
+      "government reports",
+      "government data",
+      "government statistics"
+     ],
+     "why": "External: reports published by government bodies."
+    },
+    {
+     "a": "Industry reports",
+     "p": 35,
+     "k": [
+      "industry data",
+      "industry publications"
+     ],
+     "why": "External: published reports on the industry."
+    },
+    {
+     "a": "News articles",
+     "p": 40,
+     "k": [
+      "newspapers",
+      "newspaper articles",
+      "news",
+      "magazines",
+      "media articles"
+     ],
+     "why": "External: published media coverage."
+    },
+    {
+     "a": "Customer feedback records",
+     "p": 50,
+     "k": [
+      "customer feedback",
+      "feedback",
+      "customer complaints",
+      "complaints records"
+     ],
+     "why": "Internal: feedback the business has already collected."
+    },
+    {
+     "a": "Past research reports",
+     "p": 70,
+     "k": [
+      "research reports",
+      "previous research",
+      "past research",
+      "internal research"
+     ],
+     "why": "Internal: research reports the business already holds."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "surveys",
+      "focus groups",
+      "interviews",
+      "observation",
+      "questionnaires"
+     ],
+     "p": 5,
+     "msg": "That's primary data, collected first-hand for this specific research problem."
+    }
+   ]
+  },
+  {
+   "id": "mkt-objectives",
+   "sec": "P",
+   "q": "Name a common marketing objective",
+   "hint": "PIIIEE",
+   "learn": "Marketing objectives are the realistic, measurable goals the marketing plan aims to achieve. They should be SMART (specific, measurable, achievable, realistic, timely), e.g. 'increase market share by 5% in 12 months'.",
+   "answers": [
+    {
+     "a": "Increase market share",
+     "p": 10,
+     "k": [
+      "market share",
+      "grow market share",
+      "share"
+     ],
+     "why": "Market share is the business's share of total industry sales for a product."
+    },
+    {
+     "a": "Increase sales revenue",
+     "p": 15,
+     "k": [
+      "sales revenue",
+      "revenue",
+      "sales",
+      "increase sales"
+     ],
+     "why": "More revenue from more units sold or better prices."
+    },
+    {
+     "a": "Maximise profit",
+     "p": 20,
+     "k": [
+      "profit",
+      "profits",
+      "profit maximisation",
+      "maximise profits",
+      "profitability"
+     ],
+     "why": "Profit maximisation, the P in PIIIEE."
+    },
+    {
+     "a": "Improve customer service quality",
+     "p": 40,
+     "k": [
+      "customer service",
+      "service quality",
+      "quality of customer service",
+      "customer satisfaction"
+     ],
+     "why": "Training staff to be customer-oriented, not just sales-oriented, builds loyalty."
+    },
+    {
+     "a": "Expand the product range",
+     "p": 55,
+     "k": [
+      "product range",
+      "product mix",
+      "expand products",
+      "new products",
+      "product line"
+     ],
+     "why": "Needed as tastes change and demand for some products declines."
+    },
+    {
+     "a": "Expand into new geographic markets",
+     "p": 70,
+     "k": [
+      "new markets",
+      "geographic expansion",
+      "new geographical markets",
+      "expand overseas",
+      "new locations"
+     ],
+     "why": "Selling in new regions or countries."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "smart",
+      "specific",
+      "measurable"
+     ],
+     "p": 5,
+     "msg": "SMART describes how to write an objective (specific, measurable, achievable, realistic, timely), not an objective itself."
+    }
+   ]
+  },
+  {
+   "id": "mkt-target-benefits",
+   "sec": "P",
+   "q": "Give a benefit of identifying a target market",
+   "hint": "Efficiency, focus, understanding, tailoring",
+   "learn": "A target market is the group of present and potential customers a business intends to sell to; the primary target market gets most resources. Approaches are mass marketing, market segmentation and niche marketing.",
+   "answers": [
+    {
+     "a": "Efficient use of marketing resources",
+     "p": 15,
+     "k": [
+      "efficient",
+      "efficiency",
+      "saves money",
+      "cost effective",
+      "saves time",
+      "time effective",
+      "resources"
+     ],
+     "why": "Resources go where they will work, saving time and money."
+    },
+    {
+     "a": "Promotion aimed at likely buyers",
+     "p": 25,
+     "k": [
+      "targeted promotion",
+      "targeted advertising",
+      "potential customers",
+      "promotion directed at potential customers"
+     ],
+     "why": "Promotion is directed at potential customers, not everyone."
+    },
+    {
+     "a": "Better understanding of buying behaviour",
+     "p": 45,
+     "k": [
+      "understand customers",
+      "buying behaviour",
+      "consumer behaviour",
+      "buyer behaviour"
+     ],
+     "why": "Knowing the target market reveals how and why they buy."
+    },
+    {
+     "a": "Tailor the marketing mix to their needs",
+     "p": 70,
+     "k": [
+      "tailor",
+      "tailored marketing mix",
+      "meet needs and wants",
+      "customer needs",
+      "tailored products"
+     ],
+     "why": "Product, price, place and promotion can be designed for the target's needs and wants."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "mass marketing",
+      "niche",
+      "segmentation"
+     ],
+     "p": 10,
+     "msg": "Those are targeting approaches (mass, segmentation, niche), not the benefits of targeting."
+    }
+   ]
+  },
+  {
+   "id": "mkt-mix-7ps",
+   "sec": "P",
+   "q": "Name an element of the marketing mix",
+   "hint": "7 Ps: four classics plus three for services",
+   "learn": "Marketing strategies are the actions taken to achieve the marketing objectives through the marketing mix: product, price, place and promotion, plus people, processes and physical evidence for services.",
+   "answers": [
+    {
+     "a": "Product",
+     "p": 10,
+     "k": [
+      "products",
+      "goods and services"
+     ],
+     "why": "Goods or services offered to satisfy needs; includes branding and packaging."
+    },
+    {
+     "a": "Price",
+     "p": 10,
+     "k": [
+      "pricing"
+     ],
+     "why": "Pricing methods (cost, market, competition) and strategies (skimming, penetration...)."
+    },
+    {
+     "a": "Promotion",
+     "p": 15,
+     "k": [
+      "promote",
+      "advertising"
+     ],
+     "why": "Informing, persuading and reminding through the promotion mix."
+    },
+    {
+     "a": "Place",
+     "p": 20,
+     "k": [
+      "distribution",
+      "place distribution"
+     ],
+     "why": "Getting products to customers when and where they want them."
+    },
+    {
+     "a": "People",
+     "p": 45,
+     "k": [
+      "staff",
+      "employees"
+     ],
+     "why": "The quality of interaction between customers and the staff delivering the service."
+    },
+    {
+     "a": "Processes",
+     "p": 60,
+     "k": [
+      "process",
+      "service process"
+     ],
+     "why": "The flow of activities used to deliver a service."
+    },
+    {
+     "a": "Physical evidence",
+     "p": 75,
+     "k": [
+      "physical",
+      "evidence",
+      "servicescape"
+     ],
+     "why": "The environment the service is delivered in: signage, uniforms, website, logo."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "packaging",
+      "branding"
+     ],
+     "p": 10,
+     "msg": "Packaging and branding are product decisions, part of the Product P."
+    },
+    {
+     "k": [
+      "positioning",
+      "segmentation"
+     ],
+     "p": 10,
+     "msg": "Segmentation and positioning shape the mix but aren't Ps themselves."
+    }
+   ]
+  },
+  {
+   "id": "mkt-implement-control",
+   "sec": "P",
+   "q": "Name a way to implement, monitor or control a marketing plan",
+   "hint": "Forecast; SMM to monitor; NPC to control",
+   "learn": "Implementation puts the plan into action with a financial forecast of costs and revenue. Monitoring compares actual with planned results (SMM), and controlling takes corrective action when targets are missed (NPC).",
+   "answers": [
+    {
+     "a": "Sales analysis",
+     "p": 15,
+     "k": [
+      "analyse sales",
+      "sales figures",
+      "sales by region"
+     ],
+     "why": "Monitoring: compare actual sales with planned, by region, product or outlet."
+    },
+    {
+     "a": "Change the marketing mix",
+     "p": 20,
+     "k": [
+      "modify the marketing mix",
+      "marketing mix",
+      "change price",
+      "change promotion",
+      "modify product",
+      "change the 4ps"
+     ],
+     "why": "Controlling: modify product, price, promotion or place."
+    },
+    {
+     "a": "Financial forecast",
+     "p": 30,
+     "k": [
+      "forecast",
+      "budget",
+      "cost and revenue projections",
+      "financial forecasting"
+     ],
+     "why": "Implementation: projects costs (research, development, promotion, distribution) and revenue."
+    },
+    {
+     "a": "Market share analysis",
+     "p": 35,
+     "k": [
+      "market share",
+      "analyse market share"
+     ],
+     "why": "Monitoring: track your share, and competitors', against the plan."
+    },
+    {
+     "a": "New product development",
+     "p": 45,
+     "k": [
+      "new products",
+      "new product",
+      "npd",
+      "develop new products"
+     ],
+     "why": "Controlling: launch new products to replace those in decline."
+    },
+    {
+     "a": "Marketing profitability analysis",
+     "p": 60,
+     "k": [
+      "profitability analysis",
+      "marketing profitability",
+      "profitability"
+     ],
+     "why": "Monitoring: break marketing costs and results down by activity to see what works."
+    },
+    {
+     "a": "Product deletion",
+     "p": 75,
+     "k": [
+      "delete product",
+      "deleting products",
+      "drop the product",
+      "discontinue product",
+      "eliminate products"
+     ],
+     "why": "Controlling: drop outdated or underperforming products."
+    }
+   ]
+  },
+  {
+   "id": "mkt-seg-demographic",
+   "sec": "S",
+   "q": "Name a demographic segmentation variable",
+   "hint": "Characteristics of consumers: 8 on the card",
+   "learn": "Segmentation divides the total market into groups sharing characteristics, using demographic, geographic, psychographic and behavioural variables (DGPB). Demographic variables describe the consumer's characteristics.",
+   "answers": [
+    {
+     "a": "Age",
+     "p": 10,
+     "k": [
+      "age group",
+      "ages"
+     ],
+     "why": "Consumers' age group, e.g. products and messages aimed at teens or retirees."
+    },
+    {
+     "a": "Gender",
+     "p": 15,
+     "k": [
+      "sex"
+     ],
+     "why": "Products and messages aimed at men or women."
+    },
+    {
+     "a": "Income",
+     "p": 20,
+     "k": [
+      "salary",
+      "wealth",
+      "earnings"
+     ],
+     "why": "What consumers can afford shapes the products and prices offered."
+    },
+    {
+     "a": "Occupation",
+     "p": 40,
+     "k": [
+      "job",
+      "career",
+      "profession"
+     ],
+     "why": "Consumers' jobs shape their needs, e.g. workwear for tradespeople."
+    },
+    {
+     "a": "Education",
+     "p": 45,
+     "k": [
+      "education level",
+      "schooling"
+     ],
+     "why": "Education level influences tastes and product choice."
+    },
+    {
+     "a": "Ethnicity",
+     "p": 60,
+     "k": [
+      "ethnic",
+      "ethnic background",
+      "race",
+      "nationality"
+     ],
+     "why": "Ethnic background shapes food, clothing and media preferences."
+    },
+    {
+     "a": "Religion",
+     "p": 70,
+     "k": [
+      "religious",
+      "faith"
+     ],
+     "why": "Religious beliefs shape demand, e.g. halal or kosher food."
+    },
+    {
+     "a": "Social class",
+     "p": 80,
+     "k": [
+      "class",
+      "socioeconomic class"
+     ],
+     "why": "On the cards social class is demographic; psychographic uses socioeconomic group instead."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "lifestyle",
+      "personality",
+      "interests",
+      "socioeconomic group",
+      "opinions"
+     ],
+     "p": 5,
+     "msg": "That's psychographic: the consumer's personality and lifestyle."
+    },
+    {
+     "k": [
+      "location",
+      "region",
+      "climate",
+      "rural",
+      "urban",
+      "city size"
+     ],
+     "p": 5,
+     "msg": "That's geographic: where the consumer lives."
+    },
+    {
+     "k": [
+      "usage rate",
+      "loyalty",
+      "benefits sought",
+      "price sensitivity",
+      "purchase occasion"
+     ],
+     "p": 5,
+     "msg": "That's behavioural: what the consumer does."
+    }
+   ]
+  },
+  {
+   "id": "mkt-ad-media",
+   "sec": "S",
+   "q": "Name a type of advertising media",
+   "hint": "METDBS: mass, e-marketing, tele, direct, billboards, social",
+   "learn": "Advertising is a paid, non-personal message communicated through a mass medium that aims to inform, persuade and remind. Media choice depends on the product and its positioning, the target market and the marketing budget.",
+   "answers": [
+    {
+     "a": "Television",
+     "p": 10,
+     "k": [
+      "tv",
+      "television ads",
+      "tv ads",
+      "tv commercials",
+      "commercials",
+      "tv advertising"
+     ],
+     "why": "Mass medium with huge reach, but TV commercials are especially costly."
+    },
+    {
+     "a": "Social media advertising",
+     "p": 15,
+     "k": [
+      "social media",
+      "instagram",
+      "facebook",
+      "tiktok",
+      "youtube ads"
+     ],
+     "why": "Paid ads on platforms like Facebook or Instagram, good for reaching younger people."
+    },
+    {
+     "a": "Radio",
+     "p": 20,
+     "k": [
+      "radio ads",
+      "radio advertising"
+     ],
+     "why": "A mass medium for audio ads."
+    },
+    {
+     "a": "Billboards",
+     "p": 25,
+     "k": [
+      "billboard",
+      "outdoor advertising"
+     ],
+     "why": "Large outdoor ads seen by passing traffic."
+    },
+    {
+     "a": "Magazines",
+     "p": 35,
+     "k": [
+      "magazine",
+      "magazine ads"
+     ],
+     "why": "Print mass medium that can reach special-interest readers."
+    },
+    {
+     "a": "Newspapers",
+     "p": 40,
+     "k": [
+      "newspaper",
+      "print ads",
+      "newspaper print"
+     ],
+     "why": "Print ads; newspaper print is one of the costlier methods."
+    },
+    {
+     "a": "E-marketing (online ads)",
+     "p": 45,
+     "k": [
+      "online ads",
+      "online advertising",
+      "internet",
+      "websites",
+      "e marketing",
+      "pop up ads"
+     ],
+     "why": "Online ads and websites that can reach a global audience."
+    },
+    {
+     "a": "Telemarketing",
+     "p": 65,
+     "k": [
+      "telephone marketing",
+      "cold calling",
+      "phone calls"
+     ],
+     "why": "Advertising and selling to people by phone."
+    },
+    {
+     "a": "Direct marketing catalogues",
+     "p": 75,
+     "k": [
+      "catalogues",
+      "catalogs",
+      "direct mail",
+      "letterbox drops",
+      "junk mail"
+     ],
+     "why": "Catalogues sent directly to households."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "word of mouth",
+      "publicity",
+      "personal selling"
+     ],
+     "p": 10,
+     "msg": "That's not advertising: advertising is paid, non-personal and through a mass medium."
+    }
+   ]
+  },
+  {
+   "id": "mkt-differentiation",
+   "sec": "S",
+   "q": "Name a point of product or service differentiation",
+   "hint": "Service, convenience, features, quality, ethics, green, value...",
+   "learn": "Differentiation is developing and promoting differences between a business's products and its competitors'. Done well, it builds a long-term, sustainable competitive advantage.",
+   "answers": [
+    {
+     "a": "Better quality",
+     "p": 10,
+     "k": [
+      "quality",
+      "higher quality",
+      "high quality"
+     ],
+     "why": "A higher-quality product than competitors offer."
+    },
+    {
+     "a": "Customer service",
+     "p": 15,
+     "k": [
+      "service",
+      "after sales service",
+      "personalised service"
+     ],
+     "why": "Personalised and after-sales service, important for expensive products."
+    },
+    {
+     "a": "More features",
+     "p": 20,
+     "k": [
+      "features",
+      "extra features",
+      "functionality"
+     ],
+     "why": "Extra functions rivals don't offer."
+    },
+    {
+     "a": "Better value for money",
+     "p": 30,
+     "k": [
+      "value for money",
+      "value",
+      "good value"
+     ],
+     "why": "More benefit per dollar than competitors."
+    },
+    {
+     "a": "Greater convenience",
+     "p": 35,
+     "k": [
+      "convenience",
+      "convenient",
+      "home delivery",
+      "online ordering",
+      "apps"
+     ],
+     "why": "E.g. online ordering, apps or home delivery."
+    },
+    {
+     "a": "Packaging or labelling",
+     "p": 40,
+     "k": [
+      "packaging",
+      "labelling",
+      "labels"
+     ],
+     "why": "Distinctive packaging or labels set the product apart."
+    },
+    {
+     "a": "Better performance",
+     "p": 50,
+     "k": [
+      "performance",
+      "performs better"
+     ],
+     "why": "The product simply works better."
+    },
+    {
+     "a": "Environmentally friendly",
+     "p": 60,
+     "k": [
+      "eco friendly",
+      "green",
+      "sustainable",
+      "environment"
+     ],
+     "why": "Green products appeal to environmentally conscious buyers."
+    },
+    {
+     "a": "Social and ethical stance (fair trade)",
+     "p": 80,
+     "k": [
+      "fair trade",
+      "ethical",
+      "ethics",
+      "social issues",
+      "ethical sourcing"
+     ],
+     "why": "E.g. fair trade, recognising the wages and conditions of suppliers' workers."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "positioning"
+     ],
+     "p": 10,
+     "msg": "Positioning is how consumers see the brand versus rivals; differentiation creates the differences behind it."
+    }
+   ]
+  },
+  {
+   "id": "mkt-positioning",
+   "sec": "S",
+   "q": "Name a variable that shapes a product's positioning",
+   "hint": "Name, price, quality, packaging, styling, promotion, channels",
+   "learn": "Positioning is a consumer's perception of a brand relative to competing brands; e.g. the names Rolex and Ferrari instantly evoke quality. Correct positioning wins sales; wrong positioning sends buyers to rivals.",
+   "answers": [
+    {
+     "a": "Price",
+     "p": 10,
+     "k": [
+      "pricing",
+      "cost"
+     ],
+     "why": "A high price signals premium; a low one signals value."
+    },
+    {
+     "a": "Quality",
+     "p": 15,
+     "k": [
+      "product quality"
+     ],
+     "why": "Perceived quality places the brand above or below rivals."
+    },
+    {
+     "a": "Promotion",
+     "p": 25,
+     "k": [
+      "advertising",
+      "promotional message"
+     ],
+     "why": "The message and media shape how consumers see the brand."
+    },
+    {
+     "a": "Brand name",
+     "p": 30,
+     "k": [
+      "name",
+      "branding",
+      "brand"
+     ],
+     "why": "Names like Rolex or Ferrari instantly evoke quality."
+    },
+    {
+     "a": "Packaging",
+     "p": 35,
+     "k": [
+      "package",
+      "packaging design"
+     ],
+     "why": "Packaging usually supports the product's positioning."
+    },
+    {
+     "a": "Styling",
+     "p": 60,
+     "k": [
+      "style",
+      "design",
+      "product design",
+      "look",
+      "aesthetics"
+     ],
+     "why": "The look and design of the product itself."
+    },
+    {
+     "a": "Distribution channels",
+     "p": 70,
+     "k": [
+      "distribution",
+      "channels",
+      "place",
+      "channels of distribution",
+      "where it is sold",
+      "stockists"
+     ],
+     "why": "Where it's sold signals status, e.g. exclusive outlets for luxury goods."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "segmentation",
+      "target market"
+     ],
+     "p": 5,
+     "msg": "Segmentation picks who to target; positioning is how they see you against rivals."
+    }
+   ]
+  },
+  {
+   "id": "mkt-total-product",
+   "sec": "S",
+   "q": "Name a tangible or intangible part of a product",
+   "hint": "Total product concept: features, quality, quantity, packaging; service, reputation, warranty",
+   "learn": "The total product concept is all the tangible and intangible benefits a product offers. If they meet the target market's needs better than rivals' products do, the business gains a sustainable competitive advantage.",
+   "answers": [
+    {
+     "a": "Features",
+     "p": 10,
+     "k": [
+      "feature",
+      "product features"
+     ],
+     "why": "Tangible: what the product has and does."
+    },
+    {
+     "a": "Quality",
+     "p": 15,
+     "k": [
+      "product quality"
+     ],
+     "why": "Tangible: how well it is made."
+    },
+    {
+     "a": "Packaging",
+     "p": 20,
+     "k": [
+      "package",
+      "packet"
+     ],
+     "why": "Tangible: the container and its design."
+    },
+    {
+     "a": "Warranty",
+     "p": 35,
+     "k": [
+      "warranties",
+      "guarantee"
+     ],
+     "why": "Intangible: the promise to repair, replace or refund."
+    },
+    {
+     "a": "Quantity",
+     "p": 45,
+     "k": [
+      "size",
+      "amount",
+      "volume",
+      "how much"
+     ],
+     "why": "Tangible: how much of the product you get."
+    },
+    {
+     "a": "After-sale service",
+     "p": 50,
+     "k": [
+      "after sales service",
+      "after sales",
+      "aftersales",
+      "customer service",
+      "service"
+     ],
+     "why": "Intangible: support after purchase, e.g. repairs or help."
+    },
+    {
+     "a": "Reputation",
+     "p": 60,
+     "k": [
+      "brand reputation",
+      "image",
+      "brand image"
+     ],
+     "why": "Intangible: what the brand is known for."
+    },
+    {
+     "a": "Pre-sale service",
+     "p": 80,
+     "k": [
+      "pre sale service",
+      "presale",
+      "pre sales",
+      "before sale service"
+     ],
+     "why": "Intangible: advice and help before purchase."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "price"
+     ],
+     "p": 5,
+     "msg": "Price is a separate P; the total product is the bundle of benefits the buyer gets."
+    }
+   ]
+  },
+  {
+   "id": "mkt-branding-adv",
+   "sec": "S",
+   "q": "Give an advantage of branding",
+   "hint": "Recognition, differentiation, loyalty, premium prices...",
+   "learn": "A brand is a name, term, symbol or design that identifies a product and distinguishes it from competitors; a trademark gives exclusive rights to it. Brands are costly and slow to build and can be damaged by bad publicity.",
+   "answers": [
+    {
+     "a": "Recognition and identity",
+     "p": 10,
+     "k": [
+      "recognition",
+      "brand recognition",
+      "identity",
+      "brand awareness",
+      "recognisable"
+     ],
+     "why": "Customers instantly recognise the brand and its products."
+    },
+    {
+     "a": "Brand loyalty and repeat sales",
+     "p": 15,
+     "k": [
+      "loyalty",
+      "brand loyalty",
+      "repeat sales",
+      "repeat purchases",
+      "customer loyalty"
+     ],
+     "why": "Loyal customers keep buying, lifting profitability."
+    },
+    {
+     "a": "Differentiation from competitors",
+     "p": 20,
+     "k": [
+      "differentiation",
+      "differentiate",
+      "stand out",
+      "distinguishes product"
+     ],
+     "why": "A brand distinguishes the product from rivals."
+    },
+    {
+     "a": "Higher prices and margins",
+     "p": 35,
+     "k": [
+      "higher prices",
+      "premium prices",
+      "charge more",
+      "profit margins",
+      "premium pricing"
+     ],
+     "why": "Strong brands can charge more, improving profit margins."
+    },
+    {
+     "a": "A promise of quality",
+     "p": 45,
+     "k": [
+      "quality",
+      "promise of quality",
+      "quality assurance",
+      "reputation",
+      "trust"
+     ],
+     "why": "A brand can represent quality and a reputation customers trust."
+    },
+    {
+     "a": "Easier new product launches",
+     "p": 65,
+     "k": [
+      "new products",
+      "introduce new products",
+      "launching new products",
+      "brand extension",
+      "less perceived risk"
+     ],
+     "why": "Familiar brands lower perceived risk when new products launch."
+    },
+    {
+     "a": "Adds business value",
+     "p": 75,
+     "k": [
+      "business value",
+      "brand equity",
+      "asset",
+      "value"
+     ],
+     "why": "A strong brand is a valuable asset of the business."
+    },
+    {
+     "a": "Preferred by retailers",
+     "p": 85,
+     "k": [
+      "retailers",
+      "chosen by retailers",
+      "shelf space"
+     ],
+     "why": "Successful brands are more likely to be chosen by retailers as well as customers."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "expensive",
+      "time consuming",
+      "costly"
+     ],
+     "p": 10,
+     "msg": "That's a disadvantage: building a brand, especially a global one, is costly and slow."
+    },
+    {
+     "k": [
+      "bad publicity",
+      "negative word of mouth"
+     ],
+     "p": 10,
+     "msg": "That's a risk: bad experiences and publicity damage a brand, and perceptions are hard to repair."
+    }
+   ]
+  },
+  {
+   "id": "mkt-packaging-aims",
+   "sec": "S",
+   "q": "Name a purpose of packaging",
+   "hint": "IS CAP",
+   "learn": "Packaging is the container and graphic design for a product; it is both functional and persuasive and usually supports positioning. Considerations include colour, size, labelling and regulations such as plain packaging.",
+   "answers": [
+    {
+     "a": "Protection",
+     "p": 10,
+     "k": [
+      "protect",
+      "protects the product",
+      "prevent damage",
+      "tamper proof"
+     ],
+     "why": "Protects the product from damage and tampering."
+    },
+    {
+     "a": "Attractiveness",
+     "p": 15,
+     "k": [
+      "attract",
+      "attract attention",
+      "attractive",
+      "appealing",
+      "eye catching"
+     ],
+     "why": "Attracts consumers' attention on the shelf."
+    },
+    {
+     "a": "Containment",
+     "p": 30,
+     "k": [
+      "contain",
+      "contains the product",
+      "hold the product"
+     ],
+     "why": "Holds the product together."
+    },
+    {
+     "a": "Identification",
+     "p": 40,
+     "k": [
+      "identify",
+      "identifies the product",
+      "brand awareness",
+      "recognition"
+     ],
+     "why": "Identifies the product and reinforces brand awareness and image."
+    },
+    {
+     "a": "Safety",
+     "p": 55,
+     "k": [
+      "safe",
+      "safety information"
+     ],
+     "why": "Keeps the product and its users safe."
+    },
+    {
+     "a": "Preserves the product",
+     "p": 70,
+     "k": [
+      "preserve",
+      "preservation",
+      "freshness",
+      "shelf life"
+     ],
+     "why": "Keeps the product fresh and preserved."
+    },
+    {
+     "a": "Easier transport and storage",
+     "p": 75,
+     "k": [
+      "transport",
+      "storage",
+      "easier to transport",
+      "stacking"
+     ],
+     "why": "Well-designed packaging makes products easier to ship and store."
+    },
+    {
+     "a": "Helps product display",
+     "p": 85,
+     "k": [
+      "display",
+      "shelf display"
+     ],
+     "why": "Packaging assists with displaying the product in store."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "plain packaging",
+      "excessive packaging"
+     ],
+     "p": 5,
+     "msg": "That's a packaging issue, not a purpose: plain packaging is a legal rule, excess packaging hurts brand image."
+    }
+   ]
+  },
+  {
+   "id": "mkt-price-methods",
+   "sec": "S",
+   "q": "Name a pricing method or strategy",
+   "hint": "Methods CMC; strategies PPPL",
+   "learn": "Pricing methods set the base price from costs, the market or competitors (CMC: Can't Make Cake). Pricing strategies then adjust it: price skimming, penetration, loss leaders and price points (PPPL).",
+   "answers": [
+    {
+     "a": "Penetration pricing",
+     "p": 10,
+     "k": [
+      "penetration",
+      "mass market pricing",
+      "low price strategy"
+     ],
+     "why": "The lowest possible price to win a large market share."
+    },
+    {
+     "a": "Price skimming",
+     "p": 15,
+     "k": [
+      "skimming",
+      "skim pricing",
+      "skim"
+     ],
+     "why": "The highest possible price at launch, aimed at early adopters."
+    },
+    {
+     "a": "Loss leader",
+     "p": 20,
+     "k": [
+      "loss leaders",
+      "loss leading",
+      "loss leader pricing"
+     ],
+     "why": "Sold at or below cost to draw customers in."
+    },
+    {
+     "a": "Cost-based pricing",
+     "p": 30,
+     "k": [
+      "cost based",
+      "cost plus",
+      "mark up",
+      "markup",
+      "cost"
+     ],
+     "why": "Direct materials + labour + overheads, then a mark-up added."
+    },
+    {
+     "a": "Competition-based pricing",
+     "p": 40,
+     "k": [
+      "competition based",
+      "competitor based",
+      "competitive pricing",
+      "competitor pricing",
+      "price matching",
+      "competition"
+     ],
+     "why": "Set below, equal to or above rivals, often the price leader."
+    },
+    {
+     "a": "Market-based pricing",
+     "p": 50,
+     "k": [
+      "market based",
+      "demand based",
+      "supply and demand",
+      "market pricing"
+     ],
+     "why": "Price set by supply and demand, e.g. seasonal fruit, holiday accommodation."
+    },
+    {
+     "a": "Price points",
+     "p": 65,
+     "k": [
+      "price point",
+      "price lining",
+      "psychological pricing",
+      "charm pricing"
+     ],
+     "why": "Predetermined prices like $5 and $10 racks, or prices ending in 9."
+    },
+    {
+     "a": "Prestige pricing",
+     "p": 80,
+     "k": [
+      "premium pricing",
+      "prestige",
+      "premium"
+     ],
+     "why": "A premium price that creates an impression of quality and status."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "discount",
+      "coupons",
+      "sale"
+     ],
+     "p": 5,
+     "msg": "Discounts and coupons are sales promotions, not pricing methods or strategies."
+    }
+   ]
+  },
+  {
+   "id": "mkt-price-disadv",
+   "sec": "S",
+   "q": "Give a disadvantage of a pricing strategy",
+   "hint": "Skimming invites rivals; penetration is hard to undo...",
+   "learn": "Every pricing strategy has a trade-off: high prices invite competitors and lose price-conscious buyers, low prices can signal poor quality and are hard to raise, and loss leaders hurt profit.",
+   "answers": [
+    {
+     "a": "Loss leaders hurt profit",
+     "p": 15,
+     "k": [
+      "loss leader",
+      "short term strategy",
+      "hurts profit",
+      "reduces profit"
+     ],
+     "why": "Only a short-term strategy: selling at or below cost erodes profit."
+    },
+    {
+     "a": "Hard to raise prices after penetration",
+     "p": 25,
+     "k": [
+      "penetration",
+      "hard to raise prices",
+      "difficult to raise prices",
+      "customers used to low prices"
+     ],
+     "why": "Customers get used to the low price and resist rises."
+    },
+    {
+     "a": "Skimming attracts competitors",
+     "p": 30,
+     "k": [
+      "skimming",
+      "attracts competitors",
+      "attracts competition",
+      "competitors undercut"
+     ],
+     "why": "Big margins lure rivals who may undercut you."
+    },
+    {
+     "a": "Low prices suggest poor quality",
+     "p": 45,
+     "k": [
+      "poor quality",
+      "cheap image",
+      "inferior quality",
+      "looks cheap",
+      "perceived as cheap"
+     ],
+     "why": "A price set too low, or below rivals, can make the product seem cheap."
+    },
+    {
+     "a": "High prices lose price-conscious buyers",
+     "p": 55,
+     "k": [
+      "price conscious",
+      "unwilling to pay",
+      "lost sales",
+      "too expensive"
+     ],
+     "why": "Most consumers won't pay a skimming or above-rival price."
+    },
+    {
+     "a": "Cost-based mark-up is hard to set",
+     "p": 70,
+     "k": [
+      "markup",
+      "mark up",
+      "cost based",
+      "appropriate markup"
+     ],
+     "why": "Choosing the right mark-up is difficult."
+    },
+    {
+     "a": "Price points raise production costs",
+     "p": 75,
+     "k": [
+      "price points",
+      "price point",
+      "variations",
+      "operational costs"
+     ],
+     "why": "Making variations for each price point adds operational costs."
+    },
+    {
+     "a": "Buyers only take the loss leader",
+     "p": 80,
+     "k": [
+      "no cross selling",
+      "missed cross selling",
+      "only buy discounted items",
+      "cherry picking"
+     ],
+     "why": "Shoppers grab the bargain and skip other items, so cross-selling fails."
+    },
+    {
+     "a": "Market-based price may fall below cost",
+     "p": 85,
+     "k": [
+      "market based",
+      "sell below cost of production",
+      "high supply low demand",
+      "oversupply"
+     ],
+     "why": "When supply is high and demand low, perishables may sell below cost."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "offset research costs",
+      "trial purchases",
+      "store traffic",
+      "market share"
+     ],
+     "p": 10,
+     "msg": "That's an advantage, not a disadvantage."
+    }
+   ]
+  },
+  {
+   "id": "mkt-price-quality",
+   "sec": "S",
+   "q": "Give a link between price and quality",
+   "hint": "Prestige, expectations, costs, cheap impressions",
+   "learn": "Price and quality interaction is the tendency of consumers to judge quality by price. Prestige pricing signals quality and status, while higher quality usually needs higher prices to cover costs.",
+   "answers": [
+    {
+     "a": "High price signals high quality",
+     "p": 10,
+     "k": [
+      "high price",
+      "higher price",
+      "high price high quality",
+      "higher price higher quality",
+      "expensive",
+      "price signals quality",
+      "expensive means quality",
+      "expectations"
+     ],
+     "why": "Consumers expect higher prices to mean higher quality."
+    },
+    {
+     "a": "Low price suggests poor quality",
+     "p": 20,
+     "k": [
+      "low price",
+      "cheap",
+      "poor quality",
+      "low quality"
+     ],
+     "why": "A price set too low can make the product seem cheap or poor quality."
+    },
+    {
+     "a": "Prestige pricing creates status",
+     "p": 40,
+     "k": [
+      "prestige",
+      "prestige pricing",
+      "premium pricing",
+      "status"
+     ],
+     "why": "Premium prices build an image of quality and status."
+    },
+    {
+     "a": "Higher quality costs more to make",
+     "p": 50,
+     "k": [
+      "costs",
+      "cover costs",
+      "higher costs",
+      "margins",
+      "maintain profit margins"
+     ],
+     "why": "Better quality usually needs higher prices to cover costs and keep margins."
+    },
+    {
+     "a": "Overpricing loses sales",
+     "p": 75,
+     "k": [
+      "price too high",
+      "too high",
+      "lost sales",
+      "superior benefits",
+      "overpricing"
+     ],
+     "why": "A high price only works if the product clearly offers more."
+    }
+   ]
+  },
+  {
+   "id": "mkt-promo-mix",
+   "sec": "S",
+   "q": "Name an element of the promotion mix",
+   "hint": "RAPPPS",
+   "learn": "Promotion uses information and persuasion to change buying behaviour: attract new customers, inform, build loyalty and encourage repeat sales. The mix is relationship marketing, advertising, personal selling, publicity, public relations and sales promotion.",
+   "answers": [
+    {
+     "a": "Advertising",
+     "p": 10,
+     "k": [
+      "ads",
+      "advertisement",
+      "adverts"
+     ],
+     "why": "A paid, non-personal message through a mass medium."
+    },
+    {
+     "a": "Sales promotion",
+     "p": 20,
+     "k": [
+      "sales promotions",
+      "sales promo",
+      "coupons",
+      "samples",
+      "discounts"
+     ],
+     "why": "Direct inducements like coupons, samples and premiums."
+    },
+    {
+     "a": "Personal selling",
+     "p": 25,
+     "k": [
+      "sales reps",
+      "salespeople",
+      "face to face selling",
+      "selling"
+     ],
+     "why": "A sales rep working one-on-one to make a sale."
+    },
+    {
+     "a": "Public relations",
+     "p": 40,
+     "k": [
+      "pr",
+      "public relation",
+      "press releases",
+      "sponsorship"
+     ],
+     "why": "Planned activities to build favourable relationships with the public."
+    },
+    {
+     "a": "Publicity",
+     "p": 45,
+     "k": [
+      "free publicity",
+      "news stories",
+      "media coverage"
+     ],
+     "why": "Free news coverage the business doesn't control."
+    },
+    {
+     "a": "Relationship marketing",
+     "p": 70,
+     "k": [
+      "relationship",
+      "loyalty programs",
+      "loyalty program",
+      "crm",
+      "customer relationship management"
+     ],
+     "why": "Long-term relationships with individual customers, e.g. loyalty programs and CRM."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "word of mouth",
+      "wom",
+      "opinion leaders",
+      "influencers"
+     ],
+     "p": 10,
+     "msg": "Opinion leaders and word of mouth belong to the communication process, not the promotion mix itself."
+    }
+   ]
+  },
+  {
+   "id": "mkt-personal-selling-adv",
+   "sec": "S",
+   "q": "Give an advantage of personal selling",
+   "hint": "Tailored, two-way, demonstrations, relationships",
+   "learn": "Personal selling is a sales representative directly trying to make a sale, the human side of promotion. It is persuasive and personal but expensive (wages, commission), slow and dependent on the seller's skill.",
+   "answers": [
+    {
+     "a": "Message tailored to the customer",
+     "p": 15,
+     "k": [
+      "tailored message",
+      "tailored",
+      "personalised",
+      "customised pitch",
+      "adapt the message"
+     ],
+     "why": "The pitch adapts to each customer's needs, so a sale is more likely."
+    },
+    {
+     "a": "Questions answered immediately",
+     "p": 25,
+     "k": [
+      "answer questions",
+      "questions",
+      "immediate feedback",
+      "feedback",
+      "handle complaints",
+      "two way communication"
+     ],
+     "why": "Questions, feedback and complaints are handled on the spot."
+    },
+    {
+     "a": "Builds long-term relationships",
+     "p": 30,
+     "k": [
+      "relationships",
+      "relationship",
+      "long term relationship",
+      "rapport",
+      "brand loyalty",
+      "repeat sales"
+     ],
+     "why": "Ongoing relationships increase brand loyalty and repeat sales."
+    },
+    {
+     "a": "Live demonstrations",
+     "p": 35,
+     "k": [
+      "demonstration",
+      "demonstrations",
+      "demos",
+      "show how it works"
+     ],
+     "why": "Seeing a product work in real life is often more convincing."
+    },
+    {
+     "a": "Personalised service exceeds expectations",
+     "p": 60,
+     "k": [
+      "exceed expectations",
+      "personalised service",
+      "customer service",
+      "customer satisfaction"
+     ],
+     "why": "One-on-one service can exceed expectations, lifting satisfaction."
+    },
+    {
+     "a": "Positive learned experience",
+     "p": 80,
+     "k": [
+      "learned experience",
+      "learning",
+      "positive experience",
+      "ficc"
+     ],
+     "why": "A good interaction becomes positive learning (a psychological factor) that drives repeat sales."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "expensive",
+      "wages",
+      "commission",
+      "time consuming"
+     ],
+     "p": 10,
+     "msg": "That's a disadvantage: personal selling is costly, slow and depends on the salesperson's skill."
+    },
+    {
+     "k": [
+      "mass audience"
+     ],
+     "p": 5,
+     "msg": "Reaching a mass audience is advertising's strength; personal selling is one-to-one."
+    }
+   ]
+  },
+  {
+   "id": "mkt-sales-promo",
+   "sec": "S",
+   "q": "Give an example of a sales promotion",
+   "hint": "SPCPR: Start Performing CPR",
+   "learn": "Sales promotions are activities or materials used as direct inducements to buy. They encourage trial and create urgency, but add costs and can train buyers to wait for discounts.",
+   "answers": [
+    {
+     "a": "Coupons",
+     "p": 10,
+     "k": [
+      "coupon",
+      "vouchers",
+      "discount coupons",
+      "discounts",
+      "discount"
+     ],
+     "why": "Discounts on particular items at the time of purchase."
+    },
+    {
+     "a": "Free samples",
+     "p": 15,
+     "k": [
+      "samples",
+      "sample",
+      "taste testing"
+     ],
+     "why": "A free item or container of the product to encourage trial."
+    },
+    {
+     "a": "Point-of-purchase displays",
+     "p": 50,
+     "k": [
+      "point of purchase",
+      "pop displays",
+      "pop",
+      "displays",
+      "in store displays",
+      "point of sale displays"
+     ],
+     "why": "Special signs, displays and racks installed by the manufacturer in store."
+    },
+    {
+     "a": "Premiums (free gifts)",
+     "p": 55,
+     "k": [
+      "premium",
+      "free gift",
+      "gift with purchase",
+      "gifts"
+     ],
+     "why": "A gift for using the product, e.g. a cookbook with a food product."
+    },
+    {
+     "a": "Refunds (cash back)",
+     "p": 75,
+     "k": [
+      "refund",
+      "cash back",
+      "cashback",
+      "rebate",
+      "rebates"
+     ],
+     "why": "Part of the price returned when customers send in proof of purchase."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "loyalty card",
+      "loyalty program",
+      "rewards program"
+     ],
+     "p": 10,
+     "msg": "Loyalty programs are relationship marketing, a separate element of the promotion mix."
+    },
+    {
+     "k": [
+      "price skimming",
+      "penetration pricing",
+      "loss leader"
+     ],
+     "p": 10,
+     "msg": "That's a pricing strategy (the Price P), not a sales promotion."
+    }
+   ]
+  },
+  {
+   "id": "mkt-public-relations",
+   "sec": "S",
+   "q": "Give an example of public relations activity",
+   "hint": "Press, CSR, charity, sponsorship, issues, crises",
+   "learn": "Public relations creates and maintains favourable relationships between a business and the public. Unlike publicity (free news coverage the business can't control), PR is planned by the business, though success isn't guaranteed.",
+   "answers": [
+    {
+     "a": "Sponsorship of events",
+     "p": 10,
+     "k": [
+      "sponsorship",
+      "sponsoring",
+      "sponsor events",
+      "sponsor"
+     ],
+     "why": "Sponsoring a public event links the brand with goodwill."
+    },
+    {
+     "a": "Charity donations or events",
+     "p": 15,
+     "k": [
+      "charity",
+      "donations",
+      "donating",
+      "charity events",
+      "fundraising"
+     ],
+     "why": "Donations and charity events build a caring image."
+    },
+    {
+     "a": "Press releases",
+     "p": 25,
+     "k": [
+      "press release",
+      "media release",
+      "press"
+     ],
+     "why": "Statements the business sends to the media."
+    },
+    {
+     "a": "Publicising CSR initiatives",
+     "p": 45,
+     "k": [
+      "csr",
+      "csr initiatives",
+      "corporate social responsibility",
+      "community programs"
+     ],
+     "why": "Telling the public about the business's social and environmental work."
+    },
+    {
+     "a": "Crisis management",
+     "p": 65,
+     "k": [
+      "crisis",
+      "damage control",
+      "managing bad publicity"
+     ],
+     "why": "Protecting reputation against rumours and adverse publicity before sales suffer."
+    },
+    {
+     "a": "Issues monitoring",
+     "p": 80,
+     "k": [
+      "issues management",
+      "monitoring issues",
+      "monitoring public trends",
+      "early warning"
+     ],
+     "why": "Early warning of public trends that could hurt sales, so action can be taken in time."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "news story",
+      "online reviews",
+      "blogs",
+      "free publicity",
+      "news article"
+     ],
+     "p": 10,
+     "msg": "That's publicity: free coverage the business doesn't control, whereas PR is planned by the business."
+    }
+   ]
+  },
+  {
+   "id": "mkt-opinion-leaders",
+   "sec": "S",
+   "q": "Give an example of an opinion leader",
+   "hint": "Influencers, celebrities, business leaders...",
+   "learn": "An opinion leader is an individual with influence over a large group of consumers. Endorsements add trust and reach, but they are costly and the brand suffers if the ambassador's reputation is tarnished.",
+   "answers": [
+    {
+     "a": "Social media influencers",
+     "p": 10,
+     "k": [
+      "influencers",
+      "influencer",
+      "smi",
+      "instagram influencers",
+      "youtubers"
+     ],
+     "why": "Large followings make their referrals powerful."
+    },
+    {
+     "a": "Celebrities",
+     "p": 15,
+     "k": [
+      "celebrity",
+      "celebrity endorsement",
+      "famous people"
+     ],
+     "why": "Celebrity endorsement lends a brand fame and trust."
+    },
+    {
+     "a": "Athletes",
+     "p": 30,
+     "k": [
+      "athlete",
+      "sports stars",
+      "sportspeople",
+      "footballers"
+     ],
+     "why": "Sports stars endorsing products to their fans."
+    },
+    {
+     "a": "Actors",
+     "p": 40,
+     "k": [
+      "actor",
+      "movie stars",
+      "film stars"
+     ],
+     "why": "Film and TV stars as the face of a brand."
+    },
+    {
+     "a": "Musicians",
+     "p": 45,
+     "k": [
+      "musician",
+      "singers",
+      "pop stars",
+      "bands"
+     ],
+     "why": "Music stars endorsing products to their fan base."
+    },
+    {
+     "a": "Business leaders",
+     "p": 60,
+     "k": [
+      "business leader",
+      "ceo",
+      "ceos",
+      "entrepreneurs",
+      "executives"
+     ],
+     "why": "Respected executives whose views sway consumers."
+    },
+    {
+     "a": "Brand ambassadors",
+     "p": 70,
+     "k": [
+      "brand ambassador",
+      "ambassador",
+      "ambassadors"
+     ],
+     "why": "The ongoing face of a brand; if their reputation is tarnished, so is the brand's."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "friends",
+      "family",
+      "online reviews",
+      "word of mouth"
+     ],
+     "p": 10,
+     "msg": "That's word of mouth or a reference group; an opinion leader influences a large group of consumers."
+    }
+   ]
+  },
+  {
+   "id": "mkt-word-of-mouth",
+   "sec": "S",
+   "q": "Name a word-of-mouth channel",
+   "hint": "Any conversation between consumers, online or off",
+   "learn": "Word of mouth is the influence on buying behaviour from conversation. It is trusted and free because it comes from reference groups, but the business can't control it and bad news spreads fast.",
+   "answers": [
+    {
+     "a": "Friends' recommendations",
+     "p": 10,
+     "k": [
+      "friends",
+      "recommendations",
+      "recommendation",
+      "talking to friends",
+      "face to face"
+     ],
+     "why": "Consumers trust their reference groups more than advertisers."
+    },
+    {
+     "a": "Online reviews",
+     "p": 15,
+     "k": [
+      "reviews",
+      "review",
+      "google reviews"
+     ],
+     "why": "Public reviews that influence buying decisions."
+    },
+    {
+     "a": "Social media posts",
+     "p": 20,
+     "k": [
+      "social media",
+      "posts",
+      "instagram",
+      "facebook",
+      "tiktok"
+     ],
+     "why": "Consumers sharing experiences with their followers."
+    },
+    {
+     "a": "Phone conversations",
+     "p": 35,
+     "k": [
+      "phone calls",
+      "phone",
+      "calls",
+      "phone conversation"
+     ],
+     "why": "Friends and family talking products over the phone."
+    },
+    {
+     "a": "Text messages",
+     "p": 40,
+     "k": [
+      "texts",
+      "texting",
+      "sms",
+      "messages"
+     ],
+     "why": "Consumers texting each other about products."
+    },
+    {
+     "a": "Emails",
+     "p": 50,
+     "k": [
+      "email",
+      "e mail"
+     ],
+     "why": "Consumers recommending or forwarding by email."
+    },
+    {
+     "a": "Blog posts",
+     "p": 60,
+     "k": [
+      "blogs",
+      "blog",
+      "blogging"
+     ],
+     "why": "Consumer-written blogs reviewing products."
+    },
+    {
+     "a": "Message boards",
+     "p": 70,
+     "k": [
+      "message board",
+      "forums",
+      "forum",
+      "online forums",
+      "reddit"
+     ],
+     "why": "Online discussion boards where buyers swap experiences."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "tv ads",
+      "billboards",
+      "radio ads",
+      "television"
+     ],
+     "p": 5,
+     "msg": "That's paid advertising; word of mouth is consumers talking to each other."
+    }
+   ]
+  },
+  {
+   "id": "mkt-dist-channels",
+   "sec": "S",
+   "q": "Name a distribution channel",
+   "hint": "One direct, three indirect",
+   "learn": "Distribution channels are the routes products take from producer to customer: direct, or indirect through retailers, wholesalers and agents. Producer to wholesaler to retailer to consumer is the most common for consumer goods.",
+   "answers": [
+    {
+     "a": "Direct: producer to consumer",
+     "p": 10,
+     "k": [
+      "direct",
+      "producer to consumer",
+      "direct to consumer",
+      "selling direct"
+     ],
+     "why": "No intermediaries: the producer sends the finished product straight to the consumer."
+    },
+    {
+     "a": "Producer to retailer to consumer",
+     "p": 20,
+     "k": [
+      "retailer",
+      "retailers",
+      "via retailers",
+      "through a retailer"
+     ],
+     "why": "Often used for bulky or perishable goods like furniture or fruit."
+    },
+    {
+     "a": "Producer, wholesaler, retailer, consumer",
+     "p": 40,
+     "k": [
+      "wholesaler",
+      "wholesalers",
+      "via wholesaler",
+      "wholesaler retailer"
+     ],
+     "why": "Most common for consumer goods; wholesalers buy in bulk and sell smaller lots to retailers."
+    },
+    {
+     "a": "Producer, agent, wholesaler, retailer, consumer",
+     "p": 75,
+     "k": [
+      "agent",
+      "agents",
+      "via agent",
+      "through an agent",
+      "commission agent"
+     ],
+     "why": "Agents earn commission selling to wholesalers; used when a producer has no sales reps."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "indirect",
+      "indirect distribution"
+     ],
+     "p": 10,
+     "msg": "Indirect is a category; name the route: via a retailer, a wholesaler and retailer, or an agent."
+    }
+   ]
+  },
+  {
+   "id": "mkt-dist-adv",
+   "sec": "S",
+   "q": "Give an advantage of a distribution channel or coverage choice",
+   "hint": "Direct, indirect, intensive, selective, exclusive",
+   "learn": "Direct channels give control and lower costs; indirect channels tap intermediaries' networks. Channel choice (market coverage) runs from intensive (every outlet) to selective (some) to exclusive (one or a few).",
+   "answers": [
+    {
+     "a": "Intensive: mass market coverage",
+     "p": 10,
+     "k": [
+      "mass coverage",
+      "market coverage",
+      "mass market coverage",
+      "widely available",
+      "available everywhere",
+      "easy to buy",
+      "saturate the market"
+     ],
+     "why": "Saturating every outlet gives mass coverage and makes buying easy, e.g. milk and lollies."
+    },
+    {
+     "a": "Direct: no intermediaries, lower costs",
+     "p": 15,
+     "k": [
+      "no intermediaries",
+      "no middlemen",
+      "cut out middlemen",
+      "lower costs",
+      "cheaper",
+      "direct lower costs"
+     ],
+     "why": "Cutting out intermediaries can reduce costs."
+    },
+    {
+     "a": "Direct: full control of price and message",
+     "p": 30,
+     "k": [
+      "full control",
+      "more control",
+      "absolute control",
+      "control of price",
+      "control of message",
+      "direct control"
+     ],
+     "why": "The business controls price, message and promotional material."
+    },
+    {
+     "a": "Indirect: access to retailers' customers",
+     "p": 35,
+     "k": [
+      "customer base",
+      "existing customers",
+      "retail network",
+      "access to customers",
+      "existing network"
+     ],
+     "why": "Taps retailers' existing customers and their skilled sales staff."
+    },
+    {
+     "a": "Exclusive: luxury image and higher margins",
+     "p": 45,
+     "k": [
+      "luxury image",
+      "status",
+      "prestige",
+      "higher margins",
+      "higher prices",
+      "exclusivity"
+     ],
+     "why": "Limited outlets signal status and quality, justifying higher prices and margins."
+    },
+    {
+     "a": "Direct: closer customer relationships",
+     "p": 50,
+     "k": [
+      "relationships",
+      "customer relationships",
+      "relationship marketing",
+      "closer relationships"
+     ],
+     "why": "Dealing directly with customers strengthens relationship marketing and repeat sales."
+    },
+    {
+     "a": "Indirect: specialist efficiency",
+     "p": 55,
+     "k": [
+      "specialists",
+      "efficiency",
+      "more efficient",
+      "specialist distributors",
+      "expertise"
+     ],
+     "why": "Specialist distribution businesses can do the job more efficiently."
+    },
+    {
+     "a": "Selective: brand control and wide reach",
+     "p": 65,
+     "k": [
+      "brand control",
+      "geographic reach",
+      "choose retailers",
+      "selected retailers"
+     ],
+     "why": "Choosing which retailers stock it widens reach while protecting brand perception."
+    },
+    {
+     "a": "Indirect: foreign subsidiaries for global reach",
+     "p": 80,
+     "k": [
+      "foreign subsidiaries",
+      "subsidiaries",
+      "international expansion",
+      "overseas expansion",
+      "global expansion",
+      "global reach"
+     ],
+     "why": "Intermediaries' foreign subsidiaries help a business expand internationally."
+    },
+    {
+     "a": "Exclusive: lower logistics costs",
+     "p": 85,
+     "k": [
+      "logistics costs",
+      "lower logistics",
+      "lower transport costs",
+      "exclusive lower costs",
+      "fewer deliveries"
+     ],
+     "why": "Supplying only one or a few outlets cuts transport and logistics costs."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "direct",
+      "indirect",
+      "intensive",
+      "selective",
+      "exclusive"
+     ],
+     "p": 5,
+     "msg": "Right channel, but name its advantage, e.g. exclusive gives a luxury image."
+    },
+    {
+     "k": [
+      "loss of control",
+      "limited access to consumers",
+      "intermediaries set the price"
+     ],
+     "p": 10,
+     "msg": "That's a disadvantage, the flip side of a distribution choice."
+    }
+   ]
+  },
+  {
+   "id": "mkt-physical-dist",
+   "sec": "S",
+   "q": "Name a physical distribution issue",
+   "hint": "WIT",
+   "learn": "Physical distribution is all the activities that move products efficiently from producer to customer: warehousing, inventory and transport. Too little stock loses sales; too much raises storage costs.",
+   "answers": [
+    {
+     "a": "Transport",
+     "p": 10,
+     "k": [
+      "transportation",
+      "shipping",
+      "freight",
+      "delivery"
+     ],
+     "why": "Moving goods by road, rail, sea or air, chosen by product type and service level."
+    },
+    {
+     "a": "Warehousing",
+     "p": 25,
+     "k": [
+      "warehouse",
+      "warehouses",
+      "storage",
+      "storing goods"
+     ],
+     "why": "Receiving, storing and dispatching goods from a central organising point."
+    },
+    {
+     "a": "Inventory",
+     "p": 30,
+     "k": [
+      "stock",
+      "stock levels",
+      "inventory control",
+      "inventory management"
+     ],
+     "why": "The stock on hand ready for sale, managed by inventory control systems."
+    },
+    {
+     "a": "Stock-outs (lost sales)",
+     "p": 70,
+     "k": [
+      "stock out",
+      "stockouts",
+      "out of stock",
+      "running out of stock",
+      "too little stock"
+     ],
+     "why": "Repeatedly running out loses sales, market share and customer satisfaction."
+    },
+    {
+     "a": "Excess stock (storage costs)",
+     "p": 75,
+     "k": [
+      "too much stock",
+      "overstocking",
+      "overstock",
+      "excess inventory",
+      "storage costs",
+      "high storage costs"
+     ],
+     "why": "Carrying too much stock means high storage costs."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "intensive",
+      "selective",
+      "exclusive",
+      "channel choice"
+     ],
+     "p": 10,
+     "msg": "That's channel choice (market coverage), not physical distribution."
+    }
+   ]
+  },
+  {
+   "id": "mkt-physical-evidence",
+   "sec": "S",
+   "q": "Give an example of physical evidence",
+   "hint": "Everything a customer can see, hear, smell or touch around the service",
+   "learn": "Physical evidence is the environment in which a service is delivered, plus tangible items like brochures and logos. It should match the positioning, e.g. Apple's premium store locations and design.",
+   "answers": [
+    {
+     "a": "Store layout and interior design",
+     "p": 15,
+     "k": [
+      "interior design",
+      "store design",
+      "decor",
+      "furnishings",
+      "lighting",
+      "fit out",
+      "store layout"
+     ],
+     "why": "Design, furnishing, lighting and decoration of the service space."
+    },
+    {
+     "a": "Uniforms",
+     "p": 20,
+     "k": [
+      "uniform",
+      "staff uniforms",
+      "dress code"
+     ],
+     "why": "Staff uniforms signal professionalism and the brand."
+    },
+    {
+     "a": "Signage",
+     "p": 25,
+     "k": [
+      "signs",
+      "store signage"
+     ],
+     "why": "Internal and external store signage."
+    },
+    {
+     "a": "Logo",
+     "p": 30,
+     "k": [
+      "logos"
+     ],
+     "why": "A logo is tangible evidence of a service brand."
+    },
+    {
+     "a": "Website",
+     "p": 35,
+     "k": [
+      "websites",
+      "web page",
+      "online store"
+     ],
+     "why": "Often the first physical evidence a customer sees; it must attract them."
+    },
+    {
+     "a": "Cleanliness",
+     "p": 45,
+     "k": [
+      "clean",
+      "hygiene",
+      "tidiness",
+      "clean store"
+     ],
+     "why": "Cleanliness levels shape customer impressions."
+    },
+    {
+     "a": "Brochures",
+     "p": 50,
+     "k": [
+      "brochure",
+      "pamphlets",
+      "flyers"
+     ],
+     "why": "Printed material customers can take away."
+    },
+    {
+     "a": "Location",
+     "p": 55,
+     "k": [
+      "store location",
+      "site"
+     ],
+     "why": "Where the service is delivered, e.g. Apple's premium store locations."
+    },
+    {
+     "a": "Business cards",
+     "p": 65,
+     "k": [
+      "business card",
+      "calling cards",
+      "letterheads",
+      "stationery"
+     ],
+     "why": "Business cards and letterheads are tangible service cues."
+    },
+    {
+     "a": "Sounds, smells and temperature",
+     "p": 80,
+     "k": [
+      "music",
+      "smell",
+      "scent",
+      "sounds",
+      "temperature",
+      "ambience",
+      "atmosphere",
+      "textures"
+     ],
+     "why": "The sensory atmosphere of the service environment."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "staff training",
+      "friendly staff",
+      "customer service"
+     ],
+     "p": 10,
+     "msg": "That's the People P: the quality of staff interaction with customers."
+    },
+    {
+     "k": [
+      "waiting times",
+      "delivery speed",
+      "online ordering"
+     ],
+     "p": 10,
+     "msg": "That's Processes: the flow of activities that delivers the service."
+    }
+   ]
+  },
+  {
+   "id": "mkt-emarketing",
+   "sec": "S",
+   "q": "Name an e-marketing technology",
+   "hint": "Web, pods, texts, blogs, location, social",
+   "learn": "E-marketing uses the internet to perform marketing activities. It is cost-effective with global reach and convenience, but criticism is public and visible, so it can be volatile.",
+   "answers": [
+    {
+     "a": "Social media advertising",
+     "p": 10,
+     "k": [
+      "social media",
+      "sma",
+      "social media ads",
+      "instagram ads",
+      "facebook ads",
+      "tiktok ads"
+     ],
+     "why": "Popular and effective for younger demographics, but criticism is public."
+    },
+    {
+     "a": "Websites",
+     "p": 15,
+     "k": [
+      "website",
+      "web pages",
+      "web page",
+      "online store"
+     ],
+     "why": "Customisable and informative, but must be continually updated."
+    },
+    {
+     "a": "SMS marketing",
+     "p": 30,
+     "k": [
+      "sms",
+      "text messages",
+      "texts",
+      "text messaging"
+     ],
+     "why": "Reaches a large audience fast, but raises privacy concerns."
+    },
+    {
+     "a": "Blogs",
+     "p": 40,
+     "k": [
+      "blog",
+      "blogging",
+      "blog posts"
+     ],
+     "why": "Online journals that invite feedback and a personal connection, but also negative comments."
+    },
+    {
+     "a": "Podcasts",
+     "p": 55,
+     "k": [
+      "podcast",
+      "podcasting",
+      "video podcasts"
+     ],
+     "why": "Audio or video files distributed to customers over the internet."
+    },
+    {
+     "a": "Location-based marketing",
+     "p": 75,
+     "k": [
+      "location based",
+      "location tracking",
+      "geotargeting",
+      "geo targeting",
+      "location tracking ads"
+     ],
+     "why": "Uses a mobile device's location to tailor marketing to where the person is."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "billboards",
+      "tv ads",
+      "radio",
+      "catalogues"
+     ],
+     "p": 5,
+     "msg": "That's traditional media; e-marketing uses the internet and mobile devices."
+    }
+   ]
+  },
+  {
+   "id": "mkt-global-strategies",
+   "sec": "S",
+   "q": "Name a global marketing strategy",
+   "hint": "GCSCG: Geelong Carlton SCG",
+   "learn": "Transnational corporations must adapt their marketing for foreign markets. Global marketing strategies are global branding, customisation, standardisation, competitive positioning and global pricing.",
+   "answers": [
+    {
+     "a": "Global branding",
+     "p": 10,
+     "k": [
+      "branding",
+      "global brand",
+      "worldwide brand"
+     ],
+     "why": "One worldwide name, logo or design, giving global recognition."
+    },
+    {
+     "a": "Standardisation",
+     "p": 20,
+     "k": [
+      "standardised",
+      "standardise",
+      "same product everywhere",
+      "uniform approach"
+     ],
+     "why": "Very similar strategies in all markets, assuming needs are the same."
+    },
+    {
+     "a": "Customisation",
+     "p": 25,
+     "k": [
+      "customised",
+      "customise",
+      "localised",
+      "local approach",
+      "adapting to local markets"
+     ],
+     "why": "Different strategies for each market to meet local needs and wants."
+    },
+    {
+     "a": "Global pricing",
+     "p": 35,
+     "k": [
+      "pricing",
+      "international pricing",
+      "global prices"
+     ],
+     "why": "Coordinating prices across countries, shaped by competition, exchange rates, regulation and transport."
+    },
+    {
+     "a": "Competitive positioning",
+     "p": 50,
+     "k": [
+      "positioning",
+      "global positioning",
+      "competitive position"
+     ],
+     "why": "Differentiating from rivals through quality products, affordable prices and strong relationships."
+    },
+    {
+     "a": "Customised pricing",
+     "p": 70,
+     "k": [
+      "customised prices",
+      "different prices in each country"
+     ],
+     "why": "Different prices in each country, often to cover export costs like transport and tariffs."
+    },
+    {
+     "a": "Standardised worldwide pricing",
+     "p": 75,
+     "k": [
+      "standardised pricing",
+      "same price everywhere",
+      "worldwide pricing"
+     ],
+     "why": "The same price in every market; exchange rate swings can hit profit."
+    },
+    {
+     "a": "Market-customised pricing",
+     "p": 85,
+     "k": [
+      "market customised pricing",
+      "marketing customised pricing",
+      "local market pricing"
+     ],
+     "why": "Prices set to suit local demand and competition in each market."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "globalisation"
+     ],
+     "p": 5,
+     "msg": "Globalisation is the trend; name the strategy a TNC uses (GCSCG)."
+    }
+   ]
+  },
+  {
+   "id": "mkt-standardisation-adv",
+   "sec": "S",
+   "q": "Give an advantage of standardisation in global marketing",
+   "hint": "One product, one message, everywhere",
+   "learn": "Standardisation uses very similar strategies in all markets, assuming needs are the same. It is cheaper and easier to manage, but can't meet local needs and is exposed to local competitors; customisation is the reverse.",
+   "answers": [
+    {
+     "a": "Lower costs (same promotion and design)",
+     "p": 10,
+     "k": [
+      "cheaper",
+      "cost effective",
+      "lower costs",
+      "saves money",
+      "same promotion",
+      "same advertising"
+     ],
+     "why": "The same promotion and product design can be used everywhere."
+    },
+    {
+     "a": "Easier to manage",
+     "p": 20,
+     "k": [
+      "easier",
+      "simpler",
+      "easy to manage",
+      "uniform product mix"
+     ],
+     "why": "A uniform product mix is simpler to run."
+    },
+    {
+     "a": "Economies of scale",
+     "p": 25,
+     "k": [
+      "mass production",
+      "scale"
+     ],
+     "why": "Producing one product for all markets cuts unit costs."
+    },
+    {
+     "a": "Less R&D needed",
+     "p": 45,
+     "k": [
+      "less r&d",
+      "less research and development",
+      "r&d",
+      "less research"
+     ],
+     "why": "One design means less research and development."
+    },
+    {
+     "a": "Consistent image builds trust",
+     "p": 50,
+     "k": [
+      "consistency",
+      "consistent image",
+      "consistent brand",
+      "uniform image",
+      "trust"
+     ],
+     "why": "Consistency maintains positive perceptions and trust."
+    },
+    {
+     "a": "Success spreads to other markets",
+     "p": 75,
+     "k": [
+      "word of mouth",
+      "reputation spreads",
+      "success in one market",
+      "demand in other markets",
+      "brand identity"
+     ],
+     "why": "Success in one market grows demand elsewhere via reputation and word of mouth."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "meets local needs",
+      "customer oriented",
+      "local tastes"
+     ],
+     "p": 10,
+     "msg": "That's an advantage of customisation; standardisation assumes needs are the same everywhere."
+    }
+   ]
+  }
+ ]
+}
