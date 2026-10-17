@@ -13,7 +13,7 @@
   --ink:#F4ECDF; --muted:#B8A894; --faint:#85765F;
   --hivis:#FFCC1A; --hivis-ink:#1B1405; --hivis-deep:#A37F00; --alert:#FF6A3D;
   --t-dirt:#6A5646; --t-pebble:#A08D7A; --t-copper:#E08A52; --t-silver:#CBD4DE; --t-gold:#F5BF3F; --t-diamond:#86E6F2;
-  --c-operations:#63B3E0; --c-marketing:#F07BB0; --c-finance:#74CF8F; --c-hr:#B09CF7;
+  --c-operations:#63B3E0; --c-marketing:#F07BB0; --c-finance:#74CF8F; --c-hr:#B09CF7; --c-deep:#FF8A3D;
   --f-display:"Bungee","Arial Black",Impact,sans-serif;
   --f-shade:"Bungee Shade","Bungee","Arial Black",Impact,sans-serif;
   --f-body:"Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,sans-serif;
@@ -89,6 +89,13 @@ p{margin:0}
 .tcard .today b{color:var(--hivis)}
 .tcard .btns{display:flex;gap:8px;flex-wrap:wrap}
 .tcard .btns .btn{flex:1;white-space:nowrap;padding-inline:10px;font-size:14px}
+.deepwrap{margin-top:16px}
+.tcard.deep{background:linear-gradient(var(--panel),var(--panel)) padding-box,var(--hazard) border-box;border:6px solid transparent;border-radius:14px}
+.tcard.deep h3{font-family:var(--f-shade);font-size:clamp(30px,4vw,44px);color:var(--tc)}
+.tcard.deep .deep-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:14px}
+.tcard.deep .btns{flex:0 1 380px}
+.tcard.deep dl{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tcard.deep p{max-width:60em}
 
 .section-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px;margin-bottom:16px}
 .section-head h2{font-family:var(--f-display);font-weight:400;font-size:26px}
@@ -427,9 +434,10 @@ ol.answers li.you .nm::before{content:"YOUR ANSWER";display:block;font-family:va
     <section aria-labelledby="pick-h">
       <div class="section-head">
         <h2 id="pick-h">Pick a shaft</h2>
-        <p>Each key business function has its own shaft and its own rooms. The Daily Dig is the same 7 prompts for everyone today, so you can compare depths with your class. Endless keeps going until you lose three hard hats.</p>
+        <p>Each key business function has its own shaft and its own rooms, and the Deep Drill mixes all four. The Daily Dig is the same 7 prompts for everyone today, so you can compare depths with your class. Endless keeps going until you lose three hard hats.</p>
       </div>
       <div class="topics" id="topics"></div>
+      <div id="deepCard" class="deepwrap"></div>
     </section>
 
     <section aria-labelledby="how-h">
@@ -495,9 +503,11 @@ const TOPICS = [
   { id: "finance", name: "Finance", code: "FIN", blurb: "Sources of finance, financial institutions, ratios, report limitations, cash flow, working capital and global finance." },
   { id: "hr", name: "Human Resources", code: "HR", blurb: "Stakeholders, the legal framework, the HR cycle, leadership, rewards, workplace disputes and CLAW ABC indicators." },
 ];
-const TOPIC = Object.fromEntries(TOPICS.map(t => [t.id, t]));
+// Deep Drill mixes all four banks: 12 prompts, three from each topic, deep enough to reach the core.
+const DEEP_DRILL = { id: "deep", name: "Deep Drill", code: "ALL", blurb: "All four topics in one shaft: 12 prompts, three each from Operations, Marketing, Finance and HR. The shaft runs past the Band 6 Vault all the way down to the Earth's core." };
+const TOPIC = Object.fromEntries([...TOPICS, DEEP_DRILL].map(t => [t.id, t]));
 const SECS = { R: "Role", I: "Influences", P: "Processes", S: "Strategies", E: "Effectiveness" };
-const DAILY_N = 7, HATS = 3;
+const DAILY_N = 7, DEEP_N = 12, HATS = 3;
 
 // Real Sydney Basin layers on top, fiction below.
 const STRATA = [
@@ -947,7 +957,14 @@ for (const t of TOPICS) {
   const own = TOPIC_ROOMS[t.id].map((r, i) => ({ ...r, d: DEPTHS[i], lvl: LVLS[i] }));
   ROOMS[t.id] = [FOYER, ...own, ...DEEP];
 }
-const roomsFor = mode => (mode === "daily" ? ROOMS[run.topic].filter(r => r.d <= 7000) : ROOMS[run.topic]);
+// Deep Drill's shaft borrows rooms from every topic.
+ROOMS.deep = [FOYER, ...[
+  ["operations", 3], ["marketing", 3], ["finance", 3], ["hr", 1], ["operations", 4],
+  ["marketing", 6], ["finance", 6], ["hr", 6], ["hr", 7], ["finance", 9],
+].map(([t, i], k) => ({ ...ROOMS[t][i + 1], d: DEPTHS[k], lvl: LVLS[k] })), ...DEEP];
+const maxDepth = () => (run.mode === "endless" ? Infinity : run.topic === "deep" ? 12000 : 7000);
+const roomsFor = () => ROOMS[run.topic].filter(r => r.d <= maxDepth());
+const modeLabel = () => (run.topic === "deep" ? (run.mode === "daily" ? `Today's Deep Drill · ${dayLabel()}` : "Random Deep Drill") : run.mode === "daily" ? `Daily Dig · ${dayLabel()}` : "Endless");
 const roomIndexAt = (rooms, d) => rooms.reduce((a, r, i) => (d >= r.d ? i : a), 0);
 
 /* ================= room rendering ================= */
@@ -1130,6 +1147,8 @@ function prepBanks() {
     }
     b.byId = Object.fromEntries(b.prompts.map(p => [p.id, p]));
   }
+  const all = TOPICS.flatMap(t => BANKS[t.id].prompts);
+  BANKS.deep = { prompts: all, byId: Object.fromEntries(all.map(p => [p.id, p])) };
 }
 function judge(p, text) {
   const inp = norm(text);
@@ -1168,7 +1187,7 @@ function found(topic) { return new Set(["foyer", ...(S.found[topic] || [])]); }
 function addFound(topic, id) { const f = found(topic); if (!f.has(id)) { f.add(id); S.found[topic] = [...f]; save(S); } }
 function bestOf(topic) {
   const b = S.best[topic] || {};
-  return [b.daily, b.endless].filter(Boolean).sort((x, y) => y.depth - x.depth)[0] || null;
+  return [b.daily, b.endless, b.random].filter(Boolean).sort((x, y) => y.depth - x.depth)[0] || null;
 }
 
 /* ================= home ================= */
@@ -1184,6 +1203,15 @@ function renderXsec() {
 }
 function renderHome() {
   const day = dayKey();
+  const dd = DEEP_DRILL, ddb = bestOf("deep"), ddToday = S.daily[`${day}|deep`];
+  $("#deepCard").innerHTML = `<article class="tcard deep" style="--tc:var(--c-deep)">
+      <div class="deep-head"><div><div class="code">ALL FOUR SHAFTS · ${DEEP_N} PROMPTS</div><h3>${dd.name}</h3></div>
+      <div class="btns"><button class="btn go" type="button" data-start="deep" data-mode="daily">Today's Deep Drill</button><button class="btn" type="button" data-start="deep" data-mode="random">Random 12</button></div></div>
+      <p>${esc(dd.blurb)} Today's Deep Drill is the same 12 for everyone; Random 12 deals a fresh set.</p>
+      <dl><div><dt>Deepest drill</dt><dd>${ddb ? fmt(ddb.depth) + " m" : "—"}${ddb ? `<small>${esc(ddb.lvl)} · ${esc(ddb.room)}</small>` : ""}</dd></div>
+      <div><dt>Rooms found</dt><dd>${found("deep").size} / ${ROOMS.deep.length}</dd></div>
+      <div><dt>Today</dt><dd>${ddToday ? `${fmt(ddToday.depth)} m` : "—"}${ddToday ? `<small>${ddToday.tiles}</small>` : ""}</dd></div></dl>
+    </article>`;
   $("#topics").innerHTML = TOPICS.map(t => {
     const b = bestOf(t.id), f = found(t.id).size, today = S.daily[`${day}|${t.id}`];
     return `<article class="tcard" style="--tc:var(--c-${t.id})">
@@ -1196,7 +1224,7 @@ function renderHome() {
     </article>`;
   }).join("");
   $("#timerSeg").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.t === S.timer)));
-  $("#guideTabs").innerHTML = TOPICS.map(t => `<button type="button" role="tab" style="--tc:var(--c-${t.id})" aria-selected="${t.id === guideTab}" data-tab="${t.id}">${t.name}</button>`).join("");
+  $("#guideTabs").innerHTML = [...TOPICS, DEEP_DRILL].map(t => `<button type="button" role="tab" style="--tc:var(--c-${t.id})" aria-selected="${t.id === guideTab}" data-tab="${t.id}">${t.name}</button>`).join("");
   renderGuide();
 }
 function renderGuide() {
@@ -1225,8 +1253,19 @@ function spread(prompts, r) {
 function startRun(topic, mode) {
   const bank = BANKS[topic], day = dayKey();
   const r = rng32(mode === "daily" ? hashStr(day + "|" + topic) : (Math.random() * 2 ** 32) >>> 0);
-  const order = spread(bank.prompts, r).map(p => p.id);
-  run = { topic, mode, day, order: mode === "daily" ? order.slice(0, DAILY_N) : order, i: 0, score: 0, depth: 0, strikes: 0, results: [], hint: false, roomIdx: 0, phase: "ask" };
+  let order;
+  if (topic === "deep") {
+    // three per topic, dealt in rounds so the topics alternate
+    const per = DEEP_N / TOPICS.length, hands = TOPICS.map(t => spread(BANKS[t.id].prompts, r).slice(0, per));
+    order = [];
+    for (let k = 0; k < per; k++) {
+      const round = hands.map(h => h[k]);
+      for (let i = round.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [round[i], round[j]] = [round[j], round[i]]; }
+      order.push(...round.map(p => p.id));
+    }
+  } else order = spread(bank.prompts, r).map(p => p.id);
+  const n = mode === "endless" ? null : topic === "deep" ? DEEP_N : DAILY_N;
+  run = { topic, mode, day, n, order: n ? order.slice(0, n) : order, i: 0, score: 0, depth: 0, strikes: 0, results: [], hint: false, roomIdx: 0, phase: "ask" };
   enterGame();
   renderPrompt();
 }
@@ -1244,9 +1283,9 @@ function enterGame() {
   const t = TOPIC[run.topic];
   $("#game").style.setProperty("--tc", `var(--c-${t.id})`);
   $("#hudTopic").textContent = t.name;
-  $("#hudMode").textContent = run.mode === "daily" ? `Daily Dig · ${dayLabel()}` : "Endless";
+  $("#hudMode").textContent = modeLabel();
   buildRails();
-  const rooms = roomsFor(run.mode);
+  const rooms = roomsFor();
   run.roomIdx = roomIndexAt(rooms, run.depth);
   const st = $("#stage"), box = $("#rooms");
   box.innerHTML = "";
@@ -1278,11 +1317,11 @@ function setCaption(room) {
 }
 function paintDepth(d) {
   $("#hudDepth").textContent = fmt(d);
-  const rooms = roomsFor(run.mode);
+  const rooms = roomsFor();
   $("#hudLvl").textContent = rooms[roomIndexAt(rooms, d)].lvl;
 }
 function hud() {
-  $("#hudProg").textContent = run.mode === "daily" ? `${Math.min(run.i + 1, DAILY_N)} / ${DAILY_N}` : `#${run.i + 1}`;
+  $("#hudProg").textContent = run.n ? `${Math.min(run.i + 1, run.n)} / ${run.n}` : `#${run.i + 1}`;
   const hats = $("#hudHats");
   hats.hidden = run.mode !== "endless";
   hats.innerHTML = Array.from({ length: HATS }, (_, i) => HAT.replace("<svg", `<svg class="${i < HATS - run.strikes ? "" : "lost"}"`)).join("");
@@ -1305,14 +1344,14 @@ function railHTML(rooms, id) {
   return `<div class="rtrack"><div class="bands">${bands}</div>${mk}<div class="pb" hidden></div><div class="me">${drillSVG(id)}</div></div>`;
 }
 function buildRails() {
-  const rooms = roomsFor(run.mode);
+  const rooms = roomsFor();
   $("#rail").innerHTML = `<div class="top" aria-hidden="true"><div class="b"></div><div class="g"></div></div>` + railHTML(rooms, "r");
   $("#minirail").innerHTML = railHTML(rooms, "m");
   const pb = (S.best[run.topic] || {})[run.mode];
   document.querySelectorAll(".rtrack .pb").forEach(el => { if (pb && pb.depth > 0) { el.hidden = false; el.style.top = (yOf(rooms, pb.depth) * 100).toFixed(2) + "%"; } });
 }
 function updateRails(d) {
-  const rooms = roomsFor(run.mode), here = roomIndexAt(rooms, d), y = (yOf(rooms, d) * 100).toFixed(2) + "%";
+  const rooms = roomsFor(), here = roomIndexAt(rooms, d), y = (yOf(rooms, d) * 100).toFixed(2) + "%";
   document.querySelectorAll(".rtrack").forEach(tr => {
     tr.querySelector(".me").style.top = y;
     tr.querySelectorAll(".mk").forEach(m => { const i = +m.dataset.i; m.classList.toggle("seen", i <= here); m.classList.toggle("here", i === here); });
@@ -1326,7 +1365,7 @@ function renderPrompt() {
   hud();
   const secs = S.timer;
   $("#card").innerHTML = `
-    <div class="eyebrow">${SECS[p.sec] || ""} · ${run.mode === "daily" ? `Prompt ${run.i + 1} of ${DAILY_N}` : `Endless prompt ${run.i + 1}`}</div>
+    <div class="eyebrow">${eyebrow(p)}</div>
     <h2 class="q" id="qtext">${esc(p.q)}</h2>
     ${secs ? `<div class="timer" id="timer"><div class="tbar"><i id="tbar"></i></div><span class="tsec" id="tsec">${secs}</span></div>` : ""}
     <form class="ans" id="ansForm" autocomplete="off"><input id="answer" name="answer" type="text" maxlength="70" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" placeholder="Type one answer" aria-labelledby="qtext"><button class="btn go" type="submit">DIG</button></form>
@@ -1372,7 +1411,11 @@ function submit(timedOut) {
   renderReveal(p, res);
   descend(from, run.depth);
 }
-function isOver() { return run.mode === "daily" ? run.i + 1 >= DAILY_N : run.strikes >= HATS; }
+function isOver() { return run.n ? run.i + 1 >= run.n : run.strikes >= HATS; }
+function eyebrow(p) {
+  const where = run.topic === "deep" ? `<span style="color:var(--c-${p.topic})">${esc(TOPIC[p.topic].name)}</span> · ` : "";
+  return `${where}${SECS[p.sec] || ""} · ${run.n ? `Prompt ${run.i + 1} of ${run.n}` : `Endless prompt ${run.i + 1}`}`;
+}
 
 /* ================= reveal ================= */
 function renderReveal(p, res) {
@@ -1391,9 +1434,9 @@ function renderReveal(p, res) {
   else if (res.kind === "miss") msg = `That didn't match any answer for this prompt. Check the board below for what counts.`;
   const sorted = p.answers.map((a, i) => ({ a, i })).sort((x, y) => x.a.p - y.a.p || x.i - y.i);
   const last = isOver();
-  const nextLabel = last ? (run.mode === "daily" ? "See how deep you got" : "Out of hard hats: see results") : "Keep digging ↓";
+  const nextLabel = last ? (run.n ? "See how deep you got" : "Out of hard hats: see results") : "Keep digging ↓";
   $("#card").innerHTML = `
-    <div class="eyebrow">${SECS[p.sec] || ""} · ${run.mode === "daily" ? `Prompt ${run.i + 1} of ${DAILY_N}` : `Endless prompt ${run.i + 1}`}</div>
+    <div class="eyebrow">${eyebrow(p)}</div>
     <h2 class="q">${esc(p.q)}</h2>
     <div class="result t-${res.tier}" role="status">
       <span class="chip">${TIER[res.tier]}</span>
@@ -1433,7 +1476,7 @@ function descend(from, to) {
   if (to <= from) return;
   tweenDepth(from, to);
   updateRails(to);
-  const st = $("#stage"), rooms = roomsFor(run.mode), ni = roomIndexAt(rooms, to);
+  const st = $("#stage"), rooms = roomsFor(), ni = roomIndexAt(rooms, to);
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
   st.classList.remove("dig"); void st.offsetWidth; st.classList.add("dig");
   if (ni > run.roomIdx) {
@@ -1481,7 +1524,7 @@ function finish() {
   cancelAnimationFrame(timerRaf);
   if (!run) return;
   run.phase = "end";
-  const rooms = roomsFor(run.mode), room = rooms[roomIndexAt(rooms, run.depth)];
+  const rooms = roomsFor(), room = rooms[roomIndexAt(rooms, run.depth)];
   const tiles = run.results.map(r => TILE[r.tier]).join("");
   const B = (S.best[run.topic] ??= {});
   const prev = B[run.mode];
@@ -1493,7 +1536,7 @@ function finish() {
   }
   save(S);
   const t = TOPIC[run.topic];
-  const share = `Drillion · ${t.name} · ${run.mode === "daily" ? `Daily Dig ${dayLabel()}` : "Endless"}\n⛏️ ${fmt(run.depth)} m under NESA (${room.lvl} ${room.name})\n${tiles}`;
+  const share = `Drillion · ${run.topic === "deep" ? modeLabel() : `${t.name} · ${modeLabel()}`}\n⛏️ ${fmt(run.depth)} m under NESA (${room.lvl} ${room.name})\n${tiles}`;
   const rare = run.results.filter(r => r.tier === "diamond" || r.tier === "gold").length;
   const bank = BANKS[run.topic];
   const review = run.results.map(r => {
@@ -1502,14 +1545,14 @@ function finish() {
     return `<li><span class="rq">${esc(p.q)}</span><span class="ra">You: ${esc(yours)} · Deepest answer: <strong>${esc(top.a)}</strong> (${top.p})</span><span class="chip t-${r.tier}">+${r.pts}</span></li>`;
   }).join("");
   $("#card").innerHTML = `
-    <div class="eyebrow">${run.mode === "daily" ? (run.results.length >= DAILY_N ? "Daily Dig complete" : "Dig ended early") : run.strikes >= HATS ? "Out of hard hats" : "Dig banked"}</div>
+    <div class="eyebrow">${run.n ? (run.results.length >= run.n ? (run.topic === "deep" ? "Deep Drill complete" : "Daily Dig complete") : "Dig ended early") : run.strikes >= HATS ? "Out of hard hats" : "Dig banked"}</div>
     <div class="endbig">${fmt(run.depth)}<small>m</small></div>
     <p class="endroom"><b>${esc(room.lvl)}</b>${esc(room.name)} ${isPB ? `<span class="pbflag">NEW BEST</span>` : ""}</p>
     <div class="tiles" aria-label="Results by prompt">${tiles || "—"}</div>
     <dl class="stats"><div><dt>Points</dt><dd>${run.score}</dd></div><div><dt>Gold+</dt><dd>${rare}</dd></div><div><dt>Best</dt><dd>${fmt(Math.max(run.depth, prev?.depth || 0))} m</dd></div></dl>
     <div class="btnrow">
       <button class="btn go" type="button" id="copyBtn">Copy result</button>
-      ${run.mode === "daily" ? `<button class="btn" type="button" id="againBtn" data-mode="endless">Try Endless</button>` : `<button class="btn" type="button" id="againBtn" data-mode="endless">Dig again</button>`}
+      <button class="btn" type="button" id="againBtn">${run.topic === "deep" ? "Random 12" : run.mode === "daily" ? "Try Endless" : "Dig again"}</button>
       <button class="btn ghost" type="button" id="homeBtn">Back to the surface</button>
     </div>
     <textarea class="sharebox" id="shareBox" readonly hidden aria-label="Result to copy">${esc(share)}</textarea>
@@ -1521,7 +1564,7 @@ function finish() {
     catch (err) { box.hidden = false; box.focus(); box.select(); btn.textContent = "Select and copy below"; }
   });
   const topic = run.topic;
-  $("#againBtn").addEventListener("click", () => startRun(topic, "endless"));
+  $("#againBtn").addEventListener("click", () => startRun(topic, topic === "deep" ? "random" : "endless"));
   $("#homeBtn").addEventListener("click", exitGame);
   $("#card").scrollTop = 0;
   hud();
@@ -1529,6 +1572,7 @@ function finish() {
 
 /* ================= wiring ================= */
 function wire() {
+  $("#deepCard").addEventListener("click", e => { const b = e.target.closest("[data-start]"); if (b) startRun(b.dataset.start, b.dataset.mode); });
   $("#topics").addEventListener("click", e => { const b = e.target.closest("[data-start]"); if (b) startRun(b.dataset.start, b.dataset.mode); });
   $("#timerSeg").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; S.timer = +b.dataset.t; save(S); renderHome(); });
   $("#guideTabs").addEventListener("click", e => { const b = e.target.closest("[data-tab]"); if (!b) return; guideTab = b.dataset.tab; renderHome(); });
@@ -1556,12 +1600,13 @@ function boot(data) {
   const saved = data && data.run;
   if (saved && saved.phase !== "end" && BANKS[saved.topic]) {
     run = saved;
+    if (run.n === undefined) run.n = run.mode === "endless" ? null : DAILY_N;
     if (run.results.length > run.i) run.i++;
     enterGame();
     if (isOverAfterRestore()) finish(); else renderPrompt();
   } else renderHome();
 }
-function isOverAfterRestore() { return run.mode === "daily" ? run.i >= DAILY_N : run.strikes >= HATS; }
+function isOverAfterRestore() { return run.n ? run.i >= run.n : run.strikes >= HATS; }
 window.claude?.hot?.snapshot?.(() => ({ run }));
 window.claude?.hot?.ready ? window.claude.hot.ready(boot) : boot(window.claude?.hot?.data ?? {});
 </script>
