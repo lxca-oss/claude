@@ -1,0 +1,5507 @@
+{
+ "topic": "operations",
+ "prompts": [
+  {
+   "id": "ops-role-cost-leadership",
+   "sec": "R",
+   "q": "Name a way to achieve cost leadership",
+   "hint": "Standardise, scale up, get efficient, innovate, cheap inputs",
+   "learn": "Cost leadership means striving to be the lowest-cost producer and the most price-competitive business in the market. It is one of the two strategic roles of operations; the other is good/service differentiation.",
+   "answers": [
+    {
+     "a": "Economies of scale",
+     "p": 15,
+     "k": [
+      "economy of scale",
+      "eos",
+      "large scale production",
+      "bulk buying",
+      "scale"
+     ],
+     "why": "Producing on a larger scale cuts the cost per unit, e.g. through bulk-buying inputs."
+    },
+    {
+     "a": "Becoming more efficient",
+     "p": 20,
+     "k": [
+      "efficiency",
+      "efficient",
+      "productivity",
+      "reduce waste",
+      "minimise waste",
+      "lean production"
+     ],
+     "why": "More output from the same inputs (lean production, less wastage) lowers unit costs."
+    },
+    {
+     "a": "Offering standardised products",
+     "p": 30,
+     "k": [
+      "standardised",
+      "standardized",
+      "standardisation",
+      "standardization",
+      "standard products",
+      "mass production",
+      "uniform products"
+     ],
+     "why": "Uniform, mass-produced goods are cheaper to make than customised ones."
+    },
+    {
+     "a": "Global sourcing of cheap inputs",
+     "p": 45,
+     "k": [
+      "global sourcing",
+      "cheaper inputs",
+      "cheaper suppliers",
+      "low cost inputs",
+      "cheap inputs",
+      "overseas suppliers"
+     ],
+     "why": "Buying inputs overseas where they cost less reduces input costs."
+    },
+    {
+     "a": "Innovative production methods",
+     "p": 55,
+     "k": [
+      "innovative",
+      "innovation",
+      "new production methods",
+      "cost efficient methods",
+      "new technology",
+      "technology"
+     ],
+     "why": "Innovative, cost-efficient production methods cut processing costs."
+    },
+    {
+     "a": "Capital-labour substitution",
+     "p": 80,
+     "k": [
+      "capital labour substitution",
+      "capital labor substitution",
+      "replace workers with machines",
+      "replace labour",
+      "automation",
+      "robotics"
+     ],
+     "why": "Machines and robots replace labour, removing a major cost in the long term."
+    },
+    {
+     "a": "Exclusive access to low-cost inputs",
+     "p": 85,
+     "k": [
+      "exclusive access",
+      "exclusive supply",
+      "exclusive suppliers",
+      "exclusive raw materials"
+     ],
+     "why": "Sole access to cheap raw materials gives a cost edge rivals can't copy."
+    },
+    {
+     "a": "Supplier rationalisation",
+     "p": 90,
+     "k": [
+      "rationalisation",
+      "rationalization",
+      "fewer suppliers",
+      "larger orders fewer suppliers",
+      "supplier rationalization"
+     ],
+     "why": "Placing larger orders with fewer suppliers wins economies of scale (a Finance link)."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "differentiation",
+      "unique features",
+      "customisation",
+      "customization"
+     ],
+     "p": 5,
+     "msg": "That's the other strategic role, differentiation, which usually raises costs."
+    },
+    {
+     "k": [
+      "higher quality",
+      "better quality"
+     ],
+     "p": 5,
+     "msg": "Higher quality usually adds cost; cost leaders often sacrifice some quality instead."
+    },
+    {
+     "k": [
+      "reduce costs",
+      "lower costs",
+      "cut costs"
+     ],
+     "p": 5,
+     "msg": "That's the goal of cost leadership; name a way to get there, e.g. economies of scale."
+    }
+   ]
+  },
+  {
+   "id": "ops-role-differentiation",
+   "sec": "R",
+   "q": "Name a way to differentiate a good or service",
+   "hint": "Goods: features, quality, design, extras. Services: time, expertise",
+   "learn": "Differentiation means modifying products so they are unique and distinct from competitors' products. It is the alternative strategic role to cost leadership and usually increases costs.",
+   "answers": [
+    {
+     "a": "Unique features",
+     "p": 10,
+     "k": [
+      "features",
+      "extra features",
+      "more features",
+      "product features"
+     ],
+     "why": "Adding functions competitors lack makes the product stand out."
+    },
+    {
+     "a": "Higher quality",
+     "p": 15,
+     "k": [
+      "quality",
+      "better quality",
+      "premium quality",
+      "high quality"
+     ],
+     "why": "Superior materials and workmanship set the product apart."
+    },
+    {
+     "a": "Unique design or technology",
+     "p": 30,
+     "k": [
+      "design",
+      "unique design",
+      "innovative design",
+      "technology",
+      "new technology"
+     ],
+     "why": "Distinctive styling or built-in technology competitors can't match."
+    },
+    {
+     "a": "Level of customisation",
+     "p": 40,
+     "k": [
+      "customisation",
+      "customization",
+      "customised",
+      "customized",
+      "personalisation",
+      "personalization",
+      "tailored"
+     ],
+     "why": "Tailoring the good or service to each customer's needs."
+    },
+    {
+     "a": "Augmented features",
+     "p": 55,
+     "k": [
+      "augmented",
+      "warranty",
+      "warranties",
+      "after sales service",
+      "after sales",
+      "extended warranty"
+     ],
+     "why": "Extras beyond the core product, such as a warranty or after-sales service."
+    },
+    {
+     "a": "Speed or time of service",
+     "p": 60,
+     "k": [
+      "speed",
+      "time",
+      "faster service",
+      "quicker service",
+      "timeliness",
+      "convenience"
+     ],
+     "why": "Services can stand out by how quickly they are delivered."
+    },
+    {
+     "a": "Provider expertise and qualifications",
+     "p": 70,
+     "k": [
+      "expertise",
+      "qualifications",
+      "qualified staff",
+      "experience",
+      "skilled staff",
+      "expert staff"
+     ],
+     "why": "Services differ by the skill, qualifications and experience of the provider."
+    },
+    {
+     "a": "Cross-branding or strategic alliances",
+     "p": 90,
+     "k": [
+      "cross branding",
+      "strategic alliance",
+      "alliances",
+      "co branding",
+      "partnership",
+      "qantas emirates",
+      "woolworths caltex",
+      "coles shell"
+     ],
+     "why": "Partnerships add benefits, e.g. Woolworths-Caltex fuel deals or Qantas-Emirates code-sharing."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "lower price",
+      "cheapest",
+      "low cost",
+      "cost leadership",
+      "cheaper"
+     ],
+     "p": 5,
+     "msg": "Competing on low price is cost leadership, the other strategic role."
+    }
+   ]
+  },
+  {
+   "id": "ops-role-services",
+   "sec": "R",
+   "q": "Name a characteristic of services",
+   "hint": "Compare them with goods: touch, timing, standardisation, value",
+   "learn": "Services are intangible and produced and consumed at the same time, so they are usually customised and their value is subjective. Goods are tangible, tend to be standardised and can be stored.",
+   "answers": [
+    {
+     "a": "Intangible",
+     "p": 10,
+     "k": [
+      "cannot be touched",
+      "cant be touched",
+      "not physical",
+      "non physical"
+     ],
+     "why": "A service can't be touched, e.g. a haircut or financial advice."
+    },
+    {
+     "a": "Generally customised",
+     "p": 25,
+     "k": [
+      "customised",
+      "customized",
+      "customisation",
+      "customization",
+      "tailored",
+      "individualised"
+     ],
+     "why": "Each client's needs differ, so services tend to be tailored."
+    },
+    {
+     "a": "Simultaneous production and consumption",
+     "p": 40,
+     "k": [
+      "simultaneous",
+      "produced and consumed at the same time",
+      "inseparable",
+      "inseparability",
+      "same time"
+     ],
+     "why": "The service is consumed as it is produced, e.g. a flight."
+    },
+    {
+     "a": "Quality depends on provider skills",
+     "p": 45,
+     "k": [
+      "skills",
+      "staff skills",
+      "professionalism",
+      "knowledge",
+      "expertise",
+      "experience"
+     ],
+     "why": "Skills, knowledge, experience and professionalism shape the service."
+    },
+    {
+     "a": "Value is subjective",
+     "p": 55,
+     "k": [
+      "subjective",
+      "subjective value",
+      "hard to value"
+     ],
+     "why": "Worth depends on what the market will pay; more skill or education earns more."
+    },
+    {
+     "a": "Exists only while performed",
+     "p": 65,
+     "k": [
+      "perishable",
+      "cannot be stored",
+      "exists while performed",
+      "only exists while performed"
+     ],
+     "why": "A service exists while it is performed, although its benefit can last longer."
+    },
+    {
+     "a": "High visibility to customers",
+     "p": 70,
+     "k": [
+      "visible",
+      "visibility",
+      "high visibility",
+      "customer contact",
+      "high customer contact",
+      "interaction with customer"
+     ],
+     "why": "Customers see the process, so staff must be well trained and adaptable."
+    },
+    {
+     "a": "Self-service options",
+     "p": 85,
+     "k": [
+      "self service",
+      "self serve"
+     ],
+     "why": "Businesses can shift part of the service to the customer, e.g. self-checkouts."
+    },
+    {
+     "a": "Drip pricing",
+     "p": 95,
+     "k": [
+      "drip",
+      "extra charges",
+      "added charges",
+      "additional charges"
+     ],
+     "why": "Additional charges can be added during the service."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "physical",
+      "standardised",
+      "standardized",
+      "storable",
+      "mass produced"
+     ],
+     "p": 5,
+     "msg": "That describes goods: tangible, standardised, storable, with a more objective value."
+    }
+   ]
+  },
+  {
+   "id": "ops-role-int-marketing",
+   "sec": "R",
+   "q": "Give a way Operations and Marketing depend on each other",
+   "hint": "Research, design, forecasts, quality, price, CSR",
+   "learn": "Marketing identifies what customers want and how many units will sell; operations must make and deliver products with those features, at that quality and volume. Poor quality from operations damages marketing's brand image.",
+   "answers": [
+    {
+     "a": "Market research sets features",
+     "p": 15,
+     "k": [
+      "market research",
+      "customer needs",
+      "needs and wants",
+      "research",
+      "features and quality"
+     ],
+     "why": "Marketing's research tells operations which features and quality customers demand."
+    },
+    {
+     "a": "Quality protects the brand",
+     "p": 25,
+     "k": [
+      "quality",
+      "brand",
+      "brand image",
+      "reputation",
+      "complaints",
+      "warranty claims"
+     ],
+     "why": "Defective products lead to complaints, warranty claims and a tarnished brand."
+    },
+    {
+     "a": "Sales forecasts set volume",
+     "p": 30,
+     "k": [
+      "sales forecast",
+      "forecasts",
+      "forecasting",
+      "sales predictions",
+      "production volume",
+      "volume",
+      "demand forecast"
+     ],
+     "why": "Forecasts (from research and the product life cycle) set units produced and resources needed."
+    },
+    {
+     "a": "Joint product design",
+     "p": 40,
+     "k": [
+      "product design",
+      "design",
+      "new product development",
+      "npd",
+      "new product design",
+      "product development"
+     ],
+     "why": "Marketing leads new product design; operations advises how it can be made."
+    },
+    {
+     "a": "Distribution and logistics",
+     "p": 55,
+     "k": [
+      "distribution",
+      "logistics",
+      "delivery",
+      "place",
+      "channels"
+     ],
+     "why": "Operations reliably distributes the product to market through marketing's channels."
+    },
+    {
+     "a": "Customer service and feedback",
+     "p": 60,
+     "k": [
+      "customer service",
+      "customer feedback",
+      "feedback",
+      "customer satisfaction"
+     ],
+     "why": "Complaints and long waits flagged by marketing drive changes to operations."
+    },
+    {
+     "a": "Positioning matches input quality",
+     "p": 65,
+     "k": [
+      "positioning",
+      "product positioning",
+      "quality of inputs",
+      "premium inputs",
+      "input quality"
+     ],
+     "why": "A premium market position needs high-quality inputs from operations."
+    },
+    {
+     "a": "Pricing links to cost leadership",
+     "p": 70,
+     "k": [
+      "pricing",
+      "price",
+      "pricing methods",
+      "pricing strategy",
+      "cost leadership",
+      "differentiation"
+     ],
+     "why": "Low prices need cost leadership; premium prices need differentiation."
+    },
+    {
+     "a": "CSR used in promotion",
+     "p": 85,
+     "k": [
+      "csr",
+      "corporate social responsibility",
+      "promotion",
+      "sustainability",
+      "ethical",
+      "green marketing"
+     ],
+     "why": "Operations' ethical, sustainable practices become a promotional message."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "budget",
+      "funding",
+      "funds",
+      "cash flow"
+     ],
+     "p": 5,
+     "msg": "Budgets and funding are the Finance link, not Marketing."
+    },
+    {
+     "k": [
+      "recruitment",
+      "training",
+      "job descriptions",
+      "redundancies"
+     ],
+     "p": 5,
+     "msg": "That's the Human Resources link."
+    }
+   ]
+  },
+  {
+   "id": "ops-role-int-finance",
+   "sec": "R",
+   "q": "Give a way Operations and Finance depend on each other",
+   "hint": "Budgets, monitoring, costs, quality, funding",
+   "learn": "Finance budgets and funds operations' inputs, equipment, product development and quality processes, and monitors operations performance. Operations helps finance minimise expenses and protect profit margins.",
+   "answers": [
+    {
+     "a": "Budgets and funds for inputs",
+     "p": 10,
+     "k": [
+      "budget",
+      "budgets",
+      "funding",
+      "funds",
+      "capital",
+      "money for inputs"
+     ],
+     "why": "Finance funds inputs, equipment, new product development and quality management."
+    },
+    {
+     "a": "Minimising production costs",
+     "p": 20,
+     "k": [
+      "reduce costs",
+      "cost reduction",
+      "production costs",
+      "profit margin",
+      "expense minimisation",
+      "minimise expenses",
+      "cheaper suppliers",
+      "cost leadership"
+     ],
+     "why": "Lower production costs (e.g. cheaper suppliers) maximise profit margins."
+    },
+    {
+     "a": "Quality avoids warranty costs",
+     "p": 30,
+     "k": [
+      "quality",
+      "warranty",
+      "warranty claims",
+      "defects",
+      "quality products"
+     ],
+     "why": "Faulty products mean warranty claims and extra costs for the business."
+    },
+    {
+     "a": "Monitoring ops performance",
+     "p": 40,
+     "k": [
+      "monitoring",
+      "monitor",
+      "analyse performance",
+      "analyses performance",
+      "performance analysis",
+      "financial analysis"
+     ],
+     "why": "Finance analyses operations results and may push for process changes."
+    },
+    {
+     "a": "Quality inputs earn higher revenue",
+     "p": 60,
+     "k": [
+      "quality inputs",
+      "higher prices",
+      "higher revenue",
+      "revenue",
+      "premium price"
+     ],
+     "why": "Funding better inputs lets products sell at higher prices, lifting revenue."
+    },
+    {
+     "a": "Leasing technology",
+     "p": 70,
+     "k": [
+      "leasing",
+      "lease",
+      "lease equipment",
+      "leasing equipment"
+     ],
+     "why": "Leasing avoids the high upfront capital cost of new technology."
+    },
+    {
+     "a": "Supplier rationalisation",
+     "p": 75,
+     "k": [
+      "rationalisation",
+      "rationalization",
+      "fewer suppliers",
+      "larger orders",
+      "supplier rationalization",
+      "bulk orders"
+     ],
+     "why": "Bigger orders with fewer suppliers bring economies of scale: cost leadership plus expense minimisation."
+    },
+    {
+     "a": "Inventory ties up cash",
+     "p": 80,
+     "k": [
+      "inventory",
+      "stock",
+      "cash flow",
+      "working capital",
+      "holding stock",
+      "jit",
+      "just in time",
+      "cash tied up"
+     ],
+     "why": "Holding stock ties up cash; JIT frees it for working capital."
+    },
+    {
+     "a": "Stock valuation affects profit",
+     "p": 90,
+     "k": [
+      "fifo",
+      "lifo",
+      "stock valuation",
+      "inventory valuation",
+      "cogs",
+      "cost of goods sold",
+      "gross profit"
+     ],
+     "why": "FIFO vs LIFO valuation changes COGS and gross profit when prices rise."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "market research",
+      "sales forecasts",
+      "promotion"
+     ],
+     "p": 5,
+     "msg": "That's the Marketing link."
+    },
+    {
+     "k": [
+      "recruitment",
+      "training",
+      "redundancies",
+      "job descriptions"
+     ],
+     "p": 5,
+     "msg": "That's the Human Resources link."
+    }
+   ]
+  },
+  {
+   "id": "ops-role-int-hr",
+   "sec": "R",
+   "q": "Give a way Operations and HR depend on each other",
+   "hint": "Recruit, describe, train, separate, keep safe",
+   "learn": "HR recruits, trains and separates the operations workforce. Operations tells HR which skills and roles it needs through job descriptions and identified training needs.",
+   "answers": [
+    {
+     "a": "Recruiting skilled staff",
+     "p": 10,
+     "k": [
+      "recruitment",
+      "recruit",
+      "recruiting",
+      "hiring",
+      "hire",
+      "sourcing staff",
+      "acquisition",
+      "staffing"
+     ],
+     "why": "HR sources operations staff with the right skills and experience."
+    },
+    {
+     "a": "Training and development",
+     "p": 15,
+     "k": [
+      "training",
+      "development",
+      "upskilling",
+      "train staff",
+      "staff training",
+      "retraining",
+      "retrain"
+     ],
+     "why": "HR trains operations staff to lift their performance."
+    },
+    {
+     "a": "WHS compliance",
+     "p": 40,
+     "k": [
+      "whs",
+      "work health and safety",
+      "ohs",
+      "safety",
+      "workplace safety",
+      "occupational health and safety"
+     ],
+     "why": "Operations and HR work closely to meet WHS laws in the workplace."
+    },
+    {
+     "a": "Job descriptions and specifications",
+     "p": 45,
+     "k": [
+      "job description",
+      "job specification",
+      "job specifications",
+      "task design",
+      "job analysis"
+     ],
+     "why": "Operations writes job descriptions (from task design) so HR can recruit the right person."
+    },
+    {
+     "a": "Redundancies when outsourcing",
+     "p": 50,
+     "k": [
+      "redundancy",
+      "redundancies",
+      "outsourcing",
+      "separation",
+      "retrenchment",
+      "layoffs"
+     ],
+     "why": "Outsourcing production means HR manages separation of existing employees."
+    },
+    {
+     "a": "Identifying training needs",
+     "p": 55,
+     "k": [
+      "training needs",
+      "skill deficiencies",
+      "skills gaps",
+      "skills audit",
+      "skill shortages"
+     ],
+     "why": "Operations points out skill deficiencies so HR knows what training to run."
+    },
+    {
+     "a": "New technology or automation",
+     "p": 65,
+     "k": [
+      "automation",
+      "new technology",
+      "technology",
+      "automate",
+      "automating"
+     ],
+     "why": "Automating processes means staff need retraining or may be made redundant."
+    },
+    {
+     "a": "Motivation and rewards",
+     "p": 80,
+     "k": [
+      "motivation",
+      "motivate",
+      "motivated staff",
+      "rewards",
+      "incentives"
+     ],
+     "why": "Motivated employees raise productivity, efficiency and speed in transformation."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "budgets",
+      "funding",
+      "cash flow"
+     ],
+     "p": 5,
+     "msg": "Budgets and funding are the Finance link."
+    },
+    {
+     "k": [
+      "market research",
+      "sales forecasts",
+      "promotion"
+     ],
+     "p": 5,
+     "msg": "That's the Marketing link."
+    }
+   ]
+  },
+  {
+   "id": "ops-inf-list",
+   "sec": "I",
+   "q": "Name an influence on operations management",
+   "hint": "TEGGLQC, plus CSR",
+   "learn": "The syllabus influences on operations are technology, environmental sustainability, globalisation, government policies, legal regulation, quality expectations and cost-based competition (TEGGLQC), plus corporate social responsibility.",
+   "answers": [
+    {
+     "a": "Globalisation",
+     "p": 10,
+     "k": [
+      "globalization",
+      "global"
+     ],
+     "why": "Removal of trade barriers opens relocation, global sourcing and outsourcing."
+    },
+    {
+     "a": "Technology",
+     "p": 10,
+     "k": [
+      "tech",
+      "technological",
+      "automation"
+     ],
+     "why": "Innovative devices and systems such as robotics, CAD/CAM and 3D printing."
+    },
+    {
+     "a": "Legal regulation",
+     "p": 30,
+     "k": [
+      "legal",
+      "law",
+      "laws",
+      "regulation",
+      "regulations",
+      "legislation"
+     ],
+     "why": "Laws like the WHS Act that operations must comply with."
+    },
+    {
+     "a": "Quality expectations",
+     "p": 35,
+     "k": [
+      "quality",
+      "customer expectations",
+      "consumer expectations",
+      "expectations"
+     ],
+     "why": "What customers expect of a product's quality, durability and benefits."
+    },
+    {
+     "a": "Cost-based competition",
+     "p": 40,
+     "k": [
+      "competition",
+      "cost competition",
+      "competitors",
+      "cost based"
+     ],
+     "why": "Rivals with lower costs pressure the whole industry on price."
+    },
+    {
+     "a": "Environmental sustainability",
+     "p": 45,
+     "k": [
+      "environment",
+      "environmental",
+      "sustainability",
+      "ecological",
+      "sustainable"
+     ],
+     "why": "Meeting needs today without harming future generations' ability to meet theirs."
+    },
+    {
+     "a": "Corporate social responsibility",
+     "p": 60,
+     "k": [
+      "csr",
+      "social responsibility",
+      "ethics",
+      "ethical responsibility",
+      "ethical"
+     ],
+     "why": "Open, accountable, ethical behaviour that respects society and the environment."
+    },
+    {
+     "a": "Government policies",
+     "p": 70,
+     "k": [
+      "government",
+      "policy",
+      "policies",
+      "govt"
+     ],
+     "why": "Announced intentions such as the Buy Australian Plan or Climate Active."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "economic",
+      "economy",
+      "interest rates",
+      "inflation"
+     ],
+     "p": 10,
+     "msg": "The economy isn't one of the syllabus influences on operations."
+    },
+    {
+     "k": [
+      "inputs",
+      "transformation",
+      "outputs"
+     ],
+     "p": 5,
+     "msg": "Inputs, transformation and outputs are operations processes, not influences."
+    }
+   ]
+  },
+  {
+   "id": "ops-inf-globalisation",
+   "sec": "I",
+   "q": "Name a way globalisation affects operations",
+   "hint": "RAGGG",
+   "learn": "Globalisation is the removal of trade barriers and greater transfer of capital, labour and resources between countries. For operations: Relocation, Access to global consumers, Global supply chains, Global outsourcing, Global sourcing (RAGGG).",
+   "answers": [
+    {
+     "a": "Global sourcing of inputs",
+     "p": 10,
+     "k": [
+      "global sourcing",
+      "sourcing",
+      "overseas inputs",
+      "imported inputs",
+      "overseas suppliers"
+     ],
+     "why": "Buying inputs overseas that may be cheaper, better or unavailable locally."
+    },
+    {
+     "a": "Outsourcing to global contractors",
+     "p": 25,
+     "k": [
+      "outsourcing",
+      "offshore outsourcing",
+      "overseas contractor",
+      "contract manufacturing",
+      "outsourcing global",
+      "outsourcing overseas"
+     ],
+     "why": "A global contractor manufactures the business's product."
+    },
+    {
+     "a": "Relocating production overseas",
+     "p": 35,
+     "k": [
+      "relocation",
+      "relocate",
+      "relocating",
+      "move production overseas",
+      "overseas factories",
+      "overseas production",
+      "offshoring"
+     ],
+     "why": "Moving facilities offshore for lower labour and compliance costs."
+    },
+    {
+     "a": "Access to global consumers",
+     "p": 45,
+     "k": [
+      "global consumers",
+      "global markets",
+      "global customers",
+      "more customers",
+      "overseas markets",
+      "exporting",
+      "export"
+     ],
+     "why": "Selling worldwide needs more capacity, which can bring economies of scale."
+    },
+    {
+     "a": "Global supply chain (global web)",
+     "p": 65,
+     "k": [
+      "supply chain",
+      "global web",
+      "web of suppliers",
+      "global supply chain",
+      "supplier network",
+      "multiple suppliers"
+     ],
+     "why": "Suppliers in many places give backup if one faces delays or shortages."
+    },
+    {
+     "a": "Greater competition",
+     "p": 75,
+     "k": [
+      "competition",
+      "foreign competition",
+      "international competition",
+      "competitors",
+      "cost based competition"
+     ],
+     "why": "Overseas rivals put pressure on domestic businesses' operations."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "trade barriers",
+      "free trade",
+      "tariffs"
+     ],
+     "p": 10,
+     "msg": "That's what globalisation is; name how it changes operations, e.g. relocation or global sourcing."
+    }
+   ]
+  },
+  {
+   "id": "ops-inf-relocation",
+   "sec": "I",
+   "q": "Give an advantage of relocating production overseas",
+   "hint": "Cheaper, fewer rules, skills, closer to things",
+   "learn": "Globalisation lets businesses relocate production facilities offshore. The benefits are mostly cost-related; the main drawback is negative publicity when domestic jobs are lost.",
+   "answers": [
+    {
+     "a": "Lower labour costs",
+     "p": 10,
+     "k": [
+      "labour costs",
+      "labor costs",
+      "cheaper labour",
+      "cheap labour",
+      "cheap labor",
+      "wages"
+     ],
+     "why": "Wages are much lower in many overseas locations."
+    },
+    {
+     "a": "Reduced compliance costs",
+     "p": 40,
+     "k": [
+      "compliance",
+      "compliance costs",
+      "fewer regulations",
+      "less regulation",
+      "favourable laws",
+      "lower taxes"
+     ],
+     "why": "Different legal regulations (tax, labour, environmental) can cut compliance costs."
+    },
+    {
+     "a": "Lower transport costs",
+     "p": 45,
+     "k": [
+      "transport costs",
+      "transportation costs",
+      "shipping costs",
+      "freight"
+     ],
+     "why": "Being near inputs and customers reduces transportation costs."
+    },
+    {
+     "a": "Access to a skilled workforce",
+     "p": 55,
+     "k": [
+      "skilled workforce",
+      "skilled workers",
+      "skilled labour",
+      "skilled labor",
+      "skills"
+     ],
+     "why": "Some locations offer a more skilled workforce."
+    },
+    {
+     "a": "Closer to raw materials",
+     "p": 65,
+     "k": [
+      "closer to inputs",
+      "near inputs",
+      "closer to materials",
+      "near raw materials",
+      "proximity to inputs",
+      "raw materials"
+     ],
+     "why": "Producing near material inputs shortens supply lines."
+    },
+    {
+     "a": "Closer to customers",
+     "p": 75,
+     "k": [
+      "near customers",
+      "proximity to customers",
+      "near markets",
+      "closer to markets",
+      "customers"
+     ],
+     "why": "Producing near overseas customers speeds delivery to them."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "negative publicity",
+      "job losses",
+      "loss of domestic jobs",
+      "bad publicity"
+     ],
+     "p": 10,
+     "msg": "That's the main disadvantage: lost local jobs can damage brand image."
+    },
+    {
+     "k": [
+      "exchange rate"
+     ],
+     "p": 5,
+     "msg": "Exchange-rate risk is a drawback, mainly of global sourcing."
+    }
+   ]
+  },
+  {
+   "id": "ops-inf-tech-benefits",
+   "sec": "I",
+   "q": "Give an advantage of technology in operations",
+   "hint": "Run through the performance objectives",
+   "learn": "Technology is the design or application of innovative devices and systems in operations, e.g. robotics, CAD/CAM, 3D printing and AI. It mostly helps the cost, quality and speed objectives, but has high upfront costs.",
+   "answers": [
+    {
+     "a": "Increased efficiency and productivity",
+     "p": 10,
+     "k": [
+      "efficiency",
+      "productivity",
+      "efficient",
+      "productive",
+      "effectiveness"
+     ],
+     "why": "Machines produce more with fewer inputs and less effort."
+    },
+    {
+     "a": "Faster production",
+     "p": 15,
+     "k": [
+      "speed",
+      "faster",
+      "shorter lead times",
+      "lead times",
+      "quicker",
+      "reduced production time"
+     ],
+     "why": "Shorter production time frames improve lead times."
+    },
+    {
+     "a": "Higher quality and precision",
+     "p": 20,
+     "k": [
+      "quality",
+      "precision",
+      "accuracy",
+      "accurate",
+      "precise",
+      "consistency"
+     ],
+     "why": "Robotics and automation increase accuracy and precision."
+    },
+    {
+     "a": "Less wastage",
+     "p": 35,
+     "k": [
+      "waste",
+      "wastage",
+      "less waste",
+      "reduced waste",
+      "fuller utilisation",
+      "utilisation of raw materials"
+     ],
+     "why": "Fuller use of raw materials cuts waste (cost objective)."
+    },
+    {
+     "a": "Fewer defects and warranty claims",
+     "p": 40,
+     "k": [
+      "defects",
+      "fewer defects",
+      "less defects",
+      "errors",
+      "human error",
+      "fewer errors",
+      "warranty claims"
+     ],
+     "why": "Removing human error reduces defects and warranty claims."
+    },
+    {
+     "a": "Greater competitiveness",
+     "p": 45,
+     "k": [
+      "competitiveness",
+      "competitive advantage",
+      "competitive",
+      "competitive edge"
+     ],
+     "why": "Better cost, quality and speed strengthen the business's competitive position."
+    },
+    {
+     "a": "Capital-labour substitution",
+     "p": 60,
+     "k": [
+      "capital labour substitution",
+      "capital labor substitution",
+      "labour costs",
+      "labor costs",
+      "replace workers",
+      "cost savings",
+      "lower costs",
+      "cheaper"
+     ],
+     "why": "Machines replace labour, cutting costs in the long term."
+    },
+    {
+     "a": "Innovative products",
+     "p": 65,
+     "k": [
+      "innovation",
+      "innovative",
+      "new products",
+      "innovate",
+      "product development"
+     ],
+     "why": "Technology lets a business develop innovative new products."
+    },
+    {
+     "a": "Increased production capacity",
+     "p": 75,
+     "k": [
+      "capacity",
+      "production capacity",
+      "more volume",
+      "higher volume",
+      "volume",
+      "increased output",
+      "output"
+     ],
+     "why": "Automation can produce higher volumes."
+    },
+    {
+     "a": "Customisation at scale",
+     "p": 80,
+     "k": [
+      "customisation",
+      "customization",
+      "mass customisation",
+      "mass customization",
+      "customise",
+      "customize"
+     ],
+     "why": "Robots can change weld patterns, paint colours or parts for each order."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "retraining",
+      "high initial cost",
+      "expensive",
+      "downtime",
+      "redundancies"
+     ],
+     "p": 5,
+     "msg": "That's a disadvantage: technology brings upfront, retraining and downtime costs."
+    }
+   ]
+  },
+  {
+   "id": "ops-inf-quality-criteria",
+   "sec": "I",
+   "q": "Name a criterion customers use to judge quality",
+   "hint": "Goods QFD, services RLP",
+   "learn": "Quality expectations are what customers expect of a product's quality, durability and benefits. Goods are judged on quality of design, fitness for purpose and durability (QFD); services on reliability, level of customisation and professionalism (RLP).",
+   "answers": [
+    {
+     "a": "Durability",
+     "p": 10,
+     "k": [
+      "durable",
+      "long lasting",
+      "lasting",
+      "lifespan",
+      "longevity"
+     ],
+     "why": "Goods: how long the product lasts."
+    },
+    {
+     "a": "Reliability of the provider",
+     "p": 25,
+     "k": [
+      "reliability",
+      "reliable",
+      "dependability",
+      "dependable",
+      "consistency",
+      "consistent"
+     ],
+     "why": "Services: the provider's skills, experience, qualifications and efficiency."
+    },
+    {
+     "a": "Fitness for purpose",
+     "p": 30,
+     "k": [
+      "fit for purpose",
+      "functionality",
+      "functional",
+      "ease of use",
+      "easy to use",
+      "fitness"
+     ],
+     "why": "Goods: does it function as intended and is it easy to use?"
+    },
+    {
+     "a": "Quality of design",
+     "p": 50,
+     "k": [
+      "design",
+      "good design",
+      "innovative design",
+      "design quality"
+     ],
+     "why": "Goods: quality of inputs, innovative design and customer satisfaction."
+    },
+    {
+     "a": "Professionalism",
+     "p": 55,
+     "k": [
+      "professional",
+      "courtesy",
+      "courteous",
+      "cleanliness",
+      "polite staff",
+      "friendly staff"
+     ],
+     "why": "Services: clean, well laid-out premises and courteous, efficient staff."
+    },
+    {
+     "a": "Level of customisation",
+     "p": 70,
+     "k": [
+      "customisation",
+      "customization",
+      "customised",
+      "customized",
+      "personalisation",
+      "tailored"
+     ],
+     "why": "Services: how well it meets each customer's individual needs."
+    },
+    {
+     "a": "Quality of conformance",
+     "p": 85,
+     "k": [
+      "conformance",
+      "conforms to specifications",
+      "meets specifications",
+      "specifications",
+      "conformity"
+     ],
+     "why": "Whether the product meets the specifications a customer would expect."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "price",
+      "cheap",
+      "low price",
+      "cost"
+     ],
+     "p": 5,
+     "msg": "Price isn't a quality criterion; goods are judged on QFD and services on RLP."
+    }
+   ]
+  },
+  {
+   "id": "ops-inf-cost-competition",
+   "sec": "I",
+   "q": "Name an effect of cost-based competition",
+   "hint": "Pressure on prices, costs, quality and small firms",
+   "learn": "Cost-based competition is increased competition on cost, largely a result of globalisation. Firms that lower production costs can offer lower prices, which pressures every other business in the industry.",
+   "answers": [
+    {
+     "a": "Pressure to lower prices",
+     "p": 10,
+     "k": [
+      "lower prices",
+      "price pressure",
+      "price war",
+      "cheaper prices",
+      "reduce prices",
+      "price cuts"
+     ],
+     "why": "Lower-cost rivals undercut prices, forcing others to respond."
+    },
+    {
+     "a": "Push to cut production costs",
+     "p": 15,
+     "k": [
+      "cut costs",
+      "reduce costs",
+      "cost cutting",
+      "cost reduction",
+      "lower costs",
+      "minimise costs",
+      "cheaper materials",
+      "cheaper labour"
+     ],
+     "why": "Firms must minimise fixed and variable costs such as materials and labour."
+    },
+    {
+     "a": "Waste minimisation and efficiency",
+     "p": 35,
+     "k": [
+      "waste",
+      "efficiency",
+      "minimise waste",
+      "lean",
+      "lean production",
+      "efficient"
+     ],
+     "why": "Minimising waste and increasing efficiency lowers unit costs."
+    },
+    {
+     "a": "Investment in automation",
+     "p": 40,
+     "k": [
+      "automation",
+      "technology",
+      "automated",
+      "robotics",
+      "machines"
+     ],
+     "why": "Automated technology can improve efficiency, cut waste and lift quality."
+    },
+    {
+     "a": "Quality may suffer",
+     "p": 45,
+     "k": [
+      "quality",
+      "lower quality",
+      "reduced quality",
+      "poor quality",
+      "quality suffers"
+     ],
+     "why": "Cutting costs too far can compromise quality."
+    },
+    {
+     "a": "Standardised products",
+     "p": 50,
+     "k": [
+      "standardised",
+      "standardized",
+      "standardisation",
+      "standardization",
+      "standard products"
+     ],
+     "why": "Producing standardised products is a key cost-reduction response."
+    },
+    {
+     "a": "Sourcing cheaper suppliers",
+     "p": 55,
+     "k": [
+      "cheaper suppliers",
+      "new suppliers",
+      "global sourcing",
+      "cheaper supplies",
+      "overseas suppliers"
+     ],
+     "why": "Firms seek new, cheaper supplies, often overseas."
+    },
+    {
+     "a": "Sustainable competitive advantage",
+     "p": 70,
+     "k": [
+      "competitive advantage",
+      "competitiveness",
+      "sustainable competitive advantage",
+      "competitive edge"
+     ],
+     "why": "Firms that win on cost can build a long-term sustainable advantage."
+    },
+    {
+     "a": "Small businesses struggle",
+     "p": 75,
+     "k": [
+      "small businesses",
+      "small business",
+      "small firms",
+      "larger businesses",
+      "big businesses",
+      "economies of scale",
+      "eos"
+     ],
+     "why": "Large firms gain bigger economies of scale, squeezing smaller rivals."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "differentiation",
+      "unique features"
+     ],
+     "p": 5,
+     "msg": "Differentiation is a way to escape cost-based competition, not an effect of it."
+    }
+   ]
+  },
+  {
+   "id": "ops-inf-govt-policy",
+   "sec": "I",
+   "q": "Name a government policy that affects operations",
+   "hint": "Buy local, EVs, grants, carbon neutral, R&D",
+   "learn": "Government policies are announced intentions and political decisions that shape operations decisions, such as where to source, what technology to buy and how to manage emissions. Complying costs money, but can give an edge over competitors.",
+   "answers": [
+    {
+     "a": "R&D tax incentive",
+     "p": 20,
+     "k": [
+      "tax incentive",
+      "tax incentives",
+      "research and development tax",
+      "r&d",
+      "rnd",
+      "tax breaks"
+     ],
+     "why": "Governments offer tax incentives to businesses that undertake R&D."
+    },
+    {
+     "a": "Modern Manufacturing Initiative",
+     "p": 35,
+     "k": [
+      "mmi",
+      "manufacturing grants",
+      "grants",
+      "manufacturing initiative",
+      "government grants",
+      "subsidies"
+     ],
+     "why": "Grants for priority manufacturers to buy leading-edge technology."
+    },
+    {
+     "a": "Buy Australian Plan",
+     "p": 45,
+     "k": [
+      "buy australian",
+      "buy local",
+      "source locally",
+      "australian made"
+     ],
+     "why": "Pushes firms tendering for government contracts to source locally."
+    },
+    {
+     "a": "Climate Active Program",
+     "p": 60,
+     "k": [
+      "climate active",
+      "carbon neutral",
+      "carbon neutral certification",
+      "carbon offset",
+      "offset emissions"
+     ],
+     "why": "Encourages firms to measure, reduce and offset emissions for carbon-neutral certification."
+    },
+    {
+     "a": "National Electric Vehicle Strategy",
+     "p": 70,
+     "k": [
+      "ev strategy",
+      "electric vehicle",
+      "electric vehicles",
+      "national ev strategy"
+     ],
+     "why": "Influences business vehicle fleet and energy decisions."
+    },
+    {
+     "a": "Australian Industry Participation Policy",
+     "p": 85,
+     "k": [
+      "aip",
+      "australian industry participation",
+      "industry participation"
+     ],
+     "why": "With Buy Australian, pressures firms to restructure supply chains toward local suppliers."
+    },
+    {
+     "a": "Rewiring the Nation",
+     "p": 90,
+     "k": [
+      "rewiring",
+      "rewiring nation",
+      "energy grid"
+     ],
+     "why": "Grid investment that influences how businesses procure energy."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "whs act",
+      "work health safety act",
+      "competition and consumer act",
+      "epbc",
+      "food act"
+     ],
+     "p": 10,
+     "msg": "That's a law (legal regulation), not a government policy."
+    }
+   ]
+  },
+  {
+   "id": "ops-inf-laws",
+   "sec": "I",
+   "q": "Name a law that affects operations",
+   "hint": "Safety, environment, consumers, food, workers",
+   "learn": "Legal regulation is laws passed by government that a business must comply with. They create compliance costs, and fines or penalties apply for breaches.",
+   "answers": [
+    {
+     "a": "Work Health and Safety Act 2011",
+     "p": 10,
+     "k": [
+      "whs",
+      "whs act",
+      "work health and safety",
+      "ohs",
+      "occupational health and safety",
+      "health and safety",
+      "safety laws"
+     ],
+     "why": "Requires safety training, protective clothing, safe machinery and a WHS committee."
+    },
+    {
+     "a": "Competition and Consumer Act 2010",
+     "p": 30,
+     "k": [
+      "competition and consumer",
+      "cca",
+      "australian consumer law",
+      "acl",
+      "consumer law",
+      "consumer protection"
+     ],
+     "why": "Sets product safety, composition, manufacture, design and packaging standards."
+    },
+    {
+     "a": "Fair Work Act (employment law)",
+     "p": 40,
+     "k": [
+      "fair work",
+      "fair work act",
+      "employment law",
+      "employment legislation",
+      "minimum wage",
+      "awards",
+      "fwc",
+      "industrial relations"
+     ],
+     "why": "Minimum wages, awards and working hours all affect operating costs."
+    },
+    {
+     "a": "EPBC Act 1999",
+     "p": 55,
+     "k": [
+      "epbc",
+      "environment protection and biodiversity conservation",
+      "biodiversity",
+      "environmental law",
+      "environmental protection",
+      "environmental legislation",
+      "environment act"
+     ],
+     "why": "Stops hazardous waste entering the environment and sets waste standards."
+    },
+    {
+     "a": "Food Act 2003 (NSW)",
+     "p": 65,
+     "k": [
+      "food act",
+      "food safety",
+      "food handling",
+      "food standards"
+     ],
+     "why": "Sets food handling, safety and storage protocols."
+    },
+    {
+     "a": "Tax law",
+     "p": 70,
+     "k": [
+      "tax",
+      "taxation",
+      "tax obligations",
+      "gst",
+      "company tax"
+     ],
+     "why": "Tax obligations are a core compliance cost."
+    },
+    {
+     "a": "Anti-discrimination law",
+     "p": 75,
+     "k": [
+      "anti discrimination",
+      "antidiscrimination",
+      "discrimination",
+      "human rights",
+      "equal opportunity",
+      "eeo"
+     ],
+     "why": "Human rights legislation applies to how operations staff are treated."
+    },
+    {
+     "a": "Licensing and zoning laws",
+     "p": 85,
+     "k": [
+      "licensing",
+      "zoning",
+      "business licensing",
+      "licences",
+      "licenses",
+      "certification laws",
+      "planning laws"
+     ],
+     "why": "Licences, certifications and zoning control what can be produced where."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "climate active",
+      "buy australian",
+      "modern manufacturing initiative",
+      "mmi"
+     ],
+     "p": 10,
+     "msg": "That's a government policy, not a law; policies guide and incentivise rather than require."
+    },
+    {
+     "k": [
+      "iso 9000",
+      "iso 26000",
+      "iso"
+     ],
+     "p": 5,
+     "msg": "ISO standards are voluntary, not laws."
+    }
+   ]
+  },
+  {
+   "id": "ops-inf-sustainability",
+   "sec": "I",
+   "q": "Name a way operations can be environmentally sustainable",
+   "hint": "Waste, energy, recycling, resources, carbon",
+   "learn": "Environmental sustainability means using resources today without compromising future generations' ability to meet their needs (intergenerational equity). It can lift brand image but usually adds cost.",
+   "answers": [
+    {
+     "a": "Recycling materials",
+     "p": 10,
+     "k": [
+      "recycle",
+      "recycling",
+      "recycled materials",
+      "reuse"
+     ],
+     "why": "Recycle glass, plastic, paper and metal."
+    },
+    {
+     "a": "Minimising waste",
+     "p": 15,
+     "k": [
+      "waste",
+      "reduce waste",
+      "less waste",
+      "waste reduction",
+      "minimise waste",
+      "waste management"
+     ],
+     "why": "Cut the waste generated by the production process."
+    },
+    {
+     "a": "Reducing carbon footprint",
+     "p": 30,
+     "k": [
+      "carbon",
+      "carbon footprint",
+      "greenhouse gas",
+      "emissions",
+      "carbon neutral",
+      "offset"
+     ],
+     "why": "Adopt greenhouse gas reduction measures."
+    },
+    {
+     "a": "Treating pollution",
+     "p": 35,
+     "k": [
+      "pollution",
+      "reduce pollution",
+      "less pollution",
+      "treat pollution"
+     ],
+     "why": "Minimise and treat pollution caused by production."
+    },
+    {
+     "a": "Lower-energy processes",
+     "p": 40,
+     "k": [
+      "energy",
+      "energy efficiency",
+      "energy efficient",
+      "less energy",
+      "lower energy",
+      "efficient lighting"
+     ],
+     "why": "Modify lighting, heating and machinery to use less energy."
+    },
+    {
+     "a": "Using renewable resources",
+     "p": 50,
+     "k": [
+      "renewable",
+      "renewables",
+      "renewable resources",
+      "renewable energy",
+      "solar",
+      "sustainable resources"
+     ],
+     "why": "Use renewable resources sustainably."
+    },
+    {
+     "a": "Eco-friendly products",
+     "p": 60,
+     "k": [
+      "environmentally friendly products",
+      "eco friendly",
+      "green products",
+      "electric cars",
+      "electric vehicles",
+      "sustainable products"
+     ],
+     "why": "E.g. the car industry shifting to electric vehicles."
+    },
+    {
+     "a": "Less non-renewable resources",
+     "p": 70,
+     "k": [
+      "non renewable",
+      "nonrenewable",
+      "fossil fuels",
+      "less non renewable"
+     ],
+     "why": "Decrease use of non-renewable resources like fossil fuels."
+    },
+    {
+     "a": "Sourcing eco-friendly inputs",
+     "p": 80,
+     "k": [
+      "eco friendly inputs",
+      "green inputs",
+      "sustainable inputs",
+      "sustainable materials",
+      "environmentally friendly inputs",
+      "green suppliers"
+     ],
+     "why": "Switch to new, environmentally friendly inputs."
+    },
+    {
+     "a": "Efficient use of inputs",
+     "p": 85,
+     "k": [
+      "input efficiency",
+      "efficient use of inputs",
+      "efficient inputs",
+      "maximise efficiency"
+     ],
+     "why": "Maximise input efficiency to minimise wastage."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "donations",
+      "charity",
+      "community events"
+     ],
+     "p": 5,
+     "msg": "That's social responsibility, the other half of CSR."
+    }
+   ]
+  },
+  {
+   "id": "ops-inf-ethical",
+   "sec": "I",
+   "q": "Give an example of ethical responsibility in operations",
+   "hint": "Going beyond the law: acting in its 'spirit'",
+   "learn": "Legal compliance is meeting the standards the law requires, with penalties if you don't. Ethical responsibility goes beyond the law, acting in its spirit to achieve social and environmental outcomes, not just profit.",
+   "answers": [
+    {
+     "a": "Charity donations",
+     "p": 15,
+     "k": [
+      "donations",
+      "donate",
+      "charity",
+      "charities",
+      "philanthropy"
+     ],
+     "why": "Giving to charities shows the business values more than profit."
+    },
+    {
+     "a": "Ethical supply chain",
+     "p": 35,
+     "k": [
+      "supply chain",
+      "ethical suppliers",
+      "ethical sourcing",
+      "supplier audits",
+      "ethical outsourcing",
+      "fair trade"
+     ],
+     "why": "Ensure suppliers and outsourcing partners act ethically."
+    },
+    {
+     "a": "Flexible working arrangements",
+     "p": 40,
+     "k": [
+      "flexible working",
+      "flexible hours",
+      "flexible work",
+      "work life balance"
+     ],
+     "why": "Offering flexible hours beyond legal minimums."
+    },
+    {
+     "a": "Avoiding employee exploitation",
+     "p": 45,
+     "k": [
+      "exploitation",
+      "no exploitation",
+      "fair treatment",
+      "human rights",
+      "equality",
+      "fair pay"
+     ],
+     "why": "Respect human rights and equality for all workers."
+    },
+    {
+     "a": "Going beyond environmental law",
+     "p": 50,
+     "k": [
+      "sustainability",
+      "environment",
+      "environmental",
+      "recycling",
+      "carbon neutral",
+      "green"
+     ],
+     "why": "Cutting emissions or waste further than the law requires."
+    },
+    {
+     "a": "Employee support services",
+     "p": 55,
+     "k": [
+      "support services",
+      "employee support",
+      "employee assistance",
+      "wellbeing",
+      "counselling"
+     ],
+     "why": "Providing support services for employees."
+    },
+    {
+     "a": "Transparency, audits and reporting",
+     "p": 60,
+     "k": [
+      "transparency",
+      "transparent",
+      "audits",
+      "audit",
+      "reporting",
+      "csr report",
+      "code of conduct",
+      "triple bottom line"
+     ],
+     "why": "Being transparent to stakeholders through audits, codes and reports."
+    },
+    {
+     "a": "Community events",
+     "p": 65,
+     "k": [
+      "community",
+      "sponsorship",
+      "local community"
+     ],
+     "why": "Supporting the community the business operates in."
+    },
+    {
+     "a": "Following international standards",
+     "p": 75,
+     "k": [
+      "ilo",
+      "international labour organisation",
+      "international labor organization",
+      "international standards",
+      "iso 26000",
+      "international norms"
+     ],
+     "why": "E.g. International Labour Organisation standards or ISO 26000."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "minimum wage",
+      "award wages",
+      "whs",
+      "safety training",
+      "paying tax",
+      "tax"
+     ],
+     "p": 10,
+     "msg": "That's legal compliance: the law requires it, so it isn't going beyond."
+    }
+   ]
+  },
+  {
+   "id": "ops-inf-csr-effects",
+   "sec": "I",
+   "q": "Name an effect of CSR on a business",
+   "hint": "Staff, customers, value, and the bill",
+   "learn": "CSR is open and accountable business behaviour that is ethical and respects society and the environment (triple bottom line). It is a financial burden in the short term, but better brand image should compensate in the long term.",
+   "answers": [
+    {
+     "a": "Better brand image",
+     "p": 10,
+     "k": [
+      "brand image",
+      "reputation",
+      "brand",
+      "image",
+      "goodwill"
+     ],
+     "why": "Ethical, sustainable practice lifts reputation."
+    },
+    {
+     "a": "Higher short-term costs",
+     "p": 15,
+     "k": [
+      "costs",
+      "expensive",
+      "costly",
+      "financial burden",
+      "short term costs",
+      "increased costs",
+      "higher costs"
+     ],
+     "why": "CSR activities are often financially burdensome in the short term."
+    },
+    {
+     "a": "Customer loyalty",
+     "p": 20,
+     "k": [
+      "loyalty",
+      "loyal customers",
+      "attract customers",
+      "more customers",
+      "customer attraction"
+     ],
+     "why": "Ethical behaviour attracts customers and keeps them."
+    },
+    {
+     "a": "Satisfying stakeholders",
+     "p": 45,
+     "k": [
+      "stakeholders",
+      "stakeholder",
+      "community support",
+      "society"
+     ],
+     "why": "Meets the expectations of the community, society and environment."
+    },
+    {
+     "a": "Attracting and retaining staff",
+     "p": 50,
+     "k": [
+      "staff retention",
+      "retention",
+      "attract staff",
+      "attract employees",
+      "employee interest",
+      "lower turnover",
+      "retain staff"
+     ],
+     "why": "Employment becomes more attractive, lifting retention rates."
+    },
+    {
+     "a": "Competitive advantage",
+     "p": 55,
+     "k": [
+      "competitiveness",
+      "differentiation",
+      "competitive edge"
+     ],
+     "why": "A strong CSR image sets the business apart."
+    },
+    {
+     "a": "Increased business value",
+     "p": 65,
+     "k": [
+      "business value",
+      "value",
+      "share price",
+      "shareholder value"
+     ],
+     "why": "Reputation and loyalty add to what the business is worth."
+    },
+    {
+     "a": "Changing processes and inputs",
+     "p": 75,
+     "k": [
+      "new inputs",
+      "green inputs",
+      "cleaner processes",
+      "adjust processes",
+      "change processes",
+      "eco friendly inputs",
+      "environmentally friendly inputs"
+     ],
+     "why": "Processes may need to be made 'cleaner' and new eco-friendly inputs sourced."
+    },
+    {
+     "a": "Retraining for green machinery",
+     "p": 80,
+     "k": [
+      "retraining",
+      "staff training",
+      "training costs",
+      "training"
+     ],
+     "why": "Staff need training to run new environmentally friendly machinery."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "fines",
+      "penalties"
+     ],
+     "p": 5,
+     "msg": "Fines come from breaking the law (legal compliance), not from CSR."
+    }
+   ]
+  },
+  {
+   "id": "ops-proc-inputs",
+   "sec": "P",
+   "q": "Name an input to the transformation process",
+   "hint": "MIC and HF",
+   "learn": "Inputs are the resources used in transformation. Transformed resources are changed by it (materials, information, customers: MIC); transforming resources do the changing (human resources, facilities: HF).",
+   "answers": [
+    {
+     "a": "Materials",
+     "p": 10,
+     "k": [
+      "raw materials",
+      "material",
+      "raw material",
+      "components",
+      "intermediate goods"
+     ],
+     "why": "Transformed: raw materials or intermediate goods made by another business."
+    },
+    {
+     "a": "Human resources",
+     "p": 15,
+     "k": [
+      "labour",
+      "labor",
+      "employees",
+      "staff",
+      "workers",
+      "people",
+      "human resource"
+     ],
+     "why": "Transforming: people apply their skills and knowledge to convert materials."
+    },
+    {
+     "a": "Facilities",
+     "p": 30,
+     "k": [
+      "facility",
+      "machinery",
+      "equipment",
+      "plant",
+      "factory",
+      "buildings",
+      "machines",
+      "technology"
+     ],
+     "why": "Transforming: the plant and machinery that physically change materials."
+    },
+    {
+     "a": "Information",
+     "p": 55,
+     "k": [
+      "info",
+      "knowledge",
+      "data",
+      "market research",
+      "sales data"
+     ],
+     "why": "Transformed: e.g. a client's details become an accountant's budget or advice."
+    },
+    {
+     "a": "Customers",
+     "p": 75,
+     "k": [
+      "customer",
+      "clients",
+      "client",
+      "consumers",
+      "patients",
+      "passengers"
+     ],
+     "why": "Transformed: e.g. a customer getting a haircut, or flown between airports by Qantas."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "money",
+      "capital",
+      "finance",
+      "funding"
+     ],
+     "p": 10,
+     "msg": "Finance isn't one of the syllabus inputs; the five are MIC and HF."
+    },
+    {
+     "k": [
+      "goods",
+      "services",
+      "finished goods",
+      "products",
+      "warranties"
+     ],
+     "p": 5,
+     "msg": "Those are outputs, the result of transformation."
+    }
+   ]
+  },
+  {
+   "id": "ops-proc-volume",
+   "sec": "P",
+   "q": "Name an effect of high-volume production",
+   "hint": "Scale, unit cost, flexibility, overproduction",
+   "learn": "Volume is the actual number of units produced. High volume with lots of process repetition brings economies of scale but reduces flexibility; volume also changes across the product life cycle.",
+   "answers": [
+    {
+     "a": "Lower cost per unit",
+     "p": 10,
+     "k": [
+      "lower unit cost",
+      "low cost per unit",
+      "cost per unit",
+      "unit cost",
+      "cheaper per unit",
+      "lower costs",
+      "cost objective"
+     ],
+     "why": "Fixed costs spread over more units (cost objective)."
+    },
+    {
+     "a": "Economies of scale",
+     "p": 15,
+     "k": [
+      "eos",
+      "economy of scale",
+      "scale economies"
+     ],
+     "why": "Cost savings from producing on a larger scale."
+    },
+    {
+     "a": "Bulk-buying discounts",
+     "p": 40,
+     "k": [
+      "bulk buying",
+      "bulk",
+      "bulk discounts",
+      "bulk purchasing",
+      "volume discounts",
+      "buying in bulk"
+     ],
+     "why": "Buying inputs in bulk lowers their price."
+    },
+    {
+     "a": "Specialised equipment and automation",
+     "p": 45,
+     "k": [
+      "automation",
+      "specialised equipment",
+      "specialized equipment",
+      "automated",
+      "machinery",
+      "robotics"
+     ],
+     "why": "High volumes justify specialised, automated equipment."
+    },
+    {
+     "a": "High process repetition",
+     "p": 55,
+     "k": [
+      "repetition",
+      "repetitive",
+      "repeated processes",
+      "mass production",
+      "standardisation",
+      "standardised",
+      "standardized"
+     ],
+     "why": "Mass production repeats the same process over and over."
+    },
+    {
+     "a": "Less volume flexibility",
+     "p": 70,
+     "k": [
+      "less flexibility",
+      "inflexible",
+      "low flexibility",
+      "volume flexibility",
+      "flexibility",
+      "less variety",
+      "low variety",
+      "slow to respond"
+     ],
+     "why": "High-volume lines struggle to change variety or respond to demand."
+    },
+    {
+     "a": "Risk of overproduction",
+     "p": 75,
+     "k": [
+      "overproduction",
+      "over production",
+      "excess stock",
+      "wastage",
+      "inventory costs",
+      "storage costs"
+     ],
+     "why": "Overproducing causes waste and storage and insurance costs."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "stoppages",
+      "lots of stoppages",
+      "adjustments"
+     ],
+     "p": 5,
+     "msg": "Frequent stoppages and adjustments come with LOW-volume production."
+    }
+   ]
+  },
+  {
+   "id": "ops-proc-variety",
+   "sec": "P",
+   "q": "Name an effect of offering high variety",
+   "hint": "More models means more complexity",
+   "learn": "Variety is the number of different models and variations offered. High variety meets diverse customer needs but makes production more complex, slower and costlier; services tend to have higher variety than goods.",
+   "answers": [
+    {
+     "a": "Higher production costs",
+     "p": 10,
+     "k": [
+      "higher costs",
+      "more costs",
+      "costly",
+      "expensive",
+      "increased costs"
+     ],
+     "why": "Complexity raises production costs (cost objective)."
+    },
+    {
+     "a": "More complex production",
+     "p": 15,
+     "k": [
+      "complexity",
+      "complex",
+      "complicated",
+      "more complex"
+     ],
+     "why": "Each variation adds steps and settings to manage."
+    },
+    {
+     "a": "Slower production",
+     "p": 30,
+     "k": [
+      "slower",
+      "slow",
+      "less speed",
+      "speed",
+      "longer lead times",
+      "lead times"
+     ],
+     "why": "Switching between models hurts the speed objective."
+    },
+    {
+     "a": "Meets diverse customer needs",
+     "p": 40,
+     "k": [
+      "customer needs",
+      "customer satisfaction",
+      "choice",
+      "more choice",
+      "customisation",
+      "customization",
+      "different needs"
+     ],
+     "why": "Colour, size or flavour options suit customers with different needs."
+    },
+    {
+     "a": "Smaller production runs",
+     "p": 55,
+     "k": [
+      "small batches",
+      "smaller batches",
+      "short runs",
+      "production runs",
+      "smaller runs",
+      "batch production"
+     ],
+     "why": "Each model is made in smaller quantities."
+    },
+    {
+     "a": "Needs flexible machinery",
+     "p": 60,
+     "k": [
+      "flexible machinery",
+      "flexible equipment",
+      "flexibility",
+      "flexible",
+      "versatile machinery"
+     ],
+     "why": "Accommodating variety needs flexibility in machinery and inputs."
+    },
+    {
+     "a": "More inputs to buy and store",
+     "p": 70,
+     "k": [
+      "more inputs",
+      "more stock",
+      "inventory",
+      "storage",
+      "input complexity",
+      "more materials"
+     ],
+     "why": "More variety means more kinds of inputs to purchase and store."
+    },
+    {
+     "a": "More washout of equipment",
+     "p": 85,
+     "k": [
+      "washout",
+      "wash out",
+      "changeovers",
+      "equipment changeovers",
+      "cleaning equipment",
+      "setup time"
+     ],
+     "why": "Machines must be cleaned and reset between models."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "economies of scale",
+      "eos",
+      "low unit cost",
+      "cheaper per unit"
+     ],
+     "p": 5,
+     "msg": "Economies of scale come from LOW variety, high-volume production."
+    }
+   ]
+  },
+  {
+   "id": "ops-proc-demand-variation",
+   "sec": "P",
+   "q": "Name something ops must flex when demand varies",
+   "hint": "Suppliers, staff, machines, power",
+   "learn": "Variation in demand is the ability to adjust production levels in response to changes in demand. Operations must flex inputs, labour, capacity and energy; failing to cope with a spike means lost sales.",
+   "answers": [
+    {
+     "a": "Production levels",
+     "p": 10,
+     "k": [
+      "production",
+      "output",
+      "production rate",
+      "slow production",
+      "output volume"
+     ],
+     "why": "Slow production in quiet periods to prevent inventory build-up."
+    },
+    {
+     "a": "Labour",
+     "p": 15,
+     "k": [
+      "labor",
+      "staff",
+      "workers",
+      "employees",
+      "casual staff",
+      "staffing"
+     ],
+     "why": "Extra staff for spikes, fewer in quiet periods."
+    },
+    {
+     "a": "Inputs from suppliers",
+     "p": 20,
+     "k": [
+      "inputs",
+      "supplies",
+      "suppliers",
+      "materials",
+      "raw materials",
+      "supply chain",
+      "flexible supply chain"
+     ],
+     "why": "A flexible supply chain that can scale input orders up or down."
+    },
+    {
+     "a": "Machinery capacity",
+     "p": 35,
+     "k": [
+      "machinery",
+      "equipment",
+      "capacity",
+      "machines",
+      "production capacity",
+      "equipment capacity"
+     ],
+     "why": "Equipment that can't cope with a spike means lost sales."
+    },
+    {
+     "a": "Inventory levels",
+     "p": 50,
+     "k": [
+      "inventory",
+      "stock",
+      "stock levels",
+      "inventory management",
+      "buffer stock"
+     ],
+     "why": "Inventory must be managed to adapt to changes in demand."
+    },
+    {
+     "a": "Energy and power",
+     "p": 75,
+     "k": [
+      "energy",
+      "power",
+      "electricity",
+      "utilities"
+     ],
+     "why": "Energy and power requirements rise and fall with output."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "price",
+      "promotion",
+      "advertising"
+     ],
+     "p": 5,
+     "msg": "Adjusting price or promotion is marketing's job; ops flexes its inputs and capacity."
+    }
+   ]
+  },
+  {
+   "id": "ops-proc-gantt",
+   "sec": "P",
+   "q": "Name something a Gantt chart shows",
+   "hint": "Activities, order, time, overlaps, dependencies",
+   "learn": "A Gantt chart is a horizontal bar chart showing scheduled and completed activities over a time period. It is a useful monitoring tool, but it doesn't show the most efficient way to complete a project.",
+   "answers": [
+    {
+     "a": "Activities to be performed",
+     "p": 10,
+     "k": [
+      "activities",
+      "tasks",
+      "tasks to be done",
+      "list of tasks",
+      "jobs"
+     ],
+     "why": "Each activity is a row on the chart."
+    },
+    {
+     "a": "Time each activity takes",
+     "p": 15,
+     "k": [
+      "time",
+      "duration",
+      "durations",
+      "expected time",
+      "how long",
+      "time each activity",
+      "time for each task"
+     ],
+     "why": "Bar length shows each activity's expected time."
+    },
+    {
+     "a": "Order of activities",
+     "p": 25,
+     "k": [
+      "order",
+      "sequence",
+      "sequencing",
+      "order of tasks"
+     ],
+     "why": "Shows the order in which activities should be completed."
+    },
+    {
+     "a": "Start and end dates",
+     "p": 40,
+     "k": [
+      "start date",
+      "end date",
+      "start and finish",
+      "deadline",
+      "deadlines",
+      "completion date",
+      "finish date"
+     ],
+     "why": "Shows when the whole project starts and finishes."
+    },
+    {
+     "a": "Overlapping activities",
+     "p": 55,
+     "k": [
+      "overlap",
+      "overlapping",
+      "overlaps",
+      "simultaneous",
+      "concurrent",
+      "parallel"
+     ],
+     "why": "Shows where activities can run at the same time."
+    },
+    {
+     "a": "Dependent activities",
+     "p": 65,
+     "k": [
+      "dependencies",
+      "dependent",
+      "dependency",
+      "dependent tasks",
+      "depends"
+     ],
+     "why": "Shows which activity can't start until another finishes."
+    },
+    {
+     "a": "Planned vs actual progress",
+     "p": 75,
+     "k": [
+      "progress",
+      "actual planned",
+      "completed activities",
+      "scheduled completed",
+      "planned actual",
+      "status"
+     ],
+     "why": "Compares the project's actual status with its planned status."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "critical path",
+      "most efficient"
+     ],
+     "p": 10,
+     "msg": "Gantt charts don't show the critical path or most efficient route; that's critical path analysis."
+    }
+   ]
+  },
+  {
+   "id": "ops-proc-cpa",
+   "sec": "P",
+   "q": "Give an advantage of critical path analysis",
+   "hint": "Simultaneous tasks, minimum time, bottlenecks",
+   "learn": "Critical path analysis maps activities, their order and duration to find the shortest time to complete a project. The critical path is the LONGEST path through the diagram, so any delay on it delays the whole project.",
+   "answers": [
+    {
+     "a": "Finds minimum completion time",
+     "p": 15,
+     "k": [
+      "shortest time",
+      "minimum time",
+      "completion time",
+      "project time",
+      "how long",
+      "fastest",
+      "time"
+     ],
+     "why": "The longest path gives the minimum time to finish the project."
+    },
+    {
+     "a": "Shows simultaneous tasks",
+     "p": 20,
+     "k": [
+      "simultaneous",
+      "simultaneously",
+      "parallel",
+      "concurrent",
+      "at the same time",
+      "same time"
+     ],
+     "why": "Managers see which tasks can be done at the same time (speed objective)."
+    },
+    {
+     "a": "Improves speed and lead times",
+     "p": 25,
+     "k": [
+      "speed",
+      "faster",
+      "quicker",
+      "lead times",
+      "speed objective"
+     ],
+     "why": "Running tasks in parallel shortens the transformation process."
+    },
+    {
+     "a": "Better planning and organising",
+     "p": 40,
+     "k": [
+      "planning",
+      "plan",
+      "organising",
+      "organizing",
+      "scheduling",
+      "coordination"
+     ],
+     "why": "Helps plan, organise and implement the operations process."
+    },
+    {
+     "a": "Minimises bottlenecks",
+     "p": 55,
+     "k": [
+      "bottlenecks",
+      "bottleneck",
+      "congestion",
+      "fewer bottlenecks"
+     ],
+     "why": "Can help minimise bottlenecks in transformation."
+    },
+    {
+     "a": "Efficient use of finances",
+     "p": 65,
+     "k": [
+      "cost",
+      "costs",
+      "reduced labour costs",
+      "contract labour",
+      "cost savings",
+      "cheaper",
+      "financial resources",
+      "cost objective"
+     ],
+     "why": "Scheduling tasks together can cut contract labour costs (cost objective)."
+    },
+    {
+     "a": "Identifies critical tasks",
+     "p": 70,
+     "k": [
+      "critical tasks",
+      "critical activities",
+      "critical path",
+      "priorities",
+      "prioritise",
+      "prioritize"
+     ],
+     "why": "Managers know which tasks can't slip without delaying the project."
+    },
+    {
+     "a": "Shows dependencies",
+     "p": 75,
+     "k": [
+      "dependencies",
+      "dependent",
+      "dependency",
+      "dependent tasks",
+      "order of tasks",
+      "sequence"
+     ],
+     "why": "Built on dependencies: labour, material lead times, seasons (e.g. dry weather)."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "horizontal bar chart",
+      "bar chart",
+      "progress"
+     ],
+     "p": 5,
+     "msg": "That's a Gantt chart feature, not critical path analysis."
+    }
+   ]
+  },
+  {
+   "id": "ops-proc-task-design",
+   "sec": "P",
+   "q": "Name a step in task design",
+   "hint": "DDD, then audit, analyse, describe, recruit",
+   "learn": "Task design determines the tasks needed, how they will be performed and the labour needed to perform them (DDD). It flows into HR: task design, then job description, then recruitment.",
+   "answers": [
+    {
+     "a": "Determine the tasks needed",
+     "p": 10,
+     "k": [
+      "determine tasks",
+      "identify tasks",
+      "what tasks",
+      "tasks needed",
+      "list tasks",
+      "tasks"
+     ],
+     "why": "Step 1: what tasks must be performed in the operations process."
+    },
+    {
+     "a": "Design how tasks are performed",
+     "p": 25,
+     "k": [
+      "how tasks",
+      "design how",
+      "determine how tasks performed",
+      "how tasks performed",
+      "method",
+      "procedures"
+     ],
+     "why": "Step 2: design the steps for performing each task."
+    },
+    {
+     "a": "Determine labour needs",
+     "p": 30,
+     "k": [
+      "labour needs",
+      "labor needs",
+      "labour requirements",
+      "staff needed",
+      "workforce needs",
+      "labour",
+      "labor"
+     ],
+     "why": "Step 3: the labour required to perform the tasks."
+    },
+    {
+     "a": "Conduct a skills audit",
+     "p": 50,
+     "k": [
+      "skills audit",
+      "skill audit",
+      "audit",
+      "skills gap",
+      "current skills"
+     ],
+     "why": "Checks current staff skills and any shortfalls."
+    },
+    {
+     "a": "Conduct a job analysis",
+     "p": 60,
+     "k": [
+      "job analysis",
+      "analyse jobs",
+      "analyze jobs"
+     ],
+     "why": "Determines the tasks and responsibilities of a job."
+    },
+    {
+     "a": "Write a job description",
+     "p": 70,
+     "k": [
+      "job description",
+      "job descriptions",
+      "job specification",
+      "job spec",
+      "job specifications"
+     ],
+     "why": "Operations writes it; HR uses it to recruit."
+    },
+    {
+     "a": "Train existing staff",
+     "p": 75,
+     "k": [
+      "training",
+      "train",
+      "retrain",
+      "retraining",
+      "upskill"
+     ],
+     "why": "Skill shortfalls from the audit may be fixed with training."
+    },
+    {
+     "a": "Recruit externally (via HR)",
+     "p": 80,
+     "k": [
+      "recruit",
+      "recruitment",
+      "recruiting",
+      "hire",
+      "hiring",
+      "external recruitment"
+     ],
+     "why": "If current staff lack the skills, HR recruits externally."
+    }
+   ]
+  },
+  {
+   "id": "ops-proc-layout",
+   "sec": "P",
+   "q": "Name a type of process layout",
+   "hint": "FOPP",
+   "learn": "Process layout is the physical arrangement of equipment, processes and people in operations. The four types are fixed-position, office, process (functional) and product (assembly line): FOPP.",
+   "answers": [
+    {
+     "a": "Product layout",
+     "p": 10,
+     "k": [
+      "product",
+      "assembly line",
+      "production line",
+      "line layout",
+      "flow line",
+      "assembly"
+     ],
+     "why": "Stations follow the task sequence for high-volume, uniform goods, e.g. cars."
+    },
+    {
+     "a": "Process layout",
+     "p": 25,
+     "k": [
+      "process",
+      "functional",
+      "functional layout",
+      "job shop"
+     ],
+     "why": "Machines grouped by function for high-variety, low-volume work, e.g. a hospital or gym."
+    },
+    {
+     "a": "Fixed-position layout",
+     "p": 45,
+     "k": [
+      "fixed position",
+      "fixed",
+      "project production",
+      "fixed site",
+      "fixed location"
+     ],
+     "why": "The product stays put and workers come to it, e.g. planes and boats."
+    },
+    {
+     "a": "Office (service) layout",
+     "p": 70,
+     "k": [
+      "office",
+      "service layout",
+      "service",
+      "office layout",
+      "open plan"
+     ],
+     "why": "Desks grouped by function to encourage communication and problem solving."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "cellular",
+      "cellular layout"
+     ],
+     "p": 10,
+     "msg": "Cellular layout isn't on the syllabus list; stick to FOPP."
+    }
+   ]
+  },
+  {
+   "id": "ops-proc-kpis",
+   "sec": "P",
+   "q": "Name a KPI operations can monitor",
+   "hint": "Cost, speed, stock, defects, claims, waste",
+   "learn": "Monitoring is measuring actual performance against planned performance, using KPIs and service level agreements (SLAs). It pinpoints inefficiencies but can encourage a reactive rather than proactive approach.",
+   "answers": [
+    {
+     "a": "Defect rates",
+     "p": 10,
+     "k": [
+      "defects",
+      "defect rate",
+      "faults",
+      "rejects",
+      "error rate"
+     ],
+     "why": "A direct measure of quality."
+    },
+    {
+     "a": "Operating costs",
+     "p": 15,
+     "k": [
+      "costs",
+      "operations costs",
+      "production costs",
+      "cost per unit",
+      "operating expenses",
+      "direct and indirect costs"
+     ],
+     "why": "Direct and indirect cost analysis tracks the cost objective."
+    },
+    {
+     "a": "Warranty claims",
+     "p": 20,
+     "k": [
+      "warranty",
+      "warranties",
+      "returns",
+      "claims"
+     ],
+     "why": "Claims flag quality problems in production."
+    },
+    {
+     "a": "Speed and lead times",
+     "p": 25,
+     "k": [
+      "speed",
+      "lead times",
+      "lead time",
+      "delivery time",
+      "processing time",
+      "waiting times",
+      "turnaround"
+     ],
+     "why": "Tracks the speed objective."
+    },
+    {
+     "a": "Customer feedback",
+     "p": 35,
+     "k": [
+      "complaints",
+      "customer complaints",
+      "feedback",
+      "customer satisfaction",
+      "surveys"
+     ],
+     "why": "Customer feedback is a key monitoring source."
+    },
+    {
+     "a": "Wastage",
+     "p": 40,
+     "k": [
+      "waste",
+      "wastage rate",
+      "scrap"
+     ],
+     "why": "Shows inefficiency in the use of inputs."
+    },
+    {
+     "a": "Volume rates",
+     "p": 50,
+     "k": [
+      "volume",
+      "output",
+      "units produced",
+      "production volume",
+      "productivity"
+     ],
+     "why": "Measures how many units are produced."
+    },
+    {
+     "a": "Inventory turnover",
+     "p": 55,
+     "k": [
+      "inventory",
+      "stock turnover",
+      "inventory turnover rate",
+      "stock",
+      "stock levels"
+     ],
+     "why": "How quickly stock moves through the business."
+    },
+    {
+     "a": "Quality of inputs and outputs",
+     "p": 60,
+     "k": [
+      "quality",
+      "input quality",
+      "output quality",
+      "quality of materials"
+     ],
+     "why": "Checks materials and finished goods against standards."
+    },
+    {
+     "a": "Maintenance costs",
+     "p": 75,
+     "k": [
+      "maintenance",
+      "repairs",
+      "equipment maintenance"
+     ],
+     "why": "Rising maintenance costs flag ageing equipment."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "net profit",
+      "gross profit",
+      "current ratio",
+      "roe"
+     ],
+     "p": 5,
+     "msg": "Those are financial ratios; operations KPIs track cost, speed, quality, stock and waste."
+    }
+   ]
+  },
+  {
+   "id": "ops-proc-control",
+   "sec": "P",
+   "q": "Name a corrective action when ops misses targets",
+   "hint": "Layout, technology, staff, inputs, scheduling",
+   "learn": "Controlling means assessing KPIs against predetermined targets and taking corrective action so performance objectives are achieved. Corrective action is costly and time-consuming, e.g. downtime.",
+   "answers": [
+    {
+     "a": "Introduce new technology",
+     "p": 10,
+     "k": [
+      "technology",
+      "new technology",
+      "new machinery",
+      "new equipment",
+      "automation",
+      "upgrade equipment"
+     ],
+     "why": "Adjusting the level of technology to fix the problem."
+    },
+    {
+     "a": "Retrain staff",
+     "p": 15,
+     "k": [
+      "training",
+      "retraining",
+      "train staff",
+      "upskill",
+      "staff training"
+     ],
+     "why": "Fixes skill gaps behind poor performance."
+    },
+    {
+     "a": "Source better-quality inputs",
+     "p": 30,
+     "k": [
+      "better inputs",
+      "better materials",
+      "quality inputs",
+      "new suppliers",
+      "change suppliers",
+      "better suppliers",
+      "quality materials"
+     ],
+     "why": "Better materials fix quality and dependability problems."
+    },
+    {
+     "a": "Redesign the facility layout",
+     "p": 45,
+     "k": [
+      "layout",
+      "redesign layout",
+      "new layout",
+      "reorganise layout",
+      "reorganize layout",
+      "plant layout"
+     ],
+     "why": "Redesigning the layout can remove inefficiencies."
+    },
+    {
+     "a": "Hire specialist staff",
+     "p": 55,
+     "k": [
+      "specialist staff",
+      "hire specialists",
+      "specialists",
+      "hire staff",
+      "recruit",
+      "recruitment",
+      "hire experts"
+     ],
+     "why": "Brings in expertise the business lacks."
+    },
+    {
+     "a": "Tighten quality control",
+     "p": 60,
+     "k": [
+      "quality control",
+      "more inspections",
+      "inspection",
+      "inspections",
+      "quality checks"
+     ],
+     "why": "Enhanced QC measures address quality concerns."
+    },
+    {
+     "a": "Use CPA or Gantt charts",
+     "p": 70,
+     "k": [
+      "cpa",
+      "critical path",
+      "critical path analysis",
+      "gantt",
+      "gantt chart",
+      "rescheduling",
+      "reschedule",
+      "scheduling"
+     ],
+     "why": "Rescheduling tools fix efficiency and speed issues."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "kpi",
+      "benchmark",
+      "measure performance",
+      "monitoring"
+     ],
+     "p": 5,
+     "msg": "Measuring against KPIs is monitoring; control is the corrective action that follows."
+    }
+   ]
+  },
+  {
+   "id": "ops-proc-customer-service",
+   "sec": "P",
+   "q": "Name a way to improve customer service",
+   "hint": "Before, during and after the sale",
+   "learn": "Customer service is how well a business meets and exceeds customer expectations, before, during and after a sale. Many defects, complaints and long waiting times signal it needs work.",
+   "answers": [
+    {
+     "a": "Customer service training",
+     "p": 10,
+     "k": [
+      "training",
+      "staff training",
+      "train staff",
+      "upskill staff"
+     ],
+     "why": "Up-skilling staff in customer service (costly and time-consuming)."
+    },
+    {
+     "a": "Reduce waiting times",
+     "p": 20,
+     "k": [
+      "waiting times",
+      "wait times",
+      "reduce waiting",
+      "faster service",
+      "shorter waits",
+      "speed",
+      "quicker service"
+     ],
+     "why": "Long waits are a sign service needs improving."
+    },
+    {
+     "a": "Minimise defects",
+     "p": 35,
+     "k": [
+      "defects",
+      "fewer defects",
+      "less defects",
+      "quality",
+      "reduce defects",
+      "better quality"
+     ],
+     "why": "Fewer faulty products mean fewer unhappy customers."
+    },
+    {
+     "a": "Complaints department",
+     "p": 40,
+     "k": [
+      "complaints",
+      "complaint handling",
+      "handle complaints",
+      "help desk",
+      "complaints line"
+     ],
+     "why": "A dedicated team to resolve complaints (can be costly)."
+    },
+    {
+     "a": "Offer warranties",
+     "p": 45,
+     "k": [
+      "warranty",
+      "warranties",
+      "extended warranty",
+      "guarantee",
+      "guarantees"
+     ],
+     "why": "A promise to repair or replace faulty goods builds trust and induces sales."
+    },
+    {
+     "a": "After-sales service",
+     "p": 55,
+     "k": [
+      "after sales",
+      "after sale",
+      "after sales support",
+      "follow up",
+      "support"
+     ],
+     "why": "Service continues after the sale is made."
+    },
+    {
+     "a": "Use customer feedback",
+     "p": 70,
+     "k": [
+      "feedback",
+      "surveys",
+      "survey",
+      "customer feedback",
+      "reviews"
+     ],
+     "why": "Surveys, interviews and warranty claims show what to fix."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "repeat sales",
+      "customer loyalty",
+      "loyalty"
+     ],
+     "p": 5,
+     "msg": "That's a result of good customer service, not a way to improve it."
+    }
+   ]
+  },
+  {
+   "id": "ops-strat-objectives",
+   "sec": "S",
+   "q": "Name an operations performance objective",
+   "hint": "Can Dan Flex and Change Speed Quickly (CDF CSQ)",
+   "learn": "The six performance objectives are cost, dependability, flexibility, customisation, speed and quality. They often conflict, e.g. customisation raises cost and slows speed.",
+   "answers": [
+    {
+     "a": "Quality",
+     "p": 10,
+     "k": [
+      "high quality",
+      "product quality"
+     ],
+     "why": "Satisfying or surpassing customers' standards and expectations."
+    },
+    {
+     "a": "Cost",
+     "p": 15,
+     "k": [
+      "cost minimisation",
+      "cost minimization",
+      "low cost",
+      "minimise costs",
+      "costs",
+      "cost reduction"
+     ],
+     "why": "Minimising operational expenses."
+    },
+    {
+     "a": "Speed",
+     "p": 20,
+     "k": [
+      "fast",
+      "faster",
+      "quick",
+      "lead times",
+      "time"
+     ],
+     "why": "How fast processes respond to demand: shorter lead and wait times."
+    },
+    {
+     "a": "Flexibility",
+     "p": 35,
+     "k": [
+      "flexible",
+      "adaptability",
+      "adaptable"
+     ],
+     "why": "How quickly processes adjust to changes in the market."
+    },
+    {
+     "a": "Dependability",
+     "p": 50,
+     "k": [
+      "dependable",
+      "reliability",
+      "reliable",
+      "consistency",
+      "durability"
+     ],
+     "why": "The consistency, reliability and durability of the product."
+    },
+    {
+     "a": "Customisation",
+     "p": 70,
+     "k": [
+      "customization",
+      "customise",
+      "customize",
+      "customised",
+      "tailoring",
+      "personalisation"
+     ],
+     "why": "Developing individual products to meet specific customer needs."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "differentiation",
+      "product differentiation"
+     ],
+     "p": 10,
+     "msg": "That's a strategic role of operations; the objectives are CDF CSQ."
+    },
+    {
+     "k": [
+      "profit",
+      "profitability",
+      "profit maximisation"
+     ],
+     "p": 5,
+     "msg": "Profit is a finance objective; operations' objectives are CDF CSQ."
+    }
+   ]
+  },
+  {
+   "id": "ops-strat-tradeoffs",
+   "sec": "S",
+   "q": "Name a trade-off between two performance objectives",
+   "hint": "e.g. cost vs quality",
+   "learn": "Performance objectives conflict: improving one often hurts another. Managers balance them according to whether the business competes on cost leadership or differentiation.",
+   "answers": [
+    {
+     "a": "Cost vs quality",
+     "p": 10,
+     "k": [
+      "cost quality",
+      "quality cost",
+      "price quality"
+     ],
+     "why": "Better inputs and more QC cost more; cutting costs risks quality."
+    },
+    {
+     "a": "Speed vs quality",
+     "p": 25,
+     "k": [
+      "speed quality",
+      "quality speed",
+      "rushing quality"
+     ],
+     "why": "Rushed processes compromise quality; QC inspections slow production."
+    },
+    {
+     "a": "Customisation vs cost",
+     "p": 35,
+     "k": [
+      "customisation cost",
+      "cost customisation",
+      "customization cost",
+      "cost customization"
+     ],
+     "why": "Tailoring adds complexity and raises costs; standardisation is cheaper."
+    },
+    {
+     "a": "Customisation vs speed",
+     "p": 45,
+     "k": [
+      "customisation speed",
+      "speed customisation",
+      "customization speed",
+      "speed customization",
+      "customisation lead times"
+     ],
+     "why": "Customisation generally increases lead times."
+    },
+    {
+     "a": "Flexibility vs cost",
+     "p": 60,
+     "k": [
+      "flexibility cost",
+      "cost flexibility"
+     ],
+     "why": "Flexibility may require costly new technology or machinery."
+    },
+    {
+     "a": "Speed vs cost",
+     "p": 65,
+     "k": [
+      "speed cost",
+      "cost speed"
+     ],
+     "why": "Removing bottlenecks may need more efficient, expensive machinery."
+    },
+    {
+     "a": "Dependability vs cost",
+     "p": 75,
+     "k": [
+      "dependability cost",
+      "cost dependability",
+      "reliability cost",
+      "cost reliability",
+      "durability cost"
+     ],
+     "why": "Consistent, durable products need more QC and dearer materials."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "cost leadership differentiation",
+      "cost leadership vs differentiation"
+     ],
+     "p": 10,
+     "msg": "Those are the two strategic roles, not performance objectives; pick two of CDF CSQ."
+    }
+   ]
+  },
+  {
+   "id": "ops-strat-npd",
+   "sec": "S",
+   "q": "Name a stage of new product design and development",
+   "hint": "Concept, prototype, prototype test, polish, produce",
+   "learn": "New product design is led by marketing, with operations advising how it can be made, what materials to use and how features will work. Effective design cuts waste, average costs and warranty claims.",
+   "answers": [
+    {
+     "a": "Production and launch",
+     "p": 15,
+     "k": [
+      "production",
+      "launch",
+      "product launch",
+      "commercialisation",
+      "commercialization",
+      "manufacture",
+      "release"
+     ],
+     "why": "Stage 5: operations manufactures to marketing's design specifications."
+    },
+    {
+     "a": "Product design and prototype",
+     "p": 20,
+     "k": [
+      "design",
+      "prototype development",
+      "product design",
+      "prototype",
+      "prototyping"
+     ],
+     "why": "Stage 2: designing the product and building a prototype."
+    },
+    {
+     "a": "Concept development",
+     "p": 25,
+     "k": [
+      "concept",
+      "idea generation",
+      "ideas",
+      "market research"
+     ],
+     "why": "Stage 1: the concept, based on market research."
+    },
+    {
+     "a": "Prototype testing and assessment",
+     "p": 45,
+     "k": [
+      "testing",
+      "test",
+      "prototype testing",
+      "assessment",
+      "trialling",
+      "trial",
+      "test marketing"
+     ],
+     "why": "Stage 3: testing and assessing the prototype."
+    },
+    {
+     "a": "Product refinement",
+     "p": 70,
+     "k": [
+      "refinement",
+      "refine",
+      "refining",
+      "modifications",
+      "improve design",
+      "revisions"
+     ],
+     "why": "Stage 4: refining the design, e.g. inputs or processes, before launch."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "introduction",
+      "growth",
+      "maturity",
+      "decline"
+     ],
+     "p": 5,
+     "msg": "Those are product life cycle stages, not design and development stages."
+    }
+   ]
+  },
+  {
+   "id": "ops-strat-supply-chain",
+   "sec": "S",
+   "q": "Name an element of supply chain management",
+   "hint": "LEG, and logistics is DTSM",
+   "learn": "Supply chain management covers logistics (distribution, transportation, storage, materials handling and packaging), e-commerce and global sourcing: LEG and DTSM.",
+   "answers": [
+    {
+     "a": "Logistics",
+     "p": 10,
+     "k": [
+      "logistic"
+     ],
+     "why": "Managing distribution, transport, storage and materials handling."
+    },
+    {
+     "a": "Transportation",
+     "p": 15,
+     "k": [
+      "transport",
+      "shipping",
+      "freight",
+      "delivery",
+      "trucks"
+     ],
+     "why": "Choosing time- and cost-efficient modes, from vans to ships and planes."
+    },
+    {
+     "a": "Distribution",
+     "p": 25,
+     "k": [
+      "distribution channels",
+      "direct distribution",
+      "indirect distribution",
+      "channels"
+     ],
+     "why": "Getting goods to customers, directly or indirectly."
+    },
+    {
+     "a": "Storage and warehousing",
+     "p": 30,
+     "k": [
+      "storage",
+      "warehousing",
+      "warehouse",
+      "warehouses",
+      "distribution centres",
+      "distribution centers"
+     ],
+     "why": "Warehouses for long-term storage; distribution centres to cut lead times."
+    },
+    {
+     "a": "Global sourcing",
+     "p": 40,
+     "k": [
+      "global",
+      "sourcing",
+      "overseas suppliers",
+      "global suppliers",
+      "importing"
+     ],
+     "why": "Purchasing inputs in international markets."
+    },
+    {
+     "a": "E-commerce",
+     "p": 45,
+     "k": [
+      "ecommerce",
+      "e commerce",
+      "online",
+      "internet sales",
+      "online selling",
+      "b2c"
+     ],
+     "why": "Buying and selling over the internet."
+    },
+    {
+     "a": "Materials handling and packaging",
+     "p": 70,
+     "k": [
+      "materials handling",
+      "material handling",
+      "packaging",
+      "handling"
+     ],
+     "why": "Fragile or dangerous goods need special handling and packaging."
+    },
+    {
+     "a": "E-procurement",
+     "p": 75,
+     "k": [
+      "eprocurement",
+      "e procurement",
+      "online ordering",
+      "electronic ordering",
+      "automatic reordering",
+      "b2b"
+     ],
+     "why": "Suppliers see stock levels and restock automatically (B2B)."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "outsourcing"
+     ],
+     "p": 10,
+     "msg": "Outsourcing is a separate operations strategy, though it shapes the supply chain."
+    },
+    {
+     "k": [
+      "inventory",
+      "jit",
+      "just in time"
+     ],
+     "p": 10,
+     "msg": "Inventory management is its own strategy (HS, JIT, FIFO, LIFO); SCM is LEG."
+    }
+   ]
+  },
+  {
+   "id": "ops-strat-global-sourcing-adv",
+   "sec": "S",
+   "q": "Give an advantage of global sourcing",
+   "hint": "Cost, volume, quality, uniqueness, speed",
+   "learn": "Global sourcing is purchasing inputs in international markets, often from a 'global web of suppliers'. Consider quality, quantity, cost, and the supplier's reliability, flexibility and responsiveness.",
+   "answers": [
+    {
+     "a": "Lower-cost inputs",
+     "p": 10,
+     "k": [
+      "lower costs",
+      "cheaper",
+      "cheaper inputs",
+      "cheap inputs",
+      "lower cost",
+      "cost savings",
+      "cost leadership",
+      "cost"
+     ],
+     "why": "Cuts production costs, helping cost leadership and the cost objective."
+    },
+    {
+     "a": "Higher-quality inputs",
+     "p": 30,
+     "k": [
+      "higher quality",
+      "better quality",
+      "quality",
+      "quality inputs",
+      "better inputs"
+     ],
+     "why": "Access to better inputs than those available domestically."
+    },
+    {
+     "a": "Access to unique inputs",
+     "p": 45,
+     "k": [
+      "unique inputs",
+      "unique",
+      "not available locally",
+      "not available domestically",
+      "differentiation"
+     ],
+     "why": "Inputs unavailable locally can differentiate the product."
+    },
+    {
+     "a": "Greater volume of inputs",
+     "p": 55,
+     "k": [
+      "volume",
+      "greater volume",
+      "larger quantities",
+      "more inputs",
+      "quantity",
+      "bulk"
+     ],
+     "why": "Large volumes that may not be available domestically."
+    },
+    {
+     "a": "Backup suppliers (global web)",
+     "p": 75,
+     "k": [
+      "backup",
+      "backup suppliers",
+      "alternative suppliers",
+      "global web",
+      "web of suppliers",
+      "more suppliers",
+      "reliable suppliers",
+      "reliability"
+     ],
+     "why": "If one supplier faces delays, others can meet demand."
+    },
+    {
+     "a": "Quicker delivery than local",
+     "p": 80,
+     "k": [
+      "quicker",
+      "faster",
+      "speed",
+      "faster delivery",
+      "quicker to receive",
+      "faster than domestic"
+     ],
+     "why": "Some inputs can arrive faster than from domestic suppliers."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "exchange rate",
+      "shipping delays",
+      "complexity",
+      "longer lead times"
+     ],
+     "p": 5,
+     "msg": "That's a disadvantage of global sourcing."
+    }
+   ]
+  },
+  {
+   "id": "ops-strat-global-sourcing-disadv",
+   "sec": "S",
+   "q": "Give a disadvantage of global sourcing",
+   "hint": "Currency, ships, distance, complexity, inspection",
+   "learn": "Global inputs may be cheaper or unique, but distance adds transport cost, time and complexity, and a falling AUD can wipe out savings (managed through hedging).",
+   "answers": [
+    {
+     "a": "Shipping delays",
+     "p": 10,
+     "k": [
+      "delays",
+      "shipping",
+      "transport delays",
+      "evergreen",
+      "suez canal",
+      "suez"
+     ],
+     "why": "E.g. the Evergreen ship blocking the Suez Canal."
+    },
+    {
+     "a": "Exchange rate risk",
+     "p": 25,
+     "k": [
+      "exchange rate",
+      "exchange rates",
+      "currency",
+      "aud",
+      "falling dollar",
+      "currency risk",
+      "forex"
+     ],
+     "why": "A falling AUD can cancel out savings (hedging can manage this)."
+    },
+    {
+     "a": "Higher logistics costs",
+     "p": 30,
+     "k": [
+      "transport costs",
+      "transportation costs",
+      "logistics costs",
+      "shipping costs",
+      "freight costs"
+     ],
+     "why": "Transporting inputs long distances costs more."
+    },
+    {
+     "a": "Longer lead times",
+     "p": 35,
+     "k": [
+      "lead times",
+      "takes longer",
+      "slower delivery",
+      "distance",
+      "time"
+     ],
+     "why": "Inputs take longer to arrive from overseas."
+    },
+    {
+     "a": "Quality concerns",
+     "p": 40,
+     "k": [
+      "quality",
+      "poor quality",
+      "lack of inspection",
+      "less oversight",
+      "quality control"
+     ],
+     "why": "Less inspection oversight of overseas suppliers."
+    },
+    {
+     "a": "Complexity of a global web",
+     "p": 65,
+     "k": [
+      "complexity",
+      "complex",
+      "managing suppliers",
+      "global web",
+      "web of suppliers",
+      "complicated"
+     ],
+     "why": "Managing many suppliers across locations is logistically complex."
+    },
+    {
+     "a": "Supplier unreliability",
+     "p": 75,
+     "k": [
+      "unreliable",
+      "reliability",
+      "unreliable suppliers",
+      "responsiveness",
+      "dependability"
+     ],
+     "why": "Overseas suppliers may be less responsive (dependability objective)."
+    },
+    {
+     "a": "Communication and language barriers",
+     "p": 80,
+     "k": [
+      "language",
+      "language barriers",
+      "communication",
+      "cultural differences",
+      "time zones"
+     ],
+     "why": "Miscommunication with overseas partners causes errors."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "cheaper",
+      "unique inputs",
+      "lower costs"
+     ],
+     "p": 5,
+     "msg": "That's an advantage of global sourcing."
+    }
+   ]
+  },
+  {
+   "id": "ops-strat-outsourcing-adv",
+   "sec": "S",
+   "q": "Give an advantage of outsourcing",
+   "hint": "Eight on the card: capability, certainty, simplicity...",
+   "learn": "Outsourcing is using external providers, onshore or offshore, to perform activities such as manufacturing, logistics or distribution. Options include fee-for-service, co-sourcing and build-operate-transfer.",
+   "answers": [
+    {
+     "a": "Cost savings",
+     "p": 10,
+     "k": [
+      "cheaper",
+      "cost",
+      "costs",
+      "lower costs",
+      "cheap labour",
+      "cheaper labour",
+      "reduce costs",
+      "save money"
+     ],
+     "why": "Cheaper labour, different legal regulations and economies of scale."
+    },
+    {
+     "a": "Focus on core activities",
+     "p": 25,
+     "k": [
+      "core",
+      "core activities",
+      "core business",
+      "core competencies",
+      "focus"
+     ],
+     "why": "Freed-up resources improve core functions and competitiveness."
+    },
+    {
+     "a": "Efficiency gains",
+     "p": 35,
+     "k": [
+      "efficiency",
+      "efficient",
+      "more efficient",
+      "productivity"
+     ],
+     "why": "The contractor is often more efficient."
+    },
+    {
+     "a": "Increased speed",
+     "p": 45,
+     "k": [
+      "speed",
+      "faster",
+      "quicker",
+      "lead times",
+      "reduced lead times"
+     ],
+     "why": "Reduced lead times, e.g. from the contractor's advanced technology."
+    },
+    {
+     "a": "Increased process capability",
+     "p": 55,
+     "k": [
+      "capability",
+      "process capability",
+      "better technology",
+      "specialised labour",
+      "specialized labour",
+      "expertise",
+      "specialist skills"
+     ],
+     "why": "Access to better technology and specialised labour lacking in-house."
+    },
+    {
+     "a": "Increased volume",
+     "p": 65,
+     "k": [
+      "volume",
+      "more output",
+      "capacity",
+      "longer operating hours",
+      "higher volume"
+     ],
+     "why": "The contractor can produce more, e.g. with longer operating hours."
+    },
+    {
+     "a": "Simplification",
+     "p": 70,
+     "k": [
+      "simpler",
+      "simplify",
+      "fewer activities",
+      "less complexity",
+      "simplicity"
+     ],
+     "why": "Fewer activities for the business to manage."
+    },
+    {
+     "a": "Certainty through SLAs",
+     "p": 85,
+     "k": [
+      "sla",
+      "service level agreement",
+      "service level agreements",
+      "certainty",
+      "accountability",
+      "kpis"
+     ],
+     "why": "SLAs make the contractor meet pre-set KPIs (accountability)."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "loss of control",
+      "language barriers",
+      "job losses",
+      "quality concerns"
+     ],
+     "p": 5,
+     "msg": "That's a disadvantage of outsourcing."
+    }
+   ]
+  },
+  {
+   "id": "ops-strat-outsourcing-disadv",
+   "sec": "S",
+   "q": "Give a disadvantage of outsourcing",
+   "hint": "Control, communication, quality, knowledge, ethics",
+   "learn": "Outsourcing hands work to an outside provider, so the business loses some control and in-house expertise. Service level agreements (SLAs) with KPIs reduce, but don't remove, quality risks.",
+   "answers": [
+    {
+     "a": "Loss of control",
+     "p": 10,
+     "k": [
+      "control",
+      "less control",
+      "lack of control",
+      "loss of control over standards"
+     ],
+     "why": "Less control over standards and processes."
+    },
+    {
+     "a": "Quality concerns",
+     "p": 15,
+     "k": [
+      "quality",
+      "poor quality",
+      "quality control",
+      "lower quality"
+     ],
+     "why": "Less oversight of quality (minimised through SLAs)."
+    },
+    {
+     "a": "Communication and language barriers",
+     "p": 30,
+     "k": [
+      "communication",
+      "language",
+      "language barriers",
+      "miscommunication",
+      "misunderstanding",
+      "cultural differences"
+     ],
+     "why": "Misunderstandings with overseas contractors."
+    },
+    {
+     "a": "Ethical issues and job losses",
+     "p": 35,
+     "k": [
+      "job losses",
+      "job loss",
+      "ethical",
+      "ethics",
+      "unemployment",
+      "csr",
+      "brand image",
+      "reputation",
+      "redundancies"
+     ],
+     "why": "Lost local jobs and a contractor's conduct can damage brand image."
+    },
+    {
+     "a": "Cost of organisational change",
+     "p": 60,
+     "k": [
+      "organisational change",
+      "organizational change",
+      "structural change",
+      "restructuring",
+      "change costs",
+      "cost of change",
+      "transition costs"
+     ],
+     "why": "Restructuring the organisation costs money and time."
+    },
+    {
+     "a": "Information security risks",
+     "p": 65,
+     "k": [
+      "security",
+      "information security",
+      "data security",
+      "confidentiality",
+      "privacy",
+      "info security"
+     ],
+     "why": "Sharing data with a contractor risks information security."
+    },
+    {
+     "a": "Loss of internal knowledge",
+     "p": 75,
+     "k": [
+      "knowledge",
+      "loss of knowledge",
+      "expertise",
+      "internal expertise",
+      "loss of expertise",
+      "skills"
+     ],
+     "why": "In-house expertise in the outsourced processes fades."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "cost savings",
+      "focus on core",
+      "cheaper"
+     ],
+     "p": 5,
+     "msg": "That's an advantage of outsourcing."
+    }
+   ]
+  },
+  {
+   "id": "ops-strat-leading-edge",
+   "sec": "S",
+   "q": "Give an example of leading-edge technology",
+   "hint": "AI, printing, drones, lasers...",
+   "learn": "Leading-edge technology is the most advanced at a point in time; bleeding-edge is so new it carries real uncertainty and risk. Established technology, such as barcoding and CAD/CAM, is already widely adopted and cheaper.",
+   "answers": [
+    {
+     "a": "Artificial intelligence",
+     "p": 10,
+     "k": [
+      "artificial intelligence",
+      "machine intelligence",
+      "generative ai",
+      "ai systems",
+      "ai technology",
+      "ai"
+     ],
+     "why": "AI can plan, predict and make decisions in operations."
+    },
+    {
+     "a": "3D printing",
+     "p": 20,
+     "k": [
+      "3d printer",
+      "3d printers",
+      "additive manufacturing",
+      "printing"
+     ],
+     "why": "Printing parts from a diverse range of materials."
+    },
+    {
+     "a": "Autonomous vehicles and drones",
+     "p": 30,
+     "k": [
+      "drones",
+      "drone",
+      "autonomous vehicles",
+      "self driving",
+      "driverless",
+      "autonomous"
+     ],
+     "why": "E.g. delivery drones and driverless vehicles."
+    },
+    {
+     "a": "Robotic process automation",
+     "p": 45,
+     "k": [
+      "rpa",
+      "robotic process automation",
+      "software robots",
+      "robotic software"
+     ],
+     "why": "Software robots that mimic and exceed human accuracy, with statistical analysis."
+    },
+    {
+     "a": "Machine learning",
+     "p": 55,
+     "k": [
+      "machine learning",
+      "design intelligence",
+      "deep learning"
+     ],
+     "why": "Machine learning and design intelligence improve designs and processes."
+    },
+    {
+     "a": "Remote manufacturing",
+     "p": 70,
+     "k": [
+      "remote",
+      "remote production",
+      "remote manufacture"
+     ],
+     "why": "Running production from a distance."
+    },
+    {
+     "a": "Lasers",
+     "p": 80,
+     "k": [
+      "laser",
+      "laser cutting",
+      "laser technology"
+     ],
+     "why": "High-precision cutting and measuring."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "barcoding",
+      "barcodes",
+      "cad",
+      "cam",
+      "computers",
+      "it systems",
+      "flexible manufacturing systems",
+      "robotics for assembly",
+      "robotics",
+      "robots"
+     ],
+     "p": 10,
+     "msg": "That's established technology: already widely adopted."
+    }
+   ]
+  },
+  {
+   "id": "ops-strat-holding-stock-adv",
+   "sec": "S",
+   "q": "Give an advantage of holding stock",
+   "hint": "Demand, safety, display, bulk",
+   "learn": "Holding stock means keeping inventory on hand. It guards against shortages and delays, but ties up cash and adds storage costs; just-in-time (JIT) is the opposite approach.",
+   "answers": [
+    {
+     "a": "Meet demand quickly",
+     "p": 10,
+     "k": [
+      "meet demand",
+      "demand",
+      "customer demand",
+      "shorter waits",
+      "fewer stockouts",
+      "no stockouts",
+      "avoid stockouts",
+      "stock shortfalls",
+      "customer satisfaction"
+     ],
+     "why": "Fewer stock shortfalls and shorter waits lift customer satisfaction."
+    },
+    {
+     "a": "Buffer against delays",
+     "p": 30,
+     "k": [
+      "buffer",
+      "safety stock",
+      "safety",
+      "delays",
+      "unforeseen events",
+      "supply disruptions",
+      "backup",
+      "emergencies"
+     ],
+     "why": "A safety measure if replenishment is delayed."
+    },
+    {
+     "a": "Bulk-buying discounts",
+     "p": 45,
+     "k": [
+      "bulk buying",
+      "bulk",
+      "bulk discounts",
+      "economies of scale",
+      "eos",
+      "volume discounts",
+      "bulk ordering"
+     ],
+     "why": "Ordering in bulk brings economies of scale."
+    },
+    {
+     "a": "Stock on display attracts customers",
+     "p": 75,
+     "k": [
+      "display",
+      "promotion",
+      "attract customers",
+      "visual merchandising",
+      "stock on shelves",
+      "shelves"
+     ],
+     "why": "Full shelves help promotion (a link with marketing)."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "avoids obsolescence",
+      "no storage costs",
+      "less waste",
+      "lower holding costs"
+     ],
+     "p": 5,
+     "msg": "That's an advantage of JIT, the opposite of holding stock."
+    }
+   ]
+  },
+  {
+   "id": "ops-strat-holding-stock-disadv",
+   "sec": "S",
+   "q": "Give a disadvantage of holding stock",
+   "hint": "Storage, cash, shrinkage, obsolescence",
+   "learn": "Holding stock brings inventory costs (rent, insurance, security, handling, stock-takes), ties up cash and risks shrinkage and obsolescence.",
+   "answers": [
+    {
+     "a": "Storage costs",
+     "p": 10,
+     "k": [
+      "storage",
+      "warehousing",
+      "warehouse costs",
+      "rent",
+      "holding costs",
+      "inventory costs",
+      "warehouse"
+     ],
+     "why": "Renting or buying warehouses and distribution centres."
+    },
+    {
+     "a": "Cash tied up",
+     "p": 30,
+     "k": [
+      "cash flow",
+      "cash",
+      "tied up",
+      "working capital",
+      "opportunity cost"
+     ],
+     "why": "Money sitting in stock harms cash flow management."
+    },
+    {
+     "a": "Shrinkage",
+     "p": 40,
+     "k": [
+      "theft",
+      "damage",
+      "spoilage",
+      "spoil",
+      "stolen",
+      "perishing"
+     ],
+     "why": "Losses from damage, theft and spoilage."
+    },
+    {
+     "a": "Obsolescence",
+     "p": 45,
+     "k": [
+      "obsolete",
+      "outdated",
+      "goes out of date",
+      "out of date",
+      "old stock"
+     ],
+     "why": "Stock can become obsolete, especially technology products."
+    },
+    {
+     "a": "Insurance and security costs",
+     "p": 55,
+     "k": [
+      "insurance",
+      "security",
+      "insuring"
+     ],
+     "why": "Stock must be insured and secured."
+    },
+    {
+     "a": "Handling and stock-takes",
+     "p": 75,
+     "k": [
+      "stocktake",
+      "stock take",
+      "stocktaking",
+      "handling",
+      "handling costs"
+     ],
+     "why": "Moving and counting stock costs labour time."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "supplier unreliability",
+      "forecasting",
+      "stockouts"
+     ],
+     "p": 5,
+     "msg": "Those are JIT risks; holding stock actually guards against them."
+    }
+   ]
+  },
+  {
+   "id": "ops-strat-jit-adv",
+   "sec": "S",
+   "q": "Give an advantage of just-in-time (JIT)",
+   "hint": "No stock sitting around",
+   "learn": "Just-in-time means inputs are received, or goods produced, only as they are needed. It suits perishable goods and goods that date quickly, but needs reliable suppliers and flexible processes.",
+   "answers": [
+    {
+     "a": "Lower storage costs",
+     "p": 10,
+     "k": [
+      "storage",
+      "no storage",
+      "storage costs",
+      "holding costs",
+      "warehousing",
+      "warehouse",
+      "inventory costs",
+      "no warehouse"
+     ],
+     "why": "No rent for warehouses or distribution centres."
+    },
+    {
+     "a": "Less waste and spoilage",
+     "p": 25,
+     "k": [
+      "waste",
+      "wastage",
+      "spoilage",
+      "less waste",
+      "fresh",
+      "freshness"
+     ],
+     "why": "Perishable inputs are used before they spoil."
+    },
+    {
+     "a": "Avoids obsolescence",
+     "p": 30,
+     "k": [
+      "obsolescence",
+      "obsolete",
+      "outdated",
+      "out of date"
+     ],
+     "why": "Stock doesn't sit long enough to date."
+    },
+    {
+     "a": "Frees up cash flow",
+     "p": 45,
+     "k": [
+      "cash flow",
+      "cash",
+      "working capital",
+      "not tied up"
+     ],
+     "why": "Cash isn't tied up in inventory."
+    },
+    {
+     "a": "Less theft and shrinkage",
+     "p": 55,
+     "k": [
+      "shrinkage",
+      "theft",
+      "damage",
+      "less theft"
+     ],
+     "why": "Less stock on hand means less to lose."
+    },
+    {
+     "a": "Lower insurance and security costs",
+     "p": 70,
+     "k": [
+      "insurance",
+      "security"
+     ],
+     "why": "Less stock to insure and protect."
+    },
+    {
+     "a": "Less handling and stock-taking",
+     "p": 80,
+     "k": [
+      "stocktake",
+      "stock take",
+      "handling",
+      "stocktaking"
+     ],
+     "why": "Fewer goods to move and count."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "bulk buying",
+      "bulk discounts",
+      "safety stock",
+      "buffer"
+     ],
+     "p": 5,
+     "msg": "That's an advantage of holding stock, not JIT."
+    }
+   ]
+  },
+  {
+   "id": "ops-strat-jit-disadv",
+   "sec": "S",
+   "q": "Give a disadvantage of just-in-time (JIT)",
+   "hint": "Forecasts, suppliers, transport",
+   "learn": "JIT relies on accurate demand forecasts and reliable, flexible suppliers; any delay means no stock to sell. Inventory control and analysis software can help with forecasting.",
+   "answers": [
+    {
+     "a": "Stockouts and lost sales",
+     "p": 10,
+     "k": [
+      "stockouts",
+      "stock outs",
+      "running out",
+      "lost sales",
+      "out of stock",
+      "shortages",
+      "no stock"
+     ],
+     "why": "Any hold-up leaves nothing to sell."
+    },
+    {
+     "a": "Relies on reliable suppliers",
+     "p": 15,
+     "k": [
+      "supplier",
+      "suppliers",
+      "unreliable suppliers",
+      "supplier reliability",
+      "dependence on suppliers",
+      "reliance on suppliers"
+     ],
+     "why": "Suppliers may lack the reliability or flexibility to respond to sudden changes."
+    },
+    {
+     "a": "Transport delays",
+     "p": 30,
+     "k": [
+      "delays",
+      "transport",
+      "transportation",
+      "shipping",
+      "late deliveries"
+     ],
+     "why": "A late truck or ship stops production."
+    },
+    {
+     "a": "Inaccurate demand forecasts",
+     "p": 45,
+     "k": [
+      "forecasting",
+      "forecast",
+      "forecasts",
+      "demand forecasting",
+      "inaccurate forecasts",
+      "unpredictable demand"
+     ],
+     "why": "Demand may not be forecast accurately."
+    },
+    {
+     "a": "Natural disasters and disruptions",
+     "p": 65,
+     "k": [
+      "natural disasters",
+      "disasters",
+      "disruptions",
+      "pandemic",
+      "covid",
+      "strikes"
+     ],
+     "why": "Disasters can cut supply and hit sales."
+    },
+    {
+     "a": "Needs flexible operations",
+     "p": 75,
+     "k": [
+      "flexible",
+      "flexibility",
+      "flexible processes",
+      "responsiveness"
+     ],
+     "why": "Processes must respond quickly to demand changes."
+    },
+    {
+     "a": "No bulk-buying discounts",
+     "p": 80,
+     "k": [
+      "bulk discounts",
+      "bulk buying",
+      "bulk",
+      "economies of scale",
+      "frequent orders",
+      "ordering costs"
+     ],
+     "why": "Small, frequent orders miss out on bulk savings."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "obsolete",
+      "storage costs",
+      "cash tied up"
+     ],
+     "p": 5,
+     "msg": "That's a problem with holding stock, which JIT avoids."
+    }
+   ]
+  },
+  {
+   "id": "ops-strat-fifo",
+   "sec": "S",
+   "q": "Name a feature of FIFO",
+   "hint": "Oldest first: think rotation AND valuation",
+   "learn": "First-in-first-out (FIFO) moves the oldest stock to the front so it is used or sold first. As a valuation method in times of inflation, it gives lower COGS, higher gross profit and closing stock at recent prices.",
+   "answers": [
+    {
+     "a": "Oldest stock sold first",
+     "p": 10,
+     "k": [
+      "oldest first",
+      "old stock first",
+      "oldest",
+      "first received sold first"
+     ],
+     "why": "Stock that arrives first is moved to the front and used first."
+    },
+    {
+     "a": "Prevents spoilage",
+     "p": 15,
+     "k": [
+      "spoilage",
+      "prevents expiry",
+      "freshness",
+      "fresh",
+      "less waste",
+      "waste",
+      "expiry"
+     ],
+     "why": "Stock is used before it expires, reducing waste."
+    },
+    {
+     "a": "Suits perishable goods",
+     "p": 20,
+     "k": [
+      "perishable",
+      "perishables",
+      "perishable goods",
+      "use by dates",
+      "expiry dates"
+     ],
+     "why": "Best for goods with expiry dates or that date quickly (tech, fashion)."
+    },
+    {
+     "a": "New stock placed behind",
+     "p": 35,
+     "k": [
+      "new stock behind",
+      "new stock at back",
+      "rotation",
+      "stock rotation",
+      "behind existing stock",
+      "at the back"
+     ],
+     "why": "Newer deliveries go behind or beneath existing stock."
+    },
+    {
+     "a": "Supermarkets, bakeries and pharmacies",
+     "p": 50,
+     "k": [
+      "supermarkets",
+      "supermarket",
+      "bakeries",
+      "bakery",
+      "pharmacies",
+      "pharmacy",
+      "restaurants",
+      "cafes"
+     ],
+     "why": "Shelf stackers put new stock at the back to prevent spoilage."
+    },
+    {
+     "a": "Lower COGS in inflation",
+     "p": 65,
+     "k": [
+      "lower cogs",
+      "lower cost of goods sold",
+      "cogs",
+      "cost of goods sold"
+     ],
+     "why": "Older, cheaper stock is expensed first."
+    },
+    {
+     "a": "Higher gross profit in inflation",
+     "p": 70,
+     "k": [
+      "higher gross profit",
+      "gross profit",
+      "higher profit",
+      "profit"
+     ],
+     "why": "Lower COGS means higher gross profit when prices rise."
+    },
+    {
+     "a": "Closing stock at recent prices",
+     "p": 80,
+     "k": [
+      "recent prices",
+      "closing inventory",
+      "closing stock",
+      "stronger balance sheet",
+      "balance sheet",
+      "newer prices"
+     ],
+     "why": "Gives a stronger balance sheet position."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "prohibited in australia",
+      "banned",
+      "fuel tanks",
+      "sand",
+      "gravel",
+      "newest first",
+      "last in first out",
+      "lifo"
+     ],
+     "p": 5,
+     "msg": "That describes LIFO, not FIFO."
+    }
+   ]
+  },
+  {
+   "id": "ops-strat-lifo",
+   "sec": "S",
+   "q": "Name a feature of LIFO",
+   "hint": "Newest first, and banned for valuation in Australia",
+   "learn": "Last-in-first-out (LIFO) uses or sells the newest stock first, often unavoidably with bulk goods like fuel or gravel. As a valuation method it is prohibited in Australia under AASB 102.",
+   "answers": [
+    {
+     "a": "Newest stock used first",
+     "p": 10,
+     "k": [
+      "newest first",
+      "most recent first",
+      "latest stock first",
+      "new stock first",
+      "newest"
+     ],
+     "why": "Newer deliveries go on top or in front and are drawn first."
+    },
+    {
+     "a": "Suits non-perishable bulk goods",
+     "p": 25,
+     "k": [
+      "bulk",
+      "bulk materials",
+      "non perishable",
+      "nonperishable",
+      "bulky"
+     ],
+     "why": "Fine where age doesn't affect quality."
+    },
+    {
+     "a": "Old stock may deteriorate",
+     "p": 30,
+     "k": [
+      "deterioration",
+      "deteriorate",
+      "old stock",
+      "spoilage",
+      "waste",
+      "expired stock",
+      "expiry"
+     ],
+     "why": "Older stock can stay at the back indefinitely and spoil."
+    },
+    {
+     "a": "Fuel tanks and gravel stockpiles",
+     "p": 40,
+     "k": [
+      "fuel",
+      "fuel tanks",
+      "sand",
+      "gravel",
+      "stockpiles",
+      "mining",
+      "construction",
+      "agriculture"
+     ],
+     "why": "New fuel sits above old; gravel is added to and taken from the top."
+    },
+    {
+     "a": "Higher COGS in inflation",
+     "p": 60,
+     "k": [
+      "higher cogs",
+      "cogs",
+      "cost of goods sold",
+      "higher cost of goods sold"
+     ],
+     "why": "Newer, dearer stock is expensed first."
+    },
+    {
+     "a": "Often unavoidable, not chosen",
+     "p": 65,
+     "k": [
+      "unavoidable",
+      "natural",
+      "not deliberate",
+      "impractical to rotate",
+      "cant rotate",
+      "physical nature"
+     ],
+     "why": "A consequence of storage methods, not a deliberate choice."
+    },
+    {
+     "a": "Lower gross profit in inflation",
+     "p": 70,
+     "k": [
+      "lower gross profit",
+      "gross profit",
+      "lower profit",
+      "profit"
+     ],
+     "why": "Higher COGS means lower gross profit when prices rise."
+    },
+    {
+     "a": "Closing stock at oldest prices",
+     "p": 80,
+     "k": [
+      "oldest prices",
+      "old prices",
+      "closing stock",
+      "closing inventory",
+      "weaker balance sheet",
+      "balance sheet"
+     ],
+     "why": "Gives a weaker balance sheet position."
+    },
+    {
+     "a": "Prohibited in Australia",
+     "p": 90,
+     "k": [
+      "prohibited",
+      "banned",
+      "illegal",
+      "aasb 102",
+      "aasb",
+      "not allowed",
+      "not permitted"
+     ],
+     "why": "LIFO valuation is banned under accounting standard AASB 102 Inventories."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "perishable goods",
+      "supermarkets",
+      "oldest first",
+      "first in first out",
+      "fifo"
+     ],
+     "p": 5,
+     "msg": "That describes FIFO, not LIFO."
+    }
+   ]
+  },
+  {
+   "id": "ops-strat-quality-control",
+   "sec": "S",
+   "q": "Name a quality control technique",
+   "hint": "Inspect and test: sampling, imaging...",
+   "learn": "Quality control uses inspections at points in the production process to check for defects against predetermined standards. It is reactive, unlike proactive quality assurance (e.g. ISO 9000) and quality improvement.",
+   "answers": [
+    {
+     "a": "Inspection",
+     "p": 10,
+     "k": [
+      "inspections",
+      "inspect",
+      "inspecting",
+      "checks",
+      "checking",
+      "quality checks"
+     ],
+     "why": "Checking products at various points in production."
+    },
+    {
+     "a": "Testing against set standards",
+     "p": 20,
+     "k": [
+      "testing",
+      "tests",
+      "quality testing",
+      "product testing",
+      "test against standards"
+     ],
+     "why": "Tests designed to assess products against predetermined standards."
+    },
+    {
+     "a": "Sampling",
+     "p": 25,
+     "k": [
+      "samples",
+      "sample",
+      "random sampling",
+      "sample testing",
+      "batch testing"
+     ],
+     "why": "Checking a sample of output rather than every unit."
+    },
+    {
+     "a": "X-rays",
+     "p": 65,
+     "k": [
+      "x ray",
+      "xray",
+      "xrays"
+     ],
+     "why": "X-rays detect hidden defects, cutting warranty claims."
+    },
+    {
+     "a": "Photographs and imaging",
+     "p": 75,
+     "k": [
+      "photographs",
+      "photos",
+      "photo",
+      "imaging",
+      "cameras",
+      "camera"
+     ],
+     "why": "Photos and other imaging spot defects."
+    },
+    {
+     "a": "Inspecting service delivery",
+     "p": 80,
+     "k": [
+      "service inspection",
+      "staff performance",
+      "employee performance",
+      "mystery shopper",
+      "observing staff"
+     ],
+     "why": "For services, inspecting how employees deliver the service."
+    },
+    {
+     "a": "Infrared technology",
+     "p": 85,
+     "k": [
+      "infrared",
+      "infra red",
+      "thermal imaging"
+     ],
+     "why": "Infrared detects defects the eye can't see."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "iso 9000",
+      "iso 9001",
+      "iso",
+      "quality assurance"
+     ],
+     "p": 10,
+     "msg": "ISO accreditation is quality assurance: a proactive system, not inspection."
+    },
+    {
+     "k": [
+      "kaizen",
+      "six sigma",
+      "tqm",
+      "total quality management",
+      "quality circles"
+     ],
+     "p": 10,
+     "msg": "That's quality improvement, a proactive approach."
+    }
+   ]
+  },
+  {
+   "id": "ops-strat-quality-improvement",
+   "sec": "S",
+   "q": "Name a quality improvement strategy",
+   "hint": "Kaizen, TQM, Six Sigma and more",
+   "learn": "Quality improvement is a proactive commitment to continuous improvement and total quality management. Six Sigma's five steps are define, measure, analyse, improve and control.",
+   "answers": [
+    {
+     "a": "Continuous improvement (kaizen)",
+     "p": 10,
+     "k": [
+      "kaizen",
+      "continuous improvement",
+      "constant improvement"
+     ],
+     "why": "An ongoing commitment to improve products and processes."
+    },
+    {
+     "a": "Total quality management",
+     "p": 20,
+     "k": [
+      "tqm",
+      "total quality",
+      "benchmarking",
+      "empowerment",
+      "employee empowerment"
+     ],
+     "why": "Every employee is responsible for quality: benchmarking, empowerment, customer focus."
+    },
+    {
+     "a": "Training programs",
+     "p": 25,
+     "k": [
+      "training",
+      "staff training",
+      "training programmes",
+      "upskilling"
+     ],
+     "why": "Training lifts staff skills (a link with HR)."
+    },
+    {
+     "a": "Six Sigma",
+     "p": 40,
+     "k": [
+      "6 sigma",
+      "sigma",
+      "dmaic"
+     ],
+     "why": "Removes the causes of errors: define, measure, analyse, improve, control."
+    },
+    {
+     "a": "Customer surveys",
+     "p": 50,
+     "k": [
+      "surveys",
+      "survey",
+      "customer feedback",
+      "feedback"
+     ],
+     "why": "Gathers customer insights on quality."
+    },
+    {
+     "a": "Quality circles",
+     "p": 60,
+     "k": [
+      "quality circle",
+      "circles",
+      "worker groups"
+     ],
+     "why": "Workers doing similar jobs meet regularly to solve work problems."
+    },
+    {
+     "a": "Cross-functional teams",
+     "p": 70,
+     "k": [
+      "cross functional",
+      "cft",
+      "cross functional team",
+      "teams"
+     ],
+     "why": "Staff from different functions work together on a problem."
+    },
+    {
+     "a": "Zero defects culture",
+     "p": 75,
+     "k": [
+      "zero defects",
+      "zero defect"
+     ],
+     "why": "Aiming for no defects at all."
+    },
+    {
+     "a": "Time and motion studies",
+     "p": 85,
+     "k": [
+      "time and motion",
+      "motion study",
+      "time study",
+      "motion studies"
+     ],
+     "why": "Evaluating the efficiency of an operational process."
+    },
+    {
+     "a": "Employee think tanks",
+     "p": 90,
+     "k": [
+      "think tank",
+      "think tanks",
+      "brainstorming"
+     ],
+     "why": "A problem-solving technique using employee ideas."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "inspection",
+      "sampling",
+      "x rays"
+     ],
+     "p": 10,
+     "msg": "That's quality control: reactive inspection, not improvement."
+    },
+    {
+     "k": [
+      "iso 9000",
+      "iso 9001",
+      "accreditation"
+     ],
+     "p": 10,
+     "msg": "ISO accreditation is quality assurance."
+    }
+   ]
+  },
+  {
+   "id": "ops-strat-change-resistance",
+   "sec": "S",
+   "q": "Name a cause of resistance to change in operations",
+   "hint": "PIF RRR",
+   "learn": "Resistance to change comes from financial costs (purchasing new equipment, redundancy payments, retraining, reorganising plant layout) and the psychological pull of inertia: PIF RRR.",
+   "answers": [
+    {
+     "a": "Financial costs",
+     "p": 10,
+     "k": [
+      "cost",
+      "costs",
+      "financial",
+      "money",
+      "expense",
+      "expensive"
+     ],
+     "why": "Change costs money: equipment, payouts, training, downtime."
+    },
+    {
+     "a": "Purchasing new equipment",
+     "p": 25,
+     "k": [
+      "new equipment",
+      "purchasing equipment",
+      "new machinery",
+      "new technology",
+      "equipment",
+      "machinery",
+      "cost of new equipment",
+      "equipment costs"
+     ],
+     "why": "High cost, though it can be leased (dearer long term)."
+    },
+    {
+     "a": "Retraining",
+     "p": 35,
+     "k": [
+      "retrain",
+      "training",
+      "reskilling",
+      "staff training",
+      "training costs",
+      "retraining costs",
+      "cost of retraining"
+     ],
+     "why": "Costly and time-consuming when roles or technology change."
+    },
+    {
+     "a": "Redundancy payments",
+     "p": 40,
+     "k": [
+      "redundancy",
+      "redundancies",
+      "redundancy pay",
+      "retrenchment",
+      "severance",
+      "redundancy costs",
+      "cost of redundancies"
+     ],
+     "why": "Required by law; higher with long service, high pay and unused leave."
+    },
+    {
+     "a": "Reorganising plant layout",
+     "p": 55,
+     "k": [
+      "reorganising",
+      "reorganizing",
+      "plant layout",
+      "layout",
+      "reorganisation",
+      "downtime"
+     ],
+     "why": "Downtime and the cost of physical reorganisation can be substantial."
+    },
+    {
+     "a": "Inertia",
+     "p": 75,
+     "k": [
+      "fear of the unknown",
+      "fear of change",
+      "uncertainty",
+      "fear",
+      "comfort zone",
+      "psychological",
+      "habit"
+     ],
+     "why": "A natural tendency to resist change from fear of the unknown, even in management."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "change agents",
+      "communication",
+      "culture of change"
+     ],
+     "p": 5,
+     "msg": "That's a strategy for overcoming resistance, not a cause of it."
+    }
+   ]
+  },
+  {
+   "id": "ops-strat-change-overcome",
+   "sec": "S",
+   "q": "Name a way to overcome resistance to change",
+   "hint": "Identify, communicate, champion",
+   "learn": "Change management means identifying the source of change, communicating why it is needed, building a culture of change and using change agents. Leasing equipment can soften the upfront financial cost.",
+   "answers": [
+    {
+     "a": "Communicate the need for change",
+     "p": 10,
+     "k": [
+      "communication",
+      "communicate",
+      "explain",
+      "consult",
+      "consultation",
+      "inform staff"
+     ],
+     "why": "Staff who understand why are more supportive."
+    },
+    {
+     "a": "Training and support",
+     "p": 20,
+     "k": [
+      "training",
+      "retraining",
+      "support",
+      "upskilling",
+      "train staff"
+     ],
+     "why": "Training staff in new technology or roles eases the change."
+    },
+    {
+     "a": "Involve employees",
+     "p": 25,
+     "k": [
+      "involve staff",
+      "involvement",
+      "involve employees",
+      "participation",
+      "include staff",
+      "staff involvement"
+     ],
+     "why": "If staff are included, they are more likely to support change."
+    },
+    {
+     "a": "Use change agents",
+     "p": 55,
+     "k": [
+      "change agent",
+      "change champion",
+      "catalyst"
+     ],
+     "why": "A person or group who drives and manages the change process."
+    },
+    {
+     "a": "Build a culture of change",
+     "p": 65,
+     "k": [
+      "culture",
+      "culture of change",
+      "change culture",
+      "organisational culture"
+     ],
+     "why": "A culture that expects and welcomes change."
+    },
+    {
+     "a": "Lease new equipment",
+     "p": 70,
+     "k": [
+      "leasing",
+      "lease",
+      "leasing equipment",
+      "rent equipment"
+     ],
+     "why": "Avoids the high upfront cost of buying, though dearer long term."
+    },
+    {
+     "a": "Identify the source of change",
+     "p": 75,
+     "k": [
+      "identify",
+      "source of change",
+      "identify sources",
+      "assess need",
+      "need for change"
+     ],
+     "why": "Find the (usually external) source and assess whether change is needed."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "inertia",
+      "redundancy payments",
+      "fear"
+     ],
+     "p": 5,
+     "msg": "That's a cause of resistance, not a way to overcome it."
+    }
+   ]
+  },
+  {
+   "id": "ops-strat-scanning-learning",
+   "sec": "S",
+   "q": "Name a way operations can scan and learn",
+   "hint": "The S in REGS",
+   "learn": "Scanning and learning means studying the world's best operational processes in your industry and applying them. It is one of four global factors (REGS): research and development, economies of scale, global sourcing, scanning and learning.",
+   "answers": [
+    {
+     "a": "Benchmarking best practice",
+     "p": 10,
+     "k": [
+      "benchmarking",
+      "benchmark",
+      "best practice",
+      "copy competitors",
+      "study competitors",
+      "competitors"
+     ],
+     "why": "Scanning other businesses worldwide for best practice."
+    },
+    {
+     "a": "Conferences",
+     "p": 40,
+     "k": [
+      "conference",
+      "trade shows",
+      "expos",
+      "seminars"
+     ],
+     "why": "Industry conferences share new methods."
+    },
+    {
+     "a": "Learning from experienced staff",
+     "p": 55,
+     "k": [
+      "hire staff",
+      "employees from other businesses",
+      "experienced staff",
+      "staff from overseas",
+      "learn from employees",
+      "new employees"
+     ],
+     "why": "Employees who have worked in other businesses or countries bring ideas."
+    },
+    {
+     "a": "Reverse engineering",
+     "p": 70,
+     "k": [
+      "reverse engineer",
+      "pull apart products",
+      "take apart",
+      "deconstruct"
+     ],
+     "why": "Taking rivals' products apart to learn how they are made."
+    },
+    {
+     "a": "Operations management journals",
+     "p": 75,
+     "k": [
+      "journals",
+      "journal",
+      "publications",
+      "research papers",
+      "academic research"
+     ],
+     "why": "Journals publish the latest operations research."
+    },
+    {
+     "a": "Industry forums",
+     "p": 80,
+     "k": [
+      "forums",
+      "forum",
+      "online forums",
+      "networking"
+     ],
+     "why": "Forums let operations managers swap knowledge."
+    }
+   ],
+   "near": [
+    {
+     "k": [
+      "research and development",
+      "r&d",
+      "economies of scale",
+      "global sourcing"
+     ],
+     "p": 10,
+     "msg": "That's one of the other global factors (REGS), not scanning and learning."
+    }
+   ]
+  }
+ ]
+}
