@@ -384,6 +384,33 @@ main { max-width: 820px; margin: 0 auto; padding-inline: 16px; padding-block: 28
 }
 @keyframes stampin { from { transform: rotate(-8deg) scale(2.2); opacity: 0; } }
 
+/* ---------- maths: calculus of love + goodbye ceremony ---------- */
+.maths-q { font-family: var(--body); }
+.maths-q i { font-family: "Times New Roman", Georgia, serif; font-size: 1.08em; }
+.graph { display: flex; flex-direction: column; gap: 10px; }
+.graph svg { width: 100%; max-width: 520px; height: auto; align-self: center; background: #FFFBFD; border: 1px solid #E9D5E3; border-radius: 8px; }
+.graph label { display: flex; flex-direction: column; gap: 6px; font: 600 .9rem var(--display); color: var(--berry); }
+.graph input[type=range] { width: 100%; accent-color: var(--rose); min-height: 44px; }
+.readout { font: 600 1rem var(--display); color: var(--rose-deep); text-align: center; min-height: 1.5em; font-variant-numeric: tabular-nums; }
+.working { font-family: var(--hand); font-size: 1.45rem; line-height: 1.3; color: var(--berry); background: var(--blush); border-radius: 10px; padding: 14px 16px; }
+.ceremony { background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px 18px; display: flex; flex-direction: column; gap: 14px; text-align: center; align-items: center; }
+.ceremony h2 { font-size: var(--step-2); }
+.ceremony p.sub { color: var(--berry-soft); }
+.topics { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; min-height: 120px; align-content: center; }
+.topic {
+  position: relative; border: 2px solid #C4B5FD; background: radial-gradient(circle at 30% 25%, #fff, var(--lilac-soft) 70%);
+  color: #5B21B6; border-radius: 999px; padding: 14px 20px; min-height: 52px; cursor: pointer; font: 600 1rem var(--display);
+  animation: bob 3s ease-in-out infinite; animation-delay: var(--d, 0s);
+}
+.topic:hover { border-color: var(--lilac); }
+@keyframes bob { 50% { transform: translateY(-6px); } }
+.topic .cap { position: absolute; top: -18px; left: 50%; width: 34px; transform: translateX(-50%) scale(0); transition: transform .3s cubic-bezier(.2,1.6,.4,1); }
+.topic.bye { animation: flyaway 1.3s ease-in forwards; pointer-events: none; }
+.topic.bye .cap { transform: translateX(-50%) scale(1) rotate(-10deg); }
+@keyframes flyaway { 25% { transform: translateY(6px) scale(1.08); } 100% { transform: translateY(-260px) rotate(12deg) scale(.6); opacity: 0; } }
+.farewell { font-family: var(--hand); font-size: 1.6rem; line-height: 1.2; color: var(--rose-deep); min-height: 1.3em; }
+.retired { font: 600 var(--step-3)/1.1 var(--display); color: var(--rose); animation: pop .6s cubic-bezier(.2,1.4,.4,1); }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .bubble { animation: breathe 8s ease-in-out infinite !important; }
@@ -431,11 +458,15 @@ main { max-width: 820px; margin: 0 auto; padding-inline: 16px; padding-block: 28
       <h1 class="title">You've got this, <em>Tilly</em>.</h1>
       <p class="lede">Every hour of study is already in there. Now you just get to show it off.</p>
     </div>
-    <a class="p1-env" href="#modern">
+    <a class="p1-env" href="#maths">
       <svg viewBox="0 0 74 50" aria-hidden="true"><rect width="74" height="50" rx="6" fill="#FDF2F8"/><path d="M0 4 37 30 74 4" fill="none" stroke="#F9A8D4" stroke-width="4"/><path transform="translate(28 26) scale(.75)" fill="#BE185D" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-      <div><b>Modern History</b><span>open me before your exam</span></div>
+      <div><b>Advanced Maths</b><span>open me before your exam</span></div>
     </a>
     <div class="done-row">
+    <a class="p1-env done" href="#modern">
+      <svg viewBox="0 0 74 50" aria-hidden="true"><rect width="74" height="50" rx="6" fill="#FDF2F8"/><path d="M0 4 37 30 74 4" fill="none" stroke="#F9A8D4" stroke-width="4"/><path transform="translate(28 26) scale(.75)" fill="#BE185D" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      <div><b>Modern History: done!</b><span>tap to read it again</span></div>
+    </a>
     <a class="p1-env done" href="#paper2">
       <svg viewBox="0 0 74 50" aria-hidden="true"><rect width="74" height="50" rx="6" fill="#FCE7F3"/><path d="M0 4 37 30 74 4" fill="none" stroke="#F9A8D4" stroke-width="4"/><path transform="translate(28 26) scale(.75)" fill="#BE185D" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
       <div><b>Paper 2: done!</b><span>tap to read it again</span></div>
@@ -488,6 +519,74 @@ main { max-width: 820px; margin: 0 auto; padding-inline: 16px; padding-block: 28
       <button class="btn" id="ready">I'm ready</button>
       <p class="hug-msg" id="ready-msg" aria-live="polite"></p>
     </div>
+    <a class="skip next" href="#home">back to home</a>
+  </section>
+
+  <!-- ============ MATHS ============ -->
+  <section class="screen" data-screen="maths">
+    <div class="head">
+      <p class="eyebrow">Advanced Maths</p>
+      <h1 class="title">Last maths exam <em>ever</em>, Tills!</h1>
+    </div>
+    <div class="p1-notes">
+      <p class="p1-note" style="--r:-1.5deg;--d:.1s">Hey Tills, maths tomorrow! I know you're a little worried but no need, because all your prep has led up to this.</p>
+      <p class="p1-note" style="--r:1.5deg;--d:.35s">Last maths exam ever, so just push through and lock in one final time for all those crazy equations.</p>
+      <p class="p1-note" style="--r:-.8deg;--d:.6s">You're amazing. You're doing something I couldn't.</p>
+    </div>
+    <p class="p1-sign">Lots of Love from Luca</p>
+    <div class="slot"></div>
+    <div class="exam">
+      <div class="exam-top"><span>HSC Mathematics Advanced 2026</span><span>Section II (unofficial)</span></div>
+      <div class="question maths-q"><b>1.</b><span>Let <i>L</i>(<i>t</i>) be Luca's love for Tilly, where <i>t</i> is time. Given that <i>L</i>&prime;(<i>t</i>) &gt; 0 for all <i>t</i>, find lim<sub><i>t</i>&rarr;&infin;</sub> <i>L</i>(<i>t</i>).</span><span class="marks">3 marks</span></div>
+      <div class="graph">
+        <svg viewBox="0 0 320 210" role="img" aria-label="Graph of Luca's love for Tilly increasing over time">
+          <defs><clipPath id="plot-clip"><rect x="40" y="0" width="274" height="172"/></clipPath></defs>
+          <g stroke="#F3E4EE" stroke-width="1">
+            <path d="M40 40 H314 M40 84 H314 M40 128 H314"/>
+            <path d="M108 16 V172 M177 16 V172 M245 16 V172"/>
+          </g>
+          <path d="M40 10 V172 H314" fill="none" stroke="#9D4D73" stroke-width="2"/>
+          <path d="M36 16 L40 8 L44 16 M306 168 L314 172 L306 176" fill="none" stroke="#9D4D73" stroke-width="2"/>
+          <text x="14" y="96" transform="rotate(-90 14 96)" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="12" fill="#831843">L(t): love</text>
+          <text x="177" y="196" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="12" fill="#831843">t: time</text>
+          <text x="34" y="186" text-anchor="end" font-family="Nunito, sans-serif" font-size="10" fill="#9D4D73">0</text>
+          <g clip-path="url(#plot-clip)">
+            <path id="love-area" fill="#FBCFE8" opacity=".55" d=""/>
+            <path id="love-curve" fill="none" stroke="#EC4899" stroke-width="3.5" stroke-linecap="round" d=""/>
+          </g>
+          <circle id="love-dot" r="6" fill="#BE185D" stroke="#fff" stroke-width="2.5" cx="40" cy="172"/>
+        </svg>
+        <label for="love-t"><span>Drag to move <i>t</i> forward in time</span>
+          <input type="range" id="love-t" min="0" max="100" value="20">
+        </label>
+        <p class="readout" id="love-read" aria-live="polite"></p>
+      </div>
+      <button class="btn soft" id="show-limit" aria-expanded="false">Show working</button>
+      <div class="guide" id="limit-ans" hidden>
+        <p class="working">Since <i>L</i>&prime;(<i>t</i>) &gt; 0 for all <i>t</i>, <i>L</i>(<i>t</i>) is strictly increasing.<br>Testing with real data (one website, six photos and a duck) shows <i>L</i>(<i>t</i>) has no upper bound.<br>&there4; lim <i>L</i>(<i>t</i>) = &infin;. The limit does not exist. It's infinite.</p>
+        <p class="stamp">3/3. Show-off.</p>
+      </div>
+      <div class="question maths-q"><b>2.</b><span>Differentiate <i>y</i> = Tilly with respect to Advanced Maths.</span><span class="marks">2 marks</span></div>
+      <div class="lines" aria-hidden="true"></div>
+      <button class="btn soft" id="show-deriv" aria-expanded="false">Show working</button>
+      <div class="guide" id="deriv-ans" hidden>
+        <p class="working">Tilly is a constant: always amazing, no matter what.<br>The derivative of a constant is 0.<br>&there4; <i>dy</i>/<i>dx</i> = 0, which is exactly how many things she needs to worry about tomorrow.</p>
+        <p class="stamp">2/2. Correct and cute.</p>
+      </div>
+    </div>
+    <div class="ceremony">
+      <h2>Goodbye Maths Forever</h2>
+      <p class="sub">After tomorrow you never have to see these again. Tap each one to send it off.</p>
+      <div class="topics" id="topics"></div>
+      <p class="farewell" id="farewell" aria-live="polite"></p>
+      <button class="btn soft" id="bring-back" hidden>Bring them back for one last day</button>
+    </div>
+    <div class="blinks">
+      <h2>Blink tracker</h2>
+      <p class="sub blink-sub"></p>
+      <div class="eyes"></div>
+    </div>
+    <div class="slot"></div>
     <a class="skip next" href="#home">back to home</a>
   </section>
 
@@ -875,7 +974,7 @@ const SURPRISES = {
   breath:{ label: 'need a break?', icon: 'bubble', run: breathe },
   bee:   { label: 'bee-lieve', icon: 'bee', run: flyBee },
 };
-const PLAN = { modern: ['duck'], paper2: ['duck'], paper1: ['breath'], home: ['duck', 'breath'], subjects: ['rain', 'duck'], jar: ['bee'], photos: ['duck'], openwhen: ['breath', 'bee'], letter: ['rain', 'duck'] };
+const PLAN = { maths: ['breath', 'duck'], modern: ['duck'], paper2: ['duck'], paper1: ['breath'], home: ['duck', 'breath'], subjects: ['rain', 'duck'], jar: ['bee'], photos: ['duck'], openwhen: ['breath', 'bee'], letter: ['rain', 'duck'] };
 function sprinkle(screen) {
   const slots = [...screen.querySelectorAll('.slot')];
   slots.forEach(s => s.innerHTML = '');
@@ -1010,7 +1109,7 @@ $('#ready').onclick = e => {
 };
 
 /* ================= paper 2: blinks + smash NESA ================= */
-const EXAMS = [['English Paper 1', true], ['English Paper 2', true], ['Modern History'], ['Biology'], ['Advanced Maths'], ['Religion']];
+const EXAMS = [['English Paper 1', true], ['English Paper 2', true], ['Modern History', true], ['Advanced Maths'], ['Biology'], ['Religion']];
 const EYE_OPEN = '<svg viewBox="0 0 48 30"><ellipse cx="24" cy="15" rx="21" ry="12" fill="#fff" stroke="#3B0A23" stroke-width="2.5"/><circle cx="24" cy="15" r="7" fill="#8B5CF6"/><circle cx="24" cy="15" r="3.5" fill="#3B0A23"/><circle cx="26.5" cy="12.5" r="1.6" fill="#fff"/></svg>';
 const EYE_SHUT = '<svg viewBox="0 0 48 30"><path d="M4 12 Q24 28 44 12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M12 19 L9 25 M24 22 L24 28 M36 19 L39 25" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>';
 const doneCount = EXAMS.filter(e => e[1]).length;
@@ -1098,6 +1197,60 @@ $('#show-q2').onclick = e => {
   if (!q.hidden) rain(40);
 };
 
+/* ================= maths: love graph, working, goodbye ceremony ================= */
+const PX = 40, PW = 274, PY = 172, PH = 156;
+const loveY = t => Math.exp(t / 18) - 1;            // grows without bound
+const yScale = PH / loveY(78);                      // the curve leaves the top of the graph near t = 78
+const toX = t => PX + PW * t / 100, toY = t => PY - loveY(t) * yScale;
+function drawLove() {
+  const T = +$('#love-t').value; let d = '';
+  for (let t = 0; t <= T; t += .5) d += (t ? 'L' : 'M') + toX(t).toFixed(1) + ' ' + toY(t).toFixed(1);
+  $('#love-curve').setAttribute('d', d);
+  $('#love-area').setAttribute('d', d + `L${toX(T).toFixed(1)} ${PY} L${PX} ${PY} Z`);
+  const dot = $('#love-dot'), y = toY(T);
+  dot.setAttribute('cx', toX(T).toFixed(1)); dot.setAttribute('cy', Math.max(8, y).toFixed(1));
+  const read = T < 30 ? 'Already a lot.' : T < 55 ? 'Increasing. Rapidly.' : T < 78 ? 'Concerningly high.' : 'Off the charts. Literally.';
+  $('#love-read').textContent = 'L(t) = ' + (T < 78 ? Math.round(loveY(T) * 100).toLocaleString() + ' units of love. ' : '\u221E. ') + read;
+  if (T >= 78 && !drawLove.boom) { drawLove.boom = true; const r = dot.getBoundingClientRect(); burst(r.left, r.top, 24, 5); }
+  if (T < 78) drawLove.boom = false;
+}
+$('#love-t').addEventListener('input', drawLove); drawLove();
+function toggleWorking(btnSel, boxSel) {
+  $(btnSel).onclick = e => {
+    const box = $(boxSel), b = e.currentTarget; box.hidden = !box.hidden;
+    b.setAttribute('aria-expanded', String(!box.hidden)); b.textContent = box.hidden ? 'Show working' : 'Hide working';
+    if (!box.hidden) { const r = b.getBoundingClientRect(); burst(r.left + r.width / 2, r.top, 20, 5); }
+  };
+}
+toggleWorking('#show-limit', '#limit-ans'); toggleWorking('#show-deriv', '#deriv-ans');
+
+const TOPICS = [
+  ['Functions', 'Functions has left the chat.'],
+  ['Trigonometry', 'Trig: SOH CAH... BYE.'],
+  ['Calculus', 'Calculus has integrated itself out of your life.'],
+  ['Logs & Exponentials', 'Logs & Exponentials: exponentially gone.'],
+  ['Statistics', 'Statistics: 100% chance of never seeing you again.'],
+  ['Series', 'Series: that was the final episode.'],
+];
+const CAP = '<svg class="cap" viewBox="0 0 34 24" aria-hidden="true"><path d="M17 2 L33 9 L17 16 L1 9 Z" fill="#3B0A23"/><path d="M8 12 V18 Q17 23 26 18 V12 L17 16 Z" fill="#3B0A23"/><path d="M30 10 V19" stroke="#FFD54A" stroke-width="2"/><circle cx="30" cy="20" r="2" fill="#FFD54A"/></svg>';
+function buildTopics() {
+  $('#topics').innerHTML = TOPICS.map(([n], i) => `<button class="topic" style="--d:${(i * .4).toFixed(1)}s" data-i="${i}">${CAP}${n}</button>`).join('');
+  $('#farewell').textContent = ''; $('#bring-back').hidden = true;
+  document.querySelectorAll('.topic').forEach(b => b.onclick = () => {
+    b.classList.add('bye'); $('#farewell').textContent = TOPICS[b.dataset.i][1];
+    const r = b.getBoundingClientRect(); burst(r.left + r.width / 2, r.top, 10, 3);
+    setTimeout(() => {
+      b.hidden = true;
+      if ([...document.querySelectorAll('.topic')].every(x => x.hidden)) {
+        $('#topics').innerHTML = '<p class="retired">Maths: officially retired.</p>';
+        $('#farewell').textContent = 'Go get that Band 6, then never think about it again.';
+        $('#bring-back').hidden = false; rain(90);
+      }
+    }, reduced ? 50 : 1250);
+  });
+}
+buildTopics(); $('#bring-back').onclick = buildTopics;
+
 /* ================= home: countdown + daily line ================= */
 // Religion finishes Thu 22 Oct 2026, 12:30pm Sydney time (AEDT, UTC+11)
 const TARGET = Date.UTC(2026, 9, 22, 1, 30);
@@ -1154,7 +1307,7 @@ function route() {
   });
   if (target.dataset.screen === 'open') $('#envelope').classList.remove('open');
   sprinkle(target);
-  if (['paper1', 'paper2', 'modern'].includes(target.dataset.screen)) setTimeout(() => rain(35), 300);
+  if (['paper1', 'paper2', 'modern', 'maths'].includes(target.dataset.screen)) setTimeout(() => rain(35), 300);
   scrollTo(0, 0);
 }
 addEventListener('hashchange', route);
