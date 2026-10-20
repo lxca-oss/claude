@@ -411,6 +411,42 @@ main { max-width: 820px; margin: 0 auto; padding-inline: 16px; padding-block: 28
 .farewell { font-family: var(--hand); font-size: 1.6rem; line-height: 1.2; color: var(--rose-deep); min-height: 1.3em; }
 .retired { font: 600 var(--step-3)/1.1 var(--display); color: var(--rose); animation: pop .6s cubic-bezier(.2,1.4,.4,1); }
 
+/* ---------- biology: punnett square + zap the germs ---------- */
+.punnett-wrap { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+.punnett { display: grid; grid-template-columns: 56px repeat(2, minmax(0, 1fr)); gap: 8px; width: min(420px, 100%); }
+.punnett .hd { display: grid; place-items: center; font: 600 1.4rem var(--display); color: var(--berry); min-height: 44px; }
+.punnett .hd small { display: block; font: 700 .65rem var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--berry-soft); }
+.punnett .corner { font: 700 .7rem/1.2 var(--body); color: var(--berry-soft); text-align: center; }
+.sq {
+  border: 2px dashed var(--petal); background: var(--blush); border-radius: 12px; min-height: 112px; padding: 10px 8px; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: var(--berry); text-align: center;
+  transition: background .25s, border-color .25s;
+}
+.sq b { font: 600 1.5rem var(--display); color: var(--rose); }
+.sq span { font-size: .85rem; line-height: 1.3; }
+.sq .q { font: 600 .85rem var(--display); color: var(--berry-soft); }
+.sq.open { border-style: solid; border-color: var(--rose); background: var(--paper); animation: pop .45s cubic-bezier(.2,1.4,.4,1); }
+.ratio { font: 600 1.15rem var(--display); color: var(--rose-deep); text-align: center; }
+.fine { font-size: .8rem; color: var(--berry-soft); font-style: italic; text-align: center; }
+.dish-wrap { background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px 18px; display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center; }
+.dish-wrap h2 { font-size: var(--step-2); }
+.dish-wrap p.sub { color: var(--berry-soft); }
+.dish {
+  position: relative; width: min(400px, 100%); aspect-ratio: 1; max-width: 100%; border-radius: 50%; overflow: hidden;
+  background: radial-gradient(circle at 40% 35%, #FFFFFF, #FDF2F8 55%, #FCE7F3); border: 6px solid #E9D5FF; box-shadow: inset 0 0 0 10px rgba(255,255,255,.7);
+}
+.germ { position: absolute; left: 0; top: 0; width: 84px; border: 0; background: none; padding: 0; cursor: pointer; display: flex; flex-direction: column; align-items: center; will-change: transform; touch-action: manipulation; }
+.germ svg { width: 58px; height: 58px; animation: squish 1.6s ease-in-out infinite alternate; }
+.germ span { font: 700 .72rem var(--display); color: var(--berry); background: rgba(255,255,255,.85); border-radius: 999px; padding: 1px 7px; white-space: nowrap; }
+@keyframes squish { to { transform: scale(1.08, .92) rotate(6deg); } }
+.germ.eaten { pointer-events: none; }
+.germ.eaten svg, .germ.eaten span { animation: gulp .7s ease-in forwards; }
+@keyframes gulp { to { transform: scale(0) rotate(90deg); opacity: 0; } }
+.wbc { position: absolute; width: 74px; height: 74px; pointer-events: none; animation: chomp .9s ease forwards; }
+@keyframes chomp { 0% { transform: scale(0); } 30% { transform: scale(1.15); } 60% { transform: scale(.95); } 80% { transform: scale(1.05); opacity: 1; } 100% { transform: scale(.8); opacity: 0; } }
+.immune { position: absolute; inset: 0; display: grid; place-items: center; padding: 20%; font: 600 clamp(1.3rem, 4.5vw, 1.7rem)/1.2 var(--display); color: var(--rose-deep); animation: pop .6s cubic-bezier(.2,1.4,.4,1); }
+.zap-log { font-family: var(--hand); font-size: 1.5rem; line-height: 1.2; color: var(--rose-deep); min-height: 1.3em; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .bubble { animation: breathe 8s ease-in-out infinite !important; }
@@ -458,11 +494,15 @@ main { max-width: 820px; margin: 0 auto; padding-inline: 16px; padding-block: 28
       <h1 class="title">You've got this, <em>Tilly</em>.</h1>
       <p class="lede">Every hour of study is already in there. Now you just get to show it off.</p>
     </div>
-    <a class="p1-env" href="#maths">
+    <a class="p1-env" href="#bio">
       <svg viewBox="0 0 74 50" aria-hidden="true"><rect width="74" height="50" rx="6" fill="#FDF2F8"/><path d="M0 4 37 30 74 4" fill="none" stroke="#F9A8D4" stroke-width="4"/><path transform="translate(28 26) scale(.75)" fill="#BE185D" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-      <div><b>Advanced Maths</b><span>open me before your exam</span></div>
+      <div><b>Biology</b><span>open me before your exam</span></div>
     </a>
     <div class="done-row">
+    <a class="p1-env done" href="#maths">
+      <svg viewBox="0 0 74 50" aria-hidden="true"><rect width="74" height="50" rx="6" fill="#FDF2F8"/><path d="M0 4 37 30 74 4" fill="none" stroke="#F9A8D4" stroke-width="4"/><path transform="translate(28 26) scale(.75)" fill="#BE185D" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      <div><b>Advanced Maths: done!</b><span>tap to read it again</span></div>
+    </a>
     <a class="p1-env done" href="#modern">
       <svg viewBox="0 0 74 50" aria-hidden="true"><rect width="74" height="50" rx="6" fill="#FDF2F8"/><path d="M0 4 37 30 74 4" fill="none" stroke="#F9A8D4" stroke-width="4"/><path transform="translate(28 26) scale(.75)" fill="#BE185D" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
       <div><b>Modern History: done!</b><span>tap to read it again</span></div>
@@ -519,6 +559,44 @@ main { max-width: 820px; margin: 0 auto; padding-inline: 16px; padding-block: 28
       <button class="btn" id="ready">I'm ready</button>
       <p class="hug-msg" id="ready-msg" aria-live="polite"></p>
     </div>
+    <a class="skip next" href="#home">back to home</a>
+  </section>
+
+  <!-- ============ BIOLOGY ============ -->
+  <section class="screen" data-screen="bio">
+    <div class="head">
+      <p class="eyebrow">Biology</p>
+      <h1 class="title">The finish line is <em>right there</em>!</h1>
+    </div>
+    <div class="p1-notes">
+      <p class="p1-note" style="--r:-1.5deg;--d:.1s">Hey bb. The finish line is right there.</p>
+      <p class="p1-note" style="--r:1.5deg;--d:.35s">Last push with 2 chill subjects that I know you're going to crush.</p>
+      <p class="p1-note" style="--r:-.8deg;--d:.6s">You got this. I love you.</p>
+    </div>
+    <p class="p1-sign">Lots of Love from Luca</p>
+    <div class="slot"></div>
+    <div class="exam">
+      <div class="exam-top"><span>HSC Biology 2026</span><span>Module 5: Heredity (unofficial)</span></div>
+      <div class="question"><b>1.</b><span>Complete the Punnett square for a cross between Luca and Tilly. Tap each square to reveal the offspring.</span><span class="marks">4 marks</span></div>
+      <div class="punnett-wrap">
+        <div class="punnett" id="punnett"></div>
+        <p class="ratio" id="ratio" aria-live="polite"></p>
+        <p class="fine">Biologically questionable. Emotionally accurate.</p>
+      </div>
+    </div>
+    <div class="dish-wrap">
+      <h2>Zap the Germs</h2>
+      <p class="sub">Some nasty germs got into the petri dish. Tap them to send in a white blood cell.</p>
+      <div class="dish" id="dish"></div>
+      <p class="zap-log" id="zap-log" aria-live="polite"></p>
+      <button class="btn soft" id="reinfect" hidden>Reinfect the dish (play again)</button>
+    </div>
+    <div class="blinks">
+      <h2>Blink tracker</h2>
+      <p class="sub blink-sub"></p>
+      <div class="eyes"></div>
+    </div>
+    <div class="slot"></div>
     <a class="skip next" href="#home">back to home</a>
   </section>
 
@@ -974,7 +1052,7 @@ const SURPRISES = {
   breath:{ label: 'need a break?', icon: 'bubble', run: breathe },
   bee:   { label: 'bee-lieve', icon: 'bee', run: flyBee },
 };
-const PLAN = { maths: ['breath', 'duck'], modern: ['duck'], paper2: ['duck'], paper1: ['breath'], home: ['duck', 'breath'], subjects: ['rain', 'duck'], jar: ['bee'], photos: ['duck'], openwhen: ['breath', 'bee'], letter: ['rain', 'duck'] };
+const PLAN = { bio: ['duck', 'bee'], maths: ['breath', 'duck'], modern: ['duck'], paper2: ['duck'], paper1: ['breath'], home: ['duck', 'breath'], subjects: ['rain', 'duck'], jar: ['bee'], photos: ['duck'], openwhen: ['breath', 'bee'], letter: ['rain', 'duck'] };
 function sprinkle(screen) {
   const slots = [...screen.querySelectorAll('.slot')];
   slots.forEach(s => s.innerHTML = '');
@@ -1109,7 +1187,7 @@ $('#ready').onclick = e => {
 };
 
 /* ================= paper 2: blinks + smash NESA ================= */
-const EXAMS = [['English Paper 1', true], ['English Paper 2', true], ['Modern History', true], ['Advanced Maths'], ['Biology'], ['Religion']];
+const EXAMS = [['English Paper 1', true], ['English Paper 2', true], ['Modern History', true], ['Advanced Maths', true], ['Biology'], ['Religion']];
 const EYE_OPEN = '<svg viewBox="0 0 48 30"><ellipse cx="24" cy="15" rx="21" ry="12" fill="#fff" stroke="#3B0A23" stroke-width="2.5"/><circle cx="24" cy="15" r="7" fill="#8B5CF6"/><circle cx="24" cy="15" r="3.5" fill="#3B0A23"/><circle cx="26.5" cy="12.5" r="1.6" fill="#fff"/></svg>';
 const EYE_SHUT = '<svg viewBox="0 0 48 30"><path d="M4 12 Q24 28 44 12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M12 19 L9 25 M24 22 L24 28 M36 19 L39 25" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>';
 const doneCount = EXAMS.filter(e => e[1]).length;
@@ -1251,6 +1329,98 @@ function buildTopics() {
 }
 buildTopics(); $('#bring-back').onclick = buildTopics;
 
+/* ================= biology: punnett square ================= */
+const CROSS = [
+  ['LT', 'Band 6', '(dominant)'],
+  ['Lt', 'Heterozygous', 'for amazing'],
+  ['lT', 'Carrier of', 'the Duck gene'],
+  ['lt', 'Recessive: worrying', 'Not expressed in Tilly'],
+];
+$('#punnett').innerHTML =
+  '<div class="corner">Luca \u2193<br>Tilly \u2192</div><div class="hd">T<small>Tilly</small></div><div class="hd">t<small>Tilly</small></div>' +
+  [0, 1].map(r => `<div class="hd">${r ? 'l' : 'L'}<small>Luca</small></div>` +
+    [0, 1].map(c => { const i = r * 2 + c; return `<button class="sq" data-i="${i}" aria-label="Square ${CROSS[i][0]}: tap to reveal"><span class="q">tap</span></button>`; }).join('')).join('');
+let opened = 0;
+document.querySelectorAll('.sq').forEach(b => b.onclick = () => {
+  if (b.classList.contains('open')) return;
+  const [g, t1, t2] = CROSS[b.dataset.i];
+  b.classList.add('open'); b.innerHTML = `<b>${g}</b><span>${t1}<br>${t2}</span>`; b.setAttribute('aria-label', `${g}: ${t1} ${t2}`);
+  const r = b.getBoundingClientRect(); burst(r.left + r.width / 2, r.top + r.height / 2, 10, 3);
+  if (++opened === 4) { $('#ratio').textContent = 'Phenotype ratio: 4:0 crushing it.'; rain(50); }
+});
+
+/* ================= biology: zap the germs ================= */
+const GERM_COLOURS = ['#86EFAC', '#C4B5FD', '#FDE047', '#F9A8D4', '#7DD3FC', '#FDBA74'];
+const GERMS = [
+  ['Nerves', 'Nerves: neutralised.'],
+  ['Stress', 'Stress: engulfed by phagocytosis.'],
+  ['Overthinking', 'Overthinking: destroyed. No more what-ifs.'],
+  ['Self-doubt', 'Self-doubt: antibodies said no.'],
+  ['Panic', 'Panic: eaten whole. Delicious.'],
+  ['NESA', 'NESA: ...it\u2019s a building, but okay. Gone.'],
+];
+const germSVG = c => `<svg viewBox="0 0 60 60" aria-hidden="true">${[0, 1, 2, 3, 4, 5, 6, 7].map(i => { const a = i * Math.PI / 4; return `<circle cx="${(30 + Math.cos(a) * 24).toFixed(1)}" cy="${(30 + Math.sin(a) * 24).toFixed(1)}" r="5" fill="${c}"/>`; }).join('')}<circle cx="30" cy="30" r="21" fill="${c}"/><circle cx="23" cy="27" r="5" fill="#fff"/><circle cx="37" cy="27" r="5" fill="#fff"/><circle cx="24" cy="28" r="2.4" fill="#3B0A23"/><circle cx="36" cy="28" r="2.4" fill="#3B0A23"/><path d="M17 20 L27 23 M43 20 L33 23" stroke="#3B0A23" stroke-width="2.5" stroke-linecap="round"/><path d="M23 39 Q30 34 37 39" stroke="#3B0A23" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>`;
+const WBC = '<svg class="wbc" viewBox="0 0 74 74" aria-hidden="true"><path d="M37 4 C55 4 70 16 70 35 C70 55 56 70 37 70 C17 70 4 56 5 36 C6 16 19 4 37 4 Z" fill="#fff" stroke="#C4B5FD" stroke-width="3"/><circle cx="46" cy="48" r="9" fill="#EDE9FE"/><path d="M22 28 Q26 23 30 28 M44 28 Q48 23 52 28" stroke="#3B0A23" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M26 40 Q37 54 48 40 Z" fill="#BE185D"/><circle cx="19" cy="36" r="4" fill="#F9A8D4"/><circle cx="55" cy="36" r="4" fill="#F9A8D4"/></svg>';
+let germs = [], germRAF = 0;
+function seedGerms() {
+  const dish = $('#dish'); dish.innerHTML = ''; germs = [];
+  $('#zap-log').textContent = ''; $('#reinfect').hidden = true;
+  GERMS.forEach(([name], i) => {
+    const b = document.createElement('button'); b.className = 'germ'; b.dataset.i = i;
+    b.setAttribute('aria-label', 'Zap ' + name); b.innerHTML = germSVG(GERM_COLOURS[i]) + `<span>${name}</span>`;
+    dish.append(b);
+    const a = i / GERMS.length * Math.PI * 2;
+    germs.push({ el: b, x: .5 + Math.cos(a) * .25, y: .5 + Math.sin(a) * .25, vx: rand(-1, 1) * .0011, vy: rand(-1, 1) * .0011, alive: true });
+    b.onclick = () => zapGerm(i);
+  });
+  placeGerms();
+}
+function placeGerms() {
+  const d = $('#dish'), w = d.clientWidth;
+  germs.forEach(g => g.el.style.transform = `translate(${(g.x * w - 42).toFixed(1)}px, ${(g.y * w - 38).toFixed(1)}px)`);
+}
+function moveGerms() {
+  germRAF = 0;
+  const scr = $('#dish').closest('.screen');
+  if (!scr.classList.contains('active')) return;
+  germs.forEach(g => {
+    if (!g.alive) return;
+    g.x += g.vx; g.y += g.vy;
+    const dx = g.x - .5, dy = g.y - .5, dist = Math.hypot(dx, dy), lim = .33;
+    if (dist > lim) { const nx = dx / dist, ny = dy / dist, dot = g.vx * nx + g.vy * ny; g.vx -= 2 * dot * nx; g.vy -= 2 * dot * ny; g.x = .5 + nx * lim; g.y = .5 + ny * lim; }
+  });
+  // germs bounce off each other so they never stack up
+  const live = germs.filter(g => g.alive), gap = .2;
+  for (let i = 0; i < live.length; i++) for (let j = i + 1; j < live.length; j++) {
+    const a = live[i], b = live[j], dx = b.x - a.x, dy = b.y - a.y, d = Math.hypot(dx, dy) || .001;
+    if (d < gap) {
+      const nx = dx / d, ny = dy / d, push = (gap - d) / 2;
+      a.x -= nx * push; a.y -= ny * push; b.x += nx * push; b.y += ny * push;
+      const rel = (a.vx - b.vx) * nx + (a.vy - b.vy) * ny;
+      if (rel > 0) { a.vx -= rel * nx; a.vy -= rel * ny; b.vx += rel * nx; b.vy += rel * ny; }
+    }
+  }
+  placeGerms();
+  if (!reduced) germRAF = requestAnimationFrame(moveGerms);
+}
+function startGerms() { if (!germRAF && !reduced) germRAF = requestAnimationFrame(moveGerms); else placeGerms(); }
+function zapGerm(i) {
+  const g = germs[i]; if (!g.alive) return; g.alive = false;
+  const d = $('#dish'), w = d.clientWidth;
+  d.insertAdjacentHTML('beforeend', WBC);
+  const cell = d.lastElementChild; cell.style.left = (g.x * w - 37) + 'px'; cell.style.top = (g.y * w - 40) + 'px';
+  g.el.classList.add('eaten');
+  setTimeout(() => cell.remove(), 950);
+  $('#zap-log').textContent = GERMS[i][1];
+  const r = g.el.getBoundingClientRect(); burst(r.left + r.width / 2, r.top + r.height / 2, 10, 3);
+  if (germs.every(x => !x.alive)) setTimeout(() => {
+    d.insertAdjacentHTML('beforeend', '<p class="immune">Immune to stress.<br>Full immunity achieved.</p>');
+    $('#zap-log').textContent = 'Not a single germ left. Go smash Bio.'; $('#reinfect').hidden = false; rain(80);
+  }, 900);
+}
+seedGerms(); $('#reinfect').onclick = () => { seedGerms(); startGerms(); };
+addEventListener('resize', placeGerms);
+
 /* ================= home: countdown + daily line ================= */
 // Religion finishes Thu 22 Oct 2026, 12:30pm Sydney time (AEDT, UTC+11)
 const TARGET = Date.UTC(2026, 9, 22, 1, 30);
@@ -1307,7 +1477,8 @@ function route() {
   });
   if (target.dataset.screen === 'open') $('#envelope').classList.remove('open');
   sprinkle(target);
-  if (['paper1', 'paper2', 'modern', 'maths'].includes(target.dataset.screen)) setTimeout(() => rain(35), 300);
+  if (target.dataset.screen === 'bio') startGerms();
+  if (['paper1', 'paper2', 'modern', 'maths', 'bio'].includes(target.dataset.screen)) setTimeout(() => rain(35), 300);
   scrollTo(0, 0);
 }
 addEventListener('hashchange', route);
