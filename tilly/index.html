@@ -447,6 +447,39 @@ main { max-width: 820px; margin: 0 auto; padding-inline: 16px; padding-block: 28
 .immune { position: absolute; inset: 0; display: grid; place-items: center; padding: 20%; font: 600 clamp(1.3rem, 4.5vw, 1.7rem)/1.2 var(--display); color: var(--rose-deep); animation: pop .6s cubic-bezier(.2,1.4,.4,1); }
 .zap-log { font-family: var(--hand); font-size: 1.5rem; line-height: 1.2; color: var(--rose-deep); min-height: 1.3em; }
 
+/* ---------- religion: the finale ---------- */
+.free-banner { background: var(--rose); color: #fff; border-radius: var(--radius); padding: 16px 20px; text-align: center; font: 600 var(--step-2)/1.15 var(--display); box-shadow: 0 8px 0 var(--rose-deep); animation: pop .6s cubic-bezier(.2,1.4,.4,1); }
+.finish { background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px 18px; display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center; }
+.finish h2 { font-size: var(--step-2); }
+.finish p.sub { color: var(--berry-soft); }
+.hold {
+  position: relative; overflow: hidden; width: min(340px, 100%); min-height: 76px; border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--blush); box-shadow: 0 8px 0 var(--petal), inset 0 0 0 3px var(--petal); color: var(--rose-deep);
+  font: 600 1.15rem var(--display); user-select: none; -webkit-user-select: none; touch-action: none; -webkit-touch-callout: none;
+}
+.hold .fill { position: absolute; inset: 0; width: 0; background: linear-gradient(90deg, var(--petal), var(--rose)); }
+.hold .lbl { position: relative; z-index: 1; padding: 0 18px; }
+.hold.holding { transform: translateY(3px); box-shadow: 0 5px 0 var(--petal), inset 0 0 0 3px var(--rose); }
+.hold.full .lbl { color: #fff; }
+.complete { font: 700 clamp(2rem, 8vw, 3rem)/1 var(--display); color: #16A34A; border: 5px solid #16A34A; border-radius: 14px; padding: 10px 18px; transform: rotate(-6deg); animation: stampin .55s cubic-bezier(.2,1.6,.4,1); }
+.class-of { font-family: var(--hand); font-size: clamp(1.7rem, 5vw, 2.1rem); color: var(--rose-deep); line-height: 1.2; }
+.bucket { background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px 18px; display: flex; flex-direction: column; gap: 12px; }
+.bucket h2 { font-size: var(--step-2); }
+.bucket p.sub { color: var(--berry-soft); margin-top: -4px; }
+.bucket ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.tick {
+  display: flex; align-items: center; gap: 14px; width: 100%; min-height: 52px; padding: 10px 14px; border-radius: 14px; cursor: pointer; text-align: left;
+  border: 2px solid var(--petal); background: var(--blush); color: var(--berry); font: 600 1rem/1.3 var(--display); transition: background .2s, border-color .2s;
+}
+.tick:hover { border-color: var(--rose); }
+.box { flex: none; width: 28px; height: 28px; border-radius: 8px; border: 3px solid var(--rose); background: var(--paper); display: grid; place-items: center; }
+.box svg { width: 18px; height: 18px; opacity: 0; transform: scale(.3); transition: opacity .2s, transform .3s cubic-bezier(.2,1.6,.4,1); }
+.tick[aria-pressed="true"] { background: var(--paper); border-color: var(--rose); }
+.tick[aria-pressed="true"] .box { background: var(--rose); }
+.tick[aria-pressed="true"] .box svg { opacity: 1; transform: none; }
+.tick[aria-pressed="true"] .txt { text-decoration: line-through; text-decoration-color: var(--rose); text-decoration-thickness: 2px; color: var(--berry-soft); }
+.bucket-done { font-family: var(--hand); font-size: 1.6rem; color: var(--rose-deep); text-align: center; min-height: 1.3em; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .bubble { animation: breathe 8s ease-in-out infinite !important; }
@@ -494,11 +527,15 @@ main { max-width: 820px; margin: 0 auto; padding-inline: 16px; padding-block: 28
       <h1 class="title">You've got this, <em>Tilly</em>.</h1>
       <p class="lede">Every hour of study is already in there. Now you just get to show it off.</p>
     </div>
-    <a class="p1-env" href="#bio">
+    <a class="p1-env" href="#religion">
       <svg viewBox="0 0 74 50" aria-hidden="true"><rect width="74" height="50" rx="6" fill="#FDF2F8"/><path d="M0 4 37 30 74 4" fill="none" stroke="#F9A8D4" stroke-width="4"/><path transform="translate(28 26) scale(.75)" fill="#BE185D" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-      <div><b>Biology</b><span>open me before your exam</span></div>
+      <div><b>Religion: the last one!</b><span>open me before your final exam</span></div>
     </a>
     <div class="done-row">
+    <a class="p1-env done" href="#bio">
+      <svg viewBox="0 0 74 50" aria-hidden="true"><rect width="74" height="50" rx="6" fill="#FDF2F8"/><path d="M0 4 37 30 74 4" fill="none" stroke="#F9A8D4" stroke-width="4"/><path transform="translate(28 26) scale(.75)" fill="#BE185D" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      <div><b>Biology: done!</b><span>tap to read it again</span></div>
+    </a>
     <a class="p1-env done" href="#maths">
       <svg viewBox="0 0 74 50" aria-hidden="true"><rect width="74" height="50" rx="6" fill="#FDF2F8"/><path d="M0 4 37 30 74 4" fill="none" stroke="#F9A8D4" stroke-width="4"/><path transform="translate(28 26) scale(.75)" fill="#BE185D" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
       <div><b>Advanced Maths: done!</b><span>tap to read it again</span></div>
@@ -559,6 +596,45 @@ main { max-width: 820px; margin: 0 auto; padding-inline: 16px; padding-block: 28
       <button class="btn" id="ready">I'm ready</button>
       <p class="hug-msg" id="ready-msg" aria-live="polite"></p>
     </div>
+    <a class="skip next" href="#home">back to home</a>
+  </section>
+
+  <!-- ============ RELIGION: THE FINALE ============ -->
+  <section class="screen" data-screen="religion">
+    <p class="free-banner" id="free-banner" hidden>It's past 12:30. YOU'RE FREE, TILLY!!!</p>
+    <div class="head">
+      <p class="eyebrow">Religion &middot; your final exam</p>
+      <h1 class="title">The last one, <em>Tills</em>!</h1>
+    </div>
+    <div class="p1-notes">
+      <p class="p1-note" style="--r:-1.5deg;--d:.1s">Well bb, you're here. And it's the last one.</p>
+      <p class="p1-note" style="--r:1.5deg;--d:.35s">What a crazy few weeks. I'm so proud of you for how well you have done, and you're so close to being free.</p>
+      <p class="p1-note" style="--r:-.8deg;--d:.6s">I love you. One last final push.</p>
+    </div>
+    <p class="p1-sign">Lots of Love from Luca</p>
+    <div class="slot"></div>
+    <div class="finish">
+      <h2>Practise finishing the HSC</h2>
+      <p class="sub">A dress rehearsal for 12:30pm tomorrow. Press and hold the button until it fills up.</p>
+      <button class="hold" id="hold" aria-label="Press and hold to finish the HSC"><span class="fill" id="hold-fill"></span><span class="lbl" id="hold-lbl">Hold to finish the HSC</span></button>
+      <div id="finish-out" hidden>
+        <p class="complete">HSC: COMPLETE</p>
+      </div>
+      <p class="class-of" id="class-of" aria-live="polite"></p>
+      <button class="btn soft" id="again" hidden>Do it again (it feels good)</button>
+    </div>
+    <div class="bucket">
+      <h2>Summer bucket list</h2>
+      <p class="sub">Everything you get to do after tomorrow. Tick them off as you go.</p>
+      <ul id="bucket"></ul>
+      <p class="bucket-done" id="bucket-done" aria-live="polite"></p>
+    </div>
+    <div class="blinks">
+      <h2>Blink tracker</h2>
+      <p class="sub blink-sub"></p>
+      <div class="eyes"></div>
+    </div>
+    <div class="slot"></div>
     <a class="skip next" href="#home">back to home</a>
   </section>
 
@@ -1052,7 +1128,7 @@ const SURPRISES = {
   breath:{ label: 'need a break?', icon: 'bubble', run: breathe },
   bee:   { label: 'bee-lieve', icon: 'bee', run: flyBee },
 };
-const PLAN = { bio: ['duck', 'bee'], maths: ['breath', 'duck'], modern: ['duck'], paper2: ['duck'], paper1: ['breath'], home: ['duck', 'breath'], subjects: ['rain', 'duck'], jar: ['bee'], photos: ['duck'], openwhen: ['breath', 'bee'], letter: ['rain', 'duck'] };
+const PLAN = { religion: ['duck', 'rain'], bio: ['duck', 'bee'], maths: ['breath', 'duck'], modern: ['duck'], paper2: ['duck'], paper1: ['breath'], home: ['duck', 'breath'], subjects: ['rain', 'duck'], jar: ['bee'], photos: ['duck'], openwhen: ['breath', 'bee'], letter: ['rain', 'duck'] };
 function sprinkle(screen) {
   const slots = [...screen.querySelectorAll('.slot')];
   slots.forEach(s => s.innerHTML = '');
@@ -1187,7 +1263,7 @@ $('#ready').onclick = e => {
 };
 
 /* ================= paper 2: blinks + smash NESA ================= */
-const EXAMS = [['English Paper 1', true], ['English Paper 2', true], ['Modern History', true], ['Advanced Maths', true], ['Biology'], ['Religion']];
+const EXAMS = [['English Paper 1', true], ['English Paper 2', true], ['Modern History', true], ['Advanced Maths', true], ['Biology', true], ['Religion']];
 const EYE_OPEN = '<svg viewBox="0 0 48 30"><ellipse cx="24" cy="15" rx="21" ry="12" fill="#fff" stroke="#3B0A23" stroke-width="2.5"/><circle cx="24" cy="15" r="7" fill="#8B5CF6"/><circle cx="24" cy="15" r="3.5" fill="#3B0A23"/><circle cx="26.5" cy="12.5" r="1.6" fill="#fff"/></svg>';
 const EYE_SHUT = '<svg viewBox="0 0 48 30"><path d="M4 12 Q24 28 44 12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M12 19 L9 25 M24 22 L24 28 M36 19 L39 25" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>';
 const doneCount = EXAMS.filter(e => e[1]).length;
@@ -1421,6 +1497,89 @@ function zapGerm(i) {
 seedGerms(); $('#reinfect').onclick = () => { seedGerms(); startGerms(); };
 addEventListener('resize', placeGerms);
 
+/* ================= religion: the finale ================= */
+const GRAD_DUCK = DUCK.replace('<g class="held">', '<path d="M64 14 L86 5 L108 14 L86 23 Z" fill="#3B0A23"/><path d="M73 17 V24 Q86 30 99 24 V17 L86 23 Z" fill="#3B0A23"/><path d="M104 15 V27" stroke="#FFD54A" stroke-width="2.5"/><circle cx="104" cy="29" r="3" fill="#FFD54A"/><g class="held">');
+function parade(n) {
+  for (let i = 0; i < n; i++) setTimeout(() => {
+    const el = document.createElement('div'); el.className = 'walker duck'; el.innerHTML = GRAD_DUCK;
+    el.style.bottom = `calc(${10 + (i % 2) * 18}px + env(safe-area-inset-bottom, 0px))`; document.body.append(el);
+    const anim = el.animate([{ transform: 'translateX(-150px)' }, { transform: `translateX(${innerWidth + 20}px)` }], { duration: Math.max(6000, innerWidth * 7), easing: 'linear' });
+    anim.onfinish = () => el.remove();
+  }, i * 650);
+}
+function fireworks(n = 6) {
+  const COLS = [['#EC4899', '#F9A8D4'], ['#8B5CF6', '#C4B5FD'], ['#F59E0B', '#FDE047'], ['#BE185D', '#FBCFE8']];
+  for (let i = 0; i < n; i++) setTimeout(() => {
+    const x = rand(W * .15, W * .85), y = rand(H * .15, H * .45), [c1, c2] = pick(COLS);
+    for (let k = 0; k < (reduced ? 6 : 34); k++) {
+      const a = k / 34 * Math.PI * 2, v = reduced ? .5 : rand(3, 6);
+      add({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, g: .06, size: rand(8, 15), max: rand(1100, 1600), color: k % 2 ? c1 : c2 });
+    }
+  }, i * 380);
+}
+const HOLD_MS = 2200;
+let holdStart = 0, holdRAF = 0, finished = false;
+const holdBtn = $('#hold');
+function holdTick(now) {
+  const k = Math.min((now - holdStart) / HOLD_MS, 1);
+  $('#hold-fill').style.width = (k * 100) + '%';
+  $('#hold-lbl').textContent = k < .35 ? 'Keep holding...' : k < .7 ? 'Nearly there...' : k < 1 ? 'Almost free...' : 'DONE!';
+  holdBtn.classList.toggle('full', k > .55);
+  if (k >= 1) return finishHSC();
+  holdRAF = requestAnimationFrame(holdTick);
+}
+function holdOn(e) {
+  if (finished) return;
+  if (e.type === 'keydown') { if (e.repeat || (e.key !== ' ' && e.key !== 'Enter')) return; e.preventDefault(); }
+  holdBtn.classList.add('holding'); holdStart = performance.now(); cancelAnimationFrame(holdRAF); holdRAF = requestAnimationFrame(holdTick);
+}
+function holdOff() {
+  if (finished) return;
+  cancelAnimationFrame(holdRAF); holdBtn.classList.remove('holding', 'full');
+  $('#hold-fill').style.width = '0'; $('#hold-lbl').textContent = 'Hold to finish the HSC';
+}
+function finishHSC() {
+  finished = true; holdBtn.classList.remove('holding'); holdBtn.hidden = true;
+  $('#finish-out').hidden = false; $('#again').hidden = false;
+  $('#class-of').textContent = 'Class of 2026. Free as a bird. (Specifically a duck.)';
+  fireworks(7); rain(90); parade(4);
+}
+holdBtn.addEventListener('pointerdown', e => { holdBtn.setPointerCapture?.(e.pointerId); holdOn(e); });
+['pointerup', 'pointercancel', 'lostpointercapture'].forEach(t => holdBtn.addEventListener(t, holdOff));
+holdBtn.addEventListener('keydown', holdOn); holdBtn.addEventListener('keyup', holdOff);
+holdBtn.addEventListener('contextmenu', e => e.preventDefault());
+$('#again').onclick = () => {
+  finished = false; holdBtn.hidden = false; holdOff(); $('#finish-out').hidden = true; $('#again').hidden = true; $('#class-of').textContent = '';
+};
+
+const BUCKET = [
+  'Sleep in. No alarm. Not even one.',
+  'Ceremonially recycle every single study note',
+  'Beach day',
+  'KBBQ round two (more demolition)',
+  'Binge a whole series in one sitting',
+  'Celebrate with the squad',
+  'A big date with Luca',
+  'Never open a textbook again',
+];
+let ticked = [];
+try { ticked = JSON.parse(localStorage.getItem('tilly-bucket') || '[]'); } catch (e) { ticked = []; }
+const CHECK = '<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M3 9.5 7.5 14 15 4" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+$('#bucket').innerHTML = BUCKET.map((t, i) => `<li><button class="tick" data-i="${i}" aria-pressed="${ticked.includes(i)}"><span class="box">${CHECK}</span><span class="txt">${t}</span></button></li>`).join('');
+function bucketStatus() {
+  const n = ticked.length;
+  $('#bucket-done').textContent = n === BUCKET.length ? 'Summer: completed. Already? Legend.' : n ? `${n} of ${BUCKET.length} done. Summer is going well.` : '';
+}
+document.querySelectorAll('.tick').forEach(b => b.onclick = () => {
+  const i = +b.dataset.i, on = !ticked.includes(i);
+  ticked = on ? [...ticked, i] : ticked.filter(x => x !== i);
+  b.setAttribute('aria-pressed', String(on));
+  try { localStorage.setItem('tilly-bucket', JSON.stringify(ticked)); } catch (e) {}
+  if (on) { const r = b.querySelector('.box').getBoundingClientRect(); burst(r.left + r.width / 2, r.top + r.height / 2, 10, 3); if (ticked.length === BUCKET.length) rain(70); }
+  bucketStatus();
+});
+bucketStatus();
+
 /* ================= home: countdown + daily line ================= */
 // Religion finishes Thu 22 Oct 2026, 12:30pm Sydney time (AEDT, UTC+11)
 const TARGET = Date.UTC(2026, 9, 22, 1, 30);
@@ -1478,7 +1637,8 @@ function route() {
   if (target.dataset.screen === 'open') $('#envelope').classList.remove('open');
   sprinkle(target);
   if (target.dataset.screen === 'bio') startGerms();
-  if (['paper1', 'paper2', 'modern', 'maths', 'bio'].includes(target.dataset.screen)) setTimeout(() => rain(35), 300);
+  if (target.dataset.screen === 'religion') $('#free-banner').hidden = Date.now() < TARGET;
+  if (['paper1', 'paper2', 'modern', 'maths', 'bio', 'religion'].includes(target.dataset.screen)) setTimeout(() => rain(35), 300);
   scrollTo(0, 0);
 }
 addEventListener('hashchange', route);
