@@ -1,0 +1,15 @@
+{
+  "name": "nba-multi-maker",
+  "version": "1.0.0",
+  "description": "Educational NBA same-game multi builder using The Odds API (Sportsbet prices)",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "demo": "DEMO=1 node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
