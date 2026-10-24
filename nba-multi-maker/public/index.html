@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NBA Multi Maker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">🏀</span>
+      <div>
+        <h1>NBA Multi Maker</h1>
+        <p class="sub">Same-game multis from <span id="bookmaker">Sportsbet</span> odds — a probability lab</p>
+      </div>
+    </div>
+    <div class="status">
+      <span id="demo-badge" class="badge warn" hidden>DEMO DATA</span>
+      <span id="quota" class="badge" hidden></span>
+      <button id="refresh" class="ghost" title="Fetch fresh odds (uses API credits)">↻ Refresh</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="games">
+      <h2>Upcoming games</h2>
+      <div id="games-list" class="games-list"><p class="muted">Loading games…</p></div>
+    </aside>
+
+    <section class="detail" id="detail">
+      <div class="empty">
+        <p class="big">👈 Pick a game</p>
+        <p class="muted">You'll get a Low (~10x), Medium (20–40x) and High (40–70x) multi for that game.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Educational tool only — it doesn't place bets. Gambling is 18+. Free, confidential support: Gambling Help 1800 858 858 · gamblinghelponline.org.au
+  </footer>
+
+  <template id="tier-card">
+    <article class="card">
+      <header class="card-head">
+        <div>
+          <h3 class="tier-name"></h3>
+          <p class="tier-range muted"></p>
+        </div>
+        <div class="odds"></div>
+      </header>
+      <ol class="legs"></ol>
+      <dl class="stats">
+        <div><dt>$<span class="stake-echo"></span> returns</dt><dd class="payout"></dd></div>
+        <div><dt>Bookie's implied chance</dt><dd class="implied"></dd></div>
+        <div><dt>Estimated true chance</dt><dd class="fair"></dd></div>
+        <div><dt>Expected result per bet</dt><dd class="ev"></dd></div>
+      </dl>
+      <div class="actions">
+        <button class="another ghost">Show another</button>
+        <button class="copy ghost">Copy legs</button>
+      </div>
+    </article>
+  </template>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
